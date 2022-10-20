@@ -237,4 +237,6 @@ $(consentForm).submit(function( nf_event ) {
   nf_event.preventDefault();
   refreshScore(); //you can pass your updated score value here
   document.getElementById("consentForm").reset();
+  $(this).find('button[type=submit]').addClass('disabled');
+  $(this).find('button[type=submit]').prop("disabled", true);
 });
