@@ -1,0 +1,15 @@
+<form action="" class="dashboard-form" id="couponForm" novalidate>
+    <div class="form-group">
+        <label for="couponCode">Enter Coupon Code</label>
+        <div class="input-icons-wraper">
+            <div class="reset-field"><img src="{{ "images/static-images/delete-icon.svg" | relURL }}"></div>
+            <input type="email" name="couponCode" id="couponCode" required>
+        </div>
+        <!-- display error message -->
+        <p class="message error"></p>
+    </div>
+    <div class="button-group">
+        <button type="button" class="cibil-button apply-code">Apply Code</button>
+        <button type="submit" class="cibil-button cibil-button-border">Skip To Payment</button>
+    </div>
+</form>

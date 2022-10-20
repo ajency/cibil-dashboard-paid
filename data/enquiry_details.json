@@ -1,0 +1,136 @@
+[
+    {
+        "tableName": "Enquiry Details",
+        "white": true,
+        "tableInfo": [
+            {
+                "rows": [
+                    {
+                        "title": "Member Name",
+                        "desc": "HDFC Bank"
+                    },
+                    {
+                        "title": "Date of Enquiry",
+                        "desc": "11/12/2020"
+                    },
+                    {
+                        "title": "Enquiry Purpose",
+                        "desc": "Credit Card"
+                    }
+                ]
+            },
+            {
+                "rows": [
+                    {
+                        "title": "Member Name",
+                        "desc": "Axis Bank"
+                    },
+                    {
+                        "title": "Date of Enquiry",
+                        "desc": "18/09/2020"
+                    },
+                    {
+                        "title": "Enquiry Purpose",
+                        "desc": "Home Loan"
+                    }
+                ]
+            },
+            {
+                "rows": [
+                    {
+                        "title": "Member Name",
+                        "desc": "Bajaj Finserv"
+                    },
+                    {
+                        "title": "Date of Enquiry",
+                        "desc": "14/04/2020"
+                    },
+                    {
+                        "title": "Enquiry Purpose",
+                        "desc": "Personal Loan"
+                    }
+                ]
+            },
+            {
+                "rows": [
+                    {
+                        "title": "Member Name",
+                        "desc": "HDFC Bank"
+                    },
+                    {
+                        "title": "Date of Enquiry",
+                        "desc": "01/10/2020"
+                    },
+                    {
+                        "title": "Enquiry Purpose",
+                        "desc": "Credit Card"
+                    }
+                ]
+            },
+            {
+                "rows": [
+                    {
+                        "title": "Member Name",
+                        "desc": "IDBI Bank"
+                    },
+                    {
+                        "title": "Date of Enquiry",
+                        "desc": "15/06/2021"
+                    },
+                    {
+                        "title": "Enquiry Purpose",
+                        "desc": "Car Loan"
+                    }
+                ]
+            },
+            {
+                "rows": [
+                    {
+                        "title": "Member Name",
+                        "desc": "HDFC Bank"
+                    },
+                    {
+                        "title": "Date of Enquiry",
+                        "desc": "11/12/2020"
+                    },
+                    {
+                        "title": "Enquiry Purpose",
+                        "desc": "Credit Card"
+                    }
+                ]
+            },
+            {
+                "rows": [
+                    {
+                        "title": "Member Name",
+                        "desc": "Axis Bank"
+                    },
+                    {
+                        "title": "Date of Enquiry",
+                        "desc": "18/09/2020"
+                    },
+                    {
+                        "title": "Enquiry Purpose",
+                        "desc": "Home Loan"
+                    }
+                ]
+            },
+            {
+                "rows": [
+                    {
+                        "title": "Member Name",
+                        "desc": "Bajaj Finserv"
+                    },
+                    {
+                        "title": "Date of Enquiry",
+                        "desc": "14/04/2020"
+                    },
+                    {
+                        "title": "Enquiry Purpose",
+                        "desc": "Personal Loan"
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,11 @@
+{{ define "main" }}
+
+{{ partial "page-header" . }}
+
+{{ partial "report-bar"}}
+
+{{ partial "report-section" (dict "reportData" .Site.Data.profile_details "accountData" .Site.Data.report_account "enquiryDetails" .Site.Data.enquiry_details )}}
+
+{{ partial "popup" (dict "id" "repayment-popup")}}
+
+{{ end }}

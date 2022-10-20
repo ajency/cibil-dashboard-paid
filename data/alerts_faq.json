@@ -1,0 +1,47 @@
+[
+    {
+        "heading": "What is the Alerts feature?",
+        "content": "Your CIBIL Score & Report may change whenever a credit institution accesses your report or submits new and/or updated data on the credit facilities you have availed. The new Alerts feature monitors your CIBIL Score & Report and sends you real-time email notifications that your CIBIL Score & Report has undergone a change.",
+        "collapsed": true,
+        "unique_id": "1"
+    },
+    {
+        "heading": "How does Alerts help me?",
+        "content": "It is very important to monitor your Score and Report regularly for any changes as reported by credit institutions. The Alerts feature does this credit monitoring for you. In case the information updated on your report is incorrect, you can immediately raise a dispute for the same.<div data-toggle='modal' data-target='#faqVideoPopup1' class='faq-video-cta' data-title='All you need to know about the CIBIL Score & Report TransUnion CIBIL' data-thumbnail='../../images/dynamic-images/faq-video-thumbnail.png'></div>",
+        "collapsed": false,
+        "unique_id": "2",
+        "video_popup_id": "faqVideoPopup1",
+        "video_mp4": "videos/download-now.mp4",
+        "video_webm": "videos/download-now.webm"
+    },
+    {
+        "heading": "When will I get an alert?",
+        "content": "You will get an email alert if there is any change that can impact/influence your CIBIL Score & Report, such as:<br><br><ul><li>New Enquiry added</li><li>New Account added</li><li>Change in Utilization</li><li>Delinquency Change</li><li>New Address added</li><li>New Phone Number added</li><li>Change in CIBIL Score</li></ul><br>This feature is designed to deliver real time CIBIL Score & Report Alerts, straight into your mailbox, or as SMS and app notifications.",
+        "collapsed": false,
+        "unique_id": "3"
+    },
+    {
+        "heading": "Where will the alert be delivered?",
+        "content": "An email notification for Alerts will be delivered to your registered email ID. You can view the details under the Alerts tab by logging into your CIBIL account.<br><br><a class=\"cibil-link\" href=\"https://myscore.cibil.com/CreditView/login.page?enterprise=CIBIL&utm_source=alertsfaqpage\" target='_blank'>Click here to log in and check now</a>.<br><br>You will also be receiving Alerts as SMS on your registered mobile number. If you access CIBIL dashboard with CIBIL mobile app, Alerts will be received as app notifications.",
+        "collapsed": false,
+        "unique_id": "4"
+    },
+    {
+        "heading": "How frequently will I receive these alerts?",
+        "content": "You will be notified whenever specified changes get updated on your CIBIL Score & Report. For the list of changes for which you will receive an alert, please scroll up.",
+        "collapsed": false,
+        "unique_id": "5"
+    },
+    {
+        "heading": "How can I get access to Alerts?",
+        "content": "If you have a CIBIL subscription plan for 6 months or 12 months, you will be able to access the Alerts feature. If you have checked your CIBIL Score & Report for Free or have registered for a one-month subscription and would like to subscribe for this new feature, <a class='cibil-link' href='/cibil-dashboard/overview_paid/upgrade-plan'>Click here</a>.",
+        "collapsed": false,
+        "unique_id": "6"
+    },
+    {
+        "heading": "Why should I bother about any change in my CIBIL Score & Report?",
+        "content": "Your CIBIL Score is instrumental in getting you faster, cheaper access to credit. TransUnion CIBIL's Alerts is an easy way to monitor important changes on your CIBIL Score & Report. Additionally, this helps you<br><br><ul><li>Monitor your credit profile and aim for a healthy score</li><li>Identify and track any incorrect data reported on your CIBIL Report</li><li>Protect yourself against identity theft and report any possible incidents of credit fraud</li></ul>",
+        "collapsed": false,
+        "unique_id": "7"
+    }
+]

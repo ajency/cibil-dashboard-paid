@@ -1,0 +1,337 @@
+<script defer="defer">
+    function addPayment(element) {
+        let html = `
+        <div class="group-wrap">
+            <div class="group">
+                <label for="loantype">Choose account to pay</label>
+                <input type="hidden" id="loantype">
+                <div class="custom-select-input" onclick="customSelectInput(this)">
+                    <span class="custom-select-value">Account Name / xx 1234</span>
+                    <div class="custom-select-options">
+                        <span onclick="customSelectOption(this)" class="valueTarget">Account Name / xx 5674</span>
+                        <span onclick="customSelectOption(this)" class="selected valueTarget">Account Name / xx 1234</span>
+                        <span onclick="customSelectOption(this)" class="valueTarget">Account Name / xx 1266</span>
+                    </div>
+                </div>
+                <span class="message"></span>
+            </div>
+            <div class="group">
+                <label for="amount">Choose how much to pay</label>
+                <div class="input-holder">
+                    <span class="currency">₹</span>
+                    <input class="input-currency" onkeyup="formatCurrency(this)" type="text" id="amount" required>
+                </div>
+            </div>
+            <span class="delete-group" onclick="deleteGroup(this)">
+                {{ partial "icons/close-grey"}}
+            </span>
+        </div>
+    `
+        let parent = $(element).parents('.scenario');
+        let accountoption = parent.find('.chooseAccount-wrapper');
+        accountoption.append(html)
+        $('.scenario-cta .smiluate-now-cta').addClass('disabled');
+    }
+
+
+    function addScenario() {
+        let counter = parseInt($('#counter').val()) + 1;
+        counter > 4 ? $('.add-scenario').hide(): '';
+        $('#counter').val(counter)
+        let addedOptions = $('#optionsAdded').val().split(",");
+        //console.log(addedOptions)
+        let html = `
+            <div class="scenario blank">
+                <div class="scenario-header">
+                    <div class="confirmation">
+                        <div class="confirmation__Wraper">
+                            <span class="confirmation-text">
+                                Are you sure you want to remove this Scenario?
+                            </span>
+                            <span class="warning-cta deleteScenario" onclick="deleteScenario(this)">{{partial "icons/confirm-yellow"}}</span>
+                            <span class="warning-cta"onclick="cancelAction(this)">{{ partial "icons/cancel-yellow" }}</span>
+                        </div>
+                    </div>
+                    <p class="scenario-name">Add Scenario <span>${counter}</span></p>
+                    <p class="scenatio-cta">
+                        <a class="minimize" onclick="minimizeScenario(this)">{{partial "icons/black-minimize"}} <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 7H0" stroke="#2C2C2C" stroke-width="1.6"/>
+                        <path d="M7 4.11765e-07L7 14" stroke="#2C2C2C" stroke-width="1.6"/>
+                        </svg></a>
+                        <a onclick="showConfirmation(this)">{{partial "icons/black-close"}}</a>
+                    </p>
+                </div>
+                <div class="scenario-body">
+                    <!-- options -->
+                    <div class="scenario-options">
+                        ${
+                            !addedOptions.includes('missPayment')? `<div class="scenario-option" onclick="addOption(this, 'missPayment')">
+                                {{ partial "icons/add"}}
+                                <span>Miss a payment</span>
+                            </div>`:''
+                        }
+                        ${
+                            !addedOptions.includes('newLoan')? `<div class="scenario-option" onclick="addOption(this, 'newLoan')">
+                            {{ partial "icons/add"}}
+                            <span>Add a New Loan or Credit Card</span>
+                        </div>`:''
+                        }
+                        ${
+                            !addedOptions.includes('closeCreditCard')? `<div class="scenario-option" onclick="addOption(this, 'closeCreditCard')">
+                            {{ partial "icons/add"}}
+                            <span>Close your oldest credit card</span>
+                        </div>`:''
+                        }
+                        ${
+                            !addedOptions.includes('clearBalance')? `<div class="scenario-option" onclick="addOption(this, 'clearBalance')">
+                            {{ partial "icons/add"}}
+                            <span>Clear the outstanding balances (Active credit cards)</span>
+                        </div>`:''
+                        }
+                        ${
+                            !addedOptions.includes('clearAccountBalance')? `<div class="scenario-option" onclick="addOption(this, 'clearAccountBalance')">
+                            {{ partial "icons/add"}}
+                            <span>Clear the outstanding balances (Active accounts)</span>
+                        </div>`:''
+                        }                        
+                    </div>
+                </div>
+            </div>
+            `
+            $('.scenario-list').append(html)
+            $('.scenario-list').addClass('hasBlank');
+            $('.smiluate-now-cta').addClass('disabled')
+    }
+
+    function resetScenario(){
+        // $('.score-simulator-section .scenario-list > .scenario:not(:first-child) .warning-cta').each(function(){
+        //     deleteScenario($(this))
+        // })
+        // $('.score-simulator-section .scenario-list > .scenario:first-child .warning-cta').each(function(){
+        //     closeScenario($(this));
+        //     cancelAction($(this));
+        // })
+        // $('.scenario-body').show()
+        $('.score-simulator-section .scenario-list > .scenario .deleteScenario').each(function(){
+            setTimeout(deleteScenario($(this)),500)
+        })
+        enableAddScenario();
+    }
+
+
+    function enableAddScenario(){
+        $('.upgrade-plan-cta').hide("fast");
+        $('.scenario-cta .reset-scenario').text('+Add another scenario');
+        $('.scenario-cta .reset-scenario').attr("onclick", "addScenario()");
+        $('.scenario-cta .reset-scenario').removeClass('reset-scenario').addClass('add-scenario');
+    }
+
+    function addOption(element, option){
+        let value = $('#optionsAdded').val();
+        $('#optionsAdded').val(value+option+",").trigger('change');;
+        $(element).parents('.scenario').find('.scenario-options').fadeOut('slow');
+        let html= '';
+
+        //console.log(option)
+        // <wimg src="{{"images/static-images/grey-info.svg" | relURL}}"/>
+        switch(option){
+            case 'missPayment':
+                html = `<div class="option-card" type="missPayment" style="display: none;">
+                        <div class="option-card-title"><span>Miss a payment on all Active Loan Accounts and Credit Cards</span>{{ partial "tooltip" (dict "tooltip_type" "info" "tooltip_content" "Simulates the impact of missed EMIs/payments on all active loan accounts and credit cards as reported on the consumer’s credit report.<br>Paying on time, every time can help you build a high CIBIL score. Late payments can negatively impact your credit score. Lenders may view late payments as a sign of irresponsible credit behavior and this may affect your access to credit and loans in the future.")}}</div>
+                        <div class="options-container">
+                            <div class="group">
+                                <label for="pastDueDate">Past Due Date</label>
+                                <input type="hidden" id="pastDueDate">
+                                <div class="custom-select-input" onclick="customSelectInput(this)">
+                                    <span class="custom-select-value">30 Days</span>
+                                    <div class="custom-select-options">
+                                        <span onclick="customSelectOption(this)" class="selected">30 Days</span>
+                                        <span onclick="customSelectOption(this)">60 Days</span>
+                                        <span onclick="customSelectOption(this)">90 Days</span>
+                                    </div>
+                                </div>
+                                <span class="message"></span>
+                            </div>
+                        </div>
+                    </div>`;
+                break;
+            
+            case 'newLoan':
+                html = `<div class="option-card" type="newLoan" style="display: none;">
+                        <div class="option-card-title"><span>Add a New Loan or Credit Cards</span>{{ partial "tooltip" (dict "tooltip_type" "info" "tooltip_content" "See the impact of adding a new loan / credit card.<br>While applying for new credit cards and loans, make sure its in moderation as you do not want to give lenders the impression that you are continuously looking for credit. You should maintain a balanced mix of secured and unsecured loans as too many unsecured loans may be viewed negatively.")}}</div>
+                        <div class="options-container">
+                            <div class="group">
+                                <label for="loantype">Type</label>
+                                <input type="hidden" id="loantype">
+                                <div class="custom-select-input" onclick="customSelectInput(this)">
+                                    <span class="custom-select-value">Home Loan</span>
+                                    <div class="custom-select-options">
+                                        <span onclick="customSelectOption(this)" min="1000000" max="3000000" class="selected valueTarget">Home Loan</span>
+                                        <span onclick="customSelectOption(this)" min="2000000" max="4000000" class="valueTarget">Credit Card</span>
+                                        <span onclick="customSelectOption(this)" min="800000" max="3000000" class="valueTarget">Auto Loan</span>
+                                        <span onclick="customSelectOption(this)" min="100000" max="2000000" class="valueTarget">Personal Loan</span>
+                                    </div>
+                                </div>
+                                <span class="message"></span>
+                            </div>
+                            <div class="group">
+                                <label for="amount">Loan Amount/Credit Limit</label>
+                                <div class="input-holder">
+                                    <span class="currency">₹</span>
+                                    <input class="input-currency" type="text" id="amount" min="1000000" max="3000000" onkeyup="formatCurrency(this);validateLoanAmount(this)" required>
+                                </div>
+                                <span class="message loanLimitMessage">Min 10,00,000 to Max 30,00,000</span>
+                            </div>
+                        </div>
+                    </div>`;
+                break;
+
+            case 'closeCreditCard':
+                html = `<div class="option-card" type="closeCreditCard" style="display: none;">
+                        <div class="option-card-title"><span>Close my oldest credit card</span>{{ partial "tooltip" (dict "tooltip_type" "info" "tooltip_content" "Check the impact of closing your oldest credit card.<br>A longer credit history can help in predicting your future credit behavior more accurately. In general, longer the duration of a clean credit history, the higher is your CIBIL score.")}}</div>
+                        <div class="options-container">
+                            <div class="custom-radio-input">
+                                <input type="radio" name="closeCard" id="true" value="yes" onchange="checkFilled()" required>
+                                <label for="true">Yes</label>
+                            </div>
+                            <div class="custom-radio-input">
+                                <input type="radio" name="closeCard" id="false" value="no" onchange="checkFilled()" required>
+                                <label for="false">No</label>
+                            </div>
+                        </div>
+                    </div>`;
+                break;
+
+            case 'clearBalance':
+                html = `<div class="option-card" type="clearBalance" style="display: none;">
+                        <div class="option-card-title"><span>Clear the outstanding balances on all my active credit cards</span>{{ partial "tooltip" (dict "tooltip_type" "info" "tooltip_content" " See how paying off all outstanding balance on your credit cards will impact your CIBIL Score. Controlling your outstanding balances indicates a reduced repayment burden which may positively impact your CIBIL score.")}}</div>
+                        <div class="options-container">
+                            <div class="custom-radio-input">
+                                <input type="radio" name="clearBalance" id="yes" value="yes" onchange="checkFilled()" required>
+                                <label for="yes">Yes</label>
+                            </div>
+                            <div class="custom-radio-input">
+                                <input type="radio" name="clearBalance" id="no" value="no" onchange="checkFilled()" required>
+                                <label for="no">No</label>
+                            </div>
+                        </div>
+                    </div>`;
+                break;
+
+            case 'clearAccountBalance':
+                html = `<div class="option-card" type="clearAccountBalance" style="display: none;">
+                        <div class="option-card-title"><span>Clear the outstanding balances on your active accounts (s)</span>{{ partial "tooltip" (dict "tooltip_type" "info" "tooltip_content" "Assess how your credit score is impacted when the outstanding balances on your accounts are settled.<br>Having your outstanding balances under control means less repayment burden, which can positively impact your credit score.")}}</div>
+                        <div class="options-container">
+
+                            <div class="group long-radio">
+                                <input name="chooseAccountRadio" onchange="chooseAccount(this)" type="radio" id="allaccount" value="allaccount" checked>
+                                <label for="allaccount">Clear all outstanding</label>
+                            </div>
+                            <div class="group long-radio">
+                                <input name="chooseAccountRadio" onchange="chooseAccount(this)" type="radio" id="chooseaccount" value="chooseaccount">
+                                <label for="chooseaccount">Choose accounts to pay</label>
+                            </div>
+
+                            <div class="chooseAccount-wrapper">
+                                <div class="group">
+                                    <label for="loantype">Choose account to pay</label>
+                                    <input type="hidden" id="loantype">
+                                    <div class="custom-select-input" onclick="customSelectInput(this)">
+                                        <span class="custom-select-value">Account Name / xx 1234</span>
+                                        <div class="custom-select-options">
+                                            <span onclick="customSelectOption(this)" class="selected valueTarget">Account Name / xx 1234</span>
+                                            <span onclick="customSelectOption(this)" class="valueTarget" >Account Name / xx 4567</span>
+                                        </div>
+                                    </div>
+                                    <span class="message"></span>
+                                </div>
+                                <div class="group">
+                                    <label for="amount">Choose how much to pay</label>
+                                    <div class="input-holder">
+                                        <span class="currency">₹</span>
+                                        <input class="input-currency" onkeyup="formatCurrency(this)" type="text" id="amount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="group message-group"></div>
+                            <div class="group message-group" style="margin-right: 0">
+                                <span class="message">Added amount cannot be higher than the outstanding balance on this account</span>
+                            </div>
+                            <div class="addPaymnet-container">
+                                <a class="addPayment" onclick="addPayment(this)">+ Add another payment</a>
+                            </div>
+                        </div>
+                    </div>`;
+                break;
+        }
+
+        //console.log(html)
+
+        // $(element).parents('.scenario-body').hide()
+        $(element).parents('.scenario-body').append(html)
+        setTimeout(function(){$(element).parents('.scenario-body').find('.option-card').fadeIn('slow')},500)
+        $(element).parents('.scenario').removeClass('blank');
+        $('.scenario-list').removeClass('hasBlank')
+        setTimeout(addTooltip(),500)
+        checkFilled()
+
+        let scenarioCount = $(element).parents('.scenario').find('.scenario-name').text().replace(/\D/g,'');
+        let text = $(element).text()
+        $(element).parents('.scenario').find('.scenario-name').html("Scenario "+scenarioCount+"<span class='scenario-heading'> : "+text+"</span>")
+    }
+
+    function deleteScenario(element){
+        let counter = parseInt($('#counter').val()) - 1;
+        counter <= 4 ? $('.add-scenario, .reset-scenario').show(): '';
+        $('#counter').val(counter)
+        let parentElement = $(element).parents('.scenario')
+        let optionValue = parentElement.find('.option-card:visible').attr('type')
+        let value = $('#optionsAdded').val();
+        $('#optionsAdded').val(value.replace(optionValue+",","")).trigger('change');;
+        parentElement.remove();
+        $('.scenario-name').each(function(i){
+            // $(this).text('Add Scenario '+(i+1))
+            $(this).text($(this).text().replace(/[0-9]/g,i+1))
+        })
+        enableAddScenario();
+        checkFilled()
+        counter < 1 ? addScenario() : '';
+    }
+    function cancelAction(element){
+        $(element).parents('.scenario-header').find('.confirmation').fadeOut( "fast").removeClass('show');
+        $(element).parents('.scenario-header').removeClass('confirmationOn');
+    }
+    function showConfirmation(element){
+        $(element).parents('.scenario-header').addClass('confirmationOn');
+        $(element).parents('.scenario-header').find('.confirmation').fadeIn( "fast").addClass('show');
+        //console.log($(element).parents('.scenario-header'))
+    }
+    function deleteGroup(element){
+        $(element).parents('.group-wrap').remove();
+    }
+    function validateLoanAmount(element){
+        let loanAmount = parseInt($(element).val().replace(/[^\d]/g, ''));
+        
+        if (loanAmount >= $(element).attr('min') && loanAmount <= $(element).attr('max')  ){
+            $(element).parent().next(".message").hide("fast");
+        }else{
+            $(element).parent().next(".message").show("fast");
+            $('.smiluate-now-cta').addClass('disabled')
+        }
+    }
+
+    function formatCurrency(input){
+        let value = parseInt($(input).val().replace(/[^\d]/g, ''))
+        isNaN(value) ? $(input).val('') : $(input).val(value.toLocaleString('en-IN'))
+        checkFilled()
+    }
+
+    function checkFilled(){
+        let valid = true;
+        $('[required]').each(function() {
+            if ($(this).is(':invalid') || !$(this).val()) valid = false;
+        })
+        if (!valid) $('.smiluate-now-cta').addClass('disabled');
+        else $('.smiluate-now-cta').removeClass('disabled');
+    }
+</script>

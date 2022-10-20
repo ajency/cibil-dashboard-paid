@@ -1,0 +1,12 @@
+[
+  {
+    "icon": "images/static-images/regular-updates-icon.svg",
+    "heading": "CIBIL Dashboard",
+    "description": "Stay in touch with your latest CIBIL Score & Report with regular updates."
+  },
+  {
+    "icon": "images/static-images/loan-offers-icon.svg",
+    "heading": "Personalized Loan Offers",
+    "description": "Tailored loan offers based on your latest CIBIL Score."
+  }
+]

@@ -1,0 +1,26 @@
+<form class="dashboard-form" id="notificationForm" novalidate>
+    <div class="form-group">
+        <label for="registered_mobile">Registered Mobile Number</label>
+        <input type="text" name="registered_mobile" id="registered_mobile" required>
+        <p class="message"></p>
+        <div class="checkbox-wraper">
+            <input type="checkbox" id="sms_alert">
+            <label for="sms_alert">Send SMS alert notifications</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="registered_email">Your Registered Email Address</label>
+        <input type="text" name="registered_email" id="registered_email" required>
+        <p class="message"></p>
+        <div class="checkbox-wraper">
+            <input type="checkbox" id="email_alert">
+            <label for="email_alert">Send Email alert notifications</label>
+        </div>
+    </div>
+    <div class="form-messages">
+        <div class="message-box success">
+            <div class="message-box__wraper">You’ve successfully submitted the form.</div>
+        </div>
+    </div>
+    <button type="submit" class="cibil-button">Update</button>
+</form>

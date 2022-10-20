@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cibil Dashboard</title>
+    <link>https://ajency.github.io/cibil-dashboard-paid/</link>
+    <description>Recent content on Cibil Dashboard</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 Sep 2022 09:43:20 +0530</lastBuildDate><atom:link href="https://ajency.github.io/cibil-dashboard-paid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Account</title>
+      <link>https://ajency.github.io/cibil-dashboard-paid/overview_paid/account/</link>
+      <pubDate>Fri, 30 Sep 2022 09:43:20 +0530</pubDate>
+      
+      <guid>https://ajency.github.io/cibil-dashboard-paid/overview_paid/account/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Loan Offers</title>
+      <link>https://ajency.github.io/cibil-dashboard-paid/overview_paid/loan-offers/</link>
+      <pubDate>Thu, 29 Sep 2022 10:31:17 +0530</pubDate>
+      
+      <guid>https://ajency.github.io/cibil-dashboard-paid/overview_paid/loan-offers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Detailed Analysis</title>
+      <link>https://ajency.github.io/cibil-dashboard-paid/overview_paid/detailed-analysis/</link>
+      <pubDate>Mon, 26 Sep 2022 14:47:24 +0530</pubDate>
+      
+      <guid>https://ajency.github.io/cibil-dashboard-paid/overview_paid/detailed-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CIBIL Report</title>
+      <link>https://ajency.github.io/cibil-dashboard-paid/overview_paid/cibil-report/</link>
+      <pubDate>Thu, 22 Sep 2022 11:12:04 +0530</pubDate>
+      
+      <guid>https://ajency.github.io/cibil-dashboard-paid/overview_paid/cibil-report/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Score Simulator</title>
+      <link>https://ajency.github.io/cibil-dashboard-paid/overview_paid/score-simulator/</link>
+      <pubDate>Mon, 19 Sep 2022 17:48:51 +0530</pubDate>
+      
+      <guid>https://ajency.github.io/cibil-dashboard-paid/overview_paid/score-simulator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Upgrade Plan</title>
+      <link>https://ajency.github.io/cibil-dashboard-paid/overview_paid/upgrade-plan/</link>
+      <pubDate>Sat, 17 Sep 2022 14:49:38 +0530</pubDate>
+      
+      <guid>https://ajency.github.io/cibil-dashboard-paid/overview_paid/upgrade-plan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Alerts</title>
+      <link>https://ajency.github.io/cibil-dashboard-paid/overview_paid/alerts/</link>
+      <pubDate>Sat, 17 Sep 2022 14:47:32 +0530</pubDate>
+      
+      <guid>https://ajency.github.io/cibil-dashboard-paid/overview_paid/alerts/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

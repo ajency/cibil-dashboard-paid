@@ -1,0 +1,98 @@
+//Page header
+.page-header-section {
+  background-color: $light-blue;
+  border-bottom: 1px solid $border-color;
+  &__wraper {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    .breadcrumb {
+      background-color: transparent;
+      padding: 0px;
+      margin-bottom: 20px;
+      & > li:first-child,
+      & > li:nth-child(2)::before {
+        display: none;
+      }
+      .breadcrumb-item {
+        padding: 0;
+        margin: 0;
+        a {
+          text-transform: capitalize;
+          border-radius: 4px;
+          background-color: $light;
+          min-height: 30px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 4px 14px;
+          color: $grey;
+          font-size: 14px;
+          line-height: 24px;
+          text-decoration: none;
+          cursor: pointer;
+          border-radius: 4px;
+        }
+        &.active {
+          a {
+            font-weight: $intro-regular;
+            color: $dark;
+          }
+        }
+        & + .breadcrumb-item {
+          position: relative;
+          &::before {
+            font-size: 0px;
+            content: url(../images/static-images/right-arrow-grey.svg);
+            padding-right: 10px;
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+    .page-title,
+    .page-desc {
+      font-weight: $intro-regular;
+    }
+    .page-title {
+      font-size: 32px;
+      line-height: 32px;
+      margin-bottom: 21px;
+      display: inline-flex;
+      align-items: center;
+      .icon {
+        width: 44px;
+        height: 44px;
+        margin-right: 16px;
+        object-fit: contain;
+      }
+    }
+    .page-desc {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 0px;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    border-bottom: none;
+    &__wraper {
+      padding-top: 20px;
+      padding-bottom: 30px;
+      .breadcrumb {
+        margin-bottom: 30px;
+      }
+      .page-desc{
+        font-weight: $intro-book;
+      }
+      .page-title {
+        margin-bottom: 10px;
+        font-size: 24px;
+        line-height: 30px;
+        .icon {
+          margin-right: 10px;
+          width: 36px;
+          height: 36px;
+        }
+      }
+    }
+  }
+}

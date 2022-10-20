@@ -1,0 +1,11 @@
+<div class="dashboard-notification">
+    <div class="dashboard-notification__wraper">
+        <p class="section-heading section-heading-small">{{.notification_title}}</p>
+        <div class="content">
+            <img src="{{ "images/static-images/report-round-icon.svg" | relURL }}" alt="" class="notification-icon">
+            <div class="notification-content">
+                {{if .notification_content}}{{ .notification_content | safeHTML }}{{end}}
+            </div>
+        </div>
+    </div>
+</div>

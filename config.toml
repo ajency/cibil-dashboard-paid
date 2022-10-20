@@ -1,0 +1,6 @@
+baseURL = 'https://ajency.github.io/cibil-dashboard-paid/'
+languageCode = 'en-us'
+title = 'Cibil Dashboard'
+theme = 'dashboard'
+publishDir =  'docs'
+

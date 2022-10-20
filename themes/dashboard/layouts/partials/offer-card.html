@@ -1,0 +1,9 @@
+<div class="offer {{if lt .offer_count 1 }}no-offers{{end}}"  {{if and (.tab_link) (ge .offer_count 1)}}onclick="location.href = '{{.tab_link}}';"{{end}}>
+    <div class="offer__wraper">
+        <div class="offer-icon">
+            {{ partial .icon_partial }}
+        </div>
+        <p class="offer-title">{{.offer_title | safeHTML }}</p>
+        <p class="offer-count">{{.offer_count}}</p>
+    </div>
+</div>

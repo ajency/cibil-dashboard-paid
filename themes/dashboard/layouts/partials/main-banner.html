@@ -1,0 +1,24 @@
+{{ range .banner }}
+<div class="banner-section">
+  <div class="page-width">
+    <div class="banner-section__wraper">
+      <div class="left-side">
+        <p class="username banner-heading">Hi {{.username}},</p>
+        {{ range .headings }}
+          <p class="banner-heading subtext">
+              {{ . | safeHTML }}
+          </p>
+        {{ end }}
+      </div>
+      <div class="right-side">
+        <div class="img-container">
+          <img class="hide-sm-down" src="{{ .image_path_desk | relURL }}"
+          alt="">
+          <img class="hide-md-up" src="{{ .image_path_mob | relURL }}"
+          alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

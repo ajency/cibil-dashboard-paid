@@ -1,0 +1,77 @@
+<div class="faq-section">
+  <div class="page-width faq-section__wraper">
+    <p class="section-heading-1">{{ .section_heading }}</p>
+    <div class="faq-group" id="accordion">
+      {{ range .faq }}
+        {{ if .heading }}
+        <div class="faq">
+          <div
+            class="faq-heading {{ if eq .collapsed true }}show{{ end }}"
+            id="heading{{ .unique_id }}"
+          >
+            <p
+              class="faq-title"
+              data-toggle="collapse"
+              data-target="#collapse{{ .unique_id }}"
+              aria-expanded="{{ if eq .collapsed true }}true{{ else }}false{{ end }}"
+              aria-controls="collapse{{ .unique_id }}"
+            >
+              {{ .heading }}
+            </p>
+          </div>
+          <div
+            id="collapse{{ .unique_id }}"
+            class="faq-collapse collapse {{ if eq .collapsed true }}show{{ end }}"
+            aria-labelledby="heading{{ .unique_id }}"
+            data-parent="#accordion"
+          >
+            <div class="faq-body faq-content">{{ .content | safeHTML }}</div>
+          </div>
+        </div>
+        {{ end }}
+      {{end}}
+    </div>
+  </div>
+</div>
+
+
+<!-- FAQ Video Popup | start -->
+{{ range $index, $faq:= .faq }}
+  {{if or .video_mp4 .video_webm}}
+  <div class="modal fade" id="{{.video_popup_id}}" tabindex="-1" role="dialog" aria-labelledby="{{.video_popup_id}}-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="modal-title"></p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><img src="{{ "images/static-images/close-icon.svg" | relURL }}" alt=""></span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <video
+            id="faqVideo-{{$index}}"
+            class="video-js"
+            controls
+            preload="auto"
+            width="680"
+            height="326"
+            poster=""
+            data-setup="{}"
+          >
+            <source src="{{ .video_mp4 | relURL }}" type="video/mp4" />
+            <source src="{{ .video_webm | relURL }}" type="video/webm" />
+            <p class="vjs-no-js">
+              To view this video please enable JavaScript, and consider upgrading to a
+              web browser that
+              <a href="https://videojs.com/html5-video-support/" target="_blank"
+                >supports HTML5 video</a
+              >
+            </p>
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{end}}
+{{end}}
+<!-- FAQ Video Popup | end -->

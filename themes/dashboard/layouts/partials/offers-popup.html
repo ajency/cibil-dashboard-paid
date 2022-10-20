@@ -1,0 +1,89 @@
+<div class="page-width">
+    <div class="popup offersPopup" id="{{.id}}">
+        <div class="popup-content">
+            <span class="close-popup">{{ partial "icons/popup-close"}}</span>
+            <div class="popup-body">
+                <div class="offer-info-wrap">
+                    <div class="company-container">
+                        <span><img src="/cibil-dashboard-paid/images/dynamic-images/bajaj-finserv-logo.svg" class="company-logo"></span>
+                        <label class="company-name">Bajaj Finserv</label>
+                    </div>
+                    <div class="offer-info">
+                        <li>
+                            <span>Loan Upto</span>
+                            <span>₹8,00,000</span>
+                        </li>
+                        <li>
+                            <span>Interest Rate (%)</span>
+                            <span>3.35%</span>
+                        </li>
+                        <li>
+                            <span>Interest Type</span>
+                            <span>Floating</span>
+                        </li>
+                        <li>
+                            <span>Processing Fees Upto</span>
+                            <span>₹499 + GST</span>
+                        </li>
+                    </div>
+                </div>
+
+                <div class="offer-benefits">
+                    <div>
+                        <p class="head"><span>{{partial "icons/benefits"}}</span><span>Benefits</span></p>
+                        <p><span>{{partial "icons/green-success"}}</span><span>Get a welcome e-gift voucher worth ₹500 from Amazon.</span></p>
+                        <p><span>{{partial "icons/green-success"}}</span><span>Earn 10X rewards on online spends with exclusive partners. </span></p>
+                        <p><span>{{partial "icons/green-success"}}</span><span>E-voucher worth ₹8,00,000 on annual online spends of ₹2 Lakhs.</span></p>
+                        <p><span>{{partial "icons/green-success"}}</span><span>Spends ₹1 Lakh and get annual fee of ₹499 reversed for your SimplyCLICK SBI card in the subsequent year.</span></p>
+                    </div>
+                    <div>
+                        <p class="head"><span>{{partial "icons/documents"}}</span>
+                            <span>
+                                Required documents
+                                <span>
+                                    <span class="list">KYC documents, Photograph,</span>
+                                    <span class="list">Previous 3 months salary slips</span>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="head"><span>{{partial "icons/fees"}}</span>
+                            <span>
+                                Fees
+                                <span>
+                                    <span>₹ 2999 + GST + Annual Fee (One-time)</span>
+                                    <span>₹ 300 Renewal Fee / annum</span>
+                                </span>
+                            </span>
+                        </p>
+                        <p class="head"><span>{{partial "icons/downloads"}}</span>
+                            <span>
+                                Downloads
+                                <span>
+                                    <a href="/images/pdfs/cibil-report.pdf" class="cibil-link cibil-link-right-icon download-icon" download>Offer Terms and Conditions</a>
+                                </span>
+                            </span>
+                        </p>
+                        
+                    </div>
+                </div>
+
+                <p class="content-head">Terms and Conditions</p>
+                <p class="content-text">
+                    <span class='shrink concent-text' style="-webkit-box-orient: vertical;">I hereby expressly grant unconditional consent to my details being shared with the lenders and authorize them to reach me at the contact details provided. I understand that credit approval is subject to documentation and internal credit guidelines and policies. By clicking on “Apply” I accept the <a class="cibil-link" href="https://myscore.cibil.com/CreditView/support.page?tab=faq#" target="_blank">terms and conditions</a> mentioned on <a class="cibil-link" href="https://www.cibil.com/" target="_blank">www.cibil.com</a>.</span>
+                    <a onclick="toggleShrink()" class="cibil-link toggle-text"><span>+ Read more</span><span>- Read less</span></a>
+                </p>
+                <span class="btn-wrap">
+                    <a class="cibil-button popup-agree">APPLY</a>
+                </span>
+
+            </div>
+            <div class="success-body">
+                {{ partial "icons/tick-green"}}
+                <p class="content-head">Thank you for your interest</p>
+                <p class="content-text">Your request has been forwarded to the financial institution and they will get
+                    in touch with you shortly.</p>
+            </div>
+        </div>
+    </div>
+    <div class="popup-overlay"></div>
+</div>

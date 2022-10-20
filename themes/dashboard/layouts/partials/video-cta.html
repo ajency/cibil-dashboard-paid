@@ -1,0 +1,47 @@
+<div class="video-cta" style="background-image: url(..{{.cta_bg_image}});" data-toggle="modal" data-target="#{{.popup_id}}">
+    <div class="video-cta__wraper">
+        <div class="cta-thumbnail">
+            <div class="play-button"><img src="{{ "/images/static-images/play-icon.svg" | relURL }}" alt=""></div>
+            <img class="cta-icon" src="{{ .cta_icon | relURL }}" alt="">
+        </div>
+        <div class="content">
+            <p class="desc">{{.content}}</p>
+        </div>
+    </div>
+</div>
+
+  <!-- Video CTA Modal -->
+  <div class="modal fade" id="{{.popup_id}}" tabindex="-1" role="dialog" aria-labelledby="{{.popup_id}}-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="modal-title">{{ .video_title }}</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><img src="{{ "images/static-images/close-icon.svg" | relURL }}" alt=""></span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <video
+            id="{{.video_id}}"
+            class="video-js"
+            controls
+            preload="auto"
+            width="680"
+            height="326"
+            poster=""
+            data-setup="{}"
+          >
+            <source src="{{ .video_link_mp4 | relURL }}" type="video/mp4" />
+            <source src="{{ .video_link_webm | relURL }}" type="video/webm" />
+            <p class="vjs-no-js">
+              To view this video please enable JavaScript, and consider upgrading to a
+              web browser that
+              <a href="https://videojs.com/html5-video-support/" target="_blank"
+                >supports HTML5 video</a
+              >
+            </p>
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>

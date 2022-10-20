@@ -1,0 +1,15 @@
+<div class="simulator">
+    <div class="score-bar">
+        <div class="bar">
+            <img class="bar-image" src="{{ "/images/static-images/simulator.svg" | relURL }}">
+            <div class="score-pointer">
+                <div class="score-pointer__wraper">
+                    <img class="pointer-image" src="{{ "/images/static-images/simulator-pointer.svg" | relURL }}">
+                </div>
+            </div>
+        </div>
+        {{if .cibil_score}}<p class="cibil-score">{{.cibil_score}}</p>
+            {{if .score_text}}<p class="score-text">{{.score_text | safeHTML }}</p>{{end}}
+        {{end}}
+    </div>
+</div>

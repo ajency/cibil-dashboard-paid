@@ -1,0 +1,48 @@
+<div class="page-width">
+    <div class="report-tabs">
+        <ul class="reportTabs" id="reportTab">
+            <li class="report-nav-item" role="presentation">
+                <button class="report-nav-link active" id="account-tab" data-target="#account"><img
+                        src='{{"images/static-images/account-info.svg" | relURL}}'>Account Information</button>
+            </li>
+            <li class="report-nav-item" role="presentation">
+                <button class="report-nav-link" id="profile-tab" data-target="#profile" role="tab"
+                    aria-controls="profile"><img src='{{"images/static-images/profile-info.svg" | relURL}}'>Profile
+                    Information</button>
+            </li>
+            <li class="report-nav-item" role="presentation">
+                <button class="report-nav-link" id="enquiry-tab" data-target="#enquiry" role="tab"
+                    aria-controls="enquiry"><img src='{{"images/static-images/enquiry-info.svg" | relURL}}'>Enquiry
+                    Information</button>
+            </li>
+            <li class="report-nav-item" role="presentation">
+                <button class="report-nav-link" id="summary-tab" data-target="#summary" role="tab"
+                    aria-controls="summary"><img src='{{"images/static-images/report-summary.svg" | relURL}}'>Credit Summary</button>
+            </li>
+        </ul>
+        <div class="group report-select-group">
+            <div class="custom-select-input report-select-tab" onclick="customSelectInput(this)">
+                <span class="custom-select-value" id="report-select-value"><img src='{{"images/static-images/report-summary.svg" | relURL}}'>Account Information</span>
+                <div class="custom-select-options">
+                    <span data-target="#account" onclick="customSelectTab(this)" class="selected"><img src='{{"images/static-images/account-info.svg" | relURL}}'>Account Information</span>
+                    <span data-target="#profile" onclick="customSelectTab(this)" ><img src='{{"images/static-images/profile-info.svg" | relURL}}'>Profile Information</span>
+                    <span data-target="#enquiry" onclick="customSelectTab(this)" ><img src='{{"images/static-images/enquiry-info.svg" | relURL}}'>Enquiry Information</span>
+                    <span data-target="#summary" onclick="customSelectTab(this)"><img src='{{"images/static-images/report-summary.svg" | relURL}}'>Credit Summary</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="report-content">
+        <div class="tab-content">
+            <div class="tab-panel active" id="account"  aria-labelledby="account-tab">{{ partial "report-account" . }}</div>
+            <div class="tab-panel" id="profile"  aria-labelledby="profile-tab">{{partial "report-profile" . }}</div>
+            <div class="tab-panel" id="enquiry"  aria-labelledby="enquiry-tab">{{partial "report-enquiry" . }}</div>
+            <div class="tab-panel" id="summary"  aria-labelledby="summary-tab">{{partial "report-summary"}}</div>
+        </div>
+    </div>
+</div>
+<script>
+    // $(function () {
+    //     $('#reportTab li:last-child button').tab('show')
+    // })
+</script>

@@ -1,0 +1,10 @@
+<div class="dashboard-note {{if .note_type}}type-{{.note_type}}{{end}}">
+    <div class="dashboard-note__wraper">
+        {{if .note_icon }}<img src="{{ .note_icon | relURL }}" alt="" class="note-icon">{{end}}
+        {{if .note_content }}
+            <div class="note-content">
+                {{.note_content | safeHTML }}
+            </div>
+        {{end}}
+    </div>
+</div>

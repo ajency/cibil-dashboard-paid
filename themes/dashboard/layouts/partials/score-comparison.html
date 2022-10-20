@@ -1,0 +1,20 @@
+<div class="score-comparison" id="score-comparison">
+    <div class="page-width">
+        <p class="section-heading section-heading-small">{{.section_heading}}</p>
+        {{ partial "tooltip" . }}
+    </div>
+    <div class="page-width colored-container">
+        <div class="score-comparison__wraper">
+            {{if eq .subscribed false }}
+            <div class="unsubscribed-content">
+                <div class="content">{{ .unsubscribed_content }}</div>
+                {{if .subscribe_link}} <a href="upgrade-plan" class="cibil-link cibil-link-right-icon">{{ .subscribe_link_text }}</a>{{end}}
+                <div class="img-container">
+                    <img class="hide-sm-down" src="{{ "images/static-images/empty-score-comparison.png" | relURL }}" alt="">
+                    <img class="hide-md-up" src="{{ "images/static-images/empty-score-comparison-mob.png" | relURL }}" alt="">
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="timer-banner {{if eq .expired_user true}}expired-user{{end}}">
+  <div class="timer-banner__wraper">
+    <div class="left-panel">
+      <p class="banner-heading">{{.heading}}</p>
+      <p class="banner-subheading">{{.subheading}}</p>
+      {{if .cta_link}}<a href="{{.cta_link}}" class="cibil-button"
+        >{{.cta_text}}</a
+      >{{end}}
+    </div>
+
+    <div class="right-panel">
+      {{if eq .expired_user true}}
+      <div
+        class="countdown-timer"
+        id="countdown-timer"
+        data-day="14"
+        data-month="10"
+        data-year="2022"
+      >
+        <ul>
+          <li><span id="days"></span>days</li>
+          <li><span id="hours"></span>Hours</li>
+          <li><span id="minutes"></span>Mins</li>
+          <li><span id="seconds"></span>Sec</li>
+        </ul>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</div>

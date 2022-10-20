@@ -1,0 +1,14 @@
+<div class="report-table {{ if .white }}table-light{{end}}">
+    <p class="table-title">{{ .tableName }}</p>
+    {{ range .tableInfo }}
+        <div class="table-content">
+            {{ range .rows }}
+                <p class="table-item {{if .half }}half{{ end }}">
+                    <span class="item-head">{{.title}}</span>
+                    <span class="item-text">{{.desc}}</span>
+                </p>
+            {{ end }}
+        </div>
+    {{ end }}
+    {{ if gt (len .tableInfo) 5 }} <span class="showAllLink" onclick="showAllEnquiries(this)"><span>Show All Enquiries</span><span>Show less Enquires</span>{{ partial "svg-arrow"}}</span> {{ end }}
+</div>

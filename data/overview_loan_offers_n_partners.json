@@ -1,0 +1,75 @@
+[
+  {
+    "total_offers": 24,
+    "offers": [
+      {
+        "offer_title": "Credit<br>Card",
+        "offer_count": 5,
+        "icon_partial": "icons/credit-card-icon.html",
+        "tab_link": "loan-offers#card"
+      },
+      {
+        "offer_title": "Personal<br>Loan",
+        "offer_count": 4,
+        "icon_partial": "icons/personal-loan-icon.html",
+        "tab_link": "loan-offers#personal"
+      },
+      {
+        "offer_title": "Business<br>Loan",
+        "offer_count": 2,
+        "icon_partial": "icons/business-loan-icon.html",
+        "tab_link": "loan-offers#business"
+      },
+      {
+        "offer_title": "Home<br>Loan",
+        "offer_count": 2,
+        "icon_partial": "icons/home-loan-icon.html",
+        "tab_link": "loan-offers#home"
+      },
+      {
+        "offer_title": "Loan Against<br>Property",
+        "offer_count": 1,
+        "icon_partial": "icons/property-loan-icon.html",
+        "tab_link": "loan-offers#property"
+      },
+      {
+        "offer_title": "Auto<br>Loan",
+        "offer_count": 1,
+        "icon_partial": "icons/auto-loan-icon.html",
+        "tab_link": "loan-offers#auto"
+      },
+      {
+        "offer_title": "Financial<br>Products",
+        "offer_count": 0,
+        "icon_partial": "icons/financial-products-icon.html",
+        "tab_link": "loan-offers#enproductsquiry"
+      }
+    ],
+    "link": "/cibil-dashboard-paid/overview_paid/loan-offers?editInfo=show",
+    "link_text": "EDIT INFORMATION",
+    "button_link": "/cibil-dashboard-paid/overview_paid/loan-offers/",
+    "button_text": "SHOW ALL OFFERS",
+    "partners":[
+      {
+        "premium_partner": true,
+        "partner_logo": "images/dynamic-images/bajaj-finserv-logo.svg",
+        "partner_title": "Bajaj Finserv"
+      },
+      {
+        "premium_partner": true,
+        "partner_logo": "images/dynamic-images/aditya-birla-finance-logo.svg",
+        "partner_title": "Aditya Birla Finance"
+      },
+      {
+        "premium_partner": true,
+        "partner_logo": "images/dynamic-images/digit-logo.svg",
+        "partner_title": "DIGIT"
+      },
+      {
+        "premium_partner": true,
+        "partner_logo": "images/dynamic-images/hdfc-home-loans-logo.svg",
+        "partner_title": "HDFC Home Loans"
+      }
+    ]
+  }
+]

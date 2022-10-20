@@ -1,0 +1,25 @@
+<div class="credit-summary-ctas" id="credit-summary">
+    <div class="page-width credit-summary-ctas__wraper">
+        <p class="section-heading section-heading-small">{{.section_heading}}</p>
+        <p class="subheading-light">({{.last_refresh_prefix}} <span class="highlight-text-black">{{.last_refresh_date}}</span>)</p>
+        <div class="ctas-container">
+            <div class="small-ctas">
+                <div class="small-ctas__wraper">
+                    {{ partial "summary-count-cta" (dict "summary_number" "7" "summary_title" "TOTAL accounts" "rating" "good" "rating_text" "Looking good" "summary_details" "Total number of your credit cards and loan accounts." "cta_link" "/cibil-dashboard-paid/overview_paid/cibil-report#account_3" "cta_text" "View DETAILS" "tooltip_content" "1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s") }}
+
+                    {{ partial "summary-count-cta" (dict "summary_number" "9" "summary_title" "Credit enquiries" "rating" "good" "rating_text" "Looking good" "summary_details" "Number of times you have applied for a loan/credit card." "cta_link" "/cibil-dashboard-paid/overview_paid/cibil-report#enquiry" "cta_text" "View DETAILS" "tooltip_content" "2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s" "tooltip_right" true ) }}
+                </div>
+                <div class="small-ctas__wraper">
+                    {{ partial "summary-count-cta" (dict "summary_usage" "45" "summary_title" "Credit card usage" "rating" "average" "rating_text" "Opportunity to Improve" "summary_details" "Percentage of your total available credit limit that you have used." "cta_link" "/cibil-dashboard-paid/overview_paid/cibil-report#account_1" "cta_text" "View DETAILS" "tooltip_content" "3 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s") }}
+                    
+                    {{ partial "summary-count-cta" (dict "summary_years" "13" "summary_months" "10" "summary_title" "Age of Credit" "rating" "bad" "rating_text" "Take Action" "summary_details" "Age of your oldest credit card or loan account which is still in use." "cta_link" "/cibil-dashboard-paid/overview_paid/cibil-report#account_4" "cta_text" "View DETAILS" "tooltip_content" "4 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s" "tooltip_right" true "classes" "vertical-position" ) }}
+                </div>
+            </div>
+            <div class="medium-ctas">
+                {{ partial "banner-cta" (dict "background_image" "/images/dynamic-images/cibil-alerts-cta-bg.png" "cta_icon" "/images/static-images/alerts-icon.svg" "banner_heading" "24*7 credit monitoring with <span class=\"highlight\">CIBIL Alerts</span>" "cta_link_text" "Enable Alerts" "cta_link" "/cibil-dashboard-paid/overview_paid/alerts/"  ) }}
+
+                {{ partial "banner-cta" (dict "background_image" "/images/dynamic-images/exclusive-offers.png" "background_image_mob" "/images/dynamic-images/exclusive-offers-mob.svg" "cta_icon" "/images/static-images/card-icon.svg" "banner_heading" "Exclusive offers at <span class=\"highlight\">CIBIL Marketplace</span>" "cta_link_text" "View loan offers" "cta_link" "/cibil-dashboard-paid/overview_paid/loan-offers/" "banner_height" "254" ) }}
+            </div>
+        </div>
+    </div>
+</div>

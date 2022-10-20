@@ -1,0 +1,29 @@
+[
+  {
+    "image_alignment": "image-right",
+    "feature_title": "Alerts On Multiple Platforms",
+    "feature_description": "Get alerts via Email, SMS and App notifications",
+    "button": "Upgrade to view alerts",
+    "button_link": "/cibil-dashboard-paid/overview_paid/upgrade-plan/",
+    "image_path_desk": "images/dynamic-images/multiplatform.svg",
+    "image_path_mob": "images/dynamic-images/multiplatform-mob.svg"
+  },
+  {
+    "image_alignment": "image-left",
+    "feature_title": "Alerts on changes to your credit profile",
+    "feature_description": "Track changes in your personal details, CIBIL Score, and credit utilization.",
+    "button": "Upgrade to view alerts",
+    "button_link": "/cibil-dashboard-paid/overview_paid/upgrade-plan/",
+    "image_path_desk": "images/dynamic-images/credit-profile-changes.svg",
+    "image_path_mob": "images/dynamic-images/credit-profile-changes-mob.svg"
+  },
+  {
+    "image_alignment": "image-right",
+    "feature_title": "Alerts on enquiries",
+    "feature_description": "Track and identify any unwanted enquiries being made",
+    "button": "Upgrade to view alerts",
+    "button_link": "/cibil-dashboard-paid/overview_paid/upgrade-plan/",
+    "image_path_desk": "images/dynamic-images/enquiries.svg",
+    "image_path_mob": "images/dynamic-images/enquiries-mob.svg"
+  }
+]

@@ -1,0 +1,159 @@
+<div class="compare-offer-header">
+    <div class="page-width">
+        <div class="compare-header-wrap">
+            <a class="resetOffers cibil-button cibil-button-border" onclick="resetCompare()">Go Back</a>
+            <p>Comparing 3 Credit Card offers</p>
+        </div>
+    </div>
+</div>
+
+<div class="page-width loan-offer-js">
+    <p class="loan-offers-settings">
+        <span>We have found <b>15 offers</b> tailored to your profile.</span>
+        <a onclick="editOInfoToggle()" id="edit-info">{{ partial "icons/settings"}}EDIT INFORMATION</a>
+    </p>
+
+
+    <div class="report-tabs loan-offers-tabs">
+        <ul class="reportTabs loanTabs" id="loanTab">
+            <li class="report-nav-item" role="presentation">
+                <button class="report-nav-link active" id="card-tab" data-target="#card" role="tab"
+                    aria-controls="card"><span class="offer-count"><b>5</b></span>Credit<br>Card</button>
+            </li>
+            <li class="report-nav-item" role="presentation">
+                <button class="report-nav-link" id="personal-tab" data-target="#personal" role="tab"
+                    aria-controls="personal"><span class="offer-count"><b>4</b></span>Personal<br>Loan</button>
+            </li>
+            <li class="report-nav-item" role="presentation">
+                <button class="report-nav-link" id="business-tab" data-target="#business"><span class="offer-count"><b>2</b></span>Business<br>Loan</button>
+            </li>
+            <li class="report-nav-item" role="presentation">
+                <button class="report-nav-link" id="home-tab" data-target="#home" role="tab"
+                    aria-controls="home"><span class="offer-count"><b>2</b></span>Home<br>Loan</button>
+            </li>
+            <li class="report-nav-item" role="presentation">
+                <button class="report-nav-link" id="property-tab" data-target="#property" role="tab"
+                    aria-controls="property"><span class="offer-count"><b>1</b></span>Loan Against<br>Property</button>
+            </li>
+            <li class="report-nav-item" role="presentation">
+                <button class="report-nav-link" id="auto-tab" data-target="#auto" role="tab"
+                    aria-controls="auto"><span class="offer-count"><b>1</b></span>Auto<br>Loan</button>
+            </li>
+            <li class="report-nav-item" role="presentation">
+                <button class="report-nav-link" id="products-tab" data-target="#enproductsquiry" role="tab"
+                    aria-controls="products" disabled><span class="offer-count"><b>0</b></span>Financial<br>Products</button>
+            </li>
+        </ul>
+        <div class="group report-select-group">
+            <div class="custom-select-input report-select-tab" onclick="customSelectInput(this)">
+                <span class="custom-select-value" id="report-select-value">Credit Card<span class="offer-count"><b>5</b></span></span>
+                <div class="custom-select-options">
+                    <span data-target="#card" onclick="customSelectTab(this)" class="selected">Credit Card<span class="offer-count"><b>5</b></span></span>
+                    <span data-target="#personal" onclick="customSelectTab(this)" >Personal Loan<span class="offer-count"><b>4</b></span></span>
+                    <span data-target="#business" onclick="customSelectTab(this)" >Business Loan<span class="offer-count"><b>2</b></span></span>
+                    <span data-target="#home" onclick="customSelectTab(this)" >Home Loan<span class="offer-count"><b>2</b></span></span>
+                    <span data-target="#property" onclick="customSelectTab(this)" >Loan Against Property<span class="offer-count"><b>1</b></span></span>
+                    <span data-target="#auto" onclick="customSelectTab(this)" >Auto Loan<span class="offer-count"><b>1</b></span></span>
+                    <span data-target="#products" onclick="customSelectTab(this)" class="disabled">Financial Products<span class="offer-count"><b>0</b></span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="report-content loan-offers-content">
+        <div class="tab-content">
+            <div class="tab-panel active" id="card"  aria-labelledby="card-tab">{{partial "loan-offers-card"}}</div>
+            <div class="tab-panel" id="personal"  aria-labelledby="personal-tab">{{partial "loan-offers-personal"}}</div>
+            <div class="tab-panel" id="business"  aria-labelledby="business-tab">{{partial "loan-offers-business"}}</div>
+            <div class="tab-panel" id="home"  aria-labelledby="home-tab">{{partial "loan-offers-home"}}</div>
+            <div class="tab-panel" id="property"  aria-labelledby="property-tab">{{partial "loan-offers-property"}}</div>
+            <div class="tab-panel" id="auto"  aria-labelledby="auto-tab">{{partial "loan-offers-auto"}}</div>
+            <div class="tab-panel" id="products"  aria-labelledby="products-tab">{{partial "loan-offers-products"}}</div>
+        </div>
+    </div>
+
+    <p class="edit-info-header">
+        <a onclick="editOInfoToggle()" class="">Go Back</a>
+        <a onclick="editOInfoToggle()" class="cibil-link-button">{{ partial "icons/settings-blue"}}EDIT INFORMATION</a>
+    </p>
+    <div class="edit-info-tab">
+        <p>Please edit your information below.</p>
+        <div class="edit-info-wrap">
+            <div class="group">
+                <label for="amount">City</label>
+                <div class="input-holder input-city">
+                    <input class="" type="text" placeholder="Select City" id="city">
+                </div>
+            </div>
+            <div class="group">
+                <label for="loantype">Income Type</label>
+                <input type="hidden" id="loantype">
+                <div class="custom-select-input" onclick="customSelectInput(this)">
+                    <span class="custom-select-value">Self-Employed</span>
+                    <div class="custom-select-options">
+                        <span onclick="customSelectOption(this)" class="selected">Self-Employed</span>
+                        <span onclick="customSelectOption(this)" >Salaraid</span>
+                    </div>
+                </div>
+                <span class="message"></span>
+            </div>
+            <div class="group">
+                <label for="amount">Monthly Income</label>
+                <div class="input-holder">
+                    <span class="currency">₹</span>
+                    <input class="input-currency" placeholder="Enter Monthly Income" type="number" id="amount">
+                </div>
+            </div>
+        </div>
+        <div class="edit-info-cta-wrap">
+            <a onclick="submitEditInfo()" class="cibil-button">Submit</a>
+            <a onclick="editOInfoToggle()" class="cibil-link">Cancel</a>
+        </div>
+
+        <!-- slider code -->
+        <div class="personal-loan-offers-section__wraper">
+            <div class="offers-n-partners">
+                {{ range .offers_n_partners }}
+                <div class="section-head our-partners">
+                    <p class="section-title">Our Partners</p>
+                </div>
+                <div class="partners">
+                    {{range .partners}}
+                        <div class="partner">
+                            <div class="partner__wraper">
+                                <div class="logo-container {{if eq .premium_partner true}}premium-partner{{end}}">
+                                    <img src="{{.partner_logo | relURL }}" title="{{.partner_title}}" alt="{{.partner_title}}" class="partner-logo">
+                                </div>
+                                <p class="partner-title">{{.partner_title}}</p>
+                            </div>
+                        </div>
+                    {{end}}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="compare-offer-footer hide">
+    <div class="page-width">
+        <div class="compare-header-wrap">
+            <p>Comparing 3 Credit Card offers</p>
+            <div class="compare-list">
+                <!-- <div class="compare-tab" data-index="1">
+                    <span>
+                        <img src="/cibil-dashboard-paid/images/dynamic-images/bajaj-finserv-logo.svg" class="company-logo">
+                    </span>
+                    <p>₹8,00,000</p>
+                    <span class="remove-compare-tab" onclick="removeFromCompare(this)" data-target="1">{{ partial "icons/popup-close"}}</span>
+                </div> -->
+                <div class="compare-tab"></div>
+                <div class="compare-tab"></div>
+                <div class="compare-tab"></div>
+                <a  class="compare-now-offers cibil-button" onclick="compareOffers()">COMPARE</a>
+            </div>
+        </div>
+    </div>
+</div>

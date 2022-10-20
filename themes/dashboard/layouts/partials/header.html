@@ -1,0 +1,30 @@
+<header>
+    <div class="page-width ">
+        <div class="header-list desktop-view">
+            {{if eq .RelPermalink "/cibil-dashboard-paid/overview_paid/"}}<a class="header-list-item how-it-works" href="javascript:void(0);" onclick="howItWorks();">{{ partial "svg-help"}}<span>HOW IT WORKS</span></a>{{end}}
+            <a class="header-list-item language-selector">
+                {{ partial "svg-language"}}
+                <span>ENGLISH</span>
+                {{ partial "svg-arrow"}}
+                {{ partial "language-list"}}
+            </a>
+            <a href="/cibil-dashboard-paid/overview_paid/account/" class="header-list-item">{{ partial "svg-account"}}<span>MY ACCOUNT</span></a>
+            <a href="" class="header-list-item">{{ partial "svg-logout"}}<span>LOGOUT</span></a>
+        </div>
+        <div class="header-list-mobile mobile-view">
+            <div class="logo-mobile">
+                <a href="/cibil-dashboard-paid/overview_paid/">
+                    {{ partial "svg-logo-mobile"}}
+                </a>
+            </div>
+            <div class="header-list-items">
+                {{if eq .RelPermalink "/cibil-dashboard-paid/overview_paid/"}}<a class="header-list-item-mobile how-it-works" href="javascript:void(0);" onclick="howItWorksMob()">{{ partial "icons/question-mark"}}</a>{{end}}
+                <a class="header-list-item-mobile language-selector">{{ partial "svg-language-mobile"}}</a>
+                <a href="/cibil-dashboard-paid/overview_paid/account/" class="header-list-item-mobile">{{ partial "svg-account-mobile"}}</a>
+                <a class="header-list-item-mobile hamburger">{{ partial "svg-hamburger"}}{{ partial "icons/svg-cross"}}</a>
+            </div>
+            {{ partial "language-list"}}
+            {{ partial "mobile-nav-list" .}}
+        </div>
+    </div>
+</header>

@@ -1,0 +1,33 @@
+<div class="subscription-features">
+  <div class="page-width">
+    <div class="page-inner-container subscription-features__wraper">
+      <p class="section-heading">{{ .section_heading }}</p>
+      <p class="description">{{ .description }}</p>
+      <div class="subs-features">
+        {{ range .features }}
+        <div class="subs-feature {{ if .classes }}{{.classes}}{{end}}">
+          <div class="subs-feature__wraper">
+            <div class="content">
+              <img class="icon" src="{{ .icon | relURL }}" alt="" />
+              <p class="feature-heading">{{ .feature_heading }}</p>
+              <p>{{ .description }}</p>
+            </div>
+            <div class="image-container">
+              <img
+                class="hide-sm-down"
+                src="{{ .image_path_desk | relURL }}"
+                alt=""
+              />
+              <img
+                class="hide-md-up"
+                src="{{ .image_path_mob | relURL }}"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>

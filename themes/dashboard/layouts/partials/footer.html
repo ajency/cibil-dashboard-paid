@@ -1,0 +1,74 @@
+<footer>
+    <div class="page-width ">
+        <p class="footer-text">© Copyright 2022 TransUnion CIBIL Limited (Formerly: Credit Information Bureau (India) Limited). All Rights Reserved.</p>
+        <div class="footer-list">
+            <a href="" class="footer-list-item">FAQs</a>
+            <a href="" class="footer-list-item">Terms and Conditions</a>
+            <a href="" class="footer-list-item">Privacy Policy</a>
+            {{if eq .RelPermalink "/cibil-dashboard-paid/overview_paid/cibil-report/" }}<a href="" class="footer-list-item">Raise a Dispute</a>{{end}}
+        </div>
+    </div>
+</footer>
+
+<script src="{{"js/jquery.min.js" | relURL}}"></script>
+<script src="{{"js/bootstrap.bundle.min.js" | relURL}}"></script>
+<script src="{{"js/global.js" | relURL}}"></script>
+<script src="{{"js/video.min.js" | relURL}}"></script>
+<script src="{{"js/jquery.easypiechart.min.js" | relURL}}"></script>
+<script src="{{"js/slick.min.js" | relURL}}"></script>
+<script type="text/javascript" src="{{"js/intro.min.js" | relURL}}"></script>
+<script src="{{"js/scripts.js" | relURL}}"></script>
+<script src="{{"js/forms.js" | relURL}}"></script>
+
+{{ if eq .RelPermalink "/cibil-dashboard-paid/overview_paid/" }}
+<script>
+    // video player
+    var player = videojs("download-now-video", {
+    fluid: true
+    });
+
+    $("#video-CTA-modal").on("show.bs.modal", function (e) {
+    player.play("muted");
+    player.muted(false);
+    });
+
+    $("#video-CTA-modal").on("hide.bs.modal", function (e) {
+    player.pause();
+    player.play("pause");
+    player.muted(true);
+    });
+</script>
+{{end}}
+<script>
+    //faq video cta
+    $(".faq-video-cta").each(function(){
+    let thumbnail = $(this).data("thumbnail");
+
+    $(this).css("background","linear-gradient(0deg, rgba(0, 166, 202, 0.9), rgba(0, 166, 202, 0.9)), url("+thumbnail+")");
+
+    $(this).click(function(){
+        let videoTitle = $(this).data("title");
+        let videoPopup = $(this).data("target");
+        let videoElement = $(videoPopup).find("video").attr("id");
+
+        $(videoPopup).find(".modal-title").text(videoTitle);
+
+        // video player
+        var player = videojs(videoElement, {
+        fluid: true
+        });
+
+        $(videoPopup).on("show.bs.modal", function (e) {
+            player.play("muted");
+            player.muted(false);
+        });
+
+        $(videoPopup).on("hide.bs.modal", function (e) {
+            player.pause();
+            player.play("pause");
+            player.muted(true);
+        });
+    });
+
+    });
+</script>

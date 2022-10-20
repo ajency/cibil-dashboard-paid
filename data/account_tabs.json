@@ -1,0 +1,22 @@
+[
+    {
+        "tabs":[
+            {
+                "tab_title": "Change Password",
+                "tab_icon": "icons/change-password-icon.html",
+                "active": true,
+                "tab_content": "tabs/change-password.html"
+            },
+            {
+                "tab_title": "Notification",
+                "tab_icon": "icons/notification-icon.html",
+                "tab_content": "tabs/notification.html"
+            },
+            {
+                "tab_title": "Subscription",
+                "tab_icon": "icons/subscription-icon.html",
+                "tab_content": "tabs/subscription.html"
+            }
+        ]
+    }
+]

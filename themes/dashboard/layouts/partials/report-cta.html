@@ -1,0 +1,41 @@
+<div class="report-cta">
+    <div class="report-cta__wraper">
+        <img src="{{ "/images/static-images/cibil-report-icon.svg" | relURL }}" alt="" class="cta-icon">
+        <div class="content">
+            {{if .heading}}<p class="section-heading section-heading-small">{{.heading}}</p>{{end}}
+            <p class="desc">{{.content}}</p>
+            <div class="hide-sm-down">
+                {{if .link_text}}
+                <div class="link-container">
+                    <img src="{{ "/images/static-images/eye-icon.svg" | relURL }}" alt="" class="icon">
+                    <a href="{{.link}}" class="cibil-link cibil-link-right-icon">{{.link_text}}</a>
+                </div>
+                {{ end }}
+                {{if .download_link}}
+                <div class="link-container">
+                    <img src="{{ "/images/static-images/download-icon.svg" | relURL }}" alt="" class="icon">
+                    <a href="{{.download_link}}" class="cibil-link cibil-link-right-icon download-icon" download>{{.download_link_text}}</a>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    <div class="hide-md-up">
+        <div class="report-cta__wraper">
+            <div class="content">
+                {{if .link_text}}
+                <div class="link-container">
+                    <img src="{{ "/images/static-images/eye-icon.svg" | relURL }}" alt="" class="icon">
+                    <a href="{{.link}}" class="cibil-link cibil-link-right-icon">{{.link_text}}</a>
+                </div>
+                {{ end }}
+                {{if .download_link}}
+                <div class="link-container">
+                    <img src="{{ "/images/static-images/download-icon.svg" | relURL }}" alt="" class="icon">
+                    <a href="{{.download_link}}" class="cibil-link cibil-link-right-icon download-icon" download>{{.download_link_text}}</a>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</div>

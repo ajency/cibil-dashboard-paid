@@ -1,0 +1,17 @@
+<div class="banner-cta {{if .classes }}{{.classes}}{{end}}" {{if .banner_height}}data-height="{{.banner_height}}"{{end}}>
+    {{ if  .background_image}}
+    <img src="{{.background_image | relURL }}" alt="" class="bg-image hide-sm-down">
+    {{end}}
+    {{ if  .background_image_mob}}
+    <img src="{{.background_image_mob | relURL }}" alt="" class="bg-image hide-md-up">
+    {{else}}
+    <img src="{{.background_image | relURL }}" alt="" class="bg-image hide-md-up">
+    {{end}}
+    <div class="banner-cta__wraper">
+        <div class="cta-icon"><img src="{{ .cta_icon  | relURL }}" alt=""></div>
+        <div class="cta-content">
+            <p class="heading">{{.banner_heading | safeHTML }}</p>
+            {{if .cta_link}}<a href="{{.cta_link}}" class="cibil-link cibil-link-right-icon">{{.cta_link_text}}</a>{{end}}
+        </div>
+    </div>
+</div>

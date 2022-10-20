@@ -1,0 +1,16 @@
+<div class="get-more-features">
+  <div class="page-width">
+    <div class="page-inner-container get-more-features__wraper">
+      <p class="section-heading">{{ .section_heading }}</p>
+      <div class="feature-cards-wraper">
+        {{ range .more_features }}
+        <div class="feature-card">
+          <img src="{{ .icon | relURL }}" alt="" class="icon" />
+          <p class="card-heading">{{ .heading }}</p>
+          <p class="card-content">{{ .description }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>

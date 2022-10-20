@@ -1,0 +1,32 @@
+<div class="cibil-alerts-section">
+  <div class="page-width">
+    <div class="page-inner-container cibil-alerts-section__wraper">
+      <p class="section-heading blue">{{ .section_heading }}</p>
+      {{range .cta}}
+      <div class="cta-feature {{ .image_alignment }}">
+        <div class="cta-feature__wraper">
+          <div class="left-side">
+            <p class="feature-title">{{ .feature_title }}</p>
+            <p class="desc">{{ .feature_description }}</p>
+            {{ if .button_link }}<a href="{{ .button_link }}" class="cibil-button">{{ .button }}</a>{{end}}
+          </div>
+          <div class="right-side">
+            <div class="img-container">
+              {{ if .image_path_desk }}
+                <img class="hide-md-down" src="{{ .image_path_desk | relURL }}" alt="" />
+              {{ else }}
+                <img class="hide-md-down" src="{{ .image_path_mob | relURL }}" alt="" />
+              {{ end }}
+              {{ if .image_path_mob }}
+                <img class="hide-lg-up" src="{{ .image_path_mob | relURL }}" alt="" />
+              {{ else }}
+                <img class="hide-lg-up" src="{{ .image_path_desk | relURL }}" alt="" />
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</div>

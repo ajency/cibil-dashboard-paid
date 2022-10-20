@@ -1,0 +1,56 @@
+<script>
+    function addToCompare(element) {
+        if($('.compare-offer-footer .compare-list > .compare-tab:not(:empty)').length >= 3){
+            return
+        }
+        changeCompareText($('.compare-offer-footer .compare-list > .compare-tab:not(:empty)').length + 1)
+        $(element).attr('onclick','removeFromCompare(this)');
+        let parent = $(element).parents('.offers-card')
+        parent.addClass('selected');
+
+        let html = `<span>
+        <img src="${parent.find('.company-logo').attr('src')}">
+        </span>
+        <p>${parent.attr('amount')}</p>
+        <span class="remove-compare-tab" onclick="removeFromCompare(this)" data-target="${parent.data('index')}"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="13" cy="13" r="13" fill="#DDDDDD"></circle>
+        <path d="M8.41211 8.40497L17.5886 17.5814" stroke="#2C2C2C"></path>
+        <path d="M17.5859 8.4043L8.40947 17.5808" stroke="#2C2C2C"></path>
+        </svg></span>`;
+        console.log(html)
+        let emptyElement = $('.compare-offer-footer .compare-list > .compare-tab:empty')[0];
+        $(emptyElement).attr('data-index',parent.data('index'))
+        $(emptyElement).html(html);
+        $('.compare-offer-footer').fadeIn("fast");
+    }
+
+    function removeFromCompare(element){
+        changeCompareText($('.compare-offer-footer .compare-list > .compare-tab:not(:empty)').length - 1)
+        let target = $(element).data('target');
+        $('.offers-card[data-index='+target+']').removeClass('selected');
+        $('.compare-tab[data-index='+target+']').remove();
+        $('.offers-card[data-index='+target+']').find('.cibil-link').attr('onclick','addToCompare(this)');
+        let length = $('.compare-offer-footer .compare-list > .compare-tab').length
+        while(length < 3){
+            $('.compare-offer-footer .compare-list').append('<div class="compare-tab"></div>')
+            length++;
+        }
+        if($('.compare-offer-footer .compare-list > .compare-tab:not(:empty)').length < 1){
+            $('.compare-offer-footer').fadeOut("fast");
+        }
+    }
+
+    function compareOffers(){
+        let offer = $('.report-nav-link.active').clone().children().remove().end().text();
+        let length = $('.compare-offer-footer .compare-list > .compare-tab:not(:empty)').length
+        $('.compare-header-wrap p').text('Comparing '+length+' '+offer+' offers')
+        $('.offer-card-list').addClass('comparing')
+        $('.compare-offer-header').toggleClass('show')
+        $('.compare-offer-footer').fadeOut('fast');
+    }
+
+    function changeCompareText(count){
+        let text = `Comparing ${count} Offers`;
+        $(".compare-offer-footer .compare-header-wrap > p").text(text)
+    }
+</script>

@@ -1,0 +1,11 @@
+[
+    {
+        "username":"Rahul",
+        "headings":[
+            "<span class=\"highlight\">321 days</span> <span>till your next refresh.</span>",
+            "<span class=\"highlight\">Upgrade now</span> <span>and always be credit-ready.</span>"
+        ],
+        "image_path_desk":"images/dynamic-images/banner-desk.svg",
+        "image_path_mob":"images/dynamic-images/banner-mob.svg"
+    }
+]

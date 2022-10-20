@@ -1,0 +1,294 @@
+<p class="section-heading section-heading-small">ALL ACCOUNTS</p>
+
+{{range .all_accounts}}
+    {{if .open_accounts}}
+        <div class="accounts-container open_accounts">
+            <p class="account_status">OPEN ACCOUNTS</p>
+            <div class="account-head columnStyle">
+                <p class="head-col">Member Name</p>
+                <p class="head-col">Account Type</p>
+                <p class="head-col">Account Number</p>
+                <p class="head-col">Ownership</p>
+            </div>
+            <div class="account-body">
+                <div class="accordion accountsAccordion" id="accountsAccordion1">
+                    {{range $index, $accountsElement := .open_accounts}}
+                    <div class="card">
+                    <div class="card-header {{if eq .collapsed true }}show{{end}}" id="heading{{$index}}">
+                        <div class="card-header-link columnStyle" data-toggle="collapse" data-target="#collapse{{$index}}" aria-expanded="{{if eq .collapsed true }}true{{else}}false{{end}}" aria-controls="collapse{{$index}}">
+                            <p class="head-col"><b>{{.member_name}}</b></p>
+                            <p class="head-col">{{.account_type}}</p>
+                            <p class="head-col">{{.account_number}}</p>
+                            <p class="head-col">{{.ownership}}</p>
+                        </div>
+                        
+                    </div>
+                
+                    <div id="collapse{{$index}}" class="collapse account-collapse {{if eq .collapsed true }}show{{end}}" aria-labelledby="heading{{$index}}" data-parent="#accountsAccordion1">
+                        <div class="card-body">
+                        {{ partial "clear-dues-bar"}}
+                        
+                            <div class="card-body__wraper">
+                                {{if .tabs}}
+                                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                                        {{range .tabs}}
+                                            {{range .account_details}}
+                                                <li class="nav-item" role="presentation">
+                                                    <button class="nav-link active" id="acDetails-{{$index}}-tab" data-toggle="pill" data-target="#acDetails-{{$index}}" type="button" role="tab" aria-controls="acDetails-{{$index}}" aria-selected="true">account details</button>
+                                                </li>
+                                            {{end}}
+                                            {{range .payment_status}}
+                                                <li class="nav-item" role="presentation">
+                                                    <button class="nav-link" id="paymentStatus-{{$index}}-tab" data-toggle="pill" data-target="#paymentStatus-{{$index}}" type="button" role="tab" aria-controls="paymentStatus-{{$index}}" aria-selected="false">payment status</button>
+                                                </li>
+                                            {{end}}
+                                        {{end}}
+                                    </ul>
+                                    <div class="tab-content" id="pills-tabContent">
+                                        {{range .tabs}}
+                                            {{range .account_details}}
+                                                <div class="tab-pane fade show active" id="acDetails-{{$index}}" role="tabpanel" aria-labelledby="acDetails-{{$index}}-tab">
+                                                    <div class="detail-row">
+                                                        <span>Credit Limit</span><span>{{.credit_limit}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Sanctioned Amount</span><span>{{.sanctioned_ammount}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Current Balance</span><span>{{.current_balance}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Cash Limit</span><span>{{.cash_limit}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Amount Overdue</span><span>{{.ammount_overdue}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Rate of Interest</span><span>{{.rate_of_interest}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Repayment Tenure</span><span>{{.repayment_tenure}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>EMI Amount</span><span>{{.emi_ammount}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Payment Frequency</span><span>{{.payment_frequency}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Actual Payment Amount</span><span>{{.actual_payment_ammount}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Date Opened / Disbursed</span><span>{{.date_opened}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Date of Last Payment</span><span>{{.date_last_payment}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Date Reported and Certified</span><span>{{.date_reported}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Value of Collateral</span><span>{{.value_of_collateral}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Type of Collateral</span><span>{{.type_of_collateral}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Suit - Filed / Willful Default</span><span>{{.suit_filed}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Credit Facility Status</span><span>{{.credit_facility_status}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Written-off Amount (Total)</span><span>{{.total_ammount}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Written-off Amount (Principal)</span><span>{{.principle_ammount}}</span>
+                                                    </div>
+                                                    <div class="detail-row">
+                                                        <span>Settlement Amount</span><span>{{.settlement_ammount}}</span>
+                                                    </div>
+                                                </div>
+                                            {{end}}
+                                            {{range .payment_status}}
+                                                <div class="tab-pane fade" id="paymentStatus-{{$index}}" role="tabpanel" aria-labelledby="paymentStatus-{{$index}}-tab">
+                                                    <div class="dates">
+                                                        <div class="date">
+                                                            <p class="bold-title">Payment Start Date</p>
+                                                            {{.payment_start_date}}
+                                                        </div>
+                                                        <div class="date">
+                                                            <p class="bold-title">Payment End Date</p>
+                                                            {{.payment_end_date}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="history">
+                                                        <p class="bold-title">Payment History</p>
+                                                        {{range .payment_history}}
+                                                            <div class="detail-row">
+                                                                <span>{{.month_n_year}}</span><span>{{.ammount}}</span>
+                                                            </div>
+                                                        {{end}}
+                                                    </div>
+                                                    <div class="shortforms">
+                                                        {{range .shortforms}}<span>{{ . | safeHTML }}</span>{{end}}
+                                                    </div>
+                                                </div>
+                                            {{end}}
+                                        {{end}}
+                                    </div>
+                                {{end}}
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+    {{end}}
+    {{if .closed_accounts}}
+    <div class="accounts-container closed_accounts">
+        <p class="account_status">CLOSED ACCOUNTS</p>
+        <div class="account-head columnStyle">
+            <p class="head-col">Member Name</p>
+            <p class="head-col">Account Type</p>
+            <p class="head-col">Account Number</p>
+            <p class="head-col">Ownership</p>
+        </div>
+        <div class="account-body">
+            <div class="accordion accountsAccordion" id="accountsAccordion2">
+                {{range $closedIndex, $accountsElement := .closed_accounts}}
+                <div class="card">
+                <div class="card-header {{if eq .collapsed true }}show{{end}}" id="heading-{{$closedIndex}}">
+                    <div class="card-header-link columnStyle" data-toggle="collapse" data-target="#collapse-{{$closedIndex}}" aria-expanded="{{if eq .collapsed true }}true{{else}}false{{end}}" aria-controls="collapse-{{$closedIndex}}">
+                        <p class="head-col"><b>{{.member_name}}</b></p>
+                        <p class="head-col">{{.account_type}}</p>
+                        <p class="head-col">{{.account_number}}</p>
+                        <p class="head-col">{{.ownership}}</p>
+                    </div>
+                    
+                </div>
+            
+                <div id="collapse-{{$closedIndex}}" class="collapse account-collapse {{if eq .collapsed true }}show{{end}}" aria-labelledby="heading-{{$closedIndex}}" data-parent="#accountsAccordion2">
+                    <div class="card-body">
+                    {{ partial "clear-dues-bar"}}
+                    
+                        {{if .tabs}}
+                        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                            {{range .tabs}}
+                                {{range .account_details}}
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="acDetails--{{$closedIndex}}-tab" data-toggle="pill" data-target="#acDetails--{{$closedIndex}}" type="button" role="tab" aria-controls="acDetails--{{$closedIndex}}" aria-selected="true">account details</button>
+                                    </li>
+                                {{end}}
+                                {{range .payment_status}}
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="paymentStatus--{{$closedIndex}}-tab" data-toggle="pill" data-target="#paymentStatus--{{$closedIndex}}" type="button" role="tab" aria-controls="paymentStatus--{{$closedIndex}}" aria-selected="false">payment status</button>
+                                    </li>
+                                {{end}}
+                            {{end}}
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            {{range .tabs}}
+                                {{range .account_details}}
+                                    <div class="tab-pane fade show active" id="acDetails--{{$closedIndex}}" role="tabpanel" aria-labelledby="acDetails--{{$closedIndex}}-tab">
+                                        <div class="detail-row">
+                                            <span>Credit Limit</span><span>{{.credit_limit}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Sanctioned Amount</span><span>{{.sanctioned_ammount}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Current Balance</span><span>{{.current_balance}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Cash Limit</span><span>{{.cash_limit}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Amount Overdue</span><span>{{.ammount_overdue}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Rate of Interest</span><span>{{.rate_of_interest}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Repayment Tenure</span><span>{{.repayment_tenure}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>EMI Amount</span><span>{{.emi_ammount}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Payment Frequency</span><span>{{.payment_frequency}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Actual Payment Amount</span><span>{{.actual_payment_ammount}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Date Opened / Disbursed</span><span>{{.date_opened}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Date of Last Payment</span><span>{{.date_last_payment}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Date Reported and Certified</span><span>{{.date_reported}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Value of Collateral</span><span>{{.value_of_collateral}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Type of Collateral</span><span>{{.type_of_collateral}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Suit - Filed / Willful Default</span><span>{{.suit_filed}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Credit Facility Status</span><span>{{.credit_facility_status}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Written-off Amount (Total)</span><span>{{.total_ammount}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Written-off Amount (Principal)</span><span>{{.principle_ammount}}</span>
+                                        </div>
+                                        <div class="detail-row">
+                                            <span>Settlement Amount</span><span>{{.settlement_ammount}}</span>
+                                        </div>
+                                    </div>
+                                {{end}}
+                                {{range .payment_status}}
+                                    <div class="tab-pane fade" id="paymentStatus--{{$closedIndex}}" role="tabpanel" aria-labelledby="paymentStatus--{{$closedIndex}}-tab">
+                                        <div class="dates">
+                                            <div class="date">
+                                                <p class="bold-title">Payment Start Date</p>
+                                                {{.payment_start_date}}
+                                            </div>
+                                            <div class="date">
+                                                <p class="bold-title">Payment End Date</p>
+                                                {{.payment_end_date}}
+                                            </div>
+                                        </div>
+                                        <div class="history">
+                                            <p class="bold-title">Payment History</p>
+                                            {{range .payment_history}}
+                                                <div class="detail-row">
+                                                    <span>{{.month_n_year}}</span><span>{{.ammount}}</span>
+                                                </div>
+                                            {{end}}
+                                        </div>
+                                        <div class="shortforms">
+                                            {{range .shortforms}}<span>{{ . | safeHTML }}</span>{{end}}
+                                        </div>
+                                    </div>
+                                {{end}}
+                            {{end}}
+                        </div>
+                        {{end}}
+                    </div>
+                </div>
+                </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+    {{end}}
+{{end}}

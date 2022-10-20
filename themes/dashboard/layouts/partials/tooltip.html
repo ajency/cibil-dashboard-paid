@@ -1,0 +1,12 @@
+
+<div class='cibil-tooltip {{ if eq .tooltip_type "info" }}cibil-tooltip-info{{end}} tooltip-toggle' tooltip-target="#tooltipBox">
+</div>
+<!-- tooltips | start -->
+<div class="tooltip-box {{if eq .tooltip_right true }}tooltip-box-right{{ end}}" id="tooltipBox">
+  <div class="tooltip-box__wraper">
+      <div class="content">
+        {{.tooltip_content | safeHTML }}
+      </div>
+  </div>
+</div>
+<!-- tooltips | end -->

@@ -1,0 +1,8 @@
+<p class="summary-count">
+    {{if .summary_number}}
+        {{.summary_number}}
+    {{ end }}
+    {{if or .summary_years .summary_months }}
+    {{ if .summary_years}}{{.summary_years}}<span>y{{end}}</span>{{if .summary_months}}{{.summary_months}}<span>m{{end}}</span>
+    {{ end }}
+</p>

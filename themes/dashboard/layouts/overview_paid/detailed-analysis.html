@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+    {{ partial "page-header" . }}
+
+    <div class="page-width detailed-analysis-section">
+        {{ partial "cibil-score" (dict "score" "783" "subtext" "is your <span class='highlight-text-blue'>CIBIL</span> Score as of 11/12/2021" "description" "CIBIL Score is a 3 digit numeric summary of your credit history & ranges from 300 to 900." ) }}
+
+        {{ partial "content-box" (dict "content" "Your exposure to credit has been less than six months from the date of the report. The more recent the account open dates across your credit profile the lower would be your CIBIL Score.<br><br>Ensure you do not open too many credit card and loan accounts within a short period of time. Make sure you make timely payments towards all your accounts.") }}
+
+        {{ partial "content-box" (dict "content" "One of the factors your CIBIL Score depends on is the timely payments you make towards your outstanding loans and credit cards. If you have missed a payment in the last 24 months, it will lead to your account being delinquent. Any delinquency will have a negative impact on your CIBIL Score.<br><br>One way to improve your CIBIL Score is to make your payments before/by the due date. This will prevent your account from getting delinquent and will subsequently have a positive impact on your CIBIL Score.") }}
+    </div>
+
+{{end}}

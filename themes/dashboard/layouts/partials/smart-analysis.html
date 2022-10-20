@@ -1,0 +1,45 @@
+<div class="smart-analysis-section">
+    {{ if .section_heading}}<p class="section-heading section-heading-small">{{ .section_heading}}</p>{{end}}
+    {{ range .score_analysis }}
+        {{ if or .good_result .bad_result}}
+        <div class="result-container">
+            {{ if .good_result }}
+            <div class="good-result">
+                <div class="good-result__wraper">
+                    <ul>
+                        {{ range .good_result }}
+                        <li><img class="icon" src="{{ "/images/static-images/thumb-icon-green.svg" | relURL }}" alt="">{{ . }}</li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+            {{ end }}
+            {{ if .bad_result }}
+            <div class="bad-result">
+                <div class="good-result__wraper">
+                    <ul>
+                        {{ range .bad_result }}
+                        <li><img class="icon" src="{{ "/images/static-images/thumb-icon-red.svg" | relURL }}" alt="">{{ . }}</li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        {{end}}
+        {{ if .key_highlights}}
+            <div class="key-highlights">
+                <div class="cibil-scrollbar key-highlights__wraper">
+                    {{range .key_highlights}}
+                        <div class="key-highlight"><span>{{ . | safeHTML}}</span></div>
+                    {{end}}
+                </div>
+            </div>
+        {{end}}
+    {{end}}
+    {{ if .link }}
+        <div class="link-container">
+            <img class="icon" src="{{ "/images/static-images/search-icon.svg" | relURL }}" alt=""><a href="{{ .link }}" class="cibil-link cibil-link-right-icon"><span class="hide-md-down">{{ .link_text_desk}}</span><span class="hide-lg-up">{{ .link_text_mob}}</span></a>
+        </div>
+    {{ end }}
+</div>

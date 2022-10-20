@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+    {{ partial "page-header" . }}
+
+    <div class="page-background blue">
+
+        <div class="page-width">
+
+            {{ partial "tabs-vertical-icons" (dict "account_tabs" .Site.Data.account_tabs ) }}
+
+            {{partial "notification" (dict "notification_title" "Free Annual CIBIL Score & Report" "notification_content" "You are eligible for your Free Annual CIBIL Score & Report.<br><a href='https://myscore.cibil.com/CreditView/enrollShort.page?enterprise=CIBIL&offer=FACRA&_gl=1*1j5klxm*_ga*MTU3Mjk2MDIyMS4xNjY1OTkzODQ4*_ga_GGL6JJ79K2*MTY2NTk5Mzg0Ny4xLjAuMTY2NTk5Mzg0Ny42MC4wLjA.&_ga=2.102153607.769228524.1665993848-1572960221.1665993848' class='cibil-link default-case' target='_blank'>Get your Free Annual CIBIL Score & Report</a>")}}
+
+            {{partial "notification" (dict "notification_title" "Free Annual CIBIL Score & Report" "notification_content" "Your next Free Annual CIBIL Score & Report will become<br>available on <b>01/01/2022</b>")}}
+
+        </div>
+
+    </div>
+
+{{end}}

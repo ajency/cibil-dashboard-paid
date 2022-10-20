@@ -1,0 +1,451 @@
+[
+  {
+    "summary_slides": [
+      {
+        "summary_usage": 45,
+        "summary_title": "Credit card usage",
+        "summary_date": "as of 19th Apr'22",
+        "summary_content": [
+          {
+            "content_title": "How does this impact your CIBIL Score?",
+            "content_description": "Lenders generally like to see that you aren't using too much of your available credit. The more credit you use, the harder it may to be pay back."
+          }
+        ],
+        "related_article": [
+          {
+            "article_image": "images/dynamic-images/article-1.png",
+            "article_title": "Credit Utilization Ratio: How it works & how to improve It?",
+            "article_link": "#",
+            "article_link_text": "Read More"
+          }
+        ]
+      },
+      {
+        "summary_number": 9,
+        "summary_title": "Credit enquiries",
+        "summary_date": "as of 19th Apr'22",
+        "summary_content": [
+          {
+            "content_title": "How does this impact your CIBIL Score?",
+            "content_description": "Multiple and frequent hard enquiries by lenders may negatively impact your CIBIL Score."
+          }
+        ],
+        "related_article": [
+          {
+            "article_image": "images/dynamic-images/article-2.png",
+            "article_title": "7 Steps Towards Maintaining A Healthy CIBIL Score",
+            "article_link": "#",
+            "article_link_text": "Read More"
+          }
+        ]
+      },
+      {
+        "summary_number": 7,
+        "summary_title": "total accounts",
+        "summary_date": "as of 19th Apr'22",
+        "summary_content": [
+          {
+            "content_title": "How does this impact your CIBIL Score?",
+            "content_description": "Your total accounts reflect the experience you have with handling credit. A good mix of secured and unsecured loans is a sign of healthy credit profile."
+          }
+        ],
+        "related_article": [
+          {
+            "article_image": "images/dynamic-images/article-3.png",
+            "article_title": "Build a positive credit profile with good credit habits",
+            "article_link": "#",
+            "article_link_text": "Read Now"
+          }
+        ]
+      },
+      {
+        "summary_years": 4,
+        "summary_months": 3,
+        "summary_title": "Age of Credit",
+        "summary_date": "as of 19th Apr'22",
+        "summary_content": [
+          {
+            "content_title": "How does this impact your CIBIL Score?",
+            "content_description": "Age of credit is the number of years that have passed since you opened your first credit account. Handling your credit in a responsible manner and making timely payments on your active accounts, will have a positive impact on your CIBIL Score."
+          }
+        ],
+        "related_article": [
+          {
+            "article_image": "images/dynamic-images/article-4.png",
+            "article_title": "Top 5 Tips To Boost Your Credit Health",
+            "article_link": "#",
+            "article_link_text": "Read More"
+          }
+        ]
+      }
+    ],
+    "all_accounts": [
+      {
+        "open_accounts": [
+          {
+            "member_name": "HDFC Bank",
+            "account_type": "Consumer Loan",
+            "account_number": "0000036115055594465",
+            "ownership": "Individual",
+            "dues": true,
+            "tabs": [
+              {
+                "account_details": [
+                  {
+                    "credit_limit": "₹56,000.00",
+                    "sanctioned_ammount": "₹36,000.00",
+                    "current_balance": "₹20,000.00",
+                    "cash_limit": "₹0.00",
+                    "ammount_overdue": "₹0.00",
+                    "rate_of_interest": "₹0.00",
+                    "repayment_tenure": "₹0.00",
+                    "emi_ammount": "₹0.00",
+                    "payment_frequency": "₹0.00",
+                    "actual_payment_ammount": "₹0.00",
+                    "date_opened": "₹0.00",
+                    "date_last_payment": "₹0.00",
+                    "date_reported": "₹0.00",
+                    "value_of_collateral": "₹0.00",
+                    "type_of_collateral": "₹0.00",
+                    "suit_filed": "₹0.00",
+                    "credit_facility_status": "₹0.00",
+                    "total_ammount": "₹0.00",
+                    "principle_ammount": "₹0.00",
+                    "settlement_ammount": "₹0.00"
+                  }
+                ],
+                "payment_status": [
+                  {
+                    "payment_start_date": "01/04/2021",
+                    "payment_end_date": "01/08/2021",
+                    "payment_history": [
+                      {
+                        "month_n_year": "August 2021",
+                        "ammount": "₹0.00"
+                      },
+                      {
+                        "month_n_year": "July 2021",
+                        "ammount": "₹0.00"
+                      }
+                    ],
+                    "shortforms": [
+                      "<b>STD</b>: Standard",
+                      "<b>DBT</b>: Doubtful",
+                      "<b>###</b>: Number of Days Past Due",
+                      "<b>SMA</b>: Special Mention Account",
+                      "<b>SUB</b>: Substandard",
+                      "<b>LSS</b>: Loss",
+                      "<b>XXX</b>: Not Reported"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "member_name": "Axis Bank",
+            "account_type": "Home Loan",
+            "account_number": "0937948700028378900",
+            "ownership": "Joint",
+            "dues": true,
+            "tabs": [
+              {
+                "account_details": [
+                  {
+                    "credit_limit": "₹56,000.00",
+                    "sanctioned_ammount": "₹36,000.00",
+                    "current_balance": "₹20,000.00",
+                    "cash_limit": "₹0.00",
+                    "ammount_overdue": "₹0.00",
+                    "rate_of_interest": "₹0.00",
+                    "repayment_tenure": "₹0.00",
+                    "emi_ammount": "₹0.00",
+                    "payment_frequency": "₹0.00",
+                    "actual_payment_ammount": "₹0.00",
+                    "date_opened": "₹0.00",
+                    "date_last_payment": "₹0.00",
+                    "date_reported": "₹0.00",
+                    "value_of_collateral": "₹0.00",
+                    "type_of_collateral": "₹0.00",
+                    "suit_filed": "₹0.00",
+                    "credit_facility_status": "₹0.00",
+                    "total_ammount": "₹0.00",
+                    "principle_ammount": "₹0.00",
+                    "settlement_ammount": "₹0.00"
+                  }
+                ],
+                "payment_status": [
+                  {
+                    "payment_start_date": "01/04/2021",
+                    "payment_end_date": "01/08/2021",
+                    "payment_history": [
+                      {
+                        "month_n_year": "August 2021",
+                        "ammount": "₹0.00"
+                      },
+                      {
+                        "month_n_year": "July 2021",
+                        "ammount": "₹0.00"
+                      }
+                    ],
+                    "shortforms": [
+                      "STD: Standard",
+                      "DBT: Doubtful",
+                      "###: Number of Days Past Due",
+                      "SMA: Special Mention Account",
+                      "SUB: Substandard",
+                      "LSS: Loss",
+                      "XXX: Not Reported"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "member_name": "ICICI Bank",
+            "account_type": "Personal Loan",
+            "account_number": "0009476839012001234",
+            "ownership": "Individual",
+            "dues": true,
+            "tabs": [
+              {
+                "account_details": [
+                  {
+                    "credit_limit": "₹56,000.00",
+                    "sanctioned_ammount": "₹36,000.00",
+                    "current_balance": "₹20,000.00",
+                    "cash_limit": "₹0.00",
+                    "ammount_overdue": "₹0.00",
+                    "rate_of_interest": "₹0.00",
+                    "repayment_tenure": "₹0.00",
+                    "emi_ammount": "₹0.00",
+                    "payment_frequency": "₹0.00",
+                    "actual_payment_ammount": "₹0.00",
+                    "date_opened": "₹0.00",
+                    "date_last_payment": "₹0.00",
+                    "date_reported": "₹0.00",
+                    "value_of_collateral": "₹0.00",
+                    "type_of_collateral": "₹0.00",
+                    "suit_filed": "₹0.00",
+                    "credit_facility_status": "₹0.00",
+                    "total_ammount": "₹0.00",
+                    "principle_ammount": "₹0.00",
+                    "settlement_ammount": "₹0.00"
+                  }
+                ],
+                "payment_status": [
+                  {
+                    "payment_start_date": "01/04/2021",
+                    "payment_end_date": "01/08/2021",
+                    "payment_history": [
+                      {
+                        "month_n_year": "August 2021",
+                        "ammount": "₹0.00"
+                      },
+                      {
+                        "month_n_year": "July 2021",
+                        "ammount": "₹0.00"
+                      }
+                    ],
+                    "shortforms": [
+                      "STD: Standard",
+                      "DBT: Doubtful",
+                      "###: Number of Days Past Due",
+                      "SMA: Special Mention Account",
+                      "SUB: Substandard",
+                      "LSS: Loss",
+                      "XXX: Not Reported"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "closed_accounts": [
+          {
+            "member_name": "HDFC Bank",
+            "account_type": "Consumer Loan",
+            "account_number": "0000036115055594465",
+            "ownership": "Individual",
+            "dues": true,
+            "tabs": [
+              {
+                "account_details": [
+                  {
+                    "credit_limit": "₹56,000.00",
+                    "sanctioned_ammount": "₹36,000.00",
+                    "current_balance": "₹20,000.00",
+                    "cash_limit": "₹0.00",
+                    "ammount_overdue": "₹0.00",
+                    "rate_of_interest": "₹0.00",
+                    "repayment_tenure": "₹0.00",
+                    "emi_ammount": "₹0.00",
+                    "payment_frequency": "₹0.00",
+                    "actual_payment_ammount": "₹0.00",
+                    "date_opened": "₹0.00",
+                    "date_last_payment": "₹0.00",
+                    "date_reported": "₹0.00",
+                    "value_of_collateral": "₹0.00",
+                    "type_of_collateral": "₹0.00",
+                    "suit_filed": "₹0.00",
+                    "credit_facility_status": "₹0.00",
+                    "total_ammount": "₹0.00",
+                    "principle_ammount": "₹0.00",
+                    "settlement_ammount": "₹0.00"
+                  }
+                ],
+                "payment_status": [
+                  {
+                    "payment_start_date": "01/04/2021",
+                    "payment_end_date": "01/08/2021",
+                    "payment_history": [
+                      {
+                        "month_n_year": "August 2021",
+                        "ammount": "₹0.00"
+                      },
+                      {
+                        "month_n_year": "July 2021",
+                        "ammount": "₹0.00"
+                      }
+                    ],
+                    "shortforms": [
+                      "STD: Standard",
+                      "DBT: Doubtful",
+                      "###: Number of Days Past Due",
+                      "SMA: Special Mention Account",
+                      "SUB: Substandard",
+                      "LSS: Loss",
+                      "XXX: Not Reported"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "member_name": "HDFC Bank",
+            "account_type": "Consumer Loan",
+            "account_number": "0000036115055594465",
+            "ownership": "Individual",
+            "dues": true,
+            "tabs": [
+              {
+                "account_details": [
+                  {
+                    "credit_limit": "₹56,000.00",
+                    "sanctioned_ammount": "₹36,000.00",
+                    "current_balance": "₹20,000.00",
+                    "cash_limit": "₹0.00",
+                    "ammount_overdue": "₹0.00",
+                    "rate_of_interest": "₹0.00",
+                    "repayment_tenure": "₹0.00",
+                    "emi_ammount": "₹0.00",
+                    "payment_frequency": "₹0.00",
+                    "actual_payment_ammount": "₹0.00",
+                    "date_opened": "₹0.00",
+                    "date_last_payment": "₹0.00",
+                    "date_reported": "₹0.00",
+                    "value_of_collateral": "₹0.00",
+                    "type_of_collateral": "₹0.00",
+                    "suit_filed": "₹0.00",
+                    "credit_facility_status": "₹0.00",
+                    "total_ammount": "₹0.00",
+                    "principle_ammount": "₹0.00",
+                    "settlement_ammount": "₹0.00"
+                  }
+                ],
+                "payment_status": [
+                  {
+                    "payment_start_date": "01/04/2021",
+                    "payment_end_date": "01/08/2021",
+                    "payment_history": [
+                      {
+                        "month_n_year": "August 2021",
+                        "ammount": "₹0.00"
+                      },
+                      {
+                        "month_n_year": "July 2021",
+                        "ammount": "₹0.00"
+                      }
+                    ],
+                    "shortforms": [
+                      "STD: Standard",
+                      "DBT: Doubtful",
+                      "###: Number of Days Past Due",
+                      "SMA: Special Mention Account",
+                      "SUB: Substandard",
+                      "LSS: Loss",
+                      "XXX: Not Reported"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "member_name": "HDFC Bank",
+            "account_type": "Consumer Loan",
+            "account_number": "0000036115055594465",
+            "ownership": "Individual",
+            "dues": true,
+            "tabs": [
+              {
+                "account_details": [
+                  {
+                    "credit_limit": "₹56,000.00",
+                    "sanctioned_ammount": "₹36,000.00",
+                    "current_balance": "₹20,000.00",
+                    "cash_limit": "₹0.00",
+                    "ammount_overdue": "₹0.00",
+                    "rate_of_interest": "₹0.00",
+                    "repayment_tenure": "₹0.00",
+                    "emi_ammount": "₹0.00",
+                    "payment_frequency": "₹0.00",
+                    "actual_payment_ammount": "₹0.00",
+                    "date_opened": "₹0.00",
+                    "date_last_payment": "₹0.00",
+                    "date_reported": "₹0.00",
+                    "value_of_collateral": "₹0.00",
+                    "type_of_collateral": "₹0.00",
+                    "suit_filed": "₹0.00",
+                    "credit_facility_status": "₹0.00",
+                    "total_ammount": "₹0.00",
+                    "principle_ammount": "₹0.00",
+                    "settlement_ammount": "₹0.00"
+                  }
+                ],
+                "payment_status": [
+                  {
+                    "payment_start_date": "01/04/2021",
+                    "payment_end_date": "01/08/2021",
+                    "payment_history": [
+                      {
+                        "month_n_year": "August 2021",
+                        "ammount": "₹0.00"
+                      },
+                      {
+                        "month_n_year": "July 2021",
+                        "ammount": "₹0.00"
+                      }
+                    ],
+                    "shortforms": [
+                      "STD: Standard",
+                      "DBT: Doubtful",
+                      "###: Number of Days Past Due",
+                      "SMA: Special Mention Account",
+                      "SUB: Substandard",
+                      "LSS: Loss",
+                      "XXX: Not Reported"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

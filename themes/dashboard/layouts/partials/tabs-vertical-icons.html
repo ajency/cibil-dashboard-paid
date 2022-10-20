@@ -1,0 +1,25 @@
+{{if .account_tabs}}
+    {{range .account_tabs}}
+        <div class="tabs-vertical-icons">
+            <div class="tabs-vertical-icons__wraper">
+                {{if .tabs}}
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        {{range $index, $tabs:= .tabs}}
+                            <button class="nav-link {{if eq .active true}}active{{end}}" id="{{ anchorize .tab_title}}-tab" data-toggle="tab" data-target="#{{ anchorize .tab_title}}" type="button" role="tab" aria-controls="{{ anchorize .tab_title}}" aria-selected="true">
+                                <div class="tab-icon">{{partial .tab_icon }}</div>
+                                <p class="tab-title">{{.tab_title}}</p>
+                            </button>
+                        {{end}}
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        {{range $index, $tabs:= .tabs}}
+                            <div class="tab-pane fade {{if eq .active true}}show active{{end}}" id="{{ anchorize .tab_title}}" role="tabpanel" aria-labelledby="{{ anchorize .tab_title}}-tab">{{partial .tab_content}}</div>
+                        {{end}}
+                    </div>
+                {{end}}
+            </div>
+        </div>
+    {{end}}
+{{end}}

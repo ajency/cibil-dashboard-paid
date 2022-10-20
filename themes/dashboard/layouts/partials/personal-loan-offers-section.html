@@ -1,0 +1,43 @@
+<div class="personal-loan-offers-section" id="loan-offers">
+    <div class="page-width">
+        <p class="section-heading section-heading-small">{{.section_heading}}</p>
+    </div>
+    <div class="page-width personal-loan-offers-section__wraper">
+        <div class="offers-n-partners">
+            {{ range .offers_n_partners }}
+                {{if ge .total_offers 1}}
+                    <div class="section-head">
+                        <p class="section-title">
+                            {{if .total_offers}}
+                                We have found <strong>{{.total_offers}} {{if gt .total_offers 1}}offers{{else}}offer{{end}}</strong> tailored to your profile.
+                            {{end}}
+                        </p>
+                        {{ if .link}}<a href="{{.link}}" class="cibil-link-button"><span>{{.link_text}}</span></a>{{end}}
+                    </div>
+                    <div class="offers">
+                        {{range .offers}}
+                            {{partial "offer-card" .}}
+                        {{end}}
+                    </div>
+                    {{if .button_link}}<a href="{{.button_link}}" class="cibil-button hide-sm-down">{{.button_text}}</a>{{end}}
+                {{end}}
+                    <div class="section-head our-partners">
+                        <p class="section-title">Our Partners</p>
+                    </div>
+                    <div class="partners">
+                        {{range .partners}}
+                            <div class="partner">
+                                <div class="partner__wraper">
+                                    <div class="logo-container {{if eq .premium_partner true}}premium-partner{{end}}">
+                                        <img src="{{.partner_logo | relURL }}" title="{{.partner_title}}" alt="{{.partner_title}}" class="partner-logo">
+                                    </div>
+                                    <p class="partner-title">{{.partner_title}}</p>
+                                </div>
+                            </div>
+                        {{end}}
+                    </div>
+                    {{if .button_link}}<a href="{{.button_link}}" class="cibil-button hide-md-up">{{.button_text}}</a>{{end}}
+            {{end}}
+        </div>
+    </div>
+</div>

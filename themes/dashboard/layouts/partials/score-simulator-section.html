@@ -1,0 +1,103 @@
+<div class="page-width">
+    <div class="score-simulator-section">
+        <div class="scenario-container">
+            <p class="scenario-container-title">Try how the tool works to help you estimate the impact of key credit decisions on your CIBIL Score</p>
+            
+            <div class="scenario-list hasBlank">
+
+                <div class="scenario blank">
+                    <div class="scenario-header">
+                        <div class="confirmation">
+                            <div class="confirmation__Wraper">
+                                <span class="confirmation-text">
+                                    Are you sure you want to remove this Scenario?
+                                </span>
+                                <!-- removed closeScenario(this) -->
+                                <span class="warning-cta deleteScenario" onclick="deleteScenario(this),cancelAction(this)">{{partial "icons/confirm-yellow"}}</span>
+                                <span class="warning-cta"onclick="cancelAction(this)">{{ partial "icons/cancel-yellow" }}</span>
+                            </div>
+                        </div>
+                        <p class="scenario-name">Add Scenario <span>1</span></p>
+                        <p class="scenatio-cta">
+                            <a class="minimize" onclick="minimizeScenario(this)">{{partial "icons/black-minimize"}} {{partial "icons/black-plus"}}</a>
+                            <a onclick="showConfirmation(this)">{{partial "icons/black-close"}}</a>
+                        </p>
+                    </div>
+                    <div class="scenario-body">
+                        <!-- options -->
+                        <div class="scenario-options">
+                            <div class="scenario-option" onclick="addOption(this, 'missPayment')">
+                                {{ partial "icons/add"}}
+                                <span>Miss a payment</span>
+                            </div>
+                            <div class="scenario-option" onclick="addOption(this, 'newLoan')">
+                                {{ partial "icons/add"}}
+                                <span>Add a New Loan or Credit Card</span>
+                            </div>
+                            <div class="scenario-option" onclick="addOption(this, 'closeCreditCard')">
+                                {{ partial "icons/add"}}
+                                <span>Close your oldest credit card</span>
+                            </div>
+                            <!-- <div class="scenario-option">
+                                {{ partial "icons/add"}}
+                                <span>Add new enquiry</span>
+                            </div> -->
+                            <div class="scenario-option" onclick="addOption(this, 'clearAccountBalance')">
+                                {{ partial "icons/add"}}
+                                <span>Clear the outstanding balances (Active accounts)</span>
+                            </div>
+                            <div class="scenario-option" onclick="addOption(this, 'clearBalance')">
+                                {{ partial "icons/add"}}
+                                <span>Clear the outstanding balances (Active credit cards)</span>
+                            </div>
+                        
+                        </div>
+    
+                        <!-- option cards -->
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="scenario-cta">
+                <a class="cibil-button smiluate-now-cta disabled" onclick="upgradePlan()">SIMULATE NOW</a>
+                <a class="primary-link add-scenario" onclick="addScenario()">+Add another scenario</a>
+            </div>
+            {{ partial "upgrade-plan-cta" (dict "content" "To view your simulated CIBIL Score <a href='/cibil-dashboard/overview_paid/upgrade-plan/' class='cibil-link font-inherit'>UPGRADE NOW</a>." ) }}
+        </div>
+        <div class="score-display-container">
+            <div class="score-wrap">
+                <div class="link-cta">
+                    <p class="score-message">Your current score is 3 days old</p>
+                    <a href="/cibil-dashboard-paid/overview_paid/upgrade-plan/" class="score-refresh-link">Refresh Now</a>
+                </div>
+                <div class="score-display-box">
+                    <div class="score-display-box__wraper">
+                        <div>
+                            {{ partial "simulator" (dict "cibil_score" "720" "score_text" "<b>Current <strong class='highlight-text-blue'>CIBIL</strong> Score</b>" )}}
+                        </div>
+                        <hr class="horizontal-seperator">
+                        <div>
+                            {{ partial "empty-simulator" (dict "score_text" "<b>Your simulated <strong class='highlight-text-blue'>CIBIL</strong> Score</b>" )}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="counter" value="1">
+    <input type="hidden" id="optionsAdded" value="">
+</div>
+
+<style>
+    .faq-section{
+        padding-top: 30px;
+        border-top: 1px solid #ABABAB;
+    }
+    @media (max-width: 1199.98px){
+        .faq-section{
+            border: 0;
+        }
+    }
+</style>

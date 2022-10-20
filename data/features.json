@@ -1,0 +1,32 @@
+[
+  {
+    "icon": "images/static-images/members-icon.svg",
+    "feature_heading": "SEE Where you Stand",
+    "description": "See how your score compares with other CIBIL members",
+    "image_path_desk": "images/dynamic-images/where-you-stand-feature.svg",
+    "image_path_mob": "images/dynamic-images/where-you-stand-feature-mob.svg"
+  },
+  {
+    "classes": "image-left",
+    "icon": "images/static-images/simulator-icon1.svg",
+    "feature_heading": "Score Simulator",
+    "description": "Make the right credit decisions with Score Simulator. Find out how your credit actions can impact your CIBIL Score.",
+    "image_path_desk": "images/dynamic-images/score-simulator-feature.svg",
+    "image_path_mob": "images/dynamic-images/score-simulator-feature-mob.svg"
+  },
+  {
+    "icon": "images/static-images/alerts-icon1.svg",
+    "feature_heading": "CIBIL Alerts",
+    "description": "24x7 credit monitoring with CIBIL Alerts. Safeguard against identity theft with email, SMS and app notifications.",
+    "image_path_desk": "images/dynamic-images/cibil-alerts-feature.svg",
+    "image_path_mob": "images/dynamic-images/cibil-alerts-feature-mob.svg"
+  },
+  {
+    "classes": "image-left",
+    "icon": "images/static-images/score-history-icon.svg",
+    "feature_heading": "Score History",
+    "description": "Analyse your credit data, and know your eligibility for future loans.",
+    "image_path_desk": "images/dynamic-images/score-history-feature.svg",
+    "image_path_mob": "images/dynamic-images/score-history-feature-mob.svg"
+  }
+]

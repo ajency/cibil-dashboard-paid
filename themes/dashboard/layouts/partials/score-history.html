@@ -1,0 +1,21 @@
+<div class="score-history">
+    <div class="score-history__wraper">
+        <div class="history-graph">
+            {{if  eq .state "unsubscribed"}}
+                <img src="{{ "/images/static-images/score-history-graph.svg" | relURL }}" alt="" class="empty-graph  hide-sm-down">
+                <img src="{{ "/images/static-images/score-history-graph-mob.svg" | relURL }}" alt="" class="empty-graph  hide-md-up">
+            {{end}}
+        </div>
+        <div class="history-details">
+            <div class="history-details__wraper">
+                {{if  eq .state "unsubscribed"}}
+                    <div class="{{ anchorize .state}}">
+                        {{if .unsubscribed_content}}<p class="content">{{.unsubscribed_content}}</p>{{end}}
+                        {{if .content1}}<p class="content">{{.content1}}</p>{{end}}
+                        {{if .subscribe_link}} <a href="{{.subscribe_link}}" class="cibil-link cibil-link-right-icon">{{.subscribe_link_text}}</a> {{end}}
+                    </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="simulator empty-simulator">
+    <div class="score-bar">
+        <div class="bar">
+            <img class="bar-image" src="{{ "/images/static-images/empty-score.svg" | relURL }}">
+        </div>
+        <p class="cibil-score" style="visibility: hidden;">0</p>
+        {{if .score_text}}<p class="score-text">{{.score_text | safeHTML }}</p>{{end}}
+    </div>
+</div>

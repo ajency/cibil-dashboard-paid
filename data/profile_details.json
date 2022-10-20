@@ -1,0 +1,214 @@
+[
+    {
+        "tableName": "Personal Details",
+        "tableInfo": [
+            {
+                "rows": [
+                    {
+                        "title": "Name",
+                        "desc": "Rahul Kumar Varma"
+                    },
+                    {
+                        "title": "Date of Birth",
+                        "desc": "14/07/1963",
+                        "half": true
+                    },
+                    {
+                        "title": "Gender",
+                        "desc": "Male",
+                        "half": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "Identification Details",
+        "tableInfo": [
+            {
+                "rows": [
+                    {
+                        "title": "Identification Type",
+                        "desc": "Income Tax PAN Card(e)"
+                    },
+                    {
+                        "title": "ID Number",
+                        "desc": "BIMPB8931P"
+                    },
+                    {
+                        "title": "Issue Date",
+                        "desc": "--",
+                        "half": true
+                    },
+                    {
+                        "title": "Expiry Date",
+                        "desc": "--",
+                        "half": true
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "Address Details",
+        "white": true,
+        "tableInfo": [
+            {
+                "rows": [
+                    {
+                        "title": "Address",
+                        "desc": "1st Floor, Panjim Convention Center, Vistar Estates, Mala, Rua de Ourém, Neugi Nagar, Panaji, Goa 403001"
+                    },
+                    {
+                        "title": "Category",
+                        "desc": "Residence Address"
+                    },
+                    {
+                        "title": "Residence Code",
+                        "desc": "--"
+                    },
+                    {
+                        "title": "Date Reported",
+                        "desc": "11/02/2021"
+                    }
+                ]
+            },
+            {
+                "rows": [
+                    {
+                        "title": "Address",
+                        "desc": "NH 66, Alto Porvorim, Pilerne, Goa 403521"
+                    },
+                    {
+                        "title": "Category",
+                        "desc": "Office Address"
+                    },
+                    {
+                        "title": "Residence Code",
+                        "desc": "--"
+                    },
+                    {
+                        "title": "Date Reported",
+                        "desc": "11/02/2021"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "Contact Details",
+        "white": true,
+        "tableInfo": [
+            {
+                "rows": [
+                    {
+                        "title": "Telephone Number Type",
+                        "desc": "Office Phone (e)"
+                    },
+                    {
+                        "title": "Telephone Number",
+                        "desc": "987654321"
+                    },
+                    {
+                        "title": "Telephone Extension",
+                        "desc": "--"
+                    }
+                ]
+            },
+            {
+                "rows": [
+                    {
+                        "title": "Telephone Number Type",
+                        "desc": "Personal Number (e)"
+                    },
+                    {
+                        "title": "Telephone Number",
+                        "desc": "786543216"
+                    },
+                    {
+                        "title": "Telephone Extension",
+                        "desc": "--"
+                    }
+                ]
+            },
+            {
+                "rows": [
+                    {
+                        "title": "Telephone Number Type",
+                        "desc": "Office Phone (e)"
+                    },
+                    {
+                        "title": "Telephone Number",
+                        "desc": "987654321"
+                    },
+                    {
+                        "title": "Telephone Extension",
+                        "desc": "--"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "Email Details",
+        "white": true,
+        "tableInfo": [
+            {
+                "rows": [
+                    {
+                        "title": "Email ID",
+                        "desc": "rahul@gmail.com"
+                    }
+                ]
+            },
+            {
+                "rows": [
+                    {
+                        "title": "Email ID",
+                        "desc": "rahul10@gmail.com"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "employment Details",
+        "tableInfo": [
+            {
+                "rows": [
+                    {
+                        "title": "Account Type",
+                        "desc": "Loan",
+                        "half": true
+                    },
+                    {
+                        "title": "Date Reported",
+                        "desc": "21/10/2021",
+                        "half": true
+                    },
+                    {
+                        "title": "Occupation",
+                        "desc": "General Manager",
+                        "half": true
+                    },
+                    {
+                        "title": "Income",
+                        "desc": "₹80,000",
+                        "half": true
+                    },
+                    {
+                        "title": "Monthly / Annual Income Indicator",
+                        "desc": "₹40,000",
+                        "half": true
+                    },
+                    {
+                        "title": "Net / Gross Income Indicator",
+                        "desc": "₹80,000",
+                        "half": true
+                    }
+                    
+                ]
+            }
+        ]
+    }
+]
