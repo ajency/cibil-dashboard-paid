@@ -408,3 +408,15 @@ var editInfo = getUrlParameter('editInfo');
 if (editInfo == "show"){
   editOInfoToggle();
 }
+
+//score comparison
+if($('.comparison-graph')){
+  let percentBox = $('.comparison-graph .graph-bar').find('.percent');
+
+  //assign percentages
+  $(percentBox).each(function(){
+    let scorePercent = $(this).data('percent');
+    $(this).css({'width':scorePercent});
+    $(this).html('<span>'+scorePercent+'</span>');
+  });
+}

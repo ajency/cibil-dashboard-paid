@@ -14,6 +14,48 @@
                     <img class="hide-md-up" src="{{ "images/static-images/empty-score-comparison-mob.png" | relURL }}" alt="">
                 </div>
             </div>
+            {{else}}
+                <div class="comparison">
+                    <div class="comparison-head">
+                        <p>See how your CIBIL score compares to others</p>
+                        <a href="#" class="cibil-link-button"><span>EDIT INFORMATION</span></a>
+                    </div>
+                    <div class="comparison-graph">
+                        <div class="comparison-graph__wraper">
+                            <table class="comparison-data">
+                                <tr>
+                                    <th>City</th>
+                                    <th>Income Type</th>
+                                    <th>Monthly Income</th>
+                                </tr>
+                                <tr>
+                                    <td>Mumbai</td>
+                                    <td>Salaried</td>
+                                    <td>₹ 80,000</td>
+                                </tr>
+                            </table>
+                            <div class="graph-container">
+                                <div class="graph-bar">
+                                    <div class="percent low" data-percent="15%"></div>
+                                    <div class="percent low-medium" data-percent="22%"></div>
+                                    <div class="percent medium" data-percent="25%"></div>
+                                    <div class="percent high-medium" data-percent="18%"></div>
+                                    <div class="percent high" data-percent="20%"></div>
+                                </div>
+                                <div class="graph-bar-pointer">
+                                    <div class="graph-bar-pointer__wraper">
+                                        <p class="hairline-bold">Your CIBIL Score</p>
+                                        <p class="score">767</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comparison-footer">
+                        <p class="score-percent-text body-bold">Your CIBIL Score lies in the top <span class="percent">70</span>% in Mumbai.</p>
+                        <p>Based on the Transunion CIBIL Data</p>
+                    </div>
+                </div>
             {{end}}
         </div>
     </div>

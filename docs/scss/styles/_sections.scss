@@ -1021,6 +1021,25 @@
         object-fit: cover;
       }
     }
+    .comparison-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      p {
+        margin-bottom: 0px;
+      }
+    }
+    .comparison-footer {
+      text-align: center;
+      margin-top: 20px;
+      p{
+        margin-bottom: 0px;
+      }
+      .score-percent-text{
+        margin-bottom: 2px;
+      }
+    }
   }
   @include media-breakpoint-down(sm) {
     margin-bottom: 40px;
@@ -3473,10 +3492,10 @@ b.plus-icon {
           padding: 30px 20px 20px;
           align-items: flex-start;
         }
-        .modal-body{
+        .modal-body {
           padding: 20px 20px 30px;
-          .form-group{
-            .checkbox-wraper{
+          .form-group {
+            .checkbox-wraper {
               margin-top: 0px;
             }
           }

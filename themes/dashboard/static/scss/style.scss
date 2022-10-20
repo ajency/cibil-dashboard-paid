@@ -19,6 +19,7 @@ $light: #fff;
 $grey: #707070;
 $grey-1: #acacac;
 $grey-2: #f9f9f9;
+$grey-3: #919191;
 $light-blue: #f5f9ff;
 $light-blue-2: #f6f7fc;
 $light-blue-3: #f1f6ff;
@@ -33,6 +34,11 @@ $secondary-dark-green: #3bb012;
 $light-green: #dcecbd;
 $red: #d10000;
 $secondary-red: #d74025;
+$low: #e15825;
+$low-medium: #e5862e;
+$medium: #e7b92e;
+$high-medium: #a9d161;
+$high: #009900;
 $light-red: #f7d9d3;
 $secondary-denim: #006685;
 
@@ -117,7 +123,7 @@ body {
   @include letter-spacing;
 }
 
-.intro-regular{
+.intro-regular {
   font-weight: $intro-regular;
 }
 
@@ -126,10 +132,10 @@ p {
   font-family: $intro;
   @include body;
 }
-b{
+b {
   font-weight: $intro-regular;
 }
-strong{
+strong {
   font-weight: $intro-bold;
 }
 .primary-heading {
@@ -139,6 +145,17 @@ strong{
     color: $primary-blue;
     text-transform: uppercase;
   }
+}
+
+.body-bold {
+  @include body;
+  font-weight: $intro-bold;
+}
+
+.hairline-bold {
+  font-weight: $intro-regular;
+  font-size: 14px;
+  line-height: 24px;
 }
 
 /* Typography | End */
