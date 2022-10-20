@@ -57,38 +57,6 @@ $(function () {
     $('.hamburger').removeClass('opened');
     $(".overlay").toggleClass('opened');
   });
-
-  // animated simulator
-  $(".simulator:not(.empty-simulator) .score-bar").each(function () {
-    updateScore(0);
-  });
-  function updateScore($initialScore) {
-    $(".simulator:not(.empty-simulator) .score-bar").each(function () {
-      var $pointer = $(this).find(".score-pointer .pointer-image");
-      var $val = $(this).find(".cibil-score");
-
-      /* console.log($val.text()); */
-
-      var oldperc = parseInt($val.text(), 10);
-      var perc = oldperc - 300;
-      var $outputPerc = $(".outputPerc");
-
-      $({ p: $initialScore }).animate(
-        { p: perc },
-        {
-          duration: 1000,
-          easing: "swing",
-          step: function (p) {
-            $pointer.css({
-              transform:
-                "rotate(" + Math.ceil(((p * 100) / 900) * 2.69) + "deg)",
-            });
-            $val.text((p + 300) | 0);
-          },
-        }
-      );
-    });
-  }
     
   // $('.custom-select-input').click(function(){
   //     $(this).toggleClass('opened')
@@ -268,4 +236,44 @@ function editOInfoToggle(){
 function submitEditInfo(){
   resetCompare()
   $('.loan-offer-js').toggleClass('edit');
+}
+
+// refresh popup
+function refreshPopupHide(){
+  $('#refreshPopup').modal('hide');
+}
+function refreshPopupShow(){
+  $('#refreshPopup').modal('show');
+}
+
+// animated simulator
+$(".simulator:not(.empty-simulator) .score-bar").each(function () {
+  updateScore(0);
+});
+function updateScore($initialScore) {
+  $(".simulator:not(.empty-simulator) .score-bar").each(function () {
+    var $pointer = $(this).find(".score-pointer .pointer-image");
+    var $val = $(this).find(".cibil-score");
+
+    /* console.log($val.text()); */
+
+    var oldperc = parseInt($val.text(), 10);
+    var perc = oldperc - 300;
+    var $outputPerc = $(".outputPerc");
+
+    $({ p: $initialScore }).animate(
+      { p: perc },
+      {
+        duration: 1000,
+        easing: "swing",
+        step: function (p) {
+          $pointer.css({
+            transform:
+              "rotate(" + Math.ceil(((p * 100) / 900) * 2.69) + "deg)",
+          });
+          $val.text((p + 300) | 0);
+        },
+      }
+    );
+  });
 }

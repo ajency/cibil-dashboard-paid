@@ -115,7 +115,7 @@
   align-items: center;
   justify-content: center;
   text-decoration: underline;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1px !important;
   text-underline-offset: 0.1em;
   /* text-decoration: none !important; */
   /* &:before {
@@ -188,6 +188,9 @@
   }
   &.inherit-font {
     font-size: inherit;
+  }
+  &.intro-regular{
+    font-weight: $intro-regular;
   }
 
   @include media-breakpoint-down(sm) {
@@ -751,6 +754,7 @@ input[type="number"] {
 .disabled {
   pointer-events: none !important;
   background-color: $border-color-4 !important;
+  border-color: $border-color-4 !important;
   color: $light !important;
 }
 

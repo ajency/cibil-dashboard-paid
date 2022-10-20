@@ -1031,6 +1031,32 @@
     </div>
 </footer>
 
+<div class="modal fade" id="refreshPopup" tabindex="-1" role="dialog" aria-labelledby="refreshPopup-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="primary-heading-h4 hide-sm-down">Refresh your CIBIL Score & Report</p>
+          <p class="primary-heading-h4 hide-md-up">Refresh your<br>CIBIL Score & Report</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><img src="/cibil-dashboard-paid/images/static-images/close-icon.svg" alt=""></span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p>On refreshing you will be able to access your latest CIBIL Score & Report. Please print a copy of your current CIBIL Score & Report for future reference.</p><p class='heading'><strong>Statement and Confirmation</strong></p><p>I have read, Understood and agree to the <a href='#' class='cibil-link default-case inherit-font intro-regular' target='_blank'>Terms and Conditions</a> and <a href='#' class='cibil-link default-case inherit-font intro-regular' target='_blank'>Privacy Policy</a> hosted on CIBIL's website and I confirm that by clicking on "I Agree & Confirm" checkbox and the "Continue button", I am authorizing CIBIL to obtain information from my personal credit profile from CIBIL in order to confirm my identity and display my credit data to me.</p>
+            <form class="dashboard-form" id="consentForm" novalidate>
+    <div class="form-group">
+        <div class="checkbox-wraper">
+            <input type="checkbox" id="consent_box" required>
+            <label for="consent_box"><strong>I Agree & Confirm</strong></label>
+        </div>
+    </div>
+    <button type="submit" class="cibil-button disabled" disabled>Continue</button>
+</form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <script src="/cibil-dashboard-paid/js/jquery.min.js"></script>
 <script src="/cibil-dashboard-paid/js/bootstrap.bundle.min.js"></script>
 <script src="/cibil-dashboard-paid/js/global.js"></script>
