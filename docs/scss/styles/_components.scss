@@ -2082,7 +2082,13 @@
   background: #ffffff;
   border-radius: 5px;
   padding: 24px 30px 20px;
+  //overflow: hidden;
   &__wraper {
+    .horizontal-seperator{
+      border-color:$border-color-4;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
     .comparison-data {
       margin: auto;
       margin-bottom: 22px;
@@ -2158,9 +2164,10 @@
     }
     .graph-bar-pointer {
       display: inline-block;
+      position: relative;
       &__wraper {
         text-align: center;
-        background-color: $light;
+        background-color: transparent;
         border-radius: 8px;
         padding: 10px 12px 5px;
         display: inline-flex;
@@ -2168,14 +2175,64 @@
         justify-content: center;
         position: relative;
         flex-direction: column;
-        &:before{
-          content: '';
+        &:before {
+          content: "";
           border: 8px solid $light;
           position: absolute;
           top: -16px;
           background: transparent;
           border-color: transparent;
           border-bottom-color: $light;
+        }
+      }
+    }
+    .graph-legend {
+      margin-bottom: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      grid-gap: 30px;
+      .legend {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 16px;
+        letter-spacing: 0.02em;
+        color: $grey;
+        margin-bottom: 0px;
+        display: flex;
+        align-items: center;
+        &:before {
+          content: "";
+          height: 14px;
+          width: 14px;
+          display: inline-block;
+          margin-right: 6px;
+        }
+        &.low {
+          &:before {
+            background-color: $low;
+          }
+        }
+        &.low-medium {
+          &:before {
+            background-color: $low-medium;
+          }
+        }
+        &.medium {
+          &:before {
+            background-color: $medium;
+          }
+        }
+        &.high-medium {
+          &:before {
+            background-color: $high-medium;
+          }
+        }
+        &.high {
+          &:before {
+            background-color: $high;
+          }
         }
       }
     }

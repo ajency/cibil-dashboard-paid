@@ -71,7 +71,7 @@ $(function() {
       let elWidth = tooltip_trigger.width()*70/100;
 
       let windowWidth = $( document ).width();
-      let arrowPosition = (windowWidth - leftPosition)- 48;
+      let arrowPosition = (windowWidth - leftPosition)- 40;
 
       if ( (leftPosition-elWidth) < 0 ){
         tooltip_box.css({"top":topPosition+elHeight, "left":leftPosition});
@@ -100,7 +100,7 @@ $(function() {
   
     tooltip_trigger.mouseover(function(){
       var newWindowWidth = $(window).width();
-        if (newWindowWidth < 768) {
+        if (newWindowWidth < 760) {
           calculatePositionMob();
         }
         else
@@ -412,11 +412,88 @@ if (editInfo == "show"){
 //score comparison
 if($('.comparison-graph')){
   let percentBox = $('.comparison-graph .graph-bar').find('.percent');
+  let scoreBox = $('.graph-bar-pointer');
+  let percentText = $('.score-percent-text .percent');
 
-  //assign percentages
+  //assign values
   $(percentBox).each(function(){
+    let scoreWidth = $(this).data('width');
     let scorePercent = $(this).data('percent');
-    $(this).css({'width':scorePercent});
-    $(this).html('<span>'+scorePercent+'</span>');
+
+    $(this).css({'width':scoreWidth});
+    $(this).html('<span>'+scorePercent+'%</span>');
+  });
+
+  //position score pointer
+  let graphBarPointer = $('.graph-bar-pointer');
+  let poniterBoxCenter = $(graphBarPointer).innerWidth()/2;
+
+  $(graphBarPointer).find('.graph-bar-pointer__wraper').css({'left': -(poniterBoxCenter+4)})
+  
+  $(graphBarPointer).css({'left': 0+'%'});
+
+  $(scoreBox).each(function(){
+    let scoreElement = $(this).find('.score');
+    let comparedScore = $(scoreElement).data('score');
+    let lowestScore = 300;
+    let highestScore = 900;
+    let pointerBoxPosition = Math.ceil((comparedScore - lowestScore)/(highestScore - lowestScore)*100);
+    $(this).find(scoreElement).text(comparedScore);
+
+    $({ score : lowestScore }).animate(
+      { score : comparedScore },
+      {
+        duration: 2000,
+        easing: "swing",
+        step: function (now) {
+          $(scoreElement).text((now) | 0);
+        },
+      }
+    );
+    if(pointerBoxPosition >= 0 && pointerBoxPosition <= 100){
+      //console.log('1 working');
+      $(this).animate(
+        {
+          left:  pointerBoxPosition+'%',
+        },
+        {
+          duration: 2000,
+          easing: "swing",
+        }
+      );
+    }else if(pointerBoxPosition <= 0){
+      $(this).animate(
+        {
+          left:  pointerBoxPosition+'%',
+        },
+        {
+          duration: 2000,
+          easing: "swing",
+        }
+      );
+    }
+    else{
+      $(this).animate(
+        {
+          left:  pointerBoxPosition+'%',
+        },
+        {
+          duration: 2000,
+          easing: "swing",
+        }
+      );
+    }
+
+    $({ perc : 0 }).animate(
+      { perc : pointerBoxPosition },
+      {
+        duration: 2000,
+        easing: "swing",
+        step: function (now) {
+          $(percentText).text((now) | 0);
+        },
+      }
+    );
+
   });
 }
