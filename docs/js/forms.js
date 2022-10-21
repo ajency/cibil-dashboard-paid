@@ -2,6 +2,7 @@
 let changePasswordForm = $("#changePasswordForm");
 let notificationForm = $("#notificationForm");
 let consentForm = $("#consentForm");
+let comparisonform = $('#comparisonForm');
 
 //fields
 let username = document.getElementById('username');
@@ -15,6 +16,8 @@ let sms_alert = document.getElementById('sms_alert');
 let email_alert = document.getElementById('email_alert');
 
 let consent_box = document.getElementById('consent_box');
+
+let monthly_income = document.getElementById('monthly_income');
 
 //patterns
 let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
@@ -109,11 +112,15 @@ function phoneValidation(input) {
   }
   
   //only numbers
-  $(registered_mobile).keypress(function (e) {
-    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-     return false;
-   }
-  });
+  function onlyNumbers(numberField){
+    $(numberField).keypress(function (e) {
+      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+       return false;
+     }
+    });
+  }
+  onlyNumbers(monthly_income);
+  onlyNumbers(registered_mobile);
 
   function checkEmpty(input){
     if($(input).val() !== ''){
@@ -239,4 +246,9 @@ $(consentForm).submit(function( nf_event ) {
   document.getElementById("consentForm").reset();
   $(this).find('button[type=submit]').addClass('disabled');
   $(this).find('button[type=submit]').prop("disabled", true);
+});
+
+$(comparisonform).submit(function( nf_event ) {
+  nf_event.preventDefault();
+  refreshComparison();
 });

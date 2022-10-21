@@ -1990,7 +1990,7 @@
 
 // note
 .dashboard-note {
-  background: #ffffff;
+  background: $light;
   border: 1px solid #acacac;
   border-radius: 6px;
   padding: 15px 14px;
@@ -2030,7 +2030,7 @@
 
 // notification
 .dashboard-notification {
-  background: #ffffff;
+  background: $light;
   border: 1px solid #dde0ef;
   border-radius: 6px;
   &:not(:last-child) {
@@ -2129,10 +2129,10 @@
         display: flex;
         align-items: center;
         padding: 18px 10px 14px;
-        &:first-child{
+        &:first-child {
           border-radius: 8px 0px 0px 8px;
         }
-        &:last-child{
+        &:last-child {
           border-radius: 0px 8px 8px 0px;
         }
         &.low {
@@ -2325,13 +2325,57 @@
       }
     }
   }
-  @include media-breakpoint-down(xs){
-    &__wraper{
-      .graph-legend{
-        .legend{
+  @include media-breakpoint-down(xs) {
+    &__wraper {
+      .graph-legend {
+        .legend {
           width: 81px;
         }
       }
+    }
+  }
+}
+
+//searchbox
+.searchbox {
+  border-bottom: 1px solid #ededed;
+  &__wraper {
+    position: relative;
+    .search-button {
+      height: 15px;
+      width: 15px;
+      background-image: url(../images/static-images/search-icon2.svg);
+      display: inline-block;
+      position: absolute;
+      top: calc(50% - 7.5px);
+      right: 16px;
+    }
+  }
+}
+
+// comparsion form section
+.comparison-form-section {
+  display: none;
+  &__wraper {
+    background: $light;
+    border-radius: 5px;
+    padding: 30px;
+    .form-title {
+      margin-bottom: 17px;
+    }
+    .dashboard-form .form-group {
+      margin-bottom: 24px;
+    }
+  }
+}
+
+#comparisonForm {
+  .button-group {
+    flex-direction: row;
+    grid-gap: 30px;
+    gap: 30px;
+    .cibil-link{
+      margin-bottom: 0px;
     }
   }
 }

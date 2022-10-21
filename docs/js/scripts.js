@@ -410,7 +410,7 @@ if (editInfo == "show"){
 }
 
 //score comparison
-if($('.comparison-graph')){
+function refreshComparison(){
   let percentBox = $('.comparison-graph .graph-bar').find('.percent');
   let scoreBox = $('.graph-bar-pointer');
   let percentText = $('.score-percent-text .percent');
@@ -496,4 +496,25 @@ if($('.comparison-graph')){
     );
 
   });
+}
+if($('.comparison-graph')){
+  refreshComparison();
+}
+
+// score comparsion form
+function comparisonForm(element){
+  let graphData = $(element).parents('.comparison').find('.graph-data');
+  $(graphData).fadeOut('medium');
+  $(element).addClass('back-icon').attr('onclick', 'goBackToComparison(this)');
+  $(element).find('span').text('Go Back');
+  let formData = $(element).parents('.comparison').find('.comparison-form-section');
+  $(formData).fadeIn('medium');
+}
+function goBackToComparison(element){
+  let graphData = $(element).parents('.comparison').find('.graph-data');
+  $(graphData).fadeIn('medium');
+  $(element).removeClass('back-icon').attr('onclick', 'comparisonForm(this)');
+  $(element).find('span').text('EDIT INFORMATION');
+  let formData = $(element).parents('.comparison').find('.comparison-form-section');
+  $(formData).fadeOut('medium');
 }

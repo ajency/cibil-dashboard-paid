@@ -676,53 +676,101 @@
                 <div class="comparison">
                     <div class="comparison-head">
                         <p>See how your score compares with other self-monitoring consumers at a specific location.</p>
-                        <a href="#" class="cibil-link-button"><span>EDIT INFORMATION</span></a>
+                        <a onclick="comparisonForm(this)" class="cibil-link-button"><span>EDIT INFORMATION</span></a>
                     </div>
-                    <div class="comparison-graph">
-                        <div class="comparison-graph__wraper">
-                            <table class="comparison-data">
-                                <tr>
-                                    <th>City</th>
-                                    <th>Income Type</th>
-                                    <th>Monthly Income</th>
-                                </tr>
-                                <tr>
-                                    <td>Mumbai</td>
-                                    <td>Salaried</td>
-                                    <td>₹ 80,000</td>
-                                </tr>
-                            </table>
-                            <div class="graph-content">
-                                <div class="graph-container">
-                                    <div class="graph-bar">
-                                        <div class="percent low" data-width="15%" data-percent="15"></div>
-                                        <div class="percent low-medium" data-width="22%" data-percent="37"></div>
-                                        <div class="percent medium" data-width="25%" data-percent="62"></div>
-                                        <div class="percent high-medium" data-width="18%" data-percent="80"></div>
-                                        <div class="percent high" data-width="20%" data-percent="100"></div>
-                                    </div>
-                                    <div class="graph-bar-pointer">
-                                        <div class="graph-bar-pointer__wraper">
-                                                <p class="hairline-bold">Your CIBIL Score</p>
-                                                <p class="score" data-score="720"></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="horizontal-seperator">
-                                <ul class="graph-legend">
-                                    <li class="legend low">300-390</li>
-                                    <li class="legend low-medium">391-522</li>
-                                    <li class="legend medium">523-672</li>
-                                    <li class="legend high-medium">673-780</li>
-                                    <li class="legend high">781-900</li>
-                                </ul>
-                            </div>
+                    <div class="graph-data">
+    <div class="comparison-graph">
+        <div class="comparison-graph__wraper">
+            <table class="comparison-data">
+                <tr>
+                    <th>City</th>
+                    <th>Income Type</th>
+                    <th>Monthly Income</th>
+                </tr>
+                <tr>
+                    <td>Mumbai</td>
+                    <td>Salaried</td>
+                    <td>₹ 80,000</td>
+                </tr>
+            </table>
+            <div class="graph-content">
+                <div class="graph-container">
+                    <div class="graph-bar">
+                        <div class="percent low" data-width="15%" data-percent="15"></div>
+                        <div class="percent low-medium" data-width="22%" data-percent="37"></div>
+                        <div class="percent medium" data-width="25%" data-percent="62"></div>
+                        <div class="percent high-medium" data-width="18%" data-percent="80"></div>
+                        <div class="percent high" data-width="20%" data-percent="100"></div>
+                    </div>
+                    <div class="graph-bar-pointer">
+                        <div class="graph-bar-pointer__wraper">
+                                <p class="hairline-bold">Your CIBIL Score</p>
+                                <p class="score" data-score="720"></p>
                         </div>
                     </div>
-                    <div class="comparison-footer">
-                        <p class="score-percent-text body-bold">Your CIBIL Score lies in the top <span class="percent">70</span>% in Mumbai.</p>
-                        <p>Based on the Transunion CIBIL Data</p>
-                    </div>
+                </div>
+                <hr class="horizontal-seperator">
+                <ul class="graph-legend">
+                    <li class="legend low">300-390</li>
+                    <li class="legend low-medium">391-522</li>
+                    <li class="legend medium">523-672</li>
+                    <li class="legend high-medium">673-780</li>
+                    <li class="legend high">781-900</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="comparison-footer">
+        <p class="score-percent-text body-bold">Your CIBIL Score lies in the top <span class="percent">70</span>% in Mumbai.</p>
+        <p>Based on the Transunion CIBIL Data</p>
+    </div>
+</div>
+                    <div class="comparison-form-section">
+    <div class="comparison-form-section__wraper">
+        <form class="dashboard-form" id="comparisonForm" novalidate>
+    <p class="body-medium form-title">Please edit your information below.</p>
+    <div class="col3">
+        <div class="form-group">
+            <label for="monthly_income">City</label>
+            <span class="resetSearch" onclick="resetSearch(this)"></span>
+            <div class="custom-select-input">
+                <span class="custom-select-value" onclick="customSelectInputSearch(this)">All of India</span>
+                <div class="searchbox" onclick="searchQuery(this)">
+    <div class="searchbox__wraper">
+        <span class="search-button"></span>
+        <input type="text" id="searchbox" name="searchbox">
+    </div>
+</div>
+                <div class="custom-select-options">
+                    <span onclick="customSelectOptionSearch(this)">Ambarnath</span>
+                    <span onclick="customSelectOptionSearch(this)">Ambattur</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="monthly_income">Income Type</label>
+            <div class="custom-select-input" onclick="customSelectInput(this)">
+                <span class="custom-select-value">Select Income Type</span>
+                <div class="custom-select-options">
+                    <span onclick="customSelectOption(this)">Self-Employed</span>
+                    <span onclick="customSelectOption(this)">Salaraid</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="monthly_income">Monthly Income</label>
+            <span class="currency-prefix">₹</span>
+            <input class="currency-field" type="text" name="monthly_income" id="monthly_income" required>
+            <p class="message"></p>
+        </div>
+    </div>
+    <div class="button-group">
+        <button type="submit" class="cibil-button">SUBMIT</button>
+        <a onclick="cancelComparison(this)" class="cibil-link underlined">Cancel</a>
+    </div>
+</form>
+    </div>
+</div>
                 </div>
             
         </div>

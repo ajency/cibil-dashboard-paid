@@ -163,9 +163,15 @@ strong {
   }
 }
 
-.body-bold {
-  @include body;
-  font-weight: $intro-bold;
+.body{
+  &-bold {
+    @include body;
+    font-weight: $intro-bold;
+  }
+  &-medium{
+    @include body;
+    font-weight: $intro-regular;
+  }
 }
 
 .hairline-bold {
