@@ -990,7 +990,7 @@
     margin-bottom: 20px;
   }
   @include media-breakpoint-down(sm) {
-    margin-bottom: 40px;
+    margin-bottom: 44px;
     .colored-container {
       background-color: $light-blue-3;
     }
@@ -1033,22 +1033,73 @@
     .comparison-footer {
       text-align: center;
       margin-top: 20px;
-      p{
+      p {
         margin-bottom: 0px;
       }
-      .score-percent-text{
+      .score-percent-text {
         margin-bottom: 2px;
+      }
+    }
+  }
+  @include media-breakpoint-up(md) {
+    &__wraper {
+      .comparison-head {
+        p {
+          &:first-child {
+            width: 75%;
+          }
+        }
+      }
+    }
+  }
+  @include media-breakpoint-only(md) {
+    &__wraper {
+      .comparison-head {
+        p {
+          &:first-child {
+            width: 65%;
+          }
+        }
       }
     }
   }
   @include media-breakpoint-down(sm) {
     margin-bottom: 40px;
+    .section-heading {
+      margin-bottom: 10px;
+    }
     &__wraper {
       border-radius: 0;
-      padding: 20px;
+      padding: 0px;
+      background-color: $light;
       .content,
       .cibil-link {
         margin-bottom: 20px;
+      }
+      .comparison-head {
+        flex-direction: column;
+        gap: 20px;
+        grid-gap: 20px;
+      }
+      .comparison-footer {
+        margin-top: 0px;
+        background: $light-blue-3;
+        padding: 0px 16px 20px;
+      }
+    }
+  }
+  @include media-breakpoint-down(xs){
+    &__wraper{
+      .comparison-footer{
+        .score-percent-text{
+          max-width: 217px;
+          margin-bottom: 10px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        p:not(.score-percent-text){
+          @include hairline;
+        }
       }
     }
   }

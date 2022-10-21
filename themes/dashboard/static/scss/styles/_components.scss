@@ -2079,13 +2079,13 @@
 
 // comparison graph
 .comparison-graph {
-  background: #ffffff;
+  background: $light;
   border-radius: 5px;
   padding: 24px 30px 20px;
   //overflow: hidden;
   &__wraper {
-    .horizontal-seperator{
-      border-color:$border-color-4;
+    .horizontal-seperator {
+      border-color: $border-color-4;
       margin-top: 10px;
       margin-bottom: 20px;
     }
@@ -2114,8 +2114,6 @@
     .graph-bar {
       width: 100%;
       height: 56px;
-      border-radius: 5px;
-      overflow: hidden;
       display: flex;
       align-items: center;
       grid-gap: 3px;
@@ -2131,6 +2129,12 @@
         display: flex;
         align-items: center;
         padding: 18px 10px 14px;
+        &:first-child{
+          border-radius: 8px 0px 0px 8px;
+        }
+        &:last-child{
+          border-radius: 0px 8px 8px 0px;
+        }
         &.low {
           background-color: $low;
         }
@@ -2233,6 +2237,99 @@
           &:before {
             background-color: $high;
           }
+        }
+      }
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    background: $light-blue-3;
+    padding: 20px 16px;
+    border-radius: 0px;
+    &__wraper {
+      .graph-content {
+        background: $light;
+        border-radius: 8px;
+        padding: 20px 10px 13px;
+      }
+      .comparison-data {
+        margin-bottom: 20px;
+        td {
+          font-size: 16px;
+        }
+        td,
+        th {
+          padding: 0px 15px;
+          text-align: left;
+        }
+        tr {
+          th:first-child,
+          td:first-child {
+            max-width: calc(80px + 30px);
+          }
+          td:first-child {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+      .horizontal-seperator {
+        margin-top: 20px;
+        margin-bottom: 13px;
+      }
+      .graph-legend {
+        flex-wrap: wrap;
+        gap: 8px 34px;
+        grid-gap: 8px 34px;
+        justify-content: flex-start;
+        padding-left: 10px;
+        padding-right: 10px;
+        .legend {
+          color: #707070;
+          @include hairline;
+        }
+      }
+      .graph-bar {
+        grid-gap: 3px;
+        gap: 3px;
+        margin-top: 24px;
+        height: 55px;
+        .percent {
+          justify-content: center;
+          span {
+            position: absolute;
+            display: block;
+            @include hairline;
+            color: $dark;
+            top: -24px;
+          }
+        }
+      }
+      .graph-bar-pointer {
+        margin-top: 16.51px;
+        &__wraper {
+          background: $dark;
+          color: $light;
+          &:before {
+            border-bottom-color: $dark;
+          }
+          p {
+            &:not(.score) {
+              margin-bottom: 1px;
+            }
+          }
+          .score {
+            @include h3-bold;
+          }
+        }
+      }
+    }
+  }
+  @include media-breakpoint-down(xs){
+    &__wraper{
+      .graph-legend{
+        .legend{
+          width: 81px;
         }
       }
     }

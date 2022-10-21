@@ -106,6 +106,12 @@ body {
 
 /* Typography | Start */
 
+@mixin h3-bold {
+  font-weight: $intro-bold;
+  font-size: 24px;
+  line-height: 30px;
+}
+
 @mixin h4-bold {
   font-weight: $intro-bold;
   font-size: 16px;
@@ -121,6 +127,16 @@ body {
   font-size: 16px;
   line-height: 24px;
   @include letter-spacing;
+}
+@mixin hairline {
+  font-weight: $intro-book;
+  font-size: 14px;
+  line-height: 24px;
+}
+@mixin hairline-bold {
+  font-weight: $intro-regular;
+  font-size: 14px;
+  line-height: 24px;
 }
 
 .intro-regular {
@@ -153,9 +169,7 @@ strong {
 }
 
 .hairline-bold {
-  font-weight: $intro-regular;
-  font-size: 14px;
-  line-height: 24px;
+  @include hairline-bold;
 }
 
 /* Typography | End */
