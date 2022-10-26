@@ -2367,6 +2367,13 @@
       margin-bottom: 24px;
     }
   }
+  @include media-breakpoint-down(sm) {
+    &__wraper {
+      background-color: #f1f6ff;
+      padding: 20px;
+      border-radius: 0px;
+    }
+  }
 }
 
 #comparisonForm {
@@ -2374,8 +2381,17 @@
     flex-direction: row;
     grid-gap: 30px;
     gap: 30px;
-    .cibil-link{
+    .cibil-link {
       margin-bottom: 0px;
+      cursor: pointer;
+    }
+  }
+  @include media-breakpoint-down(sm){
+    .button-group{
+      flex-direction: column;
+    }
+    .form-group{
+      margin-bottom: 30px;
     }
   }
 }

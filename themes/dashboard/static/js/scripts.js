@@ -502,7 +502,7 @@ if($('.comparison-graph')){
 }
 
 // score comparsion form
-function comparisonForm(element){
+function showComparisonForm(element){
   let graphData = $(element).parents('.comparison').find('.graph-data');
   $(graphData).fadeOut('medium');
   $(element).addClass('back-icon').attr('onclick', 'goBackToComparison(this)');
@@ -513,7 +513,7 @@ function comparisonForm(element){
 function goBackToComparison(element){
   let graphData = $(element).parents('.comparison').find('.graph-data');
   $(graphData).fadeIn('medium');
-  $(element).removeClass('back-icon').attr('onclick', 'comparisonForm(this)');
+  $(element).removeClass('back-icon').attr('onclick', 'showComparisonForm(this)');
   $(element).find('span').text('EDIT INFORMATION');
   let formData = $(element).parents('.comparison').find('.comparison-form-section');
   $(formData).fadeOut('medium');
