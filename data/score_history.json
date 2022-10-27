@@ -37,5 +37,23 @@
         "status": "nh"
       }
     ]
+  },
+  "MAY": {
+    "scores": [
+      {
+        "score": 580,
+        "date": "16/05/2022",
+        "status": "increased"
+      }
+    ]
+  },
+  "JUN": {
+    "scores": [
+      {
+        "score": 493,
+        "date": "16/06/2022",
+        "status": "increased"
+      }
+    ]
   }
 }

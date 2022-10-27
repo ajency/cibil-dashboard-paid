@@ -652,6 +652,14 @@ function desktopChart(chartLabel){
               {
                 y: 520,
                 x: 'APR',
+              },
+              {
+                y: 580,
+                x: 'MAY',
+              },
+              {
+                y: 493,
+                x: 'JUN',
               }
             ],
             borderWidth: 3,
