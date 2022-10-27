@@ -1,0 +1,61 @@
+[
+  {
+    "alert_title": "new account",
+    "timestamp": "18/06/2022, 2:46 PM",
+    "alert_data": [
+      { "Member Name": "HDFC Bank" },
+      { "Account Type": "Consumer Loan" },
+      { "Account Number": "0000036115055594465" },
+      { "Ownership": "Individual" }
+    ]
+  },
+  {
+    "alert_title": "enquiry",
+    "timestamp": "21/05/2022, 11:23 PM",
+    "alert_data": [
+      { "Member Name": "State Bank Of India" },
+      { "Enquiry Purpose": "Other" },
+      { "Enquiry Amount": "₹ 10,000" }
+    ]
+  },
+  {
+    "alert_title": "CHANGE IN SCORE",
+    "timestamp": "16/04/2022, 12:30 PM",
+    "alert_data": [{ "New Score": "720" }, { "Status": "Increased" }]
+  },
+  {
+    "alert_title": "CHANGE IN utilization",
+    "timestamp": "14/04/2022, 12:30 PM",
+    "alert_data": [
+      { "Member Name": "ICICI Bank Limited" },
+      { "Account Number": "0000036115055594465" },
+      { "Utilization Status": "Decreased" },
+      { "New Utilization %": "4.08%" }
+    ]
+  },
+  {
+    "alert_title": "New Telephone number",
+    "timestamp": "24/02/2022, 12:30 PM",
+    "alert_data": [
+      { "Reported By": "IDFC Bank" },
+      { "Telephone Number Type": "Not Classified" },
+      { "Telephone Number": "66384633" }
+    ]
+  },
+  {
+    "alert_title": "CHANGE IN SCORE",
+    "timestamp": "24/02/2022, 12:30 PM",
+    "alert_data": [{ "New Score": "720" }, { "Status": "Increased" }]
+  },
+  {
+    "alert_title": "New address",
+    "timestamp": "14/04/2022, 12:30 PM",
+    "alert_data": [
+      { "Reported By": "American Express Bank" },
+      { "Address Line 1": "Mumbai" },
+      { "State": "Maharashtra" },
+      { "PIN Code": "400075" },
+      { "Category": "Residence Address" }
+    ]
+  }
+]

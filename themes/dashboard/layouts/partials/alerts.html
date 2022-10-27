@@ -1,0 +1,22 @@
+<div class="alerts-section">
+  <div class="page-width alerts-section__wraper" id="alertsAccordion">
+    {{range .alerts}}
+    <div class="report-table table-light">
+      <div class="table-head collapsed" id="{{anchorize .alert_title}}" data-toggle="collapse" data-target="#collapse-{{anchorize .alert_title}}" aria-expanded="false" aria-controls="collapse-{{anchorize .alert_title}}">
+        <p class="table-title">{{.alert_title}}</p>
+        <p class="alert-timestamp">{{.timestamp}}</p>
+      </div>
+      <div class="report-content-container collapse" id="collapse-{{anchorize .alert_title}}" aria-labelledby="{{anchorize .alert_title}}" data-parent="#alertsAccordion">
+        <div class="table-content">
+            {{range .alert_data}} {{range $index, $alert:= .}}
+            <p class="table-item">
+            <span class="item-head">{{$index}}</span>
+            <span class="item-text">{{.}}</span>
+            </p>
+            {{end}} {{end}}
+      </div>
+      </div>
+    </div>
+    {{end}}
+  </div>
+</div>

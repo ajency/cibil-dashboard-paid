@@ -718,3 +718,11 @@ function desktopChart(chartLabel){
       }
   });
   }
+
+  //alerts
+$(".report-content-container").on("show.bs.collapse", function () {
+  $(this).prev().addClass("show");
+});
+$(".report-content-container").on("hide.bs.collapse", function () {
+  $(this).prev().removeClass("show");
+});
