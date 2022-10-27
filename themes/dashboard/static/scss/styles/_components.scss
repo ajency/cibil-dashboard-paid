@@ -1172,6 +1172,88 @@
             letter-spacing: 0.02em;
           }
         }
+        .subscribed {
+          background: #ffffff;
+          border-radius: 8px;
+          padding: 18px 14px 0px 16px;
+          height: 100%;
+          .history-month {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 16px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+          }
+          .score-history-list {
+            margin-bottom: 0px;
+            padding: 0px;
+            overflow-y: scroll;
+            padding-right: 24px;
+            border-top: 1px solid #2c2c2c;
+            .score-item {
+              list-style-type: none;
+              padding: 6px 0px;
+              display: flex;
+              align-items: center;
+              gap: 28px;
+              grid-gap: 28px;
+              align-items: center;
+              &:not(:last-child) {
+                border-bottom: 1px solid #ededed;
+              }
+              .score {
+                padding-left: 30px;
+                position: relative;
+                &:before {
+                  content: "";
+                  position: absolute;
+                  background-repeat: no-repeat;
+                  left: 4px;
+                  width: 30px;
+                  height: 100%;
+                  background-position: left center;
+                }
+              }
+              &.increased {
+                .score {
+                  &:before {
+                    background-image: url(../images/static-images/increased.svg);
+                  }
+                }
+              }
+              &.decreased {
+                .score {
+                  &:before {
+                    background-image: url(../images/static-images/decreased.svg);
+                  }
+                }
+              }
+              &.constant {
+                .score {
+                  &:before {
+                    background-image: url(../images/static-images/constant.svg);
+                  }
+                }
+              }
+              &.nh {
+                .score {
+                  color: #acacac;
+                }
+              }
+            }
+            &.cibil-scrollbar::-webkit-scrollbar-track {
+              background-color: #ffffff;
+              margin-bottom: 15px;
+              margin-top: 15px;
+            }
+            &.cibil-scrollbar::-webkit-scrollbar {
+              background-color: #ffffff;
+            }
+            &.cibil-scrollbar::-webkit-scrollbar-thumb {
+              background-color: #dddddd;
+            }
+          }
+        }
       }
     }
   }
@@ -1181,10 +1263,10 @@
       justify-content: space-between;
       column-gap: 17px;
       .history-graph {
-        width: 71%;
+        width: 75%;
       }
       .history-details {
-        width: 29%;
+        width: 25%;
         &__wraper {
           height: 100%;
           .unsubscribed {
@@ -1203,6 +1285,11 @@
           }
         }
       }
+      .subscribed {
+        .score-history-list {
+          height: 187px;
+        }
+      }
     }
   }
   @include media-breakpoint-down(sm) {
@@ -1211,9 +1298,36 @@
     &__wraper {
       padding: 20px;
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       .cibil-link {
         margin-bottom: 20px;
+      }
+      .history-details {
+        &__wraper {
+          .subscribed {
+            padding: 20px;
+            .score-history-list {
+              padding-right: 0px;
+              .score-item {
+                padding: 10px 0px;
+                border-color: #f6f7fc;
+              }
+            }
+            .showMore {
+              margin-bottom: 0px;
+              margin-top: 15px;
+              &:after{
+                transition: all 0.2s ease-in-out;
+              }
+            }
+            .showLess {
+              &:after {
+                transform: rotate(180deg);
+                bottom: 2px !important;
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -2386,11 +2500,11 @@
       cursor: pointer;
     }
   }
-  @include media-breakpoint-down(sm){
-    .button-group{
+  @include media-breakpoint-down(sm) {
+    .button-group {
       flex-direction: column;
     }
-    .form-group{
+    .form-group {
       margin-bottom: 30px;
     }
   }

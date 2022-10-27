@@ -1030,6 +1030,16 @@
       p {
         margin-bottom: 0px;
       }
+      .cibil-link-button{
+        &.back-icon {
+          border: none;
+          padding: 0;
+          justify-content: start;
+          height: auto;
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
     }
     .comparison-footer {
       text-align: center;
@@ -1040,6 +1050,11 @@
       .score-percent-text {
         margin-bottom: 2px;
       }
+    }
+  }
+  @include media-breakpoint-up(lg){
+    &__wraper{
+      min-height: 466px;
     }
   }
   @include media-breakpoint-up(md) {

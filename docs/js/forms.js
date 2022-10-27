@@ -2,7 +2,7 @@
 let changePasswordForm = $("#changePasswordForm");
 let notificationForm = $("#notificationForm");
 let consentForm = $("#consentForm");
-let comparisonform = $('#comparisonForm');
+let comparisonForm = $('#comparisonForm');
 
 //fields
 let username = document.getElementById('username');
@@ -248,7 +248,7 @@ $(consentForm).submit(function( nf_event ) {
   $(this).find('button[type=submit]').prop("disabled", true);
 });
 
-$(comparisonform).submit(function( nf_event ) {
+$(comparisonForm).submit(function( nf_event ) {
   nf_event.preventDefault();
   refreshComparison();
 });

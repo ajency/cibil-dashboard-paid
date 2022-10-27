@@ -174,8 +174,11 @@ strong {
   }
 }
 
-.hairline-bold {
-  @include hairline-bold;
+.hairline{
+  @include hairline;
+  &-bold {
+    @include hairline-bold;
+  }
 }
 
 /* Typography | End */

@@ -4,6 +4,7 @@
             {{if  eq .state "unsubscribed"}}
                 <img src="{{ "/images/static-images/score-history-graph.svg" | relURL }}" alt="" class="empty-graph  hide-sm-down">
                 <img src="{{ "/images/static-images/score-history-graph-mob.svg" | relURL }}" alt="" class="empty-graph  hide-md-up">
+            {{else}}
             {{end}}
         </div>
         <div class="history-details">
@@ -13,6 +14,21 @@
                         {{if .unsubscribed_content}}<p class="content">{{.unsubscribed_content}}</p>{{end}}
                         {{if .content1}}<p class="content">{{.content1}}</p>{{end}}
                         {{if .subscribe_link}} <a href="{{.subscribe_link}}" class="cibil-link cibil-link-right-icon">{{.subscribe_link_text}}</a> {{end}}
+                    </div>
+                {{else}}
+                    <div class="{{ anchorize .state}}">
+                        <div class="history-info">
+                            <p class="history-month">AugUST 2022</p>
+                            <ul class="cibil-scrollbar body-bold score-history-list">
+                                <li class="score-item increased"><span class="score">493</span><span class="hairline date">18/08/2022</span></li>
+                                <li class="score-item decreased"><span class="score">490</span><span class="hairline date">16/08/2022</span></li>
+                                <li class="score-item increased"><span class="score">510</span><span class="hairline date">14/08/2022</span></li>
+                                <li class="score-item constant"><span class="score">509</span><span class="hairline date">12/08/2022</span></li>
+                                <li class="score-item nh"><span class="score">N/H</span><span class="hairline date">09/08/2022</span></li>
+                                <li class="score-item increased"><span class="score">493</span><span class="hairline date">18/08/2022</span></li>
+                                <li class="score-item increased"><span class="score">493</span><span class="hairline date">18/08/2022</span></li>
+                            </ul>
+                        </div>
                     </div>
                 {{end}}
             </div>

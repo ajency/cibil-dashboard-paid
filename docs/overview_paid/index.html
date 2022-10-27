@@ -632,17 +632,24 @@
     <div class="score-history__wraper">
         <div class="history-graph">
             
-                <img src="/cibil-dashboard-paid/images/static-images/score-history-graph.svg" alt="" class="empty-graph  hide-sm-down">
-                <img src="/cibil-dashboard-paid/images/static-images/score-history-graph-mob.svg" alt="" class="empty-graph  hide-md-up">
             
         </div>
         <div class="history-details">
             <div class="history-details__wraper">
                 
-                    <div class="unsubscribed">
-                        <p class="content">Trended view of the changes in your CIBIL Score with every refresh.</p>
-                        <p class="content">Available with all subscription plans.</p>
-                         <a href="upgrade-plan" class="cibil-link cibil-link-right-icon">Track Your Score Trend</a> 
+                    <div class="subscribed">
+                        <div class="history-info">
+                            <p class="history-month">AugUST 2022</p>
+                            <ul class="cibil-scrollbar body-bold score-history-list">
+                                <li class="score-item increased"><span class="score">493</span><span class="hairline date">18/08/2022</span></li>
+                                <li class="score-item decreased"><span class="score">490</span><span class="hairline date">16/08/2022</span></li>
+                                <li class="score-item increased"><span class="score">510</span><span class="hairline date">14/08/2022</span></li>
+                                <li class="score-item constant"><span class="score">509</span><span class="hairline date">12/08/2022</span></li>
+                                <li class="score-item nh"><span class="score">N/H</span><span class="hairline date">09/08/2022</span></li>
+                                <li class="score-item increased"><span class="score">493</span><span class="hairline date">18/08/2022</span></li>
+                                <li class="score-item increased"><span class="score">493</span><span class="hairline date">18/08/2022</span></li>
+                            </ul>
+                        </div>
                     </div>
                 
             </div>
@@ -676,7 +683,7 @@
                 <div class="comparison">
                     <div class="comparison-head">
                         <p>See how your score compares with other self-monitoring consumers at a specific location.</p>
-                        <a onclick="comparisonForm(this)" class="cibil-link-button"><span>EDIT INFORMATION</span></a>
+                        <a onclick="showComparisonForm(this)" class="cibil-link-button"><span>EDIT INFORMATION</span></a>
                     </div>
                     <div class="graph-data">
     <div class="comparison-graph">
@@ -765,7 +772,7 @@
         </div>
     </div>
     <div class="button-group">
-        <button type="submit" class="cibil-button">SUBMIT</button>
+        <button type="submit" class="cibil-button" onclick="submitEditInfo(this)">SUBMIT</button>
         <a onclick="cancelComparison(this)" class="cibil-link underlined">Cancel</a>
     </div>
 </form>

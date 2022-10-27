@@ -518,3 +518,35 @@ function goBackToComparison(element){
   let formData = $(element).parents('.comparison').find('.comparison-form-section');
   $(formData).fadeOut('medium');
 }
+//screen size
+$(document).ready(function () {
+  $(window).on("resize", function (e) {
+      checkScreenSize();
+  });
+
+  checkScreenSize();
+  
+  function checkScreenSize(){
+      var newWindowWidth = $(window).width();
+      if (newWindowWidth < 767.98) {
+          // score history
+          if ($('.score-history-list').is(":visible")){
+            var $this = $('.score-history-list');
+            if ($this.find('.score-item').length > 2) {
+                $('.history-info').append('<a class="cibil-link underlined cibil-link-right-icon show-icon showMore">Show All</a>');
+            }
+            $('.score-history-list .score-item').slice(0,4).addClass('shown');
+            $('.score-history-list .score-item').not('.shown').hide();
+            $('.history-info .showMore').on('click',function(){
+              $('.score-history-list .score-item').not('.shown').toggle(300);
+              $(this).toggleClass('showMore');
+              $(this).toggleClass('showLess');
+              if ($(this).text() == "Show All")
+                $(this).text("Show Less")
+              else
+                $(this).text("Show All");
+              });
+          }
+      }
+  }
+});

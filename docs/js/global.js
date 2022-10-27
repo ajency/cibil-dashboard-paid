@@ -263,13 +263,16 @@ function editOInfoToggle(){
   $('.loan-offer-js').toggleClass('edit');
 }
 
-function submitEditInfo(){
-  resetCompare()
-  $('.loan-offer-js').toggleClass('edit');
+function submitEditInfo(element){
+  cancelComparison(element);
+  resetCompare();
 }
 
 function cancelComparison(element){
-  
+  $(element).parents('.comparison').find('.graph-data').fadeIn('fast');
+  $(element).parents('.comparison').find('.comparison-form-section').fadeOut('fast');
+  $(element).parents('.comparison').find('.back-icon').find('span').text('EDIT INFORMATION');
+  $(element).parents('.comparison').find('.back-icon').removeClass('back-icon').attr('onclick', 'showComparisonForm(this)');
 }
 
 // refresh popup
