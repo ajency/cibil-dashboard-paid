@@ -632,24 +632,40 @@
     <div class="score-history__wraper">
         <div class="history-graph">
             
+            <canvas id="scoreHistoryChart" width="400" height="252"></canvas>
             
         </div>
         <div class="history-details">
             <div class="history-details__wraper">
                 
                     <div class="subscribed">
-                        <div class="history-info">
-                            <p class="history-month">AugUST 2022</p>
+                        
+                        <div class="history-info " data-month="APR">
+                            <p class="history-month">APR 2022</p>
                             <ul class="cibil-scrollbar body-bold score-history-list">
-                                <li class="score-item increased"><span class="score">493</span><span class="hairline date">18/08/2022</span></li>
-                                <li class="score-item decreased"><span class="score">490</span><span class="hairline date">16/08/2022</span></li>
-                                <li class="score-item increased"><span class="score">510</span><span class="hairline date">14/08/2022</span></li>
-                                <li class="score-item constant"><span class="score">509</span><span class="hairline date">12/08/2022</span></li>
-                                <li class="score-item nh"><span class="score">N/H</span><span class="hairline date">09/08/2022</span></li>
-                                <li class="score-item increased"><span class="score">493</span><span class="hairline date">18/08/2022</span></li>
-                                <li class="score-item increased"><span class="score">493</span><span class="hairline date">18/08/2022</span></li>
+                                
+                                    <li class="score-item increased"><span class="score">520</span><span class="hairline date">16/08/2022</span></li>
+                                
                             </ul>
                         </div>
+                        
+                        <div class="history-info active" data-month="AUG">
+                            <p class="history-month">AUG 2022</p>
+                            <ul class="cibil-scrollbar body-bold score-history-list">
+                                
+                                    <li class="score-item increased"><span class="score">493</span><span class="hairline date">18/08/2022</span></li>
+                                
+                                    <li class="score-item decreased"><span class="score">490</span><span class="hairline date">16/08/2022</span></li>
+                                
+                                    <li class="score-item increased"><span class="score">510</span><span class="hairline date">16/08/2022</span></li>
+                                
+                                    <li class="score-item constant"><span class="score">509</span><span class="hairline date">12/08/2022</span></li>
+                                
+                                    <li class="score-item nh"><span class="score">N/H</span><span class="hairline date">09/08/2022</span></li>
+                                
+                            </ul>
+                        </div>
+                        
                     </div>
                 
             </div>
@@ -990,6 +1006,7 @@
 <script src="/cibil-dashboard-paid/js/global.js"></script>
 <script src="/cibil-dashboard-paid/js/video.min.js"></script>
 <script src="/cibil-dashboard-paid/js/jquery.easypiechart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/cibil-dashboard-paid/js/slick.min.js"></script>
 <script type="text/javascript" src="/cibil-dashboard-paid/js/intro.min.js"></script>
 <script src="/cibil-dashboard-paid/js/scripts.js"></script>

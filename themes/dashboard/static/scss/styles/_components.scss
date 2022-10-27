@@ -1163,9 +1163,19 @@
       .empty-graph {
         width: 100%;
       }
+      #scoreHistoryChart{
+        width: 100% !important;
+        max-height: 252px;
+      }
     }
     .history-details {
       &__wraper {
+        .history-info{
+          width: 100% !important;
+          &:not(.active){
+            display: none;
+          }
+        }
         .unsubscribed {
           .content {
             margin-bottom: 20px;
@@ -1300,6 +1310,9 @@
       display: flex;
       flex-direction: column;
       .cibil-link {
+        margin-bottom: 20px;
+      }
+      .history-graph{
         margin-bottom: 20px;
       }
       .history-details {
@@ -2196,7 +2209,7 @@
   background: $light;
   border-radius: 5px;
   padding: 24px 30px 20px;
-  //overflow: hidden;
+  overflow: hidden;
   &__wraper {
     .horizontal-seperator {
       border-color: $border-color-4;

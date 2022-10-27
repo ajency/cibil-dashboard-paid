@@ -1,0 +1,41 @@
+{
+  "APR": {
+    "scores": [
+      {
+        "score": 520,
+        "date": "16/08/2022",
+        "status": "increased"
+      }
+    ]
+  },
+  "AUG": {
+    "active": true,
+    "scores": [
+      {
+        "score": 493,
+        "date": "18/08/2022",
+        "status": "increased"
+      },
+      {
+        "score": 490,
+        "date": "16/08/2022",
+        "status": "decreased"
+      },
+      {
+        "score": 510,
+        "date": "16/08/2022",
+        "status": "increased"
+      },
+      {
+        "score": 509,
+        "date": "12/08/2022",
+        "status": "constant"
+      },
+      {
+        "score": null,
+        "date": "09/08/2022",
+        "status": "nh"
+      }
+    ]
+  }
+}

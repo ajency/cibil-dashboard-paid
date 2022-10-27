@@ -547,6 +547,174 @@ $(document).ready(function () {
                 $(this).text("Show All");
               });
           }
+          let chartLabel = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL'];
+          mobileChart(chartLabel);
+      }else{
+        let chartLabel = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+        desktopChart(chartLabel);
       }
   }
 });
+
+function mobileChart(chartLabel){
+// score history chart
+const ctx = document.getElementById('scoreHistoryChart');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: chartLabel,
+        datasets: [{
+          label: 'Score History',
+          data: [
+            {
+              y: 510,
+              x: 'AUG'
+            },
+            {
+              y: 520,
+              x: 'APR',
+            }
+          ],
+          borderWidth: 3,
+          borderColor: '#006685',
+          backgroundColor: '#FFFFFF',
+          showLine: false,
+          hoverBackgroundColor: '#FCD800',
+          hoverBorderWidth: 3,
+        }]
+    },
+    options: {
+      showAllTooltips: true,
+      ticks:{
+        font:{
+          size: 10,
+          family: 'Intro',
+          weight:400,
+          color: '#ACACAC',
+        }
+      },
+      scales: {
+        x: {
+          grid: {
+            borderColor: '#9EBFD2',
+            borderWidth: 1.6,
+            borderDash: [2, 2],
+            lineWidth:1,
+          },
+        },
+        y: {
+          min: 300,
+          max: 900,
+          grid: {
+            borderDash: [2, 2],
+            lineWidth:1,
+          },
+        },
+      },
+      plugins: {
+        legend: {
+            display: false,
+        },
+        tooltip: {
+          enabled: false,
+        }
+      },
+      elements:{
+        point:{
+          radius:5,
+          hoverRadius:5
+        }
+      },
+      onClick: (e, activeEls) => {
+        let datasetIndex = activeEls[0].datasetIndex;
+        let dataIndex = activeEls[0].index;
+        let value = e.chart.data.datasets[datasetIndex].data[dataIndex];
+        $('.history-info').hide(300).removeClass('active');
+        $('.subscribed').find("[data-month='" + value.x + "']").show(300).addClass('active');
+      },
+    }
+});
+}
+function desktopChart(chartLabel){
+  // score history chart
+  const ctx = document.getElementById('scoreHistoryChart');
+  const myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: chartLabel,
+          datasets: [{
+            label: 'Score History',
+            data: [
+              {
+                y: 510,
+                x: 'AUG'
+              },
+              {
+                y: 520,
+                x: 'APR',
+              }
+            ],
+            borderWidth: 3,
+            borderColor: '#006685',
+            backgroundColor: '#FFFFFF',
+            showLine: false,
+            hoverBackgroundColor: '#FCD800',
+            hoverBorderWidth: 3,
+          }]
+      },
+      options: {
+        showAllTooltips: true,
+        ticks:{
+          font:{
+            size: 12,
+            family: 'Intro'
+          }
+        },
+        scales: {
+          x: {
+            ticks:{
+              color: ['#707070', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#707070'],
+            },
+            grid: {
+              borderColor: '#9EBFD2',
+              borderWidth: 1.6,
+              borderDash: [2, 2],
+              lineWidth:1,
+            },
+          },
+          y: {
+            min: 300,
+            max: 900,
+            ticks:{
+              color: ['#707070', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#707070'],
+            },
+            grid: {
+              borderDash: [2, 2],
+              lineWidth:1,
+            },
+          },
+        },
+        plugins: {
+          legend: {
+              display: false,
+          },
+          tooltip: {
+            enabled: false,
+          }
+        },
+        elements:{
+          point:{
+            radius:5,
+            hoverRadius:5
+          }
+        },
+        onClick: (e, activeEls) => {
+          let datasetIndex = activeEls[0].datasetIndex;
+          let dataIndex = activeEls[0].index;
+          let value = e.chart.data.datasets[datasetIndex].data[dataIndex];
+          $('.history-info').hide(300).removeClass('active');
+          $('.subscribed').find("[data-month='" + value.x + "']").show(300).addClass('active');
+        },
+      }
+  });
+  }

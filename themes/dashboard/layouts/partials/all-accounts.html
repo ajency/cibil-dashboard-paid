@@ -174,115 +174,117 @@
                     <div class="card-body">
                     {{ partial "clear-dues-bar"}}
                     
+                        <div class="card-body__wraper">
                         {{if .tabs}}
-                        <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                            {{range .tabs}}
-                                {{range .account_details}}
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="acDetails--{{$closedIndex}}-tab" data-toggle="pill" data-target="#acDetails--{{$closedIndex}}" type="button" role="tab" aria-controls="acDetails--{{$closedIndex}}" aria-selected="true">account details</button>
-                                    </li>
+                            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                                {{range .tabs}}
+                                    {{range .account_details}}
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="acDetails--{{$closedIndex}}-tab" data-toggle="pill" data-target="#acDetails--{{$closedIndex}}" type="button" role="tab" aria-controls="acDetails--{{$closedIndex}}" aria-selected="true">account details</button>
+                                        </li>
+                                    {{end}}
+                                    {{range .payment_status}}
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="paymentStatus--{{$closedIndex}}-tab" data-toggle="pill" data-target="#paymentStatus--{{$closedIndex}}" type="button" role="tab" aria-controls="paymentStatus--{{$closedIndex}}" aria-selected="false">payment status</button>
+                                        </li>
+                                    {{end}}
                                 {{end}}
-                                {{range .payment_status}}
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="paymentStatus--{{$closedIndex}}-tab" data-toggle="pill" data-target="#paymentStatus--{{$closedIndex}}" type="button" role="tab" aria-controls="paymentStatus--{{$closedIndex}}" aria-selected="false">payment status</button>
-                                    </li>
-                                {{end}}
-                            {{end}}
-                        </ul>
-                        <div class="tab-content" id="pills-tabContent">
-                            {{range .tabs}}
-                                {{range .account_details}}
-                                    <div class="tab-pane fade show active" id="acDetails--{{$closedIndex}}" role="tabpanel" aria-labelledby="acDetails--{{$closedIndex}}-tab">
-                                        <div class="detail-row">
-                                            <span>Credit Limit</span><span>{{.credit_limit}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Sanctioned Amount</span><span>{{.sanctioned_ammount}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Current Balance</span><span>{{.current_balance}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Cash Limit</span><span>{{.cash_limit}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Amount Overdue</span><span>{{.ammount_overdue}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Rate of Interest</span><span>{{.rate_of_interest}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Repayment Tenure</span><span>{{.repayment_tenure}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>EMI Amount</span><span>{{.emi_ammount}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Payment Frequency</span><span>{{.payment_frequency}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Actual Payment Amount</span><span>{{.actual_payment_ammount}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Date Opened / Disbursed</span><span>{{.date_opened}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Date of Last Payment</span><span>{{.date_last_payment}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Date Reported and Certified</span><span>{{.date_reported}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Value of Collateral</span><span>{{.value_of_collateral}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Type of Collateral</span><span>{{.type_of_collateral}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Suit - Filed / Willful Default</span><span>{{.suit_filed}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Credit Facility Status</span><span>{{.credit_facility_status}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Written-off Amount (Total)</span><span>{{.total_ammount}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Written-off Amount (Principal)</span><span>{{.principle_ammount}}</span>
-                                        </div>
-                                        <div class="detail-row">
-                                            <span>Settlement Amount</span><span>{{.settlement_ammount}}</span>
-                                        </div>
-                                    </div>
-                                {{end}}
-                                {{range .payment_status}}
-                                    <div class="tab-pane fade" id="paymentStatus--{{$closedIndex}}" role="tabpanel" aria-labelledby="paymentStatus--{{$closedIndex}}-tab">
-                                        <div class="dates">
-                                            <div class="date">
-                                                <p class="bold-title">Payment Start Date</p>
-                                                {{.payment_start_date}}
+                            </ul>
+                            <div class="tab-content" id="pills-tabContent">
+                                {{range .tabs}}
+                                    {{range .account_details}}
+                                        <div class="tab-pane fade show active" id="acDetails--{{$closedIndex}}" role="tabpanel" aria-labelledby="acDetails--{{$closedIndex}}-tab">
+                                            <div class="detail-row">
+                                                <span>Credit Limit</span><span>{{.credit_limit}}</span>
                                             </div>
-                                            <div class="date">
-                                                <p class="bold-title">Payment End Date</p>
-                                                {{.payment_end_date}}
+                                            <div class="detail-row">
+                                                <span>Sanctioned Amount</span><span>{{.sanctioned_ammount}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Current Balance</span><span>{{.current_balance}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Cash Limit</span><span>{{.cash_limit}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Amount Overdue</span><span>{{.ammount_overdue}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Rate of Interest</span><span>{{.rate_of_interest}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Repayment Tenure</span><span>{{.repayment_tenure}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>EMI Amount</span><span>{{.emi_ammount}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Payment Frequency</span><span>{{.payment_frequency}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Actual Payment Amount</span><span>{{.actual_payment_ammount}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Date Opened / Disbursed</span><span>{{.date_opened}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Date of Last Payment</span><span>{{.date_last_payment}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Date Reported and Certified</span><span>{{.date_reported}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Value of Collateral</span><span>{{.value_of_collateral}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Type of Collateral</span><span>{{.type_of_collateral}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Suit - Filed / Willful Default</span><span>{{.suit_filed}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Credit Facility Status</span><span>{{.credit_facility_status}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Written-off Amount (Total)</span><span>{{.total_ammount}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Written-off Amount (Principal)</span><span>{{.principle_ammount}}</span>
+                                            </div>
+                                            <div class="detail-row">
+                                                <span>Settlement Amount</span><span>{{.settlement_ammount}}</span>
                                             </div>
                                         </div>
-                                        <div class="history">
-                                            <p class="bold-title">Payment History</p>
-                                            {{range .payment_history}}
-                                                <div class="detail-row">
-                                                    <span>{{.month_n_year}}</span><span>{{.ammount}}</span>
+                                    {{end}}
+                                    {{range .payment_status}}
+                                        <div class="tab-pane fade" id="paymentStatus--{{$closedIndex}}" role="tabpanel" aria-labelledby="paymentStatus--{{$closedIndex}}-tab">
+                                            <div class="dates">
+                                                <div class="date">
+                                                    <p class="bold-title">Payment Start Date</p>
+                                                    {{.payment_start_date}}
                                                 </div>
-                                            {{end}}
+                                                <div class="date">
+                                                    <p class="bold-title">Payment End Date</p>
+                                                    {{.payment_end_date}}
+                                                </div>
+                                            </div>
+                                            <div class="history">
+                                                <p class="bold-title">Payment History</p>
+                                                {{range .payment_history}}
+                                                    <div class="detail-row">
+                                                        <span>{{.month_n_year}}</span><span>{{.ammount}}</span>
+                                                    </div>
+                                                {{end}}
+                                            </div>
+                                            <div class="shortforms">
+                                                {{range .shortforms}}<span>{{ . | safeHTML }}</span>{{end}}
+                                            </div>
                                         </div>
-                                        <div class="shortforms">
-                                            {{range .shortforms}}<span>{{ . | safeHTML }}</span>{{end}}
-                                        </div>
-                                    </div>
+                                    {{end}}
                                 {{end}}
+                            </div>
                             {{end}}
                         </div>
-                        {{end}}
                     </div>
                 </div>
                 </div>
