@@ -295,33 +295,40 @@ function refreshPopupShow(){
 }
 
 // animated simulator
-$(".simulator:not(.empty-simulator) .score-bar").each(function () {
-  updateScore(0, '.simulator');
-});
-function updateScore($initialScore, parentContainer) {
+function calculateScorePerc(score){
+  let lowestScore = 300;
+  let highestScore = 900;
+  let perc = Math.ceil( ( ( ( score - lowestScore ) * 100 ) / highestScore ) * 2.69 );
+
+  if(perc < 0){
+    scorePerc = 0;
+  }else{
+    scorePerc = perc;
+  }
+}
+
+function updateScore(score, parentContainer) {
   $(parentContainer).find(".score-bar").each(function () {
-    var $pointer = $(this).find(".score-pointer .pointer-image");
-    var $val = $(this).find(".cibil-score");
+    let pointer = $(this).find(".score-pointer .pointer-image");
+    let scoreTextElement = $(this).find('.cibil-score');
 
-    /* console.log($val.text()); */
+    calculateScorePerc(score);
 
-    var oldperc = parseInt($val.text(), 10);
-    var perc = oldperc - 300;
-    var $outputPerc = $(".outputPerc");
-
-    $({ p: $initialScore }).animate(
-      { p: perc },
+    $({ score: 0 }).animate(
+      { score: scorePerc },
       {
-        duration: 1000,
-        easing: "swing",
-        step: function (p) {
-          $pointer.css({
-            transform:
-              "rotate(" + Math.ceil(((p * 100) / 900) * 2.69) + "deg)",
-          });
-          //$val.text((p + 300) | 0);
-        },
+        step: function( now ) {
+          $(pointer).css({'transform':'rotate('+ now + 'deg)'});
+          $(scoreTextElement).text(score);
+        }
       }
     );
+  });
+}
+
+if($('.simulator:not(.empty-simulator)').is(':visible')){
+  $('.simulator:not(.empty-simulator)').each(function(){
+    let oldScore = parseInt($(this).find(".cibil-score").text());
+    updateScore(oldScore, '.simulator:not(.empty-simulator)');
   });
 }
