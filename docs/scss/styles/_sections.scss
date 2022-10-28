@@ -52,9 +52,8 @@
   padding-bottom: 52px;
   &__wraper {
     display: flex;
-    display: flex;
     justify-content: space-between;
-    .banner-heading {
+    .h2 {
       color: $dark;
       margin-bottom: 0px;
     }
@@ -70,11 +69,12 @@
   @include media-breakpoint-up(md) {
     &__wraper {
       .left-side {
-        margin-top: 37px;
-        .banner-heading {
+        margin-top: 58px;
+        .h2 {
           .highlight {
-            font-size: 32px;
-            line-height: 44px;
+            &:after {
+              height: 5px;
+            }
           }
         }
       }
@@ -88,14 +88,12 @@
       justify-content: center;
       text-align: center;
       .left-side {
-        margin-bottom: 10px;
+        margin-bottom: 14px;
       }
-      .banner-heading {
-        font-size: 16px;
-        line-height: 24px;
-        .highlight {
-          font-weight: $intro-bold;
-        }
+      .h2 {
+        @include h3;
+        max-width: 275px;
+        margin: auto;
         .full-width {
           display: flex;
           justify-content: center;
@@ -122,8 +120,13 @@
 
 // upgrade plans section
 .upgrade-plans {
-  margin-bottom: 80px;
-  margin-top: -38px;
+  margin-bottom: 60px;
+  margin-top: 0px;
+  .showAllPlans {
+    text-align: center;
+    margin-top: 40px;
+    display: flex;
+  }
   &__wraper {
     display: flex;
     justify-content: space-between;
@@ -132,11 +135,17 @@
       width: 100%;
     }
   }
-  @include media-breakpoint-down(md) {
-    margin-top: 60px;
+  @include media-breakpoint-up(md) {
+    padding-top: 45px;
+    padding-bottom: 40px;
+    background-color: #f5f9ff;
   }
   @include media-breakpoint-down(sm) {
+    margin-top: 60px;
     margin-bottom: 40px;
+    .showAllPlans {
+      margin-top: 30px;
+    }
   }
 }
 
@@ -649,9 +658,6 @@
   }
   .scenario-cta {
     margin-top: 30px;
-    .smiluate-now-cta {
-      font-weight: 600;
-    }
     @include media-breakpoint-down(sm) {
       margin-top: 20px;
     }

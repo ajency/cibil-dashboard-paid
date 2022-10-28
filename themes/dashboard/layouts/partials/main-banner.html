@@ -3,9 +3,9 @@
   <div class="page-width">
     <div class="banner-section__wraper">
       <div class="left-side">
-        <p class="username banner-heading">Hi {{.username}},</p>
+        {{if .username}}<p class="username banner-heading">Hi {{.username}},</p>{{end}}
         {{ range .headings }}
-          <p class="banner-heading subtext">
+          <p class="h2">
               {{ . | safeHTML }}
           </p>
         {{ end }}

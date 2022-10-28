@@ -106,6 +106,19 @@ body {
 
 /* Typography | Start */
 
+@mixin h2 {
+  font-weight: $intro-regular;
+  font-size: 32px;
+  line-height: 44px;
+  letter-spacing: -0.01em;
+}
+
+@mixin h3 {
+  font-weight: $intro-regular;
+  font-size: 24px;
+  line-height: 30px;
+}
+
 @mixin h3-bold {
   font-weight: $intro-bold;
   font-size: 24px;
@@ -163,24 +176,35 @@ strong {
   }
 }
 
-.body{
+.body {
   &-bold {
     @include body;
     font-weight: $intro-bold;
   }
-  &-medium{
+  &-medium {
     @include body;
     font-weight: $intro-regular;
   }
 }
 
-.hairline{
+.hairline {
   @include hairline;
   &-bold {
     @include hairline-bold;
   }
 }
-
+.h3 {
+  @include h3;
+}
+.h2 {
+  @include h2;
+}
+.h4 {
+  &-bold {
+    @include h4-bold;
+    @include letter-spacing;
+  }
+}
 /* Typography | End */
 
 .desktop-view {
