@@ -414,7 +414,7 @@
             </div>
 
             <div class="scenario-cta">
-                <a class="cibil-button smiluate-now-cta disabled" onclick="upgradePlan()">SIMULATE NOW</a>
+                <a class="cibil-button smiluate-now-cta disabled" onclick="showSimulatedScore()">SIMULATE NOW</a>
                 <a class="primary-link add-scenario" onclick="addScenario()">+Add another scenario</a>
             </div>
             <div class="upgrade-plan-cta" id="upgrade-plan-cta">
@@ -462,6 +462,24 @@
         <p class="score-text"><b>Your simulated <strong class='highlight-text-blue'>CIBIL</strong> Score</b></p>
     </div>
 </div>
+
+                            <div class="simulated-score" style="display:none;">
+                                <div class="simulator">
+    <div class="score-bar">
+        <div class="bar">
+            <img class="bar-image" src="/cibil-dashboard-paid/images/static-images/simulator.svg">
+            <div class="score-pointer">
+                <div class="score-pointer__wraper">
+                    <img class="pointer-image" src="/cibil-dashboard-paid/images/static-images/simulator-pointer.svg">
+                </div>
+            </div>
+        </div>
+        <p class="cibil-score">720</p>
+            <p class="score-text"><b>Your simulated <strong class='highlight-text-blue'>CIBIL</strong> Score</b></p>
+        
+    </div>
+</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -795,6 +813,8 @@
 
     function enableAddScenario(){
         $('.upgrade-plan-cta').hide("fast");
+        $('.simulated-score').slideUp(300);
+        $('.empty-simulator').fadeIn(300);
         $('.scenario-cta .reset-scenario').text('+Add another scenario');
         $('.scenario-cta .reset-scenario').attr("onclick", "addScenario()");
         $('.scenario-cta .reset-scenario').removeClass('reset-scenario').addClass('add-scenario');
@@ -1002,7 +1022,7 @@
 
     function checkFilled(){
         let valid = true;
-        $('[required]').each(function() {
+        $('.score-simulator-section [required]').each(function() {
             if ($(this).is(':invalid') || !$(this).val()) valid = false;
         })
         if (!valid) $('.smiluate-now-cta').addClass('disabled');

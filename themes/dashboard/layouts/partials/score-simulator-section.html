@@ -61,7 +61,7 @@
             </div>
 
             <div class="scenario-cta">
-                <a class="cibil-button smiluate-now-cta disabled" onclick="upgradePlan()">SIMULATE NOW</a>
+                <a class="cibil-button smiluate-now-cta disabled" onclick="showSimulatedScore()">SIMULATE NOW</a>
                 <a class="primary-link add-scenario" onclick="addScenario()">+Add another scenario</a>
             </div>
             {{ partial "upgrade-plan-cta" (dict "content" "To view your simulated CIBIL Score <a href='/cibil-dashboard/overview_paid/upgrade-plan/' class='cibil-link font-inherit'>UPGRADE NOW</a>." ) }}
@@ -80,6 +80,10 @@
                         <hr class="horizontal-seperator">
                         <div>
                             {{ partial "empty-simulator" (dict "score_text" "<b>Your simulated <strong class='highlight-text-blue'>CIBIL</strong> Score</b>" )}}
+
+                            <div class="simulated-score" style="display:none;">
+                                {{ partial "simulator" (dict "cibil_score" "720" "score_text" "<b>Your simulated <strong class='highlight-text-blue'>CIBIL</strong> Score</b>" )}}
+                            </div>
                         </div>
                     </div>
                 </div>

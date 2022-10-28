@@ -254,6 +254,17 @@ function upgradePlan(element){
   $('.scenario-cta .reset-scenario, .scenario-cta .add-scenario').show()
 }
 
+function showSimulatedScore(){
+  $('.empty-simulator').slideUp(300);
+  $('.simulated-score').fadeIn(300);
+  refreshScore(780, '.simulated-score');
+  $('.scenario-cta .smiluate-now-cta').addClass('disabled');
+  $('.scenario-cta .add-scenario').text('Reset Simulation');
+  $('.scenario-cta .add-scenario').addClass('reset-scenario').removeClass('add-scenario');
+  $('.scenario-cta .reset-scenario').attr("onclick", "resetScenario()");
+  $('.scenario-cta .reset-scenario, .scenario-cta .add-scenario').show()
+}
+
 function toggleShrink(){
   $('.concent-text').toggleClass('shrink')
 }
@@ -285,10 +296,10 @@ function refreshPopupShow(){
 
 // animated simulator
 $(".simulator:not(.empty-simulator) .score-bar").each(function () {
-  updateScore(0);
+  updateScore(0, '.simulator');
 });
-function updateScore($initialScore) {
-  $(".simulator:not(.empty-simulator) .score-bar").each(function () {
+function updateScore($initialScore, parentContainer) {
+  $(parentContainer).find(".score-bar").each(function () {
     var $pointer = $(this).find(".score-pointer .pointer-image");
     var $val = $(this).find(".cibil-score");
 
@@ -308,7 +319,7 @@ function updateScore($initialScore) {
             transform:
               "rotate(" + Math.ceil(((p * 100) / 900) * 2.69) + "deg)",
           });
-          $val.text((p + 300) | 0);
+          //$val.text((p + 300) | 0);
         },
       }
     );

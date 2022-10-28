@@ -121,6 +121,8 @@
 
     function enableAddScenario(){
         $('.upgrade-plan-cta').hide("fast");
+        $('.simulated-score').slideUp(300);
+        $('.empty-simulator').fadeIn(300);
         $('.scenario-cta .reset-scenario').text('+Add another scenario');
         $('.scenario-cta .reset-scenario').attr("onclick", "addScenario()");
         $('.scenario-cta .reset-scenario').removeClass('reset-scenario').addClass('add-scenario');
@@ -328,7 +330,7 @@
 
     function checkFilled(){
         let valid = true;
-        $('[required]').each(function() {
+        $('.score-simulator-section [required]').each(function() {
             if ($(this).is(':invalid') || !$(this).val()) valid = false;
         })
         if (!valid) $('.smiluate-now-cta').addClass('disabled');
