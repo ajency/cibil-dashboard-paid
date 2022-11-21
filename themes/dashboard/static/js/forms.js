@@ -1,6 +1,7 @@
 //forms
 let changePasswordForm = $("#changePasswordForm");
 let notificationForm = $("#notificationForm");
+let consentForm = $("#consentForm");
 
 //fields
 let username = document.getElementById('username');
@@ -12,6 +13,8 @@ let registered_mobile = document.getElementById('registered_mobile');
 let registered_email = document.getElementById('registered_email');
 let sms_alert = document.getElementById('sms_alert');
 let email_alert = document.getElementById('email_alert');
+
+let consent_box = document.getElementById('consent_box');
 
 //patterns
 let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
@@ -106,11 +109,14 @@ function phoneValidation(input) {
   }
   
   //only numbers
-  $(registered_mobile).keypress(function (e) {
-    if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-     return false;
-   }
-  });
+  function onlyNumbers(numberField){
+    $(numberField).keypress(function (e) {
+      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+       return false;
+     }
+    });
+  }
+  onlyNumbers(registered_mobile);
 
   function checkEmpty(input){
     if($(input).val() !== ''){
@@ -207,4 +213,42 @@ $(notificationForm).submit(function( nf_event ) {
     let formElement = notificationForm;
 
     checkValidations([ {"field":registered_mobile, "message":emptyMobile},{"field":registered_email, "message":emptyEmail} ], formElement);
+});
+
+//check consent
+function checkConsent(consentBox, formElement){
+  let formId = '#'+formElement[0].id;
+}
+//refresh score
+function refreshScore(score, parentContainer){
+  refreshPopupHide();
+  if(parentContainer){
+    $(parentContainer).find('.cibil-score').text(score);
+  }else{
+    $('.simulator').find('.cibil-score').text(score);
+  }
+  updateScore(score, parentContainer);
+}
+// consent form submit
+$(consent_box).change(function() {
+  if(this.checked) {
+    $(this).parents(consentForm).find('button[type=submit]').removeClass('disabled');
+    $(this).parents(consentForm).find('button[type=submit]').prop("disabled", false);
+  }else{
+    $(this).parents(consentForm).find('button[type=submit]').addClass('disabled');
+    $(this).parents(consentForm).find('button[type=submit]').prop("disabled", true);
+  }
+});
+
+$(consentForm).submit(function( nf_event ) {
+  nf_event.preventDefault();
+  refreshScore(780, '.simulator'); //you can pass your updated score value here
+  document.getElementById("consentForm").reset();
+  $(this).find('button[type=submit]').addClass('disabled');
+  $(this).find('button[type=submit]').prop("disabled", true);
+});
+
+$(comparisonForm).submit(function( nf_event ) {
+  nf_event.preventDefault();
+  refreshComparison();
 });

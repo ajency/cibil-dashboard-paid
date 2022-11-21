@@ -61,6 +61,8 @@ $intro-regular: 600;
 $intro-bold: 700;
 $intro-book: 400;
 
+/* Typography | Start */
+
 @mixin intro-book-14 {
   font-family: "Intro";
   font-weight: $intro-book;
@@ -94,12 +96,27 @@ $intro-book: 400;
   line-height: 16px;
   color: $black;
 }
+@mixin h4-bold {
+  font-weight: $intro-bold;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin letter-spacing {
+  letter-spacing: 0.02em;
+}
+
 @mixin body {
   font-weight: $intro-book;
   font-size: 16px;
   line-height: 24px;
-  letter-spacing: 0.02em;
+  @include letter-spacing;
 }
+
+.intro-regular{
+  font-weight: $intro-regular;
+}
+
 @mixin h2 {
   font-weight: $intro-regular;
   font-size: 32px;
@@ -178,6 +195,16 @@ p {
   font-size: 16px;
   line-height: 24px;
 }
+.primary-heading {
+  &-h4 {
+    @include h4-bold;
+    @include letter-spacing;
+    color: $primary-blue;
+    text-transform: uppercase;
+  }
+}
+/* Typography | End */
+
 /* .page-width {
    display: block;
    max-width: calc(1010px - 40px);

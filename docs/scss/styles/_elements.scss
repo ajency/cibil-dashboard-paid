@@ -217,6 +217,9 @@
   &.inherit-font {
     font-size: inherit;
   }
+  &.intro-regular{
+    font-weight: $intro-regular;
+  }
   &.underlined {
     text-decoration: underline !important;
   }
@@ -799,6 +802,7 @@ input[type="number"] {
 .disabled {
   pointer-events: none !important;
   background-color: $border-color-4 !important;
+  border-color: $border-color-4 !important;
   color: $light !important;
 }
 

@@ -58,47 +58,6 @@ $(function () {
     $(".overlay").toggleClass('opened');
   });
 
-  // animated simulator
-  $(".simulator:not(.no-score-simulator) .score-bar").each(function () {
-    updateScore(0);
-  });
-  function updateScore($initialScore) {
-    $(".simulator:not(.no-score-simulator) .score-bar").each(function () {
-      var $pointer = $(this).find(".score-pointer .pointer-image");
-      var $val = $(this).find(".cibil-score");
-
-      /* console.log($val.text()); */
-
-      var oldperc = parseInt($val.text(), 10);
-      var perc = oldperc - 300;
-      var $outputPerc = $(".outputPerc");
-
-      $({ p: $initialScore }).animate(
-        { p: perc },
-        {
-          duration: 1000,
-          easing: "swing",
-          step: function (p) {
-            $pointer.css({
-              transform:
-                "rotate(" + Math.ceil(((p * 100) / 900) * 2.69) + "deg)",
-            });
-            $val.text((p + 300) | 0);
-          },
-        }
-      );
-    });
-  }
-    
-  // $('.custom-select-input').click(function(){
-  //     $(this).toggleClass('opened')
-  // })
-  // $('.custom-select-options span').click(function(){
-  //     $(this).siblings().removeClass("selected")
-  //     $(this).addClass('selected')
-  //     $(this).parents('.custom-select-input').find('.custom-select-value').text($(this).text())
-  //     $('#loantype').val($(this).text())
-  // })
   $('.report-nav-link').click(function(){
     $('.report-nav-link').removeClass('active');
     $(this).addClass('active');
@@ -351,6 +310,46 @@ function refreshPopupHide(){
 }
 function refreshPopupShow(){
   $('#refreshPopup').modal('show');
+}
+
+// animated simulator
+function calculateScorePerc(score){
+  let lowestScore = 300;
+  let highestScore = 900;
+  let perc = Math.ceil( ( ( ( score - lowestScore ) * 100 ) / highestScore ) * 2.69 );
+
+  if(perc < 0){
+    scorePerc = 0;
+  }else{
+    scorePerc = perc;
+  }
+}
+
+function updateScore(score, parentContainer) {
+  $(parentContainer).find(".score-bar").each(function () {
+    let pointer = $(this).find(".score-pointer .pointer-image");
+    let scoreTextElement = $(this).find('.cibil-score');
+
+    calculateScorePerc(score);
+
+    $({ score: 0 }).animate(
+      { score: scorePerc },
+      {
+        step: function( now ) {
+          $(pointer).css({'transform':'rotate('+ now + 'deg)'});
+          $(scoreTextElement).text(score);
+        }
+      }
+    );
+  });
+}
+
+if($('.simulator:not(.no-score-simulator)').is(':visible')){
+  $('.simulator:not(.no-score-simulator)').each(function(){
+    let oldScore = parseInt($(this).find(".cibil-score").text());
+    console.log(oldScore);
+    updateScore(oldScore, '.simulator:not(.no-score-simulator)');
+  });
 }
 
 function sortData(element, target, reverse){
