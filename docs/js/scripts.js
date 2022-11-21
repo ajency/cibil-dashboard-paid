@@ -641,6 +641,235 @@ if($('.comparison-graph')){
   refreshComparison();
 }
 
+//screen size
+$(document).ready(function () {
+  $(window).on("resize", function (e) {
+      checkScreenSize();
+  });
+
+  checkScreenSize();
+  
+  function checkScreenSize(){
+      var newWindowWidth = $(window).width();
+      if (newWindowWidth < 767.98) {
+          // score history
+          if ($('.score-history-list').is(":visible")){
+            var $this = $('.score-history-list');
+            if ($this.find('.score-item').length > 2) {
+                $('.history-info').append('<a class="cibil-link underlined cibil-link-right-icon show-icon showMore">Show All</a>');
+            }
+            $('.score-history-list .score-item').slice(0,4).addClass('shown');
+            $('.score-history-list .score-item').not('.shown').hide();
+            $('.history-info .showMore').on('click',function(){
+              $('.score-history-list .score-item').not('.shown').toggle(300);
+              $(this).toggleClass('showMore');
+              $(this).toggleClass('showLess');
+              if ($(this).text() == "Show All")
+                $(this).text("Show Less")
+              else
+                $(this).text("Show All");
+              });
+          }
+          if ($('#scoreHistoryChart').is(":visible")){
+            let chartLabel = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL'];
+            mobileChart(chartLabel);
+          }
+      }else{
+        if ($('#scoreHistoryChart').is(":visible")){
+          let chartLabel = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+          desktopChart(chartLabel);
+        }
+      }
+      if (newWindowWidth < 991.98){
+        // upgrade plan
+        if ($('.upgrade-plans .plan-tabs').is(":visible")){
+          let parent = $('.upgrade-plans .plan-tabs');
+          $(parent).find('.nav-item:not(.shown)').hide();
+          $('.upgrade-plans').append('<a class="cibil-link underlined showAllPlans" onclick="showAllPlansMob(this)">SHOW ALL PLANS</a>');
+        }
+      }else{
+        // upgrade plan
+        if ($('.upgrade-plans__wraper').is(":visible")){
+          let parent = $('.upgrade-plans__wraper');
+          $(parent).find('.plan:not(.shown)').hide();
+          $(parent).find('.plan.shown').addClass('firstView');
+          $('.upgrade-plans').append('<a class="cibil-link underlined showAllPlans" onclick="showAllPlans(this)">SHOW ALL PLANS</a>');
+        }
+      }
+  }
+});
+
+function mobileChart(chartLabel){
+// score history chart
+const ctx = document.getElementById('scoreHistoryChart');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: chartLabel,
+        datasets: [{
+          label: 'Score History',
+          data: [
+            {
+              y: 510,
+              x: 'AUG'
+            },
+            {
+              y: 520,
+              x: 'APR',
+            }
+          ],
+          borderWidth: 3,
+          borderColor: '#006685',
+          backgroundColor: '#FFFFFF',
+          showLine: false,
+          hoverBackgroundColor: '#FCD800',
+          hoverBorderWidth: 3,
+        }]
+    },
+    options: {
+      showAllTooltips: true,
+      ticks:{
+        font:{
+          size: 10,
+          family: 'Intro',
+          weight:400,
+          color: '#ACACAC',
+        }
+      },
+      scales: {
+        x: {
+          grid: {
+            borderColor: '#9EBFD2',
+            borderWidth: 1.6,
+            borderDash: [2, 2],
+            lineWidth:1,
+          },
+        },
+        y: {
+          min: 300,
+          max: 900,
+          grid: {
+            borderDash: [2, 2],
+            lineWidth:1,
+          },
+        },
+      },
+      plugins: {
+        legend: {
+            display: false,
+        },
+        tooltip: {
+          enabled: false,
+        }
+      },
+      elements:{
+        point:{
+          radius:5,
+          hoverRadius:5
+        }
+      },
+      onClick: (e, activeEls) => {
+        let datasetIndex = activeEls[0].datasetIndex;
+        let dataIndex = activeEls[0].index;
+        let value = e.chart.data.datasets[datasetIndex].data[dataIndex];
+        $('.history-info').hide(300).removeClass('active');
+        $('.subscribed').find("[data-month='" + value.x + "']").show(300).addClass('active');
+      },
+    }
+});
+}
+function desktopChart(chartLabel){
+  // score history chart
+  const ctx = document.getElementById('scoreHistoryChart');
+  const myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: chartLabel,
+          datasets: [{
+            label: 'Score History',
+            data: [
+              {
+                y: 510,
+                x: 'AUG'
+              },
+              {
+                y: 520,
+                x: 'APR',
+              },
+              {
+                y: 580,
+                x: 'MAY',
+              },
+              {
+                y: 493,
+                x: 'JUN',
+              }
+            ],
+            borderWidth: 3,
+            borderColor: '#006685',
+            backgroundColor: '#FFFFFF',
+            showLine: false,
+            hoverBackgroundColor: '#FCD800',
+            hoverBorderWidth: 3,
+          }]
+      },
+      options: {
+        showAllTooltips: true,
+        ticks:{
+          font:{
+            size: 12,
+            family: 'Intro'
+          }
+        },
+        scales: {
+          x: {
+            ticks:{
+              color: ['#707070', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#707070'],
+            },
+            grid: {
+              borderColor: '#9EBFD2',
+              borderWidth: 1.6,
+              borderDash: [2, 2],
+              lineWidth:1,
+            },
+          },
+          y: {
+            min: 300,
+            max: 900,
+            ticks:{
+              color: ['#707070', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#707070'],
+            },
+            grid: {
+              borderDash: [2, 2],
+              lineWidth:1,
+            },
+          },
+        },
+        plugins: {
+          legend: {
+              display: false,
+          },
+          tooltip: {
+            enabled: false,
+          }
+        },
+        elements:{
+          point:{
+            radius:5,
+            hoverRadius:5
+          }
+        },
+        onClick: (e, activeEls) => {
+          let datasetIndex = activeEls[0].datasetIndex;
+          let dataIndex = activeEls[0].index;
+          let value = e.chart.data.datasets[datasetIndex].data[dataIndex];
+          $('.history-info').hide(300).removeClass('active');
+          $('.subscribed').find("[data-month='" + value.x + "']").show(300).addClass('active');
+        },
+      }
+  });
+  }
+
   //alerts
   $(".report-content-container").on("show.bs.collapse", function () {
     $(this).prev().addClass("show");

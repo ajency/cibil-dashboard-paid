@@ -198,13 +198,11 @@
                     },
                     {
                         "title": "Monthly / Annual Income Indicator",
-                        "desc": "₹40,000",
-                        "half": true
+                        "desc": "₹40,000"
                     },
                     {
                         "title": "Net / Gross Income Indicator",
-                        "desc": "₹80,000",
-                        "half": true
+                        "desc": "₹80,000"
                     }
                     
                 ]
