@@ -1,128 +1,408 @@
-<div class="offer-card-list">
-
-    <div class="offers-card" amount="₹7,30,000" data-index="1">
-        <div class="offer-info-wrap">
-            <div class="company-container">
-                <span><img src="/cibil-dashboard-paid/images/dynamic-images/digit-logo.svg" class="company-logo"></span>
-                <label class="company-name">DIGIT</label>
+<div class="offers-container">
+    <div class="filter-container">
+        <span class="filter-header">{{ partial "icons/filter-icon"}} <b>Filter by</b></span>
+        <div class="filter-items">
+            <div class="filter-item filter-sort-item d-lg-none">
+                <span class="filter-label">SORT OFFERS {{ partial "icons/blue-arrow" }}</span>
+                <ul class="filter-values">
+                    <li class="filter-value">
+                        <label>Loan Partners</label>
+                        <div class="custom-radio-wrap">
+                            <span class="custom-radio">
+                                <input id="personal-partner-1" type="radio" name="personal-radio" value="partner">
+                                <label for="personal-partner-1">A-Z</label>
+                            </span>
+                            <span class="custom-radio">
+                                <input id="personal-partner-2" type="radio" name="personal-radio" value="partner" reverse="true">
+                                <label for="personal-partner-2">Z-A</label>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="filter-value">
+                        <label>Loan Upto</label>
+                        <div class="custom-radio-wrap">
+                            <span class="custom-radio">
+                                <input id="personal-loan-upto-1" type="radio" name="personal-radio" value="amount">
+                                <label for="personal-loan-upto-1">Low to High</label>
+                            </span>
+                            <span class="custom-radio">
+                                <input id="personal-loan-upto-2" type="radio" name="personal-radio" value="amount" reverse="true">
+                                <label for="personal-loan-upto-2">High to Low</label>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="filter-value">
+                        <label>Interest Rate (%)</label>
+                        <div class="custom-radio-wrap">
+                            <span class="custom-radio">
+                                <input id="personal-interest-1" type="radio" name="personal-radio" value="rate">
+                                <label for="personal-interest-1">Low to High</label>
+                            </span>
+                            <span class="custom-radio">
+                                <input id="personal-interest-2" type="radio" name="personal-radio" value="rate" reverse="true">
+                                <label for="personal-interest-2">High to Low</label>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="filter-value">
+                        <label>Interest Type</label>
+                        <div class="custom-radio-wrap">
+                            <span class="custom-radio">
+                                <input id="personal-type-1" type="radio" name="personal-radio" value="type">
+                                <label for="personal-type-1">A-Z</label>
+                            </span>
+                            <span class="custom-radio">
+                                <input id="personal-type-2" type="radio" name="personal-radio" value="type" reverse="true">
+                                <label for="personal-type-2">Z-A</label>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="filter-value">
+                        <label>Processing Fees Upto</label>
+                        <div class="custom-radio-wrap">
+                            <span class="custom-radio">
+                                <input id="personal-fees-1" type="radio" name="personal-radio" value="fees">
+                                <label for="personal-fees-1">Low to High</label>
+                            </span>
+                            <span class="custom-radio">
+                                <input id="personal-fees-2" type="radio" name="personal-radio" value="fees" reverse="true">
+                                <label for="personal-fees-2">High to Low</label>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div class="offer-info">
-                <li>
-                    <span>Loan Upto</span>
-                    <span>₹7,30,000</span>
-                </li>
-                <li>
-                    <span>Interest Rate (%)</span>
-                    <span>4.16%</span>
-                </li>
-                <li>
-                    <span>Interest Type</span>
-                    <span>Fixed</span>
-                </li>
-                <li>
-                    <span>Processing Fees Upto</span>
-                    <span>₹349 + GST</span>
-                </li>
+            <div class="filter-item">
+                <span class="filter-label">LOAN PARTNERS {{ partial "icons/blue-arrow" }}</span>
+                <ul class="filter-values">
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="Bajaj Finserv Ltd.">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>Bajaj Finserv Ltd.</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="HDFC Bank Ltd.">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>HDFC Bank Ltd.</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="Aditya Birla Finance Ltd.">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>Aditya Birla Finance Ltd.</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="ICICI Bank">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>ICICI Bank</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="Digit Inc.">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>Digit Inc.</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="filter-item">
+                <span class="filter-label">CREDIT LIMIT {{ partial "icons/blue-arrow" }}</span>
+                <ul class="filter-values">
+                    <!-- <li class="filter-value flex-column">
+                        <p class="range-slider-label">
+                            <span><b>₹10,000</b><br>(10 Thousand)</span>
+                            <span><b>₹5,00,000</b><br>(5 Lakhs)</span>
+                        </p>
+                        <span class="range-slider-container">
+                            <input type='range' min='10000' value='500000' max='900000'/>
+                        </span>
+                    </li> -->
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="5000-10000">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>₹5,000 - ₹10,000</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="50000-100000">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>₹50,000 - ₹1,00,000</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="100000-500000">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>₹1,00,000 - ₹5,00,000</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="500000-1000000">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>₹5,00,000 - ₹10,00,000</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="1000000-">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>₹10,00,000 and Above</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="filter-item">
+                <span class="filter-label">INTEREST RATE {{ partial "icons/blue-arrow" }}</span>
+                <ul class="filter-values">
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="0-1">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>1% and below </label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="2-5">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>2% - 5%</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="6-10">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>6% - 10%</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="11-15">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>11% - 15%</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="16-100">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>16% and above</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="filter-item">
+                <span class="filter-label">FEES {{ partial "icons/blue-arrow" }}</span>
+                <ul class="filter-values">
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="0">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>No Joining Fees</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="1-1000">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>₹1 - ₹1,000</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="1000-5000">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>₹1,000 - ₹5,000</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="5000-10000">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>₹5,000 - ₹10,000</label>
+                    </li>
+                    <li class="filter-value">
+                        <span class="custom-checkbox">
+                            <input type="checkbox" value="10000">
+                            {{ partial "icons/checkbox-checked"}}
+                        </span>
+                        <label>₹10,000 and above</label>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="offer-cta">
-            <a class=" cibil-button toggle-popup" data-target="offersPopup">VIEW OFFER</a>
-            <a class="cibil-link" onclick="addToCompare(this)" data-target="1"><span><b class="plus-icon">&#x2715</b> Add to compare</span><span>&#x2715 Remove from compare</span></a>
+        <div class="filter-cta">
+            <a class="cibil-button cibil-button-border"><span class="d-none d-lg-inline-flex">apply filter</span><span class="d-lg-none" onclick="toggeSortFilter()">Apply</span></a>
+            <a class="cibil-btn-link"><span class="d-none d-lg-inline-flex">CLEAR ALL FILTERS</span><span class="d-lg-none" onclick="toggeSortFilter()">Clear All</span></a>
         </div>
     </div>
-
-
-    <div class="offers-card" amount="₹8,00,000" data-index="2">
-        <div class="offer-info-wrap">
-            <div class="company-container">
-                <span><img src="/cibil-dashboard-paid/images/dynamic-images/aditya-birla-finance-logo.svg" class="company-logo"></span>
-                <label class="company-name">Aditya Birla Finance Pvt Ltd</label>
-            </div>
-            <div class="offer-info">
-                <li>
-                    <span>Loan Upto</span>
-                    <span>₹8,00,000</span>
+    <div class="offers-content-container">
+        <div class="sticky-sort-wrap">
+            <ul class="sort-component">
+                <li target="partner">
+                    <label>Loan Partner</label>
+                    <span><span>Loan <br> Partner</span>{{partial "icons/sort-arrows"}}</span>
                 </li>
-                <li>
-                    <span>Interest Rate (%)</span>
-                    <span>3.35%</span>
+                <li target="amount">
+                    <label>Loan Upto</label>
+                    <span><span>Loan Upto</span>{{partial "icons/sort-arrows"}}</span>
                 </li>
-                <li>
-                    <span>Interest Type</span>
-                    <span>Floating</span>
+                <li target="rate">
+                    <label>Interest Rate (%)</label>
+                    <span><span>Interest <br>Rate (%)</span>{{partial "icons/sort-arrows"}}</span>
                 </li>
-                <li>
-                    <span>Processing Fees Upto</span>
-                    <span>₹499 + GST</span>
+                <li target="type">
+                    <label>Interest Type</label>
+                    <span><span>Interest <br>Type</span>{{partial "icons/sort-arrows"}}</span>
                 </li>
-            </div>
-        </div>
-        <div class="offer-cta">
-            <a class=" cibil-button toggle-popup" data-target="offersPopup">VIEW OFFER</a>
-            <a class="cibil-link" onclick="addToCompare(this)" data-target="2"><span><b class="plus-icon">&#x2715</b> Add to compare</span><span>&#x2715 Remove from compare</span></a>
-        </div>
-    </div>
-
-    <div class="offers-card premium-partner" amount="₹8,00,000" data-index="3">
-        <div class="offer-info-wrap">
-            <div class="company-container">
-                <span><img src="/cibil-dashboard-paid/images/dynamic-images/bajaj-finserv-logo.svg" class="company-logo"></span>
-                <label class="company-name">Bajaj Finserv</label>
-            </div>
-            <div class="offer-info">
-                <li>
-                    <span>Loan Upto</span>
-                    <span>₹8,00,000</span>
+                <li target="fees">
+                    <label>Processing Fees Upto</label>
+                    <span><span>Processing <br>Fees Upto</span>{{partial "icons/sort-arrows"}}</span>
                 </li>
-                <li>
-                    <span>Interest Rate (%)</span>
-                    <span>3.35%</span>
-                </li>
-                <li>
-                    <span>Interest Type</span>
-                    <span>Floating</span>
-                </li>
-                <li>
-                    <span>Processing Fees Upto</span>
-                    <span>₹499 + GST</span>
-                </li>
+                <li></li>
+            </ul>
+            <div class="sort-filter-sticky d-lg-none">
+                <a onclick="toggeSortFilter()">{{ partial "icons/sort-filter-icon"}}<span>SORT & Filter</span>{{partial "icons/arrow-right"}}</a>
+                <a>Clear All</a>
             </div>
         </div>
-        <div class="offer-cta">
-            <a class=" cibil-button toggle-popup" data-target="offersPopup">VIEW OFFER</a>
-            <a class="cibil-link" onclick="addToCompare(this)" data-target="3"><span><b class="plus-icon">&#x2715</b> Add to compare</span><span>&#x2715 Remove from compare</span></a>
-        </div>
-    </div>
-
-
-    <div class="offers-card" amount="₹8,00,000" data-index="4">
-        <div class="offer-info-wrap">
-            <div class="company-container">
-                <span><img src="/cibil-dashboard-paid/images/dynamic-images/hdfc-home-loans-logo.svg" class="company-logo"></span>
-                <label class="company-name">HDFC Home Loans</label>
+        <div class="offer-card-list">
+            <div class="offers-card premium-partner" amount="₹8,00,000" rate="3.35%" type="floating" fees="₹9,000" partner="Bajaj Finserv Ltd." data-id="0" data-index="1">
+                <div class="offer-info-wrap">
+                    <div class="company-container">
+                        <span><img src="/cibil-dashboard-paid/images/dynamic-images/bajaj-finserv-logo.svg" class="company-logo"></span>
+                        <label class="company-name">Bajaj Finserv Ltd.</label>
+                    </div>
+                    <div class="offer-info">
+                        <li>
+                            <span>Loan Upto</span>
+                            <span>₹8,00,000</span>
+                        </li>
+                        <li>
+                            <span>Interest Rate (%)</span>
+                            <span>3.35%</span>
+                        </li>
+                        <li>
+                            <span>Interest Type</span>
+                            <span>Floating</span>
+                        </li>
+                        <li>
+                            <span>Processing Fees Upto</span>
+                            <span>₹9,000</span>
+                        </li>
+                    </div>
+                </div>
+                <div class="offer-cta">
+                    <a class=" cibil-button toggle-popup" data-target="offersPopup0">VIEW OFFER</a>
+                    <a class="cibil-link" onclick="addToCompare(this)" data-target="1"><span>{{ partial "icons/uncheck-circle"}} Add to compare</span><span>{{ partial "icons/check-circle"}} Add to compare</span></a>
+                </div>
             </div>
-            <div class="offer-info">
-                <li>
-                    <span>Loan Upto</span>
-                    <span>₹8,00,000</span>
-                </li>
-                <li>
-                    <span>Interest Rate (%)</span>
-                    <span>3.35%</span>
-                </li>
-                <li>
-                    <span>Interest Type</span>
-                    <span>Floating</span>
-                </li>
-                <li>
-                    <span>Processing Fees Upto</span>
-                    <span>₹499 + GST</span>
-                </li>
+        
+        
+            <div class="offers-card" amount="₹7,30,000" rate="4.35%" fees="₹12,000" partner="Digit Inc." type="fixed" data-id="1" data-index="2">
+                <div class="offer-info-wrap">
+                    <div class="company-container">
+                        <span><img src="/cibil-dashboard-paid/images/dynamic-images/digit-logo.svg" class="company-logo"></span>
+                        <label class="company-name">Digit Inc.</label>
+                    </div>
+                    <div class="offer-info">
+                        <li>
+                            <span>Loan Upto</span>
+                            <span>₹7,30,000</span>
+                        </li>
+                        <li>
+                            <span>Interest Rate (%)</span>
+                            <span>4.35%</span>
+                        </li>
+                        <li>
+                            <span>Interest Type</span>
+                            <span>Fixed</span>
+                        </li>
+                        <li>
+                            <span>Processing Fees Upto</span>
+                            <span>₹12,000</span>
+                        </li>
+                    </div>
+                </div>
+                <div class="offer-cta">
+                    <a class=" cibil-button toggle-popup" data-target="offersPopup1">VIEW OFFER</a>
+                    <a class="cibil-link" onclick="addToCompare(this)" data-target="2"><span>{{ partial "icons/uncheck-circle"}} Add to compare</span><span>{{ partial "icons/check-circle"}} Add to compare</span></a>
+                </div>
             </div>
-        </div>
-        <div class="offer-cta">
-            <a class=" cibil-button toggle-popup" data-target="offersPopup">VIEW OFFER</a>
-            <a class="cibil-link" onclick="addToCompare(this)" data-target="4"><span><b class="plus-icon">&#x2715</b> Add to compare</span><span>&#x2715 Remove from compare</span></a>
+        
+        
+            <div class="offers-card" amount="₹9,00,000" rate="3.35%" fees="₹14,000" partner="Aditya Birla Finance Ltd." type="floating" data-id="2" data-index="3">
+                <div class="offer-info-wrap">
+                    <div class="company-container">
+                        <span><img src="/cibil-dashboard-paid/images/dynamic-images/aditya-birla-finance-logo.svg" class="company-logo"></span>
+                        <label class="company-name">Aditya Birla Finance Ltd.</label>
+                    </div>
+                    <div class="offer-info">
+                        <li>
+                            <span>Loan Upto</span>
+                            <span>₹9,00,000</span>
+                        </li>
+                        <li>
+                            <span>Interest Rate (%)</span>
+                            <span>3.35%</span>
+                        </li>
+                        <li>
+                            <span>Interest Type</span>
+                            <span>Floating</span>
+                        </li>
+                        <li>
+                            <span>Processing Fees Upto</span>
+                            <span>₹14,000</span>
+                        </li>
+                    </div>
+                </div>
+                <div class="offer-cta">
+                    <a class=" cibil-button toggle-popup" data-target="offersPopup2">VIEW OFFER</a>
+                    <a class="cibil-link" onclick="addToCompare(this)" data-target="3"><span>{{ partial "icons/uncheck-circle"}} Add to compare</span><span>{{ partial "icons/check-circle"}} Add to compare</span></a>
+                </div>
+            </div>
+        
+            <div class="offers-card" amount="₹8,00,000" rate="3.35%" fees="₹12,000" partner="Bajaj Finserv Ltd." type="floating" data-id="4" data-index="5">
+                <div class="offer-info-wrap">
+                    <div class="company-container">
+                        <span><img src="/cibil-dashboard-paid/images/dynamic-images/bajaj-finserv-logo.svg" class="company-logo"></span>
+                        <label class="company-name">Bajaj Finserv Ltd.</label>
+                    </div>
+                    <div class="offer-info">
+                        <li>
+                            <span>Loan Upto</span>
+                            <span>₹8,00,000</span>
+                        </li>
+                        <li>
+                            <span>Interest Rate (%)</span>
+                            <span>3.35%</span>
+                        </li>
+                        <li>
+                            <span>Interest Type</span>
+                            <span>Floating</span>
+                        </li>
+                        <li>
+                            <span>Processing Fees Upto</span>
+                            <span>₹12,000</span>
+                        </li>
+                    </div>
+                </div>
+                <div class="offer-cta">
+                    <a class=" cibil-button toggle-popup" data-target="offersPopup4">VIEW OFFER</a>
+                    <a class="cibil-link" onclick="addToCompare(this)" data-target="5"><span>{{ partial "icons/uncheck-circle"}} Add to compare</span><span>{{ partial "icons/check-circle"}} Add to compare</span></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

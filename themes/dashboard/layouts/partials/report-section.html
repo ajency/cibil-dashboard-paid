@@ -1,6 +1,6 @@
 <div class="page-width">
-    <div class="report-tabs">
-        <ul class="reportTabs" id="reportTab">
+    <div class="report-tabs mobile-tabs">
+        <ul class="reportTabs mobileTabs" id="reportTab">
             <li class="report-nav-item" role="presentation">
                 <button class="report-nav-link active" id="account-tab" data-target="#account"><img
                         src='{{"images/static-images/account-info.svg" | relURL}}'>Account Information</button>
@@ -20,17 +20,6 @@
                     aria-controls="summary"><img src='{{"images/static-images/report-summary.svg" | relURL}}'>Credit Summary</button>
             </li>
         </ul>
-        <div class="group report-select-group">
-            <div class="custom-select-input report-select-tab" onclick="customSelectInput(this)">
-                <span class="custom-select-value" id="report-select-value"><img src='{{"images/static-images/report-summary.svg" | relURL}}'>Account Information</span>
-                <div class="custom-select-options">
-                    <span data-target="#account" onclick="customSelectTab(this)" class="selected"><img src='{{"images/static-images/account-info.svg" | relURL}}'>Account Information</span>
-                    <span data-target="#profile" onclick="customSelectTab(this)" ><img src='{{"images/static-images/profile-info.svg" | relURL}}'>Profile Information</span>
-                    <span data-target="#enquiry" onclick="customSelectTab(this)" ><img src='{{"images/static-images/enquiry-info.svg" | relURL}}'>Enquiry Information</span>
-                    <span data-target="#summary" onclick="customSelectTab(this)"><img src='{{"images/static-images/report-summary.svg" | relURL}}'>Credit Summary</span>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="report-content">
         <div class="tab-content">

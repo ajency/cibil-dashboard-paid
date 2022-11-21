@@ -1,8 +1,13 @@
 <div class="report-summary-container">
     <div class="">
-        <p class="summary-desc">
-            Take a quick look at a summary of the different types of accounts you have, the number of accounts you have open, closed and delinquent along with the number of enquiries.
-        </p>
+        <div class="summary-desc">
+            <p class="h3 heading">Take a quick look at:</p> 
+             <ul class="checklist">
+                <li class="h3-book">Summary of the different types of accounts you have</li>
+                <li class="h3-book">Number of accounts you have open, closed and delinquent</li>
+                <li class="h3-book">Number of enquiries</li>
+             </ul>
+        </div>
         <!-- <p class="summary-title">Upgrade now to see the current details of your CIBIL Score & Report</p>
         <div class="summary-pointers">
             <p><img src="/cibil-dashboard-paid/images/static-images/credit-health.svg" alt=""><span>Get an overview of your credit health, credit worthyness and credit utilization.</span></p>
@@ -13,6 +18,11 @@
         <a href="/cibil-dashboard-paid/overview_paid/upgrade-plan" class="cibil-button">Upgrade Now</a>
     </div>
     <div class="">
-        <img src="/cibil-dashboard-paid/images/static-images/report-summary-cover.png" alt="">
+        <img class="summary-gif hide-sm-down" src="{{ "gifs/cibil-summary-desk.gif" | relURL }}" alt="">
+        <div class="hide-md-up">
+            <div class="mobile-mockup">
+                <img class="summary-gif" src="{{ "gifs/cibil-summary-mob.gif" | relURL }}" alt="">
+            </div>
+        </div>
     </div>
 </div>

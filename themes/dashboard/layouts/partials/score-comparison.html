@@ -7,22 +7,15 @@
         <div class="score-comparison__wraper">
             {{if eq .subscribed false }}
             <div class="unsubscribed-content">
-                <div class="content">{{ .unsubscribed_content }}</div>
-                {{if .subscribe_link}} <a href="upgrade-plan" class="cibil-link cibil-link-right-icon">{{ .subscribe_link_text }}</a>{{end}}
-                <div class="img-container">
-                    <img class="hide-sm-down" src="{{ "images/static-images/empty-score-comparison.png" | relURL }}" alt="">
-                    <img class="hide-md-up" src="{{ "images/static-images/empty-score-comparison-mob.png" | relURL }}" alt="">
-                </div>
-            </div>
-            {{else}}
                 <div class="comparison">
                     <div class="comparison-head">
                         <p>{{ .unsubscribed_content }}</p>
-                        <a onclick="showComparisonForm(this)" class="cibil-link-button"><span>EDIT INFORMATION</span></a>
+                        <a href="{{.subscribe_link}}" class="cibil-link cibil-link-right-icon">{{.subscribe_link_text}}</a>
                     </div>
-                    {{partial "paid-partials/comparison-graph" }}
-                    {{partial "paid-partials/comparison-form-screen" }}
+                    {{partial "comparison-form-screen" }}
+                    {{partial "comparison-graph" }}
                 </div>
+            </div>
             {{end}}
         </div>
     </div>

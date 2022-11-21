@@ -1,0 +1,33 @@
+<div class="repayment-options">
+    <div class="page-width">
+        <div class="repayment-options__wraper repayment-slider">
+            {{range $index, $options:= .repaymentOptions}}
+                <div class="repayment-option">
+                    <div class="repayment-option__wraper">
+                        <div class="details">
+                            {{range first 3 .}}
+                                <div class="option-details">
+                                    {{range $index, $optionDetails:= . }}
+                                        <p class="body-medium title">{{$index}}</p>
+                                        <p class="body desc {{ anchorize $index}}">{{.}}</p>
+                                    {{end}}
+                                </div>
+                            {{end}}
+                        </div>
+                        <a class="cibil-button" data-toggle="modal" data-target="#clearDuesPopup-{{$index}}">CLEAR YOUR DUES</a>
+                    </div>
+                </div>
+            {{end}}
+        </div>
+    </div>
+</div>
+
+{{range $index, $options:= .repaymentOptions}}
+    {{range .}} 
+    {{$bankName := .Lender}} 
+    {{$logoURL := .logo }}
+    {{ partial "clear-dues-popup" (dict "indexNo" $index "dataMap" $options "bankName" $bankName "logo" $logoURL ) }}
+    {{end}}
+{{end}}
+
+{{partial "thank-you-popup" (dict "heading" "Thank you for your interest" "message" "Your request has been forwarded to the financial institution and they will get in touch with you shortly.")}}

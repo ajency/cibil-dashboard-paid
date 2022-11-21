@@ -57,6 +57,38 @@ $(function () {
     $('.hamburger').removeClass('opened');
     $(".overlay").toggleClass('opened');
   });
+
+  // animated simulator
+  $(".simulator:not(.no-score-simulator) .score-bar").each(function () {
+    updateScore(0);
+  });
+  function updateScore($initialScore) {
+    $(".simulator:not(.no-score-simulator) .score-bar").each(function () {
+      var $pointer = $(this).find(".score-pointer .pointer-image");
+      var $val = $(this).find(".cibil-score");
+
+      /* console.log($val.text()); */
+
+      var oldperc = parseInt($val.text(), 10);
+      var perc = oldperc - 300;
+      var $outputPerc = $(".outputPerc");
+
+      $({ p: $initialScore }).animate(
+        { p: perc },
+        {
+          duration: 1000,
+          easing: "swing",
+          step: function (p) {
+            $pointer.css({
+              transform:
+                "rotate(" + Math.ceil(((p * 100) / 900) * 2.69) + "deg)",
+            });
+            $val.text((p + 300) | 0);
+          },
+        }
+      );
+    });
+  }
     
   // $('.custom-select-input').click(function(){
   //     $(this).toggleClass('opened')
@@ -122,9 +154,46 @@ $(function () {
     var container = $(".custom-select-input");
     if (!container.is(event.target) && !container.has(event.target).length) {
         container.find('.custom-select-options').hide('fast');
+        container.removeClass('opened');
         container.find('.searchbox').slideUp('fast');
     }
   });
+
+  $('.custom-checkbox svg').click(function(){
+    let checkBoxes = $(this).siblings("input[type=checkbox]");
+    checkBoxes.prop("checked", !checkBoxes.prop("checked"));
+  })
+
+  $('.filter-label').click(function(){
+    $(this).siblings('.filter-values').toggle('medium')
+    $(this).toggleClass('opened')
+  })
+
+  $('input[type="range"]').change(function(){
+    console.log($(this).val())
+    $(this).parent().siblings('.range-slider-label').find('span:last-of-type b').text('₹'+parseInt($(this).val()).toLocaleString('en-IN'))
+  })
+
+  $('.sort-component li').click(function(){
+    let reverse = false
+    if($(this).attr('reverse')){
+      reverse = true
+      $(this).removeAttr('reverse')
+    }
+    else{
+      $(this).attr('reverse',true)
+    }
+    sortData($(this), $(this).attr('target'), reverse)
+  })
+
+  $('.filter-sort-item .filter-value input[type=radio]').change(function(){
+    console.log('rr')
+    let reverse = false
+    if($(this).attr('reverse')){
+      reverse = true
+    }
+    sortData($(this), $(this).val(), reverse)
+  })
 
 })
 function customSelectInput(element){
@@ -132,11 +201,11 @@ function customSelectInput(element){
   $(element).find('.custom-select-options').toggle('fast');
 }
 function checkSearchbox(element){
-    //searchbox
-    let searchbox = $(element).parents('.custom-select-input').find('.searchbox');
-    if(searchbox){
-      $(searchbox).slideToggle('fast');
-    }
+  //searchbox
+  let searchbox = $(element).parents('.custom-select-input').find('.searchbox');
+  if(searchbox){
+    $(searchbox).slideToggle('fast');
+  }
 }
 function customSelectInputSearch(element){
   $(element).parents('.custom-select-input').toggleClass('opened')
@@ -147,6 +216,7 @@ function customSelectOptionSearch(element){
   $(element).siblings().removeClass("selected")
   $(element).addClass('selected')
   $(element).parents('.custom-select-input').find('.custom-select-value').text($(element).text())
+  $(element).parents('.custom-select-input').find('.custom-select-value').addClass('value-selected')
   $(element).parents('.custom-select-options').toggle('fast')
   $(element).parents('.custom-select-input').removeClass('opened')
   checkSearchbox(element)
@@ -154,6 +224,7 @@ function customSelectOptionSearch(element){
 }
 function resetSearch(element){
   $(element).fadeOut('fast');
+  $(element).parents('.form-group').find('.custom-select-value').removeClass('value-selected')
   $(element).parents('.form-group').find('.custom-select-value').text('All of India');
   $(element).parents('.form-group').find('.selected').removeClass('selected');
 }
@@ -175,6 +246,8 @@ function customSelectOption(element){
   $(element).siblings().removeClass("selected")
   $(element).addClass('selected')
   $(element).parents('.custom-select-input').find('.custom-select-value').text($(element).text())
+  $(element).parents('.custom-select-input').find('.custom-select-value').removeClass('placeholder')
+  $(element).parents('.custom-select-input').find('.custom-select-value').addClass('value-selected')
   $('#loantype').val($(element).text())
 }
 function customSelectTab(element){
@@ -237,7 +310,7 @@ function checkAccountVisibility(){
 }
 
 function resetCompare(){
-  $('.compare-offer-header').removeClass('show')
+  $('.compare-offer-header').removeClass('show activated')
   $('.compare-offer-footer').fadeOut('fast');
   $('.compare-offer-footer .compare-list > .compare-tab').html('');
   $('.offers-card').removeClass('selected');
@@ -254,17 +327,6 @@ function upgradePlan(element){
   $('.scenario-cta .reset-scenario, .scenario-cta .add-scenario').show()
 }
 
-function showSimulatedScore(){
-  $('.empty-simulator').slideUp(300);
-  $('.simulated-score').fadeIn(300);
-  refreshScore(780, '.simulated-score');
-  $('.scenario-cta .smiluate-now-cta').addClass('disabled');
-  $('.scenario-cta .add-scenario').text('Reset Simulation');
-  $('.scenario-cta .add-scenario').addClass('reset-scenario').removeClass('add-scenario');
-  $('.scenario-cta .reset-scenario').attr("onclick", "resetScenario()");
-  $('.scenario-cta .reset-scenario, .scenario-cta .add-scenario').show()
-}
-
 function toggleShrink(){
   $('.concent-text').toggleClass('shrink')
 }
@@ -274,16 +336,13 @@ function editOInfoToggle(){
   $('.loan-offer-js').toggleClass('edit');
 }
 
-function submitEditInfo(element){
-  cancelComparison(element);
-  resetCompare();
+function submitEditInfo(){
+  resetCompare()
+  $('.loan-offer-js').toggleClass('edit');
 }
 
-function cancelComparison(element){
-  $(element).parents('.comparison').find('.graph-data').fadeIn('fast');
-  $(element).parents('.comparison').find('.comparison-form-section').fadeOut('fast');
-  $(element).parents('.comparison').find('.back-icon').find('span').text('EDIT INFORMATION');
-  $(element).parents('.comparison').find('.back-icon').removeClass('back-icon').attr('onclick', 'showComparisonForm(this)');
+function toggeSortFilter(){
+  $('.offers-container').toggleClass('show-sort-filter')
 }
 
 // refresh popup
@@ -294,41 +353,32 @@ function refreshPopupShow(){
   $('#refreshPopup').modal('show');
 }
 
-// animated simulator
-function calculateScorePerc(score){
-  let lowestScore = 300;
-  let highestScore = 900;
-  let perc = Math.ceil( ( ( ( score - lowestScore ) * 100 ) / highestScore ) * 2.69 );
-
-  if(perc < 0){
-    scorePerc = 0;
-  }else{
-    scorePerc = perc;
+function sortData(element, target, reverse){
+  let offers = $(element).parents('.offers-container').find('.offer-card-list .offers-card').get();
+  console.log('offers', offers)
+  offers.sort((a, b) => {
+    let nameA, nameB;
+    if(target == 'partner' || target == "type"){
+      nameA = $(a).attr(target).toUpperCase();
+      nameB = $(b).attr(target).toUpperCase();
+    }
+    else{
+      nameA = parseInt($(a).attr(target).replace(/\D/g,''));
+      nameB = parseInt($(b).attr(target).replace(/\D/g,''));
+    }
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  })
+  if(reverse){
+    offers.reverse()
   }
-}
+  $(offers).each(function(i,e){
+    $(this).css('order',i)
+  })
 
-function updateScore(score, parentContainer) {
-  $(parentContainer).find(".score-bar").each(function () {
-    let pointer = $(this).find(".score-pointer .pointer-image");
-    let scoreTextElement = $(this).find('.cibil-score');
-
-    calculateScorePerc(score);
-
-    $({ score: 0 }).animate(
-      { score: scorePerc },
-      {
-        step: function( now ) {
-          $(pointer).css({'transform':'rotate('+ now + 'deg)'});
-          $(scoreTextElement).text(score);
-        }
-      }
-    );
-  });
-}
-
-if($('.simulator:not(.empty-simulator)').is(':visible')){
-  $('.simulator:not(.empty-simulator)').each(function(){
-    let oldScore = parseInt($(this).find(".cibil-score").text());
-    updateScore(oldScore, '.simulator:not(.empty-simulator)');
-  });
 }

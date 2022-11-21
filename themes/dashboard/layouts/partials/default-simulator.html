@@ -1,0 +1,30 @@
+<div class="simulator no-score-simulator default-simulator">
+    <div class="score-bar">
+        <div class="bar">
+            <img class="bar-image" src="{{if eq .cibil_score "N/A"}}{{ "/images/static-images/simulator-na.svg" | relURL }}{{else}}{{ "/images/static-images/simulator.svg" | relURL }}{{end}}">
+
+            <div class="score-pointer">
+                <div class="score-pointer__wraper">
+                    {{if ne .cibil_score "N/A"}}<img class="pointer-image" src="{{ "/images/static-images/simulator-pointer.svg" | relURL }}">{{end}}
+                </div>
+            </div>
+        </div>
+        {{if eq .cibil_score "N/A"}}
+            <div class="not-aplicable">
+                <p class="cibil-score-na">N/A</p>
+                <p class="score-text hide-sm-down"><b>Your <span class="highlight-text-blue">CIBIL</span> Score is<br>not available at the moment</b></p>
+                <p class="score-text hide-md-up"><b>Your <span class="highlight-text-blue">CIBIL</span> Score is not available<br>at the moment</b></p>
+                {{if .showSubtext}}
+                    {{if eq .showSubtext true}}
+                        <p class="hairline subtext tooltipBox hide-sm-down">No credit history found.</p>
+                        <p class="hairline subtext tooltipBox hide-md-up">No credit history found.</p>
+                    {{end}}
+                {{end}}
+            </div>
+        {{else}}
+            <p class="cibil-score">{{.cibil_score}}</p>
+            {{if .score_text}}<p class="score-text">{{.score_text | safeHTML }}</p>{{end}}
+            {{if .subtext}}<p class="hairline subtext tooltipBox">{{.subtext | safeHTML }}</p>{{end}}
+        {{end}}
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="modal clearDuesPopup" id="clearDuesPopup-{{.indexNo}}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="no-title modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><img src="{{ "images/static-images/close-icon.svg" | relURL }}" alt=""></span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="info">
+                <div class="company-container">
+                    {{if .pageRef}}
+                        {{if eq .pageRef "allAccount"}}
+                            <img src="{{ .logo | relURL }}" class="company-logo">
+                            <p class="company-name">{{.bankName}}</p>
+                        {{end}}
+                    {{else}}
+                    {{range .dataMap}}{{if .logo}}<img src="{{ .logo | relURL }}" class="company-logo">{{end}}{{end}}
+                    <p class="company-name">{{range .dataMap}}{{if .Lender}} {{.Lender}} {{end}} {{end}}</p>
+                    {{end}}
+                </div>
+            </div>
+
+            <div class="benefits-n-requirements">
+                <div class="benefits list-group">
+                    <div class="hairline-bold heading-n-icon"><img src="{{ "images/static-images/benefits-icon.svg" | relURL }}" class="icon"><span>Benefits</span></div>
+                    <ul class="benefits-list">
+                        <li>Get a welcome e-gift voucher worth ₹500 from Amazon.</li>
+                        <li>Earn 10X rewards on online spends with exclusive partners. </li>
+                        <li>E-voucher worth ₹8,00,000 on annual online spends of ₹2 Lakhs.</li>
+                        <li>Spends ₹1 Lakh and get annual fee of ₹499 reversed for your SimplyCLICK SBI card in the subsequent year. </li>
+                    </ul>
+                </div>
+                <div class="requirements">
+                    <div class="list-group">
+                        <div class="hairline-bold heading-n-icon"><img src="{{ "images/static-images/required-doc.svg" | relURL }}" class="icon"><span>Required documents</span></div>
+                        <ul class="required-docs">
+                            <li>Not Available</li>
+                        </ul>
+                    </div>
+                    <div class="list-group">
+                        <div class="hairline-bold heading-n-icon"><img src="{{ "images/static-images/fees-icon.svg" | relURL }}" class="icon"><span>Fees</span></div>
+                        <ul class="fees">
+                            <li>Not Available</li>
+                        </ul>
+                    </div>
+                    <div class="list-group">
+                        <div class="hairline-bold heading-n-icon"><img src="{{ "images/static-images/download-blue-icon.svg" | relURL }}" class="icon"><span>Downloads</span></div>
+                        <ul class="links-list">
+                            <li><a href="{{"pdfs/cibil-report.pdf" | relURL}}" class="cibil-link cibil-link-right-icon download-icon default-case inherit-font" download>Offer Terms and Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="terms-n-conditions">
+                <p class="content-head">Terms and Conditions</p>
+                <p class="hairline content-text">
+                    <span class='shrink concent-text' style="-webkit-box-orient: vertical;">
+                        I hereby expressly grant unconditional consent to my details being shared with the lenders and authorize them to reach me at the contact details provided. I understand that credit approval is subject to documentation and internal credit guidelines and policies. By clicking on “Apply” I accept the <a class="cibil-link default-case inherit-font" href="https://myscore.cibil.com/CreditView/support.page?tab=terms" target="_blank">terms and conditions</a> mentioned on <a class="cibil-link default-case inherit-font" href="https://www.cibil.com/" target="_blank">www.cibil.com</a>.</span>
+                    <a onclick="toggleShrink()" class="cibil-link default-case inherit-font underlined text-capitalize toggle-text"><span>+ Read more</span><span>- Read less</span></a>
+                </p>
+            </div>
+            <div class="button-wrap">
+                <a class="cibil-button thankYouBtn" data-toggle="modal" data-target="#thankYouPopup">Apply</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

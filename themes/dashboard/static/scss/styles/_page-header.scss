@@ -8,7 +8,9 @@
     .breadcrumb {
       background-color: transparent;
       padding: 0px;
-      margin-bottom: 20px;
+      margin-bottom: 0px;
+      flex-wrap: nowrap;
+      overflow: hidden;
       & > li:first-child,
       & > li:nth-child(2)::before {
         display: none;
@@ -16,12 +18,15 @@
       .breadcrumb-item {
         padding: 0;
         margin: 0;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: end;
         a {
           text-transform: capitalize;
           border-radius: 4px;
           background-color: $light;
           min-height: 30px;
-          display: inline-flex;
+          display: block;
           align-items: center;
           justify-content: center;
           padding: 4px 14px;
@@ -31,12 +36,19 @@
           text-decoration: none;
           cursor: pointer;
           border-radius: 4px;
+          height: 30px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         &.active {
           a {
             font-weight: $intro-regular;
             color: $dark;
           }
+        }
+        &:nth-child(2){
+          display: block;
         }
         & + .breadcrumb-item {
           position: relative;
@@ -57,6 +69,7 @@
       font-size: 32px;
       line-height: 32px;
       margin-bottom: 21px;
+      margin-top: 20px;
       display: inline-flex;
       align-items: center;
       .icon {
@@ -71,19 +84,39 @@
       line-height: 24px;
       margin-bottom: 0px;
     }
+    .right-panel{
+      .goback-icon{
+        font-size: 16px;
+        letter-spacing: 0.02em;
+        font-weight: $intro-regular;
+        &:after{
+          top: 3px;
+        }
+      }
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    &.article-page-header {
+      .page-header-section__wraper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .left-panel{
+          width: 85%;
+        }
+      }
+    }
   }
   @include media-breakpoint-down(md) {
     border-bottom: none;
     &__wraper {
       padding-top: 20px;
       padding-bottom: 30px;
-      .breadcrumb {
-        margin-bottom: 30px;
-      }
-      .page-desc{
+      .page-desc {
         font-weight: $intro-book;
       }
       .page-title {
+        margin-top: 30px;
         margin-bottom: 10px;
         font-size: 24px;
         line-height: 30px;
@@ -92,6 +125,31 @@
           width: 36px;
           height: 36px;
         }
+      }
+      .right-panel {
+        background: $light;
+        margin-left: -20px;
+        margin-right: -20px;
+        padding: 20px 20px 30px;
+        margin-top: 20px;
+        .goback-icon{
+          color: $primary-blue !important;
+          padding-left: 19px;
+          &:after{
+            width: 9px;
+            height: 14px;
+            top: 2px;
+            background-image: url(/cibil-dashboard-paid/images/static-images/goback-icon-blue.svg);
+          }
+          &:before {
+            max-width: calc(100% - 19px);
+          }
+        }
+      }
+    }
+    &.article-page-header {
+      .page-header-section__wraper {
+        padding-bottom: 0px;
       }
     }
   }

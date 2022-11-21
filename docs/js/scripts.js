@@ -71,7 +71,7 @@ $(function() {
       let elWidth = tooltip_trigger.width()*70/100;
 
       let windowWidth = $( document ).width();
-      let arrowPosition = (windowWidth - leftPosition)- 40;
+      let arrowPosition = (windowWidth - leftPosition)- 48;
 
       if ( (leftPosition-elWidth) < 0 ){
         tooltip_box.css({"top":topPosition+elHeight, "left":leftPosition});
@@ -100,7 +100,7 @@ $(function() {
   
     tooltip_trigger.mouseover(function(){
       var newWindowWidth = $(window).width();
-        if (newWindowWidth < 760) {
+        if (newWindowWidth < 768) {
           calculatePositionMob();
         }
         else
@@ -183,14 +183,24 @@ $(".account-collapse").on("hide.bs.collapse", function () {
 
 // tabs redirect
 var hash = location.hash.replace(/^#/, '').split('_')[0];
-$tabsParent =  $(".reportTabs");
-$panelParent = $(".report-content .tab-content");
+$tabsParent =  $(".nav-tabs");
+$panelParent = $(".tab-content");
+$optionsParent = $(".custom-select-options");
 if (hash) {
+    $tabsParent.find(".nav-link ").removeClass("active");
+    $('.nav-link[data-target="#' + hash + '"]').addClass("active");
+
     $tabsParent.find(".report-nav-item button").removeClass("active");
     $('.report-nav-item button[data-target="#' + hash + '"]').addClass("active");
+
+    $panelParent.find(".tab-pane").removeClass("active show");
+    $('.tab-pane[id="' + hash + '"]').addClass("active show");
+
     $panelParent.find(".tab-panel").removeClass("active");
     $('.tab-panel[id="' + hash + '"]').addClass("active");
     //checkAccountVisibility();
+
+    targetOption("#"+hash, $optionsParent);
 }
 
 //tooltip funciton
@@ -257,18 +267,45 @@ $(".reset-field").click(function(){
   $(this).hide("fast");
 });
 
-$(".CouponFormToggle").click(function(){
-  let couponPopup = $("#"+$(this).attr("popup-link"));
+$(document).ready(function () {
+  $(window).on("resize", function (e) {
+      checkScreenSize();
+  });
 
-  let planPrice = couponPopup.find(".plan-price-ammount .ammount").text();
-  let disountedPrice = couponPopup.find(".coupon-discount .discount-ammount").text();
+  checkScreenSize();
+  
+  function checkScreenSize(){
+      var newWindowWidth = $(window).width();
+      if (newWindowWidth < 992) {
+        $(".CouponFormToggle").click(function(){
+          let couponPopup = $(this).data("target");
 
-  let subtotalVal = parseInt(planPrice) ;
+          let tabId = "#"+$(this).parents('.tab-pane').attr("id");
+        
+          let planPrice = $('button[data-target="'+ tabId +'"]').find(".discount-price .ammountMob").text();
+        
+          let subtotalVal = parseInt(planPrice) ;
 
-  if(disountedPrice){
-    subtotalVal = parseInt(planPrice)-parseInt(disountedPrice) ;
+          $(couponPopup).find(".subtotal .subtotal-ammount").text(subtotalVal);
+        });
+      }
+      else
+      {
+        $(".CouponFormToggle").click(function(){
+          let couponPopup = $("#"+$(this).attr("popup-link"));
+        
+          let planPrice = couponPopup.find(".plan-price-ammount .ammount").text();
+          let disountedPrice = couponPopup.find(".coupon-discount .discount-ammount").text();
+        
+          let subtotalVal = parseInt(planPrice) ;
+        
+          if(disountedPrice){
+            subtotalVal = parseInt(planPrice)-parseInt(disountedPrice) ;
+          }
+          couponPopup.find(".subtotal .subtotal-ammount").text(subtotalVal);
+        });
+      }
   }
-  couponPopup.find(".subtotal .subtotal-ammount").text(subtotalVal);
 });
 
 function howItWorks(){
@@ -409,6 +446,110 @@ if (editInfo == "show"){
   editOInfoToggle();
 }
 
+//Repayment slider
+$('.repayment-slider').slick({
+    slidesToShow:3,
+    slidesToScroll:1,
+    infinite: false,
+    nextArrow: "<button class='nextArrow'><svg width='17' height='29' viewBox='0 0 17 29' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 2.07227L15 14.7341L2 27.396' stroke='#2C2C2C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+    prevArrow: "<button class='prevArrow'><svg width='17' height='29' viewBox='0 0 17 29' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M15 27.3237L2 14.6619L15 2.00003' stroke='#2C2C2C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+    responsive:[
+      {
+        breakpoint: 767.68,
+        settings: {
+          arrows: false,
+          dots: true,
+          centerMode: true,
+          centerPadding: '20px',
+          slidesToShow: 1,
+          infinite: true,
+        }
+      }
+    ]
+});
+
+$('.thankYouBtn').click(function(){
+  $(this).parents('.modal').modal('toggle');
+});
+
+// animated tabs
+function selectTab(element){
+  let mainParent = $(element).parents('.tabs-vertical-icons');
+
+  $(element).siblings().removeClass("selected")
+  $(element).addClass('selected')
+  $(element).parents('.custom-select-input').find('.custom-select-value').html($(element).html())
+
+  $(mainParent).find('.tab-pane').removeClass('show active');
+  $($(element).data('target')).addClass('show active');
+
+  $(mainParent).find('.nav-link').removeClass('active');
+  $(mainParent).find('.nav-link[data-target="'+$(element).data('target')+'"]').addClass('active');
+
+  if($(mainParent).hasClass('animated-tabs')){
+    let currentTabParent = $(mainParent).find('.nav-tabs');
+    animateTabs(currentTabParent);
+  }
+}
+function selectOption(element){
+  $(element).toggleClass('opened')
+  $(element).find('.custom-select-options').toggle('fast');
+}
+function animateTabs(element){
+  let activeTab = $(element).find('.nav-link.active');
+  let activeTabPosition = $(activeTab).position().left;
+  let activeTabWidth = $(activeTab).outerWidth();
+  $(element).addClass('animated-tab');
+  $('head').append('<style>.animated-tab:before{left:'+ activeTabPosition +'px !important;width:'+ activeTabWidth +'px !important;}</style>');
+}
+let tabsParent = $('.animated-tabs').find('.nav-tabs');
+$(tabsParent).each(function(){
+  animateTabs(this);
+  $('button[data-toggle="tab"]').on('shown.bs.tab', function (event) {
+    let currentTab = event.target; // newly activated tab
+    let currentTabParent = $(currentTab).parents('.animated-tabs').find('.nav-tabs');
+    animateTabs(currentTabParent);
+  });
+});
+
+function targetOption(targetTab, optionsList){
+  $(optionsList).find('span').removeClass("selected");
+  $(optionsList).find('span[data-target="'+ targetTab +'"]').addClass("selected");
+
+  let optionHTML = $('.selected');
+  
+  $(optionsList).parents('.custom-select-input').find('.custom-select-value').html(optionHTML.html());
+}
+
+let dropdownTabs = $('.hasDropdown').find('.nav-tabs');
+$(dropdownTabs).each(function(){
+  $('button[data-toggle="tab"]').on('shown.bs.tab', function (event) {
+    let currentTab = event.target; // newly activated tab
+    let currentTabParent = $(currentTab).parents('.hasDropdown');
+    let targetTab = $(currentTab).data('target');
+
+    let optionsList = $(currentTabParent).find('.custom-select-options');
+    targetOption(targetTab, optionsList);
+  })
+});
+
+
+//scroll to top
+var scrollToTop = $('.scrollToTop');
+
+$(window).scroll(function() {
+if ($(window).scrollTop() > 300) {
+    scrollToTop.fadeIn('medium');
+} else {
+    scrollToTop.fadeOut('medium');
+}
+});
+
+scrollToTop.on('click', function(e) {
+e.preventDefault();
+$('html, body').animate({scrollTop:0}, '300');
+});
+
 //score comparison
 function refreshComparison(){
   let percentBox = $('.comparison-graph .graph-bar').find('.percent');
@@ -423,6 +564,34 @@ function refreshComparison(){
     $(this).css({'width':scoreWidth});
     $(this).html('<span>'+scorePercent+'%</span>');
   });
+
+  //find range
+  function findRange(percentage, section){
+    let graphBar = $(section).parent().find(".graph-bar");
+    let percentBoxes = $(graphBar).find('.percent');
+    
+    $(percentBoxes).each(function(){
+      let low = $(this).data("low");
+      let high = $(this).data("high");
+
+      if (percentage > low && percentage < high) {
+        $(this).find('span').text('?');
+        $(this).addClass('text-center');
+
+        let boxCenter = ((low + high)/2) - 0.25;
+        $(section).animate(
+          {
+            left:  boxCenter+'%',
+          },
+          {
+            duration: 2000,
+            easing: "swing",
+          }
+        );
+
+      }
+    });
+  }
 
   //position score pointer
   let graphBarPointer = $('.graph-bar-pointer');
@@ -450,41 +619,12 @@ function refreshComparison(){
         },
       }
     );
-    if(pointerBoxPosition >= 0 && pointerBoxPosition <= 100){
-      //console.log('1 working');
-      $(this).animate(
-        {
-          left:  pointerBoxPosition+'%',
-        },
-        {
-          duration: 2000,
-          easing: "swing",
-        }
-      );
-    }else if(pointerBoxPosition <= 0){
-      $(this).animate(
-        {
-          left:  pointerBoxPosition+'%',
-        },
-        {
-          duration: 2000,
-          easing: "swing",
-        }
-      );
-    }
-    else{
-      $(this).animate(
-        {
-          left:  pointerBoxPosition+'%',
-        },
-        {
-          duration: 2000,
-          easing: "swing",
-        }
-      );
-    }
 
-    $({ perc : 0 }).animate(
+    //find range
+    findRange(pointerBoxPosition, this);
+
+    //Display percent score
+    /* $({ perc : 0 }).animate(
       { perc : pointerBoxPosition },
       {
         duration: 2000,
@@ -493,284 +633,10 @@ function refreshComparison(){
           $(percentText).text((now) | 0);
         },
       }
-    );
+    ); */
 
   });
 }
 if($('.comparison-graph')){
   refreshComparison();
-}
-
-// score comparsion form
-function showComparisonForm(element){
-  let graphData = $(element).parents('.comparison').find('.graph-data');
-  $(graphData).fadeOut('medium');
-  $(element).addClass('back-icon').attr('onclick', 'goBackToComparison(this)');
-  $(element).find('span').text('Go Back');
-  let formData = $(element).parents('.comparison').find('.comparison-form-section');
-  $(formData).fadeIn('medium');
-}
-function goBackToComparison(element){
-  let graphData = $(element).parents('.comparison').find('.graph-data');
-  $(graphData).fadeIn('medium');
-  $(element).removeClass('back-icon').attr('onclick', 'showComparisonForm(this)');
-  $(element).find('span').text('EDIT INFORMATION');
-  let formData = $(element).parents('.comparison').find('.comparison-form-section');
-  $(formData).fadeOut('medium');
-}
-//screen size
-$(document).ready(function () {
-  $(window).on("resize", function (e) {
-      checkScreenSize();
-  });
-
-  checkScreenSize();
-  
-  function checkScreenSize(){
-      var newWindowWidth = $(window).width();
-      if (newWindowWidth < 767.98) {
-          // score history
-          if ($('.score-history-list').is(":visible")){
-            var $this = $('.score-history-list');
-            if ($this.find('.score-item').length > 2) {
-                $('.history-info').append('<a class="cibil-link underlined cibil-link-right-icon show-icon showMore">Show All</a>');
-            }
-            $('.score-history-list .score-item').slice(0,4).addClass('shown');
-            $('.score-history-list .score-item').not('.shown').hide();
-            $('.history-info .showMore').on('click',function(){
-              $('.score-history-list .score-item').not('.shown').toggle(300);
-              $(this).toggleClass('showMore');
-              $(this).toggleClass('showLess');
-              if ($(this).text() == "Show All")
-                $(this).text("Show Less")
-              else
-                $(this).text("Show All");
-              });
-          }
-          if ($('#scoreHistoryChart').is(":visible")){
-            let chartLabel = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL'];
-            mobileChart(chartLabel);
-          }
-      }else{
-        if ($('#scoreHistoryChart').is(":visible")){
-          let chartLabel = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-          desktopChart(chartLabel);
-        }
-      }
-      if (newWindowWidth < 991.98){
-        // upgrade plan
-        if ($('.upgrade-plans .plan-tabs').is(":visible")){
-          let parent = $('.upgrade-plans .plan-tabs');
-          $(parent).find('.nav-item:not(.shown)').hide();
-          $('.upgrade-plans').append('<a class="cibil-link underlined showAllPlans" onclick="showAllPlansMob(this)">SHOW ALL PLANS</a>');
-        }
-      }else{
-        // upgrade plan
-        if ($('.upgrade-plans__wraper').is(":visible")){
-          let parent = $('.upgrade-plans__wraper');
-          $(parent).find('.plan:not(.shown)').hide();
-          $(parent).find('.plan.shown').addClass('firstView');
-          $('.upgrade-plans').append('<a class="cibil-link underlined showAllPlans" onclick="showAllPlans(this)">SHOW ALL PLANS</a>');
-        }
-      }
-  }
-});
-
-function mobileChart(chartLabel){
-// score history chart
-const ctx = document.getElementById('scoreHistoryChart');
-const myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: chartLabel,
-        datasets: [{
-          label: 'Score History',
-          data: [
-            {
-              y: 510,
-              x: 'AUG'
-            },
-            {
-              y: 520,
-              x: 'APR',
-            }
-          ],
-          borderWidth: 3,
-          borderColor: '#006685',
-          backgroundColor: '#FFFFFF',
-          showLine: false,
-          hoverBackgroundColor: '#FCD800',
-          hoverBorderWidth: 3,
-        }]
-    },
-    options: {
-      showAllTooltips: true,
-      ticks:{
-        font:{
-          size: 10,
-          family: 'Intro',
-          weight:400,
-          color: '#ACACAC',
-        }
-      },
-      scales: {
-        x: {
-          grid: {
-            borderColor: '#9EBFD2',
-            borderWidth: 1.6,
-            borderDash: [2, 2],
-            lineWidth:1,
-          },
-        },
-        y: {
-          min: 300,
-          max: 900,
-          grid: {
-            borderDash: [2, 2],
-            lineWidth:1,
-          },
-        },
-      },
-      plugins: {
-        legend: {
-            display: false,
-        },
-        tooltip: {
-          enabled: false,
-        }
-      },
-      elements:{
-        point:{
-          radius:5,
-          hoverRadius:5
-        }
-      },
-      onClick: (e, activeEls) => {
-        let datasetIndex = activeEls[0].datasetIndex;
-        let dataIndex = activeEls[0].index;
-        let value = e.chart.data.datasets[datasetIndex].data[dataIndex];
-        $('.history-info').hide(300).removeClass('active');
-        $('.subscribed').find("[data-month='" + value.x + "']").show(300).addClass('active');
-      },
-    }
-});
-}
-function desktopChart(chartLabel){
-  // score history chart
-  const ctx = document.getElementById('scoreHistoryChart');
-  const myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: chartLabel,
-          datasets: [{
-            label: 'Score History',
-            data: [
-              {
-                y: 510,
-                x: 'AUG'
-              },
-              {
-                y: 520,
-                x: 'APR',
-              },
-              {
-                y: 580,
-                x: 'MAY',
-              },
-              {
-                y: 493,
-                x: 'JUN',
-              }
-            ],
-            borderWidth: 3,
-            borderColor: '#006685',
-            backgroundColor: '#FFFFFF',
-            showLine: false,
-            hoverBackgroundColor: '#FCD800',
-            hoverBorderWidth: 3,
-          }]
-      },
-      options: {
-        showAllTooltips: true,
-        ticks:{
-          font:{
-            size: 12,
-            family: 'Intro'
-          }
-        },
-        scales: {
-          x: {
-            ticks:{
-              color: ['#707070', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#707070'],
-            },
-            grid: {
-              borderColor: '#9EBFD2',
-              borderWidth: 1.6,
-              borderDash: [2, 2],
-              lineWidth:1,
-            },
-          },
-          y: {
-            min: 300,
-            max: 900,
-            ticks:{
-              color: ['#707070', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#ACACAC', '#707070'],
-            },
-            grid: {
-              borderDash: [2, 2],
-              lineWidth:1,
-            },
-          },
-        },
-        plugins: {
-          legend: {
-              display: false,
-          },
-          tooltip: {
-            enabled: false,
-          }
-        },
-        elements:{
-          point:{
-            radius:5,
-            hoverRadius:5
-          }
-        },
-        onClick: (e, activeEls) => {
-          let datasetIndex = activeEls[0].datasetIndex;
-          let dataIndex = activeEls[0].index;
-          let value = e.chart.data.datasets[datasetIndex].data[dataIndex];
-          $('.history-info').hide(300).removeClass('active');
-          $('.subscribed').find("[data-month='" + value.x + "']").show(300).addClass('active');
-        },
-      }
-  });
-  }
-
-  //alerts
-$(".report-content-container").on("show.bs.collapse", function () {
-  $(this).prev().addClass("show");
-});
-$(".report-content-container").on("hide.bs.collapse", function () {
-  $(this).prev().removeClass("show");
-});
-
-// upgrade plan
-function showAllPlans(element){
-  let parent = $(element).parents('.upgrade-plans').find('.upgrade-plans__wraper');
-  $(parent).find('.plan:not(.shown)').fadeIn(300);
-  $(element).fadeOut(300);
-  $(parent).find('.upgrade-tag').fadeOut(200);
-  $(parent).find('.plan.shown').removeClass('firstView');
-}
-function showAllPlansMob(element){
-  let parent = $(element).parents('.upgrade-plans').find('.plan-tabs');
-  $(parent).find('.nav-item:not(.shown)').fadeIn(300);
-  $(element).fadeOut(300);
-  $(parent).find('.upgrade-tag').fadeOut(200);
-  if ($('.nav-item.current .current-plan').text() == "Your current plan"){
-    $('.nav-item.current .current-plan').text("current plan");
-  }else{
-    $('.nav-item.current .current-plan').text("Your current plan");
-  }
 }

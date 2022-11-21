@@ -1,0 +1,10 @@
+
+<div class="ce-blog-card">
+    <div class="ce-blog-card__wraper">
+        <img src="{{ .thumbnail | relURL }}" alt="" class="thumbnail">
+        <div class="content">
+            <p class="body-medium title">{{ truncate 70 .articleTitle}}</p>
+            <a href="{{.articleLink}}" class="cibil-link cibil-link-right-icon">Read Now</a>
+        </div>
+    </div>
+</div>

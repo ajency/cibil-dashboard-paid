@@ -1,0 +1,17 @@
+<div class="repayment-options-benefits">
+    <div class="page-width">
+        <div class="repayment-options-benefits__wraper">
+            <p class="section-heading section-heading-small">benefits of repayment options</p>
+            <div class="benefits">
+                {{range .repaymentBenefits}}
+                    <div class="benefit">
+                        <div class="benefit__wraper">
+                            <img src="{{ .icon | relURL }}" alt="" class="icon">
+                            <p class="body">{{.description}}</p>
+                        </div>
+                    </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+</div>

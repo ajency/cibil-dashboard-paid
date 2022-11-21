@@ -1,0 +1,33 @@
+{{- $title := .Get "title" -}}
+{{- $cardType := .Get "cardType" -}}
+{{- $currentCateogry := .Get "category" -}}
+
+{{- $currentPageLink := .Page.Permalink -}}
+
+<!-- Related articles -->
+<div class="related-articles">
+    <div class="related-articles__wraper">
+        <p class="h3">Other articles related to {{$title}}</p>
+        <div class="ce-blog-cards">
+            <div class="ce-grid ce-blog-cards__wraper">
+                {{if eq $cardType "icon-card"}}
+                    {{range .Site.Sections}}
+                        {{range where (where .Site.Pages "Params.Category" "==" $currentCateogry) ".Permalink" "!=" $currentPageLink }}
+                            {{ partial "ce-cards" (dict "articleTitle" .Title "articleLink" .RelPermalink "icon" .Params.icon )}}
+                        {{end}}
+                    {{end}}
+
+                {{else if eq $cardType "blog-card"}}
+                    {{range .Site.Sections}}
+                        {{range where (where .Site.Pages "Params.Category" "==" $currentCateogry) ".Permalink" "!=" $currentPageLink }}
+                            {{ partial "ce-blog-cards" (dict "articleTitle" .Title "articleLink" .RelPermalink "thumbnail" .Params.thumbnail )}}
+                        {{end}}
+                    {{end}}
+
+                {{else}}
+                {{end}}
+            </div>
+        </div>
+
+    </div>
+</div>

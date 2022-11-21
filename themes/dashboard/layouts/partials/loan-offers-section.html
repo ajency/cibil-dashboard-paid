@@ -1,16 +1,16 @@
-<div class="compare-offer-header">
+<!-- <div class="compare-offer-header">
     <div class="page-width">
         <div class="compare-header-wrap">
             <a class="resetOffers cibil-button cibil-button-border" onclick="resetCompare()">Go Back</a>
             <p>Comparing 3 Credit Card offers</p>
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="page-width loan-offer-js">
     <p class="loan-offers-settings">
         <span>We have found <b>15 offers</b> tailored to your profile.</span>
-        <a onclick="editOInfoToggle()" id="edit-info">{{ partial "icons/settings"}}EDIT INFORMATION</a>
+        <a onclick="editOInfoToggle()" class="yellow-button" id="edit-info">{{ partial "icons/settings"}}EDIT INFORMATION</a>
     </p>
 
 
@@ -73,42 +73,12 @@
     </div>
 
     <p class="edit-info-header">
-        <a onclick="editOInfoToggle()" class="">Go Back</a>
+        <a onclick="editOInfoToggle()" class="cibil-link cibil-link-left-icon default-case underlined goback-icon">Go Back</a>
         <a onclick="editOInfoToggle()" class="cibil-link-button">{{ partial "icons/settings-blue"}}EDIT INFORMATION</a>
     </p>
     <div class="edit-info-tab">
         <p>Please edit your information below.</p>
-        <div class="edit-info-wrap">
-            <div class="group">
-                <label for="amount">City</label>
-                <div class="input-holder input-city">
-                    <input class="" type="text" placeholder="Select City" id="city">
-                </div>
-            </div>
-            <div class="group">
-                <label for="loantype">Income Type</label>
-                <input type="hidden" id="loantype">
-                <div class="custom-select-input" onclick="customSelectInput(this)">
-                    <span class="custom-select-value">Self-Employed</span>
-                    <div class="custom-select-options">
-                        <span onclick="customSelectOption(this)" class="selected">Self-Employed</span>
-                        <span onclick="customSelectOption(this)" >Salaraid</span>
-                    </div>
-                </div>
-                <span class="message"></span>
-            </div>
-            <div class="group">
-                <label for="amount">Monthly Income</label>
-                <div class="input-holder">
-                    <span class="currency">₹</span>
-                    <input class="input-currency" placeholder="Enter Monthly Income" type="number" id="amount">
-                </div>
-            </div>
-        </div>
-        <div class="edit-info-cta-wrap">
-            <a onclick="submitEditInfo()" class="cibil-button">Submit</a>
-            <a onclick="editOInfoToggle()" class="cibil-link">Cancel</a>
-        </div>
+        {{ partial "forms/comparison-form2" }}
 
         <!-- slider code -->
         <div class="personal-loan-offers-section__wraper">

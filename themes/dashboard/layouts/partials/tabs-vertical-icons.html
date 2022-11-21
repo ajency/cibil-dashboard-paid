@@ -1,21 +1,49 @@
+
+{{$classes := .classes}}
+{{$mobileDropdown := .mobileDropdown}}
+
+{{$sections := .sections}}
+
 {{if .account_tabs}}
-    {{range .account_tabs}}
-        <div class="tabs-vertical-icons">
+    {{range $count, $tabs:= .account_tabs}}
+        <div class="tabs-vertical-icons {{$classes}} {{if eq $mobileDropdown true}}hasDropdown{{end}}">
             <div class="tabs-vertical-icons__wraper">
                 {{if .tabs}}
-                    <nav>
-                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <nav class="{{if eq $mobileDropdown true}}hide-sm-down{{end}}">
+                        <div class="nav nav-tabs{{range $index, $tabs1:= .tabs}}{{if gt $index 4}} tabs-wide{{end}}{{end}}" id="nav-tab" role="tablist">
                         {{range $index, $tabs:= .tabs}}
-                            <button class="nav-link {{if eq .active true}}active{{end}}" id="{{ anchorize .tab_title}}-tab" data-toggle="tab" data-target="#{{ anchorize .tab_title}}" type="button" role="tab" aria-controls="{{ anchorize .tab_title}}" aria-selected="true">
+                            <button class="nav-link {{if eq .active true}}active{{end}}" id="{{ replace (anchorize .tab_title) "br" "-" }}-tab" data-toggle="tab" data-target="#{{ replace (anchorize .tab_title) "br" "-" }}" type="button" role="tab" aria-controls="{{ replace (anchorize .tab_title) "br" "-" }}" aria-selected="true">
                                 <div class="tab-icon">{{partial .tab_icon }}</div>
-                                <p class="tab-title">{{.tab_title}}</p>
+                                <p class="tab-title">{{.tab_title | safeHTML}}</p>
                             </button>
                         {{end}}
                         </div>
                     </nav>
+                    {{if eq $mobileDropdown true}}
+                        <div class="custom-select-group hide-md-up">
+                            <div class="custom-select-input" onclick="selectOption(this)">
+                                <span class="custom-select-value">
+                                    {{range $index, $tabs:= .tabs}}
+                                        {{if eq .active true}}
+                                            <span class="icon">{{partial .tab_icon }}</span>
+                                            {{.tab_title | safeHTML}}
+                                        {{end}}
+                                    {{end}}
+                                </span>
+                                <div class="custom-select-options">
+                                    {{range $index, $tabs:= .tabs}}
+                                        <span data-target="#{{ replace (anchorize .tab_title) "br" "-" }}" onclick="selectTab(this)" class="select-option {{if eq .active true}}selected{{end}}">
+                                            <span class="icon">{{partial .tab_icon }}</span>
+                                            {{replace .tab_title "<br>" " "}}
+                                        </span>
+                                    {{end}}
+                                </div>
+                            </div>
+                        </div>
+                    {{end}}
                     <div class="tab-content" id="nav-tabContent">
                         {{range $index, $tabs:= .tabs}}
-                            <div class="tab-pane fade {{if eq .active true}}show active{{end}}" id="{{ anchorize .tab_title}}" role="tabpanel" aria-labelledby="{{ anchorize .tab_title}}-tab">{{partial .tab_content}}</div>
+                            <div class="tab-pane fade {{if eq .active true}}show active{{end}}" id="{{ replace (anchorize .tab_title) "br" "-" }}" role="tabpanel" aria-labelledby="{{ replace (anchorize .tab_title) "br" "-" }}-tab">{{partial .tab_content (dict "sections" $sections )}}</div>
                         {{end}}
                     </div>
                 {{end}}

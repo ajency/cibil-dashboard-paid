@@ -1,0 +1,33 @@
+<div class="negative-status">
+    <div class="page-width">
+        <div class="negative-status__wraper">
+            {{if .ce_ctas}}
+                {{range .ce_ctas}}
+                    {{if or .summary_usage .summary_number .summary_years .summary_months}}
+                        <div class="wrap summary-container">
+                            <div class="summary-count-cta">
+                                {{if .summary_usage}}
+                                    {{ partial "summary-usage" .}}
+                                {{end}}
+                                {{if or .summary_number .summary_years .summary_months}}
+                                    {{ partial "summary-count" .}}
+                                {{end}}
+                            </div>
+                            <div class="summary-details">
+                                <p class="summary-title">{{.summary_title}}</p>
+                                <div class="wrap">
+                                    <p class="summary-date">{{.summary_date}}</p>
+                                    {{if .summary_rating}}<p class="summary-rating {{anchorize .summary_rating}}">{{.summary_rating}}</p>{{end}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-container">
+                            <img src="{{ "images/static-images/negative-status.svg" | relURL }}" alt="" class="icon">
+                            <p class="hairline summary-message">{{.summary_message}}<a href="{{.summary_link}}" class="cibil-link cibil-link-right-icon">{{.summary_link_text}}</a></p>
+                        </div>
+                    {{end}}
+                {{end}}
+            {{end}}
+        </div>
+    </div>
+</div>

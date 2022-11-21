@@ -1,3 +1,4 @@
+{{ $articleCategory := slice "dashboard-faqs" "credit-basics" "latest-blogs" "legal-information" "consumer-awareness" }}
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         {{- $.Scratch.Set "url" "" -}}
@@ -17,10 +18,10 @@
                         <li class="breadcrumb-item active"><a href="{{ $.Scratch.Get `url` }}">{{ .Title }}</a></li>
                     {{- end -}}
                 {{- else -}}
-                    <li class="breadcrumb-item">
-                        <a href="{{ $.Scratch.Get `url` }}">
+                    <li class="breadcrumb-item {{ . }}">
+                        <a href='{{- if in $articleCategory . -}}{{ replace ($.Scratch.Get `url`) . ( print "#" . ) }}{{- else -}}{{ $.Scratch.Get `url` }}{{- end -}}'>
                         {{- range first 1 (split . "_") -}}
-                            {{.}}
+                            {{ humanize . }}
                         {{- end -}}
                         </a>
                     </li>

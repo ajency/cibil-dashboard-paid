@@ -26,7 +26,18 @@
                 
                     <div id="collapse{{$index}}" class="collapse account-collapse {{if eq .collapsed true }}show{{end}}" aria-labelledby="heading{{$index}}" data-parent="#accountsAccordion1">
                         <div class="card-body">
-                        {{ partial "clear-dues-bar"}}
+
+                        {{ if or .dues .under_dispute }} 
+                            {{ $dues := .dues }}
+                            {{ $underDispute := .under_dispute }}
+                            {{ $targetPopup := print "clearDuesPopup-open-" $index }}
+                            {{ partial "clear-dues-bar" (dict "under_dispute" $underDispute "clear_dues" $dues "targetPopup" $targetPopup ) }}
+                        {{ end }}
+
+                        {{ if eq .dues true}}
+                            {{ $targetPopupSuffix := print "open-" $index }}
+                            {{ partial "clear-dues-popup" (dict "indexNo" $targetPopupSuffix "dataMap" $accountsElement "pageRef" "allAccount" "bankName" .member_name "logo" .logo ) }}
+                        {{end}}
                         
                             <div class="card-body__wraper">
                                 {{if .tabs}}
@@ -48,66 +59,11 @@
                                         {{range .tabs}}
                                             {{range .account_details}}
                                                 <div class="tab-pane fade show active" id="acDetails-{{$index}}" role="tabpanel" aria-labelledby="acDetails-{{$index}}-tab">
-                                                    <div class="detail-row">
-                                                        <span>Credit Limit</span><span>{{.credit_limit}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Sanctioned Amount</span><span>{{.sanctioned_ammount}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Current Balance</span><span>{{.current_balance}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Cash Limit</span><span>{{.cash_limit}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Amount Overdue</span><span>{{.ammount_overdue}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Rate of Interest</span><span>{{.rate_of_interest}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Repayment Tenure</span><span>{{.repayment_tenure}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>EMI Amount</span><span>{{.emi_ammount}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Payment Frequency</span><span>{{.payment_frequency}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Actual Payment Amount</span><span>{{.actual_payment_ammount}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Date Opened / Disbursed</span><span>{{.date_opened}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Date of Last Payment</span><span>{{.date_last_payment}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Date Reported and Certified</span><span>{{.date_reported}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Value of Collateral</span><span>{{.value_of_collateral}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Type of Collateral</span><span>{{.type_of_collateral}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Suit - Filed / Willful Default</span><span>{{.suit_filed}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Credit Facility Status</span><span>{{.credit_facility_status}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Written-off Amount (Total)</span><span>{{.total_ammount}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Written-off Amount (Principal)</span><span>{{.principle_ammount}}</span>
-                                                    </div>
-                                                    <div class="detail-row">
-                                                        <span>Settlement Amount</span><span>{{.settlement_ammount}}</span>
-                                                    </div>
+                                                    {{range $rowTitle, $rowValue:= .}}
+                                                        <div class="detail-row">
+                                                            <span>{{$rowTitle}}</span><span>{{$rowValue}}</span>
+                                                        </div>
+                                                    {{end}}
                                                 </div>
                                             {{end}}
                                             {{range .payment_status}}
@@ -172,10 +128,21 @@
             
                 <div id="collapse-{{$closedIndex}}" class="collapse account-collapse {{if eq .collapsed true }}show{{end}}" aria-labelledby="heading-{{$closedIndex}}" data-parent="#accountsAccordion2">
                     <div class="card-body">
-                    {{ partial "clear-dues-bar"}}
+
+                        {{ if or .dues .under_dispute }} 
+                            {{ $dues := .dues }}
+                            {{ $underDispute := .under_dispute }}
+                            {{ $targetPopup := print "clearDuesPopup-closed-" $closedIndex }}
+                            {{ partial "clear-dues-bar" (dict "under_dispute" $underDispute "clear_dues" $dues "targetPopup" $targetPopup ) }}
+                        {{ end }}
+
+                        {{ if eq .dues true}}
+                            {{ $targetPopupSuffix := print "closed-" $closedIndex }}
+                            {{ partial "clear-dues-popup" (dict "indexNo" $targetPopupSuffix "dataMap" $accountsElement "pageRef" "allAccount" "bankName" .member_name "logo" .logo ) }}
+                        {{end}}
                     
                         <div class="card-body__wraper">
-                        {{if .tabs}}
+                            {{if .tabs}}
                             <ul class="nav nav-pills" id="pills-tab" role="tablist">
                                 {{range .tabs}}
                                     {{range .account_details}}
@@ -194,66 +161,11 @@
                                 {{range .tabs}}
                                     {{range .account_details}}
                                         <div class="tab-pane fade show active" id="acDetails--{{$closedIndex}}" role="tabpanel" aria-labelledby="acDetails--{{$closedIndex}}-tab">
-                                            <div class="detail-row">
-                                                <span>Credit Limit</span><span>{{.credit_limit}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Sanctioned Amount</span><span>{{.sanctioned_ammount}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Current Balance</span><span>{{.current_balance}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Cash Limit</span><span>{{.cash_limit}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Amount Overdue</span><span>{{.ammount_overdue}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Rate of Interest</span><span>{{.rate_of_interest}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Repayment Tenure</span><span>{{.repayment_tenure}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>EMI Amount</span><span>{{.emi_ammount}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Payment Frequency</span><span>{{.payment_frequency}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Actual Payment Amount</span><span>{{.actual_payment_ammount}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Date Opened / Disbursed</span><span>{{.date_opened}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Date of Last Payment</span><span>{{.date_last_payment}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Date Reported and Certified</span><span>{{.date_reported}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Value of Collateral</span><span>{{.value_of_collateral}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Type of Collateral</span><span>{{.type_of_collateral}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Suit - Filed / Willful Default</span><span>{{.suit_filed}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Credit Facility Status</span><span>{{.credit_facility_status}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Written-off Amount (Total)</span><span>{{.total_ammount}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Written-off Amount (Principal)</span><span>{{.principle_ammount}}</span>
-                                            </div>
-                                            <div class="detail-row">
-                                                <span>Settlement Amount</span><span>{{.settlement_ammount}}</span>
-                                            </div>
+                                            {{range $rowTitle, $rowValue:= .}}
+                                                <div class="detail-row">
+                                                    <span>{{$rowTitle}}</span><span>{{$rowValue}}</span>
+                                                </div>
+                                            {{end}}
                                         </div>
                                     {{end}}
                                     {{range .payment_status}}
@@ -294,3 +206,5 @@
     </div>
     {{end}}
 {{end}}
+
+{{partial "thank-you-popup" (dict "heading" "Thank you for your interest" "message" "Your request has been forwarded to the financial institution and they will get in touch with you shortly.")}}

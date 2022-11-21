@@ -1,0 +1,37 @@
+[
+    {
+        "tabs":[
+            {
+                "tab_title": "Watch & Listen",
+                "tab_icon": "icons/watch-icon.html",
+                "active": true,
+                "tab_content": "tabs/watch-n-learn.html"
+            },
+            {
+                "tab_title": "Credit Basics",
+                "tab_icon": "icons/credit-basics.html",
+                "tab_content": "tabs/credit-basics.html"
+            },
+            {
+                "tab_title": "Dashboard FAQ’s",
+                "tab_icon": "icons/dashboard-faq.html",
+                "tab_content": "tabs/dashboard-faqs.html"
+            },
+            {
+                "tab_title": "Latest<br>Blogs",
+                "tab_icon": "icons/latest-blogs.html",
+                "tab_content": "tabs/blogs.html"
+            },
+            {
+                "tab_title": "Legal Information",
+                "tab_icon": "icons/legal-info.html",
+                "tab_content": "tabs/legal-info.html"
+            },
+            {
+                "tab_title": "Consumer Awareness",
+                "tab_icon": "icons/consumer-awareness.html",
+                "tab_content": "tabs/consumer-awareness.html"
+            }
+        ]
+    }
+]

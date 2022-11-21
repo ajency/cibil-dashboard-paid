@@ -1,0 +1,26 @@
+[
+  [
+    { "Lender": "Citi Bank" },
+    { "Account Number": "63813284878392550" },
+    { "Status": "Amount Overdue / Date Past Due / Settled / Written Off " },
+    { "logo": "images/dynamic-images/citi-bank-logo.svg" }
+  ],
+  [
+    { "Lender": "IDFC First Choice" },
+    { "Account Number": "895687179792197791" },
+    { "Status": "Written off " },
+    { "logo": "images/dynamic-images/idfc-bank-logo.svg" }
+  ],
+  [
+    { "Lender": "Bajaj Finserv" },
+    { "Account Number": "77816276918210882939" },
+    { "Status": "Amount Overdue" },
+    { "logo": "images/dynamic-images/bajaj-finserv-logo.svg" }
+  ],
+  [
+    { "Lender": "Citi Bank" },
+    { "Account Number": "63813284878392550" },
+    { "Status": "Amount Overdue / Date Past Due / Settled / Written Off " },
+    { "logo": "images/dynamic-images/citi-bank-logo.svg" }
+  ]
+]

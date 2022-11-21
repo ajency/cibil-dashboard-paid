@@ -1,0 +1,12 @@
+[
+    {
+        "title": "Phishing Techniques",
+        "excerpt": "Learn how to stay safe from fraudulent activities.",
+        "icon": "images/static-images/ca-icon-1.svg"
+    },
+    {
+        "title": "Protecting Your Information",
+        "excerpt": "Learn how to protect your private information.",
+        "icon": "images/static-images/ca-icon-2.svg"
+    }
+]

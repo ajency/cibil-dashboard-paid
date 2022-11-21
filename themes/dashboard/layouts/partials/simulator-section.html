@@ -4,11 +4,15 @@
         <div class="simulator-container">
             <div class="wrap-section">
                 {{if .username}}<p class="username">{{.username}}</p>{{end}}
-                {{ partial "simulator" . }}
+                {{if eq .state "default"}}
+                    {{ partial "default-simulator" . }}
+                {{else}}
+                    {{ partial "simulator" . }}
+                {{end}}
             </div>
             <div class="simulator-links">
                 {{if .link}}<a href="{{.link}}" class="cibil-link">{{.link_text}}</a>{{end}}
-                <a onclick="refreshPopupShow()" class="cibil-button">{{.button_text}}</a>
+                {{if .button_link}}<a onclick="refreshPopupShow()" class="cibil-button">{{.button_text}}</a>{{end}}
             </div>
         </div>
     </div>

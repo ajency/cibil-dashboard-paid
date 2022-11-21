@@ -5,7 +5,7 @@
     </div>
     <div class="page-width">
         <div class="cibil-score-history__wraper">
-            {{ partial "score-history" .}}
+            {{ partial "score-history" (dict "state" "unsubscribed" "unsubscribed_content" "Trended view of the changes in your CIBIL Score with every refresh." "content1" "Available with all subscription plans." "subscribe_link" "upgrade-plan" "subscribe_link_text" "Track Your Score Trend") }}
         </div>
     </div>
 </div>

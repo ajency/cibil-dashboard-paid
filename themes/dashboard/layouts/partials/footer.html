@@ -17,7 +17,6 @@
 <script src="{{"js/global.js" | relURL}}"></script>
 <script src="{{"js/video.min.js" | relURL}}"></script>
 <script src="{{"js/jquery.easypiechart.min.js" | relURL}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{"js/slick.min.js" | relURL}}"></script>
 <script type="text/javascript" src="{{"js/intro.min.js" | relURL}}"></script>
 <script src="{{"js/scripts.js" | relURL}}"></script>
@@ -75,3 +74,38 @@
 
     });
 </script>
+
+<script>
+    function videoPlayer(element){
+    let ctaId = $(element).data('target');
+    let playerId = $(element).data('player');
+
+    let videoElement = $(ctaId).find("video").attr("id");
+
+    $(element).click(function(){
+        let videoTitle = $(this).data("title");
+        $(ctaId).find(".modal-title").text(videoTitle);
+    });
+    
+    var player = videojs(videoElement, {
+        fluid: true
+    });
+    $(ctaId).on("show.bs.modal", function (e) {
+        player.play("muted");
+        player.muted(false);
+    });
+
+    $(ctaId).on("hide.bs.modal", function (e) {
+        player.pause();
+        player.play("pause");
+        player.muted(true);
+    });
+}
+</script>
+{{ if eq .RelPermalink "/cibil-dashboard-paid/overview_paid/credit-education/" }}
+    <script>
+        $(".video-cta-link").each(function(){
+            videoPlayer(this);
+        });
+    </script>
+{{end}}

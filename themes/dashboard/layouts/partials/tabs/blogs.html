@@ -1,0 +1,11 @@
+<div class="ce-blog-cards">
+    <div class="ce-grid ce-blog-cards__wraper">
+    {{ range .sections.Sections}}
+            {{ range .Site.Pages }}
+            {{if eq .Params.Category "latest-blogs" }}
+                {{ partial "ce-blog-cards" (dict "articleTitle" .Title "articleLink" .RelPermalink "thumbnail" .Params.thumbnail )}}
+            {{end}}
+            {{ end }}
+    {{ end }}
+    </div>
+</div>

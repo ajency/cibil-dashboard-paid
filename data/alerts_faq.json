@@ -34,7 +34,7 @@
     },
     {
         "heading": "How can I get access to Alerts?",
-        "content": "If you have a CIBIL subscription plan for 6 months or 12 months, you will be able to access the Alerts feature. If you have checked your CIBIL Score & Report for Free or have registered for a one-month subscription and would like to subscribe for this new feature, <a class='cibil-link' href='/cibil-dashboard/overview_paid/upgrade-plan'>Click here</a>.",
+        "content": "If you have a CIBIL subscription plan for 6 months or 12 months, you will be able to access the Alerts feature. If you have checked your CIBIL Score & Report for Free or have registered for a one-month subscription and would like to subscribe for this new feature, <a class='cibil-link' href='/cibil-dashboard-paid/overview_paid/upgrade-plan'>Click here</a>.",
         "collapsed": false,
         "unique_id": "6"
     },

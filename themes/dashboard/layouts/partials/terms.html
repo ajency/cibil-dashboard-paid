@@ -1,0 +1,10 @@
+<div class="terms">
+  <div class="page-width">
+    <div class="terms__wraper">
+        <p class="hairline-bold">{{.heading}}</p>
+        {{range .terms}}
+            <p class="hairline">{{. | safeHTML }}</p>
+        {{end}}
+    </div>
+  </div>
+</div>

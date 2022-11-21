@@ -1,0 +1,15 @@
+{{ define "main" }}
+
+    {{ partial "page-header" . }}
+
+    <div class="page-background blue">
+
+        <div class="page-width">
+
+            {{ partial "tabs-vertical-icons" (dict "account_tabs" .Site.Data.credit_education_tabs "cards" .Site.Data.credit_education.consumer_awareness "classes" "animated-tabs" "mobileDropdown" true "sections" .Site ) }}
+        
+        </div>
+
+    </div>
+
+{{end}}

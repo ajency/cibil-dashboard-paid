@@ -17,7 +17,7 @@
   {
     "icon": "images/static-images/alerts-icon1.svg",
     "feature_heading": "CIBIL Alerts",
-    "description": "24x7 credit monitoring with CIBIL Alerts. Safeguard against identity theft with email, SMS and app notifications.",
+    "description": "24x7 credit monitoring with CIBIL Alerts. Safeguard against identity theft with email , SMS and app notifications.",
     "image_path_desk": "images/dynamic-images/cibil-alerts-feature.svg",
     "image_path_mob": "images/dynamic-images/cibil-alerts-feature-mob.svg"
   },
@@ -25,7 +25,7 @@
     "classes": "image-left",
     "icon": "images/static-images/score-history-icon.svg",
     "feature_heading": "Score History",
-    "description": "Analyse your credit data, and know your eligibility for future loans.",
+    "description": "Track your score changes over time with a trended view of your CIBIL score.",
     "image_path_desk": "images/dynamic-images/score-history-feature.svg",
     "image_path_mob": "images/dynamic-images/score-history-feature-mob.svg"
   }

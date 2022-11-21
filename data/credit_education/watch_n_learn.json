@@ -1,0 +1,12 @@
+[
+  {
+    "content": "Watch this video to know more about your CIBIL Score & Report",
+    "cta_bg_image": "/images/dynamic-images/video-thumbnail-1.png",
+    "cta_icon": "/images/static-images/video-icon.svg",
+    "video_title": "All you need to know about the CIBIL Score & Report TransUnion CIBIL",
+    "video_link_mp4": "videos/download-now.mp4",
+    "video_link_webm": "videos/download-now.webm",
+    "video_id": "download-now-video",
+    "popup_id": "video-CTA-modal"
+  }
+]

@@ -1,7 +1,14 @@
 <script>
     function addToCompare(element) {
-        if($('.compare-offer-footer .compare-list > .compare-tab:not(:empty)').length >= 3){
-            return
+        if ($(window).width() > 767) {
+            if($('.compare-offer-footer .compare-list > .compare-tab:not(:empty)').length >= 3){
+                return
+            }
+        }
+        else{
+            if($('.compare-offer-footer .compare-list > .compare-tab:not(:empty)').length >= 2){
+                return
+            }
         }
         changeCompareText($('.compare-offer-footer .compare-list > .compare-tab:not(:empty)').length + 1)
         $(element).attr('onclick','removeFromCompare(this)');
@@ -20,6 +27,7 @@
         console.log(html)
         let emptyElement = $('.compare-offer-footer .compare-list > .compare-tab:empty')[0];
         $(emptyElement).attr('data-index',parent.data('index'))
+        $(emptyElement).attr('data-id',parent.data('id'))
         $(emptyElement).html(html);
         $('.compare-offer-footer').fadeIn("fast");
     }
@@ -31,9 +39,17 @@
         $('.compare-tab[data-index='+target+']').remove();
         $('.offers-card[data-index='+target+']').find('.cibil-link').attr('onclick','addToCompare(this)');
         let length = $('.compare-offer-footer .compare-list > .compare-tab').length
-        while(length < 3){
-            $('.compare-offer-footer .compare-list').append('<div class="compare-tab"></div>')
-            length++;
+        if ($(window).width() > 767) {
+            while(length < 3){
+                $('.compare-offer-footer .compare-list').append('<div class="compare-tab"></div>')
+                length++;
+            }
+        }
+        else{
+            while(length < 2){
+                $('.compare-offer-footer .compare-list').append('<div class="compare-tab"></div>')
+                length++;
+            }
         }
         if($('.compare-offer-footer .compare-list > .compare-tab:not(:empty)').length < 1){
             $('.compare-offer-footer').fadeOut("fast");
@@ -43,9 +59,16 @@
     function compareOffers(){
         let offer = $('.report-nav-link.active').clone().children().remove().end().text();
         let length = $('.compare-offer-footer .compare-list > .compare-tab:not(:empty)').length
+        let comparedOffers = $('.compare-offer-footer .compare-list > .compare-tab:not(:empty)')
+        $('.loan-offers-comparison [data-id]').hide()
+        $(comparedOffers).each(function(){
+            console.log($(this).attr("data-id"),comparedOffers)
+            $('.loan-offers-comparison [data-id='+$(this).attr("data-id")+']').show()
+        })
         $('.compare-header-wrap p').text('Comparing '+length+' '+offer+' offers')
+        $("html, body").animate({ scrollTop: 0 }, "fast");
         $('.offer-card-list').addClass('comparing')
-        $('.compare-offer-header').toggleClass('show')
+        $('.compare-offer-header').toggleClass('show activated')
         $('.compare-offer-footer').fadeOut('fast');
     }
 

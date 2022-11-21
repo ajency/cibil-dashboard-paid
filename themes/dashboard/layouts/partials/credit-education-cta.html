@@ -1,0 +1,47 @@
+
+<div class="credit-education-ctas" id="credtEducationCta">
+    <div class="credit-education-ctas__wraper">
+        {{range .ce_ctas}}
+            <div class="page-width account-summary">
+                <div class="account-summary__wraper">
+                    <div class="summary">
+                        {{if .related_article}}
+                            {{range .related_article}}
+                                {{if .article_icon}}
+                                <img src="{{.article_icon | relURL }}" alt="" class="article-icon">
+                                {{end}}
+                            {{end}}
+                        {{end}}
+                        <div class="wrap-content">
+                            {{if .summary_content}}
+                            <div class="summary-content">
+                                {{range .summary_content}}
+                                    <p class="title">{{.content_title}}</p>
+                                    <p class="desc">{{.content_description}}</p>
+                                {{end}}
+                            </div>
+                            {{end}}
+                            {{if .related_article}}
+                                {{range .related_article}}
+                                    <a href="{{.article_link}}" class="cibil-link cibil-link-right-icon">{{.article_link_text}}</a>
+                                {{end}}
+                            {{end}}
+                        </div>
+                    </div>
+                    {{if .related_page}}
+                        {{range .related_page}}
+                            <div class="related-page">
+                                <img src="{{ .page_icon | relURL }}" alt="" class="icon">
+                                <div class="wrap">
+                                    <p class="page-title">{{.page_title}}</p>
+                                    <p class="desc">{{.page_content}}</p>
+                                    <a href="{{.page_link}}" class="cibil-link cibil-link-right-icon">{{.page_link_text}}</a>
+                                </div>
+                            </div>
+                        {{end}}
+                    {{end}}
+                </div>
+            </div>
+        {{end}}
+    </div>
+</div>

@@ -2,10 +2,19 @@
 
 {{ partial "page-header" . }}
 
-{{ partial "report-bar"}}
+<div class="hide-md-up page-width">
+    {{partial "print-button"}}
+</div>
+<div class="hide-sm-down">
+    {{ partial "report-bar"}}
+</div>
 
 {{ partial "report-section" (dict "reportData" .Site.Data.profile_details "accountData" .Site.Data.report_account "enquiryDetails" .Site.Data.enquiry_details )}}
 
 {{ partial "popup" (dict "id" "repayment-popup")}}
+
+<div class="hide-md-up">
+    {{ partial "report-bar2"}}
+</div>
 
 {{ end }}

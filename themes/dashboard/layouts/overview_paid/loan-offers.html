@@ -1,13 +1,20 @@
 {{ define "main" }}
 
-{{ partial "page-header" . }}
+{{ partial "compare-loan-offers" (dict "offersData" .Site.Data.loan_offers ) }} 
 
-{{ partial "upgrade-plan-tab" (dict "section_text" "Your CIBIL Score & Report is 18 days old. <a href='/cibil-dashboard/overview_paid/upgrade-plan/'>Upgrade</a> to a paid plan to view your latest score." )}}
+{{ partial "page-header" . }}
 
 {{ partial "loan-offers-section" (dict "offers_n_partners" .Site.Data.overview_loan_offers_n_partners ) }}
 
 {{ partial "loan-offers-script"}}
 
-{{ partial "offers-popup" (dict "id" "offersPopup")}}
+<!-- {{ partial "offers-popup" (dict "id" "offersPopup")}} -->
+{{if .Site.Data.loan_offers }}
+    {{range $index, $offersData := .Site.Data.loan_offers }}
+        {{ $popupId := print "offersPopup" $index }}
+        {{ partial "offers-popup2" (dict "id" $popupId "logo" .logo "name" .name "limit_offered" .limit_offered "monthly_interest_rate" .monthly_interest_rate "annual_fees" .annual_fees "required_documents" .required_documents "benefits" .benefits ) }}
+    {{end}}
+{{end}}
+
 
 {{ end }}

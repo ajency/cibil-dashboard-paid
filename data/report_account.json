@@ -84,34 +84,36 @@
         "open_accounts": [
           {
             "member_name": "HDFC Bank",
+            "logo": "images/dynamic-images/hdfc-bank.png",
             "account_type": "Consumer Loan",
             "account_number": "0000036115055594465",
             "ownership": "Individual",
+            "under_dispute": true,
             "dues": true,
             "tabs": [
               {
                 "account_details": [
                   {
-                    "credit_limit": "₹56,000.00",
-                    "sanctioned_ammount": "₹36,000.00",
-                    "current_balance": "₹20,000.00",
-                    "cash_limit": "₹0.00",
-                    "ammount_overdue": "₹0.00",
-                    "rate_of_interest": "₹0.00",
-                    "repayment_tenure": "₹0.00",
-                    "emi_ammount": "₹0.00",
-                    "payment_frequency": "₹0.00",
-                    "actual_payment_ammount": "₹0.00",
-                    "date_opened": "₹0.00",
-                    "date_last_payment": "₹0.00",
-                    "date_reported": "₹0.00",
-                    "value_of_collateral": "₹0.00",
-                    "type_of_collateral": "₹0.00",
-                    "suit_filed": "₹0.00",
-                    "credit_facility_status": "₹0.00",
-                    "total_ammount": "₹0.00",
-                    "principle_ammount": "₹0.00",
-                    "settlement_ammount": "₹0.00"
+                    "Credit Limit": "₹56,000.00",
+                    "Sanctioned Amount": "₹36,000.00",
+                    "Current Balance": "₹20,000.00",
+                    "Cash Limit": "₹0.00",
+                    "Amount Overdue": "₹0.00",
+                    "Rate of Interest": "₹0.00",
+                    "Repayment Tenure": "₹0.00",
+                    "EMI Amount": "₹0.00",
+                    "Payment Frequency": "₹0.00",
+                    "Actual Payment Amount": "₹0.00",
+                    "Date Opened / Disbursed": "₹0.00",
+                    "Date of Last Payment": "₹0.00",
+                    "Date Reported and Certified": "₹0.00",
+                    "Value of Collateral": "₹0.00",
+                    "Type of Collateral": "₹0.00",
+                    "Suit - Filed / Willful Default": "₹0.00",
+                    "Credit Facility Status": "₹0.00",
+                    "Written-off Amount (Total)": "₹0.00",
+                    "Written-off Amount (Principal)": "₹0.00",
+                    "Settlement Amount": "₹0.00"
                   }
                 ],
                 "payment_status": [
@@ -144,34 +146,36 @@
           },
           {
             "member_name": "Axis Bank",
+            "logo": "images/dynamic-images/axis-bank.png",
             "account_type": "Home Loan",
             "account_number": "0937948700028378900",
             "ownership": "Joint",
-            "dues": true,
+            "under_dispute": true,
+            "dues": false,
             "tabs": [
               {
                 "account_details": [
                   {
-                    "credit_limit": "₹56,000.00",
-                    "sanctioned_ammount": "₹36,000.00",
-                    "current_balance": "₹20,000.00",
-                    "cash_limit": "₹0.00",
-                    "ammount_overdue": "₹0.00",
-                    "rate_of_interest": "₹0.00",
-                    "repayment_tenure": "₹0.00",
-                    "emi_ammount": "₹0.00",
-                    "payment_frequency": "₹0.00",
-                    "actual_payment_ammount": "₹0.00",
-                    "date_opened": "₹0.00",
-                    "date_last_payment": "₹0.00",
-                    "date_reported": "₹0.00",
-                    "value_of_collateral": "₹0.00",
-                    "type_of_collateral": "₹0.00",
-                    "suit_filed": "₹0.00",
-                    "credit_facility_status": "₹0.00",
-                    "total_ammount": "₹0.00",
-                    "principle_ammount": "₹0.00",
-                    "settlement_ammount": "₹0.00"
+                    "Credit Limit": "₹56,000.00",
+                    "Sanctioned Amount": "₹36,000.00",
+                    "Current Balance": "₹20,000.00",
+                    "Cash Limit": "₹0.00",
+                    "Amount Overdue": "₹0.00",
+                    "Rate of Interest": "₹0.00",
+                    "Repayment Tenure": "₹0.00",
+                    "EMI Amount": "₹0.00",
+                    "Payment Frequency": "₹0.00",
+                    "Actual Payment Amount": "₹0.00",
+                    "Date Opened / Disbursed": "₹0.00",
+                    "Date of Last Payment": "₹0.00",
+                    "Date Reported and Certified": "₹0.00",
+                    "Value of Collateral": "₹0.00",
+                    "Type of Collateral": "₹0.00",
+                    "Suit - Filed / Willful Default": "₹0.00",
+                    "Credit Facility Status": "₹0.00",
+                    "Written-off Amount (Total)": "₹0.00",
+                    "Written-off Amount (Principal)": "₹0.00",
+                    "Settlement Amount": "₹0.00"
                   }
                 ],
                 "payment_status": [
@@ -204,34 +208,36 @@
           },
           {
             "member_name": "ICICI Bank",
+            "logo": "images/dynamic-images/icici-bank.png",
             "account_type": "Personal Loan",
             "account_number": "0009476839012001234",
             "ownership": "Individual",
+            "under_dispute": false,
             "dues": true,
             "tabs": [
               {
                 "account_details": [
                   {
-                    "credit_limit": "₹56,000.00",
-                    "sanctioned_ammount": "₹36,000.00",
-                    "current_balance": "₹20,000.00",
-                    "cash_limit": "₹0.00",
-                    "ammount_overdue": "₹0.00",
-                    "rate_of_interest": "₹0.00",
-                    "repayment_tenure": "₹0.00",
-                    "emi_ammount": "₹0.00",
-                    "payment_frequency": "₹0.00",
-                    "actual_payment_ammount": "₹0.00",
-                    "date_opened": "₹0.00",
-                    "date_last_payment": "₹0.00",
-                    "date_reported": "₹0.00",
-                    "value_of_collateral": "₹0.00",
-                    "type_of_collateral": "₹0.00",
-                    "suit_filed": "₹0.00",
-                    "credit_facility_status": "₹0.00",
-                    "total_ammount": "₹0.00",
-                    "principle_ammount": "₹0.00",
-                    "settlement_ammount": "₹0.00"
+                    "Credit Limit": "₹56,000.00",
+                    "Sanctioned Amount": "₹36,000.00",
+                    "Current Balance": "₹20,000.00",
+                    "Cash Limit": "₹0.00",
+                    "Amount Overdue": "₹0.00",
+                    "Rate of Interest": "₹0.00",
+                    "Repayment Tenure": "₹0.00",
+                    "EMI Amount": "₹0.00",
+                    "Payment Frequency": "₹0.00",
+                    "Actual Payment Amount": "₹0.00",
+                    "Date Opened / Disbursed": "₹0.00",
+                    "Date of Last Payment": "₹0.00",
+                    "Date Reported and Certified": "₹0.00",
+                    "Value of Collateral": "₹0.00",
+                    "Type of Collateral": "₹0.00",
+                    "Suit - Filed / Willful Default": "₹0.00",
+                    "Credit Facility Status": "₹0.00",
+                    "Written-off Amount (Total)": "₹0.00",
+                    "Written-off Amount (Principal)": "₹0.00",
+                    "Settlement Amount": "₹0.00"
                   }
                 ],
                 "payment_status": [
@@ -266,34 +272,98 @@
         "closed_accounts": [
           {
             "member_name": "HDFC Bank",
+            "logo": "images/dynamic-images/hdfc-bank.png",
             "account_type": "Consumer Loan",
             "account_number": "0000036115055594465",
             "ownership": "Individual",
+            "under_dispute": true,
             "dues": true,
             "tabs": [
               {
                 "account_details": [
                   {
-                    "credit_limit": "₹56,000.00",
-                    "sanctioned_ammount": "₹36,000.00",
-                    "current_balance": "₹20,000.00",
-                    "cash_limit": "₹0.00",
-                    "ammount_overdue": "₹0.00",
-                    "rate_of_interest": "₹0.00",
-                    "repayment_tenure": "₹0.00",
-                    "emi_ammount": "₹0.00",
-                    "payment_frequency": "₹0.00",
-                    "actual_payment_ammount": "₹0.00",
-                    "date_opened": "₹0.00",
-                    "date_last_payment": "₹0.00",
-                    "date_reported": "₹0.00",
-                    "value_of_collateral": "₹0.00",
-                    "type_of_collateral": "₹0.00",
-                    "suit_filed": "₹0.00",
-                    "credit_facility_status": "₹0.00",
-                    "total_ammount": "₹0.00",
-                    "principle_ammount": "₹0.00",
-                    "settlement_ammount": "₹0.00"
+                    "Credit Limit": "₹56,000.00",
+                    "Sanctioned Amount": "₹36,000.00",
+                    "Current Balance": "₹20,000.00",
+                    "Cash Limit": "₹0.00",
+                    "Amount Overdue": "₹0.00",
+                    "Rate of Interest": "₹0.00",
+                    "Repayment Tenure": "₹0.00",
+                    "EMI Amount": "₹0.00",
+                    "Payment Frequency": "₹0.00",
+                    "Actual Payment Amount": "₹0.00",
+                    "Date Opened / Disbursed": "₹0.00",
+                    "Date of Last Payment": "₹0.00",
+                    "Date Reported and Certified": "₹0.00",
+                    "Value of Collateral": "₹0.00",
+                    "Type of Collateral": "₹0.00",
+                    "Suit - Filed / Willful Default": "₹0.00",
+                    "Credit Facility Status": "₹0.00",
+                    "Written-off Amount (Total)": "₹0.00",
+                    "Written-off Amount (Principal)": "₹0.00",
+                    "Settlement Amount": "₹0.00"
+                  }
+                ],
+                "payment_status": [
+                  {
+                    "payment_start_date": "01/04/2021",
+                    "payment_end_date": "01/08/2021",
+                    "payment_history": [
+                      {
+                        "month_n_year": "August 2021",
+                        "ammount": "₹0.00"
+                      },
+                      {
+                        "month_n_year": "July 2021",
+                        "ammount": "₹0.00"
+                      }
+                    ],
+                    "shortforms": [
+                      "<b>STD</b>: Standard",
+                      "<b>DBT</b>: Doubtful",
+                      "<b>###</b>: Number of Days Past Due",
+                      "<b>SMA</b>: Special Mention Account",
+                      "<b>SUB</b>: Substandard",
+                      "<b>LSS</b>: Loss",
+                      "<b>XXX</b>: Not Reported"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "member_name": "Axis Bank",
+            "logo": "images/dynamic-images/axis-bank.png",
+            "account_type": "Home Loan",
+            "account_number": "0937948700028378900",
+            "ownership": "Joint",
+            "under_dispute": true,
+            "dues": false,
+            "tabs": [
+              {
+                "account_details": [
+                  {
+                    "Credit Limit": "₹56,000.00",
+                    "Sanctioned Amount": "₹36,000.00",
+                    "Current Balance": "₹20,000.00",
+                    "Cash Limit": "₹0.00",
+                    "Amount Overdue": "₹0.00",
+                    "Rate of Interest": "₹0.00",
+                    "Repayment Tenure": "₹0.00",
+                    "EMI Amount": "₹0.00",
+                    "Payment Frequency": "₹0.00",
+                    "Actual Payment Amount": "₹0.00",
+                    "Date Opened / Disbursed": "₹0.00",
+                    "Date of Last Payment": "₹0.00",
+                    "Date Reported and Certified": "₹0.00",
+                    "Value of Collateral": "₹0.00",
+                    "Type of Collateral": "₹0.00",
+                    "Suit - Filed / Willful Default": "₹0.00",
+                    "Credit Facility Status": "₹0.00",
+                    "Written-off Amount (Total)": "₹0.00",
+                    "Written-off Amount (Principal)": "₹0.00",
+                    "Settlement Amount": "₹0.00"
                   }
                 ],
                 "payment_status": [
@@ -325,95 +395,37 @@
             ]
           },
           {
-            "member_name": "HDFC Bank",
-            "account_type": "Consumer Loan",
-            "account_number": "0000036115055594465",
+            "member_name": "ICICI Bank",
+            "logo": "images/dynamic-images/icici-bank.png",
+            "account_type": "Personal Loan",
+            "account_number": "0009476839012001234",
             "ownership": "Individual",
+            "under_dispute": false,
             "dues": true,
             "tabs": [
               {
                 "account_details": [
                   {
-                    "credit_limit": "₹56,000.00",
-                    "sanctioned_ammount": "₹36,000.00",
-                    "current_balance": "₹20,000.00",
-                    "cash_limit": "₹0.00",
-                    "ammount_overdue": "₹0.00",
-                    "rate_of_interest": "₹0.00",
-                    "repayment_tenure": "₹0.00",
-                    "emi_ammount": "₹0.00",
-                    "payment_frequency": "₹0.00",
-                    "actual_payment_ammount": "₹0.00",
-                    "date_opened": "₹0.00",
-                    "date_last_payment": "₹0.00",
-                    "date_reported": "₹0.00",
-                    "value_of_collateral": "₹0.00",
-                    "type_of_collateral": "₹0.00",
-                    "suit_filed": "₹0.00",
-                    "credit_facility_status": "₹0.00",
-                    "total_ammount": "₹0.00",
-                    "principle_ammount": "₹0.00",
-                    "settlement_ammount": "₹0.00"
-                  }
-                ],
-                "payment_status": [
-                  {
-                    "payment_start_date": "01/04/2021",
-                    "payment_end_date": "01/08/2021",
-                    "payment_history": [
-                      {
-                        "month_n_year": "August 2021",
-                        "ammount": "₹0.00"
-                      },
-                      {
-                        "month_n_year": "July 2021",
-                        "ammount": "₹0.00"
-                      }
-                    ],
-                    "shortforms": [
-                      "STD: Standard",
-                      "DBT: Doubtful",
-                      "###: Number of Days Past Due",
-                      "SMA: Special Mention Account",
-                      "SUB: Substandard",
-                      "LSS: Loss",
-                      "XXX: Not Reported"
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "member_name": "HDFC Bank",
-            "account_type": "Consumer Loan",
-            "account_number": "0000036115055594465",
-            "ownership": "Individual",
-            "dues": true,
-            "tabs": [
-              {
-                "account_details": [
-                  {
-                    "credit_limit": "₹56,000.00",
-                    "sanctioned_ammount": "₹36,000.00",
-                    "current_balance": "₹20,000.00",
-                    "cash_limit": "₹0.00",
-                    "ammount_overdue": "₹0.00",
-                    "rate_of_interest": "₹0.00",
-                    "repayment_tenure": "₹0.00",
-                    "emi_ammount": "₹0.00",
-                    "payment_frequency": "₹0.00",
-                    "actual_payment_ammount": "₹0.00",
-                    "date_opened": "₹0.00",
-                    "date_last_payment": "₹0.00",
-                    "date_reported": "₹0.00",
-                    "value_of_collateral": "₹0.00",
-                    "type_of_collateral": "₹0.00",
-                    "suit_filed": "₹0.00",
-                    "credit_facility_status": "₹0.00",
-                    "total_ammount": "₹0.00",
-                    "principle_ammount": "₹0.00",
-                    "settlement_ammount": "₹0.00"
+                    "Credit Limit": "₹56,000.00",
+                    "Sanctioned Amount": "₹36,000.00",
+                    "Current Balance": "₹20,000.00",
+                    "Cash Limit": "₹0.00",
+                    "Amount Overdue": "₹0.00",
+                    "Rate of Interest": "₹0.00",
+                    "Repayment Tenure": "₹0.00",
+                    "EMI Amount": "₹0.00",
+                    "Payment Frequency": "₹0.00",
+                    "Actual Payment Amount": "₹0.00",
+                    "Date Opened / Disbursed": "₹0.00",
+                    "Date of Last Payment": "₹0.00",
+                    "Date Reported and Certified": "₹0.00",
+                    "Value of Collateral": "₹0.00",
+                    "Type of Collateral": "₹0.00",
+                    "Suit - Filed / Willful Default": "₹0.00",
+                    "Credit Facility Status": "₹0.00",
+                    "Written-off Amount (Total)": "₹0.00",
+                    "Written-off Amount (Principal)": "₹0.00",
+                    "Settlement Amount": "₹0.00"
                   }
                 ],
                 "payment_status": [

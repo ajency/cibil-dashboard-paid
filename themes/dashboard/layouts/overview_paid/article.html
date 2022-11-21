@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+    {{partial "page-header" . }}
+
+    <div class="dashboard-article">
+        <div class="dashboard-article__wraper">
+            <!-- article title -->
+            <div class="page-width">
+                <p class="article-title h3">{{.Title}}</p>
+            </div>
+            <!-- article content | start -->
+            <div class="article-content">
+                <div class="page-width">
+                    <div class="article-content__wraper">
+                        {{.Content}}
+                    </div>
+                </div>
+            </div>
+            <!-- article content | end -->
+        </div>
+    </div>
+
+    <!-- scroll to top button -->
+    <a class="scrollToTop"></a>
+
+{{end}}

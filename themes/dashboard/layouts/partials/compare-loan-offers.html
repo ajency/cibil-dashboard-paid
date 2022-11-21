@@ -1,0 +1,90 @@
+
+<div class="compare-offer-header">
+    <div class="page-width">
+        <div class="compare-header-wrap">
+            <a class="resetOffers cibil-link cibil-link-left-icon goback-icon underlined default-case sticky-head" onclick="resetCompare()">Go Back</a>
+            <p class="text-uppercase">Compare Loan Offers</p>
+        </div>
+    </div>
+</div>
+
+{{if .offersData}}
+    <div class="loan-offers-comparison">
+        <div class="loan-offers-comparison__wraper">
+            <table>
+                <thead>
+                    <tr class="offers-head">
+                        <td></td>
+                        {{range $index, $offersData := .offersData}}
+                            <td data-id="{{.id}}">
+                                <div class="wrap">
+                                    <span class="company-logo">
+                                        <img src="{{ .logo | relURL }}" alt="">
+                                    </span>
+                                    <p class="company-title">{{.name}}</p>
+                                    <a class="cibil-button toggle-popup" data-target="offersPopup{{$index}}">VIEW OFFER</a>
+                                </div>
+                            </td>
+                        {{end}}
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <th>Tentative Credit Limit Offered</th>
+                            {{range .offersData}}
+                                <td data-id="{{.id}}">{{.limit_offered}}</td>
+                            {{end}}
+                        </tr>
+                        
+                        <tr>
+                            <th>Monthly Interest Rate</th>
+                            {{range .offersData}}
+                                <td data-id="{{.id}}">{{.monthly_interest_rate}}</td>
+                            {{end}}
+                        </tr>
+
+                        <tr>
+                            <th>Annual Fees</th>
+                            {{range .offersData}}
+                                <td data-id="{{.id}}">{{.annual_fees}}</td>
+                            {{end}}
+                        </tr>
+                        
+                        <tr>
+                            <th>Required Documents</th>
+                            {{range .offersData}}
+                                <td data-id="{{.id}}">
+                                    <ul>
+                                        {{range .required_documents}}
+                                            <li>{{.}}</li>
+                                        {{end}}
+                                    </ul>
+                                </td>
+                            {{end}}
+                        </tr>
+
+                        <tr>
+                            <th>Benefits</th>
+                            {{range .offersData}}
+                                <td data-id="{{.id}}">
+                                    <ul>
+                                        {{range .benefits}}
+                                            <li>{{.}}</li>
+                                        {{end}}
+                                    </ul>
+                                </td>
+                            {{end}}
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{{end}}
+
+<!-- {{if .offersData}}
+    {{range $index, $offersData := .offersData}}
+        {{ $popupId := print "offersPopup" $index }}
+
+        {{ partial "offers-popup2" (dict "id" $popupId "logo" .logo "name" .name "limit_offered" .limit_offered "monthly_interest_rate" .monthly_interest_rate "annual_fees" .annual_fees "required_documents" .required_documents "benefits" .benefits ) }}
+    {{end}}
+{{end}} -->

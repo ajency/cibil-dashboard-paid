@@ -1,8 +1,9 @@
 [
     {
+        "username":"Rahul",
         "headings":[
-            "Get more with CIBIL",
-            "<span class='highlight'>Basic</span>, <span class='highlight'>Standard</span> & <span class='highlight'>Premium</span> plans"
+            "you have <span class='highlight'>321 days</span> till your next refresh.",
+            "<span class='highlight'>Upgrade now</span> <span>and always be credit-ready.</span>"
         ],
         "image_path_desk":"images/dynamic-images/banner-desk.svg",
         "image_path_mob":"images/dynamic-images/banner-mob.svg"

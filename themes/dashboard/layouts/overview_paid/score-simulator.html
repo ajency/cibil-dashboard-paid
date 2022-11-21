@@ -2,6 +2,8 @@
 
 {{ partial "page-header" . }}
 
+{{ partial "upgrade-plan-tab" (dict "section_text" "Score Simulator is available with all subscription plans.  Choose a plan that’s right for you." )}}
+
 {{ partial "score-simulator-section" }}
 
 {{ partial "faq.html" (dict "section_heading" "Frequently Asked Questions" "faq" .Site.Data.score_simulator_faq)}}

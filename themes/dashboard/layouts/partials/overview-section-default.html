@@ -1,0 +1,12 @@
+<div class="overview-section" style="display: none;">
+    <div class="page-width overview-section__wraper">
+        {{ partial "simulator-section" (dict "simulator" .Site.Data.simulator_default) }}
+
+        <div class="right-panel">
+            {{ partial "report-cta" (dict "heading" "CIBIL Report" "content" "Get your personalized CIBIL Report to plan your financial future." "link_text" "VIEW YOUR CIBIL REPORT" "link" "/cibil-dashboard-paid/overview_paid/cibil-report#account_1" "icon" "/images/static-images/cibil-report-icon.svg" "download_link" "/pdfs/cibil-report.pdf" "download_link_text" "Print YOUR CIBIL REPORT" )}}
+
+            {{ partial "video-cta" (dict "content" "Watch this video to learn more about your CIBIL Score & Report" "cta_bg_image" "/images/dynamic-images/video-cta-bg.png" "cta_icon" "/images/static-images/video-icon.svg" "video_title" "All you need to know about the CIBIL Score & Report TransUnion CIBIL" "video_link_mp4" "videos/download-now.mp4" "video_link_webm" "videos/download-now.webm" "video_id" "download-now-video" "popup_id" "video-CTA-modal") }}
+        </div>
+
+    </div>
+</div>

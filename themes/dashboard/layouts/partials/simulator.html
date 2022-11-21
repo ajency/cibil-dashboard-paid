@@ -10,6 +10,7 @@
         </div>
         {{if .cibil_score}}<p class="cibil-score">{{.cibil_score}}</p>
             {{if .score_text}}<p class="score-text">{{.score_text | safeHTML }}</p>{{end}}
+            {{if .subtext}}<p class="hairline subtext tooltipBox">{{.subtext | safeHTML }}</p>{{end}}
         {{end}}
     </div>
 </div>

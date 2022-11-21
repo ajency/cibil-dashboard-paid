@@ -1,8 +1,20 @@
-<div class="page-header-section">
+<div class="page-header-section {{if .Layout}}{{if eq .Layout "article"}} article-page-header{{end}}{{end}}">
   <div class="page-width page-header-section__wraper">
-    {{ partial "breadcrumbs" . }}
-    <p class="page-title">
-      {{ if .Params.icon_url }}<img class="icon" src="{{ .Params.icon_url | relURL }}" />{{end}}{{ .Title }}</p>
-      {{ if .Params.description }}<p class="page-desc">{{ .Params.description | safeHTML }}</p>{{end}}
+    <div class="left-panel">
+      {{ partial "breadcrumbs" . }}
+      {{if .Layout}}
+        {{if ne .Layout "article"}}
+          <p class="page-title">{{ if .Params.icon_url }}<img class="icon" src="{{ .Params.icon_url | relURL }}" />{{end}}{{ .Title }}</p>
+          {{ if .Params.description }}<p class="page-desc">{{ .Params.description | safeHTML }}</p>{{end}}
+        {{end}}
+      {{end}}
+    </div>
+    {{if .Layout}}
+      {{if eq .Layout "article"}}
+        <div class="right-panel">
+          <a class="cibil-link cibil-link-left-icon goback-icon underlined default-case" onclick="history.back()">Go Back</a>
+        </div>
+      {{end}}
+    {{end}}
   </div>
 </div>

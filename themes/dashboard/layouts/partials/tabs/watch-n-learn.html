@@ -1,0 +1,53 @@
+<div class="ce-video-ctas">
+    <div class="ce-grid ce-video-ctas__wraper">
+        {{ range .sections.Sections}}
+            {{ range $index, $pageList := .Site.Pages }}
+                {{if eq .Params.Category "watch-n-listen" }}
+                    {{ partial "watch-n-learn-cta" (dict "articleTitle" .Title "videoId" $index "popupId" $index "thumbnail" .Params.thumbnail) }}
+                {{end}}
+            {{ end }}
+        {{ end }}
+    </div>
+</div>
+
+{{ range .sections.Sections}}
+{{ range $index, $pageList := .Site.Pages }}
+    {{if eq .Params.Category "watch-n-listen" }}
+        <!-- Video CTA Modal -->
+        <div class="modal fade" id="video-CTA-modal-{{$index}}" tabindex="-1" role="dialog" aria-labelledby="{{$index}}-title" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <p class="modal-title">{{.Title}}</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><img src="{{ "images/static-images/close-icon.svg" | relURL }}" alt=""></span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <video
+                    id="download-now-video-{{$index}}"
+                    class="video-js"
+                    controls
+                    preload="auto"
+                    width="680"
+                    height="326"
+                    poster=""
+                    data-setup="{}"
+                >
+                    <source src="{{ .Params.mp4Link | relURL }}" type="video/mp4" />
+                    <source src="{{ .Params.webmLink | relURL }}" type="video/webm" />
+                    <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a
+                    web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank"
+                        >supports HTML5 video</a
+                    >
+                    </p>
+                </video>
+                </div>
+            </div>
+            </div>
+        </div>
+    {{end}}
+  {{ end }}
+{{ end }}

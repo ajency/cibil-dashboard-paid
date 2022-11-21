@@ -1,0 +1,14 @@
+[
+    {
+        "icon": "images/static-images/eligibility.svg",
+        "description": "Improve your CIBIL score & loan approval eligibility"
+    },
+    {
+        "icon": "images/static-images/payment-status.svg",
+        "description": "View all your outstanding payment status in one place"
+    },
+    {
+        "icon": "images/static-images/sources.svg",
+        "description": "Repayment option sources directly from the banks and no agents"
+    }
+]

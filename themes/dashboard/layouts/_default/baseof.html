@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 {{ partial "head.html" . }}
-    <body class="{{anchorize .Title}}">
+    <body class="{{if .Layout}}{{if eq .Layout "article"}}article-page{{else}}{{anchorize .Title}}{{end}}{{end}}">
         <div class="main-container">
             <div class="nav-container">
                 {{ partial "navigation-desktop.html" . }}

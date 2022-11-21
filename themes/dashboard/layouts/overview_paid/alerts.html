@@ -2,6 +2,8 @@
 
     {{ partial "page-header" . }}
 
-    {{partial "alerts" (dict "alerts" .Site.Data.alerts)}}
+    {{ partial "cibil-alerts" (dict "section_heading" "WITH CIBIL ALERTS YOU GET" "cta" .Site.Data.cta )}}
+
+    {{ partial "faq.html" (dict "section_heading" "Frequently Asked Questions" "faq" .Site.Data.alerts_faq )}}
 
 {{end}}

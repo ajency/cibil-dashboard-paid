@@ -4,3 +4,19 @@ title = 'Cibil Dashboard'
 theme = 'dashboard'
 publishDir =  'docs'
 
+[markup.goldmark.parser.attribute]
+block = true
+title = true
+
+[related]
+    threshold = 0 
+    includeNewer = true
+    toLower = false
+
+    [[related.indices]]
+        name = "categories"
+        weight = 100
+
+    [[related.indices]]
+        name = "date"
+        weight = 10

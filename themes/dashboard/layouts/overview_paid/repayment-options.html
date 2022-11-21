@@ -1,0 +1,15 @@
+{{ define "main" }}
+
+    {{ partial "page-header" . }}
+
+    {{ partial "negative-status" (dict "ce_ctas" .Site.Data.credit_education_ctas) }}
+
+    {{ partial "repayment-options" (dict "repaymentOptions" .Site.Data.repayment_options ) }}
+
+    {{ partial "credit-education-cta" (dict "ce_ctas" .Site.Data.credit_education_ctas)}}
+
+    {{ partial "repayment-options-benefits" (dict "heading" "benefits of repayment options" "repaymentBenefits" .Site.Data.repayment_benefits ) }}
+
+    {{ partial "terms" (dict "heading" "Financial Terms:" "terms" .Site.Data.finantial_terms ) }}
+
+{{end}}

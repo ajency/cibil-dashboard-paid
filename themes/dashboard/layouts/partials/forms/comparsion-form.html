@@ -1,12 +1,11 @@
 <form class="dashboard-form" id="comparisonForm" novalidate>
-    <p class="body-medium form-title">Please edit your information below.</p>
     <div class="col3">
         <div class="form-group">
-            <label for="monthly_income">City</label>
+            <label for="location">Location</label>
             <span class="resetSearch" onclick="resetSearch(this)"></span>
             <div class="custom-select-input">
                 <span class="custom-select-value" onclick="customSelectInputSearch(this)">All of India</span>
-                {{partial "paid-partials/searchbox"}}
+                {{partial "searchbox"}}
                 <div class="custom-select-options">
                     <span onclick="customSelectOptionSearch(this)">Ambarnath</span>
                     <span onclick="customSelectOptionSearch(this)">Ambattur</span>
@@ -14,24 +13,20 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="monthly_income">Income Type</label>
+            <label for="income_type">Income Type</label>
             <div class="custom-select-input" onclick="customSelectInput(this)">
-                <span class="custom-select-value">Select Income Type</span>
+                <span class="custom-select-value placeholder">Select Type</span>
                 <div class="custom-select-options">
                     <span onclick="customSelectOption(this)">Self-Employed</span>
-                    <span onclick="customSelectOption(this)">Salaraid</span>
+                    <span onclick="customSelectOption(this)">Salaried</span>
                 </div>
             </div>
         </div>
         <div class="form-group">
             <label for="monthly_income">Monthly Income</label>
             <span class="currency-prefix">₹</span>
-            <input class="currency-field" type="text" name="monthly_income" id="monthly_income" required>
+            <input class="currency-field" type="number" name="monthly_income" id="monthly_income" placeholder="Enter Amount" required>
             <p class="message"></p>
         </div>
-    </div>
-    <div class="button-group">
-        <button type="submit" class="cibil-button" onclick="submitEditInfo(this)">SUBMIT</button>
-        <a onclick="cancelComparison(this)" class="cibil-link underlined">Cancel</a>
     </div>
 </form>

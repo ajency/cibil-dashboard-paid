@@ -7,19 +7,19 @@
         </div>
         <span class="sublist">
             <div class="sublist__wraper">
-                <a href="{{if ne .RelPermalink "/cibil-dashboard-paid/overview_paid/" }}/cibil-dashboard/overview_paid/{{end}}#cibil-score" class="sublist-item">CIBIL Score & Report</a>
-                <a href="{{if ne .RelPermalink "/cibil-dashboard-paid/overview_paid/" }}/cibil-dashboard/overview_paid/{{end}}#credit-summary" class="sublist-item">Credit Summary</a>
-                <a href="{{if ne .RelPermalink "/cibil-dashboard-paid/overview_paid/" }}/cibil-dashboard/overview_paid/{{end}}#cibil-score-history" class="sublist-item">CIBIL Score History</a>
-                <a href="{{if ne .RelPermalink "/cibil-dashboard-paid/overview_paid/" }}/cibil-dashboard/overview_paid/{{end}}#score-comparison" class="sublist-item">Social Comparison</a>
-                <a href="{{if ne .RelPermalink "/cibil-dashboard-paid/overview_paid/" }}/cibil-dashboard/overview_paid/{{end}}#loan-offers" class="sublist-item">Loan Offers</a>
+                <a href="{{if ne .RelPermalink "/cibil-dashboard-paid/overview_paid/" }}/cibil-dashboard-paid/overview_paid/{{end}}#cibil-score" class="sublist-item">CIBIL Score & Report</a>
+                <a href="{{if ne .RelPermalink "/cibil-dashboard-paid/overview_paid/" }}/cibil-dashboard-paid/overview_paid/{{end}}#credit-summary" class="sublist-item">Credit Summary</a>
+                <a href="{{if ne .RelPermalink "/cibil-dashboard-paid/overview_paid/" }}/cibil-dashboard-paid/overview_paid/{{end}}#cibil-score-history" class="sublist-item">CIBIL Score History</a>
+                <a href="{{if ne .RelPermalink "/cibil-dashboard-paid/overview_paid/" }}/cibil-dashboard-paid/overview_paid/{{end}}#score-comparison" class="sublist-item">Where You Stand</a>
+                <a href="{{if ne .RelPermalink "/cibil-dashboard-paid/overview_paid/" }}/cibil-dashboard-paid/overview_paid/{{end}}#loan-offers" class="sublist-item">Loan Offers</a>
             </div>
         </span>
     </div>
     <a href="/cibil-dashboard-paid/overview_paid/cibil-report/" class="nav-item {{ if eq .RelPermalink "/cibil-dashboard-paid/overview_paid/cibil-report/" }}active{{end}}"><span class="svg-icon-box">{{partial "icons/report-icon"}}</span><span>CIBIL Report</span></a>
     <a href="/cibil-dashboard-paid/overview_paid/loan-offers/" class="nav-item {{ if eq .RelPermalink "/cibil-dashboard-paid/overview_paid/loan-offers/" }}active{{end}}"><span class="svg-icon-box">{{partial "icons/offers-icon"}}</span><span>Loan Offers</span><span class="notify-circle"><span>15</span></span></a>
-    <a href="" class="nav-item"><span class="svg-icon-box"><img src="{{ "images/static-images/repayment-icon.svg" | relURL}}" alt=""></span><span>Repayment Option</span></a>
+    <a href="/cibil-dashboard-paid/overview_paid/repayment-options/" class="nav-item {{ if eq .RelPermalink "/cibil-dashboard-paid/overview_paid/repayment-options/" }}active{{end}}"><span class="svg-icon-box"><img src="{{ "images/static-images/repayment-icon.svg" | relURL}}" alt=""></span><span>Repayment Options</span></a>
     <a href="/cibil-dashboard-paid/overview_paid/alerts/" class="nav-item {{ if eq .RelPermalink "/cibil-dashboard-paid/overview_paid/alerts/" }}active{{end}}"><span class="svg-icon-box">{{partial "icons/alerts-icon"}}</span><span>Alerts</span>{{partial "upgrade-plan-tooltip"}}</a>
     <a href="/cibil-dashboard-paid/overview_paid/score-simulator/" class="nav-item {{ if eq .RelPermalink "/cibil-dashboard-paid/overview_paid/score-simulator/" }}active{{end}}"><span class="svg-icon-box">{{partial "icons/simulator-icon"}}</span><span>Score Simulator</span>{{partial "upgrade-plan-tooltip"}}</a>
-    <a href="" class="nav-item"><span class="svg-icon-box">{{partial "icons/education-icon"}}</span><span>Credit Education</span></a>
+    <a href="/cibil-dashboard-paid/overview_paid/credit-education/" class="nav-item {{ if eq .RelPermalink "/cibil-dashboard-paid/overview_paid/credit-education/" }}active{{end}}"><span class="svg-icon-box">{{partial "icons/education-icon"}}</span><span>Credit Education</span></a>
     <a href="/cibil-dashboard-paid/overview_paid/upgrade-plan/" class="nav-item {{ if eq .RelPermalink "/cibil-dashboard-paid/overview_paid/upgrade-plan/"  }}active{{end}}"><span class="svg-icon-box">{{partial "icons/upgrade-icon"}}</span><span>Upgrade My Plan</span></a>
 </div>

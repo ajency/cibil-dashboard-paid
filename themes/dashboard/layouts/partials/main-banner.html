@@ -3,20 +3,10 @@
   <div class="page-width">
     <div class="banner-section__wraper">
       <div class="left-side">
-        {{if .username}}<p class="username banner-heading">Hi {{.username}},</p>{{end}}
-        {{ range .headings }}
-          <p class="h2">
-              {{ . | safeHTML }}
-          </p>
-        {{ end }}
-      </div>
-      <div class="right-side">
-        <div class="img-container">
-          <img class="hide-sm-down" src="{{ .image_path_desk | relURL }}"
-          alt="">
-          <img class="hide-md-up" src="{{ .image_path_mob | relURL }}"
-          alt="">
-        </div>
+        <p class="username h3 hide-sm-down">Hi {{.username}}, you have <span class='highlight'>321 days</span> till your next refresh.</p>
+        <p class="username h3 hide-md-up">Hi {{.username}},<br>you have <span class='highlight'>321 days</span> till your next refresh.</p>
+        <p class="h3 subtext hide-sm-down">Upgrade now and always be credit-ready.</span></p>
+        <p class="h3 hide-md-up"><span class='highlight'>Upgrade now</span> <span>and always be credit-ready.</span></p>
       </div>
     </div>
   </div>

@@ -1,0 +1,8 @@
+{{- $href := .Get "href" -}}
+{{- $title := .Get "title" -}}
+
+{{- with .Parent -}}
+  <li><a href="{{$href}}" class="cibil-link default-case">{{$title}}</a></li>
+{{- else -}}
+  <li></li>
+{{- end -}}
