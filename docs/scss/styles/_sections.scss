@@ -4699,7 +4699,7 @@ b.plus-icon {
             color: $black;
             cursor: pointer;
             @include media-breakpoint-down(sm){
-              font-weight: 600;
+              font-weight: 400;
             }
           }
         }
