@@ -154,6 +154,10 @@ $(function () {
     sortData($(this), $(this).val(), reverse)
   })
 
+  $('.custom-checkbox + label').click(function(){
+    $(this).siblings('.custom-checkbox').find('input').click()
+  })
+
 })
 function customSelectInput(element){
   $(element).toggleClass('opened')

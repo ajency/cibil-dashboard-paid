@@ -3729,7 +3729,7 @@
   a {
     &:first-child {
       @include intro-regular-16;
-      display: none;
+      // display: none;
     }
     &:last-child {
       text-transform: uppercase;
@@ -3916,11 +3916,20 @@ b.plus-icon {
     }
     & > .edit-info-header {
       display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      border: 1px solid #EDEDED;
+      border-radius: 4px;
+      margin: 20px 0 30px;
       @include media-breakpoint-down(sm){
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border: 0;
+        border-radius: 0;
         padding: 20px 0px 30px;
+        margin: 0;
       }
     }
   }
@@ -4672,11 +4681,12 @@ b.plus-icon {
 
       .filter-values {
         padding-bottom: 5px;
+        width: 100% !important;
         display: none;
         .filter-value {
           display: flex;
           align-items: center;
-          margin: 15px 0 0;
+          margin: 16px 0 0;
           flex-flow: wrap;
           width: 100% !important;
           label {
@@ -4687,6 +4697,10 @@ b.plus-icon {
             text-transform: none;
             white-space: nowrap;
             color: $black;
+            cursor: pointer;
+            @include media-breakpoint-down(sm){
+              font-weight: 600;
+            }
           }
         }
       }
@@ -4967,12 +4981,22 @@ input[type="range"]:focus::-ms-fill-upper {
           padding-top: 16px;
           padding-bottom: 15px;
           margin-bottom: 0;
+          min-width: 210px;
         }
         .cibil-btn-link {
           font-weight: $intro-regular;
           font-size: 16px;
           line-height: 16px;
           text-decoration: none;
+        }
+      }
+    }
+  }
+  @media (max-width: 360px){
+    .filter-container {
+      .filter-cta{
+        .cibil-button{
+          min-width: 175px;
         }
       }
     }

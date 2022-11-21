@@ -1464,8 +1464,8 @@ input[type="number"] {
   margin: 0 10px 0 0;
   cursor: pointer;
   input{
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
     border: 1px solid #707070;
     border-radius: 2px;
     margin: 0;
@@ -1478,8 +1478,8 @@ input[type="number"] {
       position: absolute;
       left: 0;
       top: 0;
-      width: 13px;
-      height: 13px;
+      width: 16px;
+      height: 16px;
       display: none;
     }
     &:checked + svg {
