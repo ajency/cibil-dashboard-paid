@@ -2,7 +2,11 @@
     <div class="report-tabs mobile-tabs">
         <ul class="reportTabs mobileTabs" id="reportTab">
             <li class="report-nav-item" role="presentation">
-                <button class="report-nav-link active" id="account-tab" data-target="#account"><img
+                <button class="report-nav-link active" id="summary-tab" data-target="#summary" role="tab"
+                    aria-controls="summary"><img src='{{"images/static-images/report-summary.svg" | relURL}}'>CIBIL Summary</button>
+            </li>
+            <li class="report-nav-item" role="presentation">
+                <button class="report-nav-link" id="account-tab" data-target="#account"><img
                         src='{{"images/static-images/account-info.svg" | relURL}}'>Account Information</button>
             </li>
             <li class="report-nav-item" role="presentation">
@@ -15,18 +19,14 @@
                     aria-controls="enquiry"><img src='{{"images/static-images/enquiry-info.svg" | relURL}}'>Enquiry
                     Information</button>
             </li>
-            <li class="report-nav-item" role="presentation">
-                <button class="report-nav-link" id="summary-tab" data-target="#summary" role="tab"
-                    aria-controls="summary"><img src='{{"images/static-images/report-summary.svg" | relURL}}'>Credit Summary</button>
-            </li>
         </ul>
     </div>
     <div class="report-content">
         <div class="tab-content">
-            <div class="tab-panel active" id="account"  aria-labelledby="account-tab">{{ partial "report-account" . }}</div>
+            <div class="tab-panel active" id="summary"  aria-labelledby="summary-tab">{{partial "report-summary-paid" . }}</div>
+            <div class="tab-panel" id="account"  aria-labelledby="account-tab">{{ partial "report-account" . }}</div>
             <div class="tab-panel" id="profile"  aria-labelledby="profile-tab">{{partial "report-profile" . }}</div>
             <div class="tab-panel" id="enquiry"  aria-labelledby="enquiry-tab">{{partial "report-enquiry" . }}</div>
-            <div class="tab-panel" id="summary"  aria-labelledby="summary-tab">{{partial "report-summary"}}</div>
         </div>
     </div>
 </div>

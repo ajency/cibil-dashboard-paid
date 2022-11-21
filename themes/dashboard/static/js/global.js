@@ -107,7 +107,7 @@ $(function () {
     }
   });
 
-  enableAccountSlider();
+  // enableAccountSlider();
 
   $(document).click(function() {
     var container = $(".custom-select-input");
