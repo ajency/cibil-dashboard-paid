@@ -247,8 +247,3 @@ $(consentForm).submit(function( nf_event ) {
   $(this).find('button[type=submit]').addClass('disabled');
   $(this).find('button[type=submit]').prop("disabled", true);
 });
-
-$(comparisonForm).submit(function( nf_event ) {
-  nf_event.preventDefault();
-  refreshComparison();
-});

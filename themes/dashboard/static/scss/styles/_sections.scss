@@ -1786,6 +1786,44 @@
   background-color: #f9f9f9;
   padding: 20px;
   margin-bottom: 20px;
+  .table-head {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    p {
+      margin-bottom: 0px;
+    }
+    .alert-timestamp {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 16px;
+      letter-spacing: 0.02em;
+      color: #707070;
+    }
+    &:before {
+      content: "";
+      height: 20px;
+      width: 20px;
+      background-image: url(../images/static-images/down-arrow-icon.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      right: 0px;
+      transition: all 0.3s ease-in-out;
+    }
+    &.show {
+      &:before {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .report-content-container {
+    .table-content {
+      margin-top: 20px;
+    }
+  }
   .table-title {
     @include intro-regular-16;
     font-weight: $intro-bold;
@@ -1869,11 +1907,21 @@
       }
     }
   }
-
+  @include media-breakpoint-up(md) {
+    .table-head {
+      padding-right: 50px;
+    }
+  }
   @include media-breakpoint-down(sm) {
     margin-bottom: 30px;
     .table-title {
       margin: 0;
+    }
+    .table-head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      grid-gap: 10px;
     }
     .table-content {
       grid-template-columns: auto auto;
@@ -1892,7 +1940,11 @@
     }
     &.table-light {
       .table-content {
+        background-color: transparent;
         row-gap: 20px;
+        padding: 0px;
+        border-top: 1px solid #EDEDED;
+        padding-top: 20px;
       }
     }
     .showAllLink {
@@ -5215,6 +5267,34 @@ input[type="range"]:focus::-ms-fill-upper {
             }
           }
         }
+      }
+    }
+  }
+}
+
+//alerts section
+.alerts-section {
+  margin: 40px 0 60px;
+  .report-table {
+    .table-content {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    margin: 30px 0px;
+    .report-table {
+      border: 1px solid transparent;
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+      &.shown{
+        border-color: #EDEDED;
       }
     }
   }

@@ -640,3 +640,13 @@ function refreshComparison(){
 if($('.comparison-graph')){
   refreshComparison();
 }
+
+  //alerts
+  $(".report-content-container").on("show.bs.collapse", function () {
+    $(this).prev().addClass("show");
+    $(this).parents('.report-table').addClass('shown');
+  });
+  $(".report-content-container").on("hide.bs.collapse", function () {
+    $(this).prev().removeClass("show");
+    $(this).parents('.report-table').removeClass('shown');
+  });
