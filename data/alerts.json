@@ -34,6 +34,17 @@
     ]
   },
   {
+    "alert_title": "New address",
+    "timestamp": "14/04/2022, 12:30 PM",
+    "alert_data": [
+      { "Reported By": "American Express Bank" },
+      { "Address Line 1": "Mumbai" },
+      { "State": "Maharashtra" },
+      { "PIN Code": "400075" },
+      { "Category": "Residence Address" }
+    ]
+  },
+  {
     "alert_title": "New Telephone number",
     "timestamp": "24/02/2022, 12:30 PM",
     "alert_data": [
@@ -46,16 +57,5 @@
     "alert_title": "CHANGE IN SCORE",
     "timestamp": "24/02/2022, 12:30 PM",
     "alert_data": [{ "New Score": "720" }, { "Status": "Increased" }]
-  },
-  {
-    "alert_title": "New address",
-    "timestamp": "14/04/2022, 12:30 PM",
-    "alert_data": [
-      { "Reported By": "American Express Bank" },
-      { "Address Line 1": "Mumbai" },
-      { "State": "Maharashtra" },
-      { "PIN Code": "400075" },
-      { "Category": "Residence Address" }
-    ]
   }
 ]
