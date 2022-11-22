@@ -3947,16 +3947,19 @@ b.plus-icon {
 
 // account
 .my-account {
-  .page-background {
-    &.blue {
-      padding-bottom: 60px;
-    }
-  }
+//   .page-background {
+//     &.blue {
+//       padding-bottom: 60px;
+//     }
+//   }
   @include media-breakpoint-down(sm) {
-    .page-background {
-      &.blue {
-        padding-bottom: 40px;
-      }
+//     .page-background {
+//       &.blue {
+//         padding-bottom: 40px;
+//       }
+//     }
+    .tabs-vertical-icons{
+      padding-top: 30px;
     }
   }
 }
@@ -5492,10 +5495,15 @@ input[type="range"]:focus::-ms-fill-upper {
       width: fit-content;
       width: -webkit-fit-content;
       width: -moz-fit-content;
+      display: block;
     }
     .active-status{
       background: #A9D161;
       border: 1px solid #A9D161;
+    }
+    .upcoming-status{
+      background: $primary-yellow;
+      border: 1px solid $primary-yellow;
     }
   }
   .subscription-renew-box{
@@ -5533,6 +5541,7 @@ input[type="range"]:focus::-ms-fill-upper {
   @include media-breakpoint-down(sm){
     flex-direction: column;
     align-items: center;
+    padding-top: 30px;
     .subscription-details{
       padding-right: 0;
       width: 100%;
@@ -5543,5 +5552,64 @@ input[type="range"]:focus::-ms-fill-upper {
     .subscription-renew-box{
       padding: 31px 25px;
     }
+  }
+}
+
+.desktop-table{
+  margin-top: 30px;
+  @include media-breakpoint-up(md){
+    border: 0;
+    padding: 0;
+    .subscription-details{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      border-radius: 6px 6px 0 0;
+      overflow: hidden;
+      padding: 0;
+      .text-head{
+        padding: 15px 20px 11px;
+        background: #ededed;
+        border-right: 1px solid #F9F9F9;
+        margin: 0;
+      }
+      .text-grey{
+        margin: 0;
+      }
+      .subscription-status{
+        margin: 0;
+      }
+      & > div{
+        &:last-child{
+          .text-head{
+            border-right: 0;
+          }
+        }
+        & > span:not(.text-head){
+          border: 1px solid #DDE0EF;
+          display: block;
+          height: calc(100% - 50px );
+          padding: 13px 20px 14px;
+        }
+        &:not(:last-child){
+          & > span:not(.text-head){
+            border-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm){
+  .tab-content #subscription {
+      padding: 0;
+      background: #fff;
+      margin: 0 -1px;
+
+      .subscription-details-box:first-of-type {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top: 0;
+      }
   }
 }
