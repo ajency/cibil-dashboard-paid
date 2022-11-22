@@ -680,7 +680,7 @@ $(document).ready(function () {
           desktopChart(chartLabel);
         }
       }
-      if (newWindowWidth < 991.98){
+      /* if (newWindowWidth < 991.98){
         // upgrade plan
         if ($('.upgrade-plans .plan-tabs').is(":visible")){
           let parent = $('.upgrade-plans .plan-tabs');
@@ -695,7 +695,7 @@ $(document).ready(function () {
           $(parent).find('.plan.shown').addClass('firstView');
           $('.upgrade-plans').append('<a class="cibil-link underlined showAllPlans" onclick="showAllPlans(this)">SHOW ALL PLANS</a>');
         }
-      }
+      } */
   }
 });
 
