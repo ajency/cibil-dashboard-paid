@@ -883,9 +883,38 @@
           .score-text {
             margin-bottom: 0px;
           }
+          .simulator {
+            .score-bar {
+              .score-pointer {
+                &__wraper {
+                  &:after,
+                  &:before {
+                    bottom: -50px;
+                  }
+                }
+              }
+            }
+          }
+          .simulator:not(.empty-simulator) {
+            .cibil-score {
+              margin-top: 43px;
+            }
+          }
+          .simulator .score-bar .score-pointer__wraper,
+          .empty-simulator .bar {
+            &:before,
+            &:after {
+              font-weight: 700;
+              font-size: 16px;
+              line-height: 24px;
+              letter-spacing: 0.02em;
+              color: #707070;
+            }
+          }
         }
         hr {
           border-color: #b8c9e9;
+          border-width: 2px;
         }
         .upgrade-plan-cta {
           display: none;
@@ -896,6 +925,68 @@
     @include media-breakpoint-down(md) {
       .score-wrap {
         margin-bottom: 30px !important;
+        .score-display-box {
+          &__wraper {
+            .score-text {
+              max-width: 103px;
+              margin-left: auto;
+              margin-right: auto;
+            }
+            .simulator {
+              .score-bar {
+                .score-pointer {
+                  &__wraper {
+                    &:after,
+                    &:before {
+                      bottom: -37px;
+                    }
+                    .pointer-image {
+                      bottom: -15px;
+                    }
+                  }
+                }
+                .cibil-score {
+                  margin-top: 42px;
+                }
+                .bar-image{
+                  max-height: 78px;
+                }
+              }
+            }
+            .simulator:not(.empty-simulator) {
+              .score-text {
+                max-width: 83px;
+              }
+            }
+            .simulator .score-bar .score-pointer__wraper,
+            .empty-simulator .bar {
+              &:before,
+              &:after {
+                font-size: 12px;
+                line-height: 12px;
+                letter-spacing: -0.01em;
+              }
+            }
+            .empty-simulator {
+              .bar {
+                .bar-imasge{
+                  height: 78px;
+                }
+              }
+              .cibil-score{
+                margin-top: 25px !important;
+                margin-bottom: 4px;
+              }
+            }
+            .simulated-score{
+              .simulator:not(.empty-simulator){
+                .score-text{
+                  max-width: 103px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -924,7 +1015,7 @@
         text-align: center;
         @include body-medium;
       }
-      .primary-link{
+      .primary-link {
         margin-bottom: 20px;
       }
     }
@@ -957,11 +1048,11 @@
             max-width: 100%;
             & > div {
               width: 50%;
-              padding-left: 12px;
+              padding-left: 0px;
               padding-right: 20px;
               &:nth-of-type(even) {
                 padding-left: 20px;
-                padding-right: 12px;
+                padding-right: 0px;
               }
               // padding: 20px;
             }
@@ -998,41 +1089,53 @@
   }
 }
 .empty-simulator {
-  .cibil-score {
-    display: none;
-  }
   .score-text {
     margin-top: 20px;
   }
-  .bar {
-    &:before,
-    &:after {
-      position: absolute;
-      bottom: 5%;
-      font-weight: $intro-regular;
-      font-size: 14px;
-      line-height: 14px;
-      color: $grey-1;
-      @media (max-width: 499px) {
-        bottom: 0;
+  .score-bar {
+    .bar {
+      &:before,
+      &:after {
+        position: absolute;
+        bottom: -32px;
+        font-weight: $intro-regular;
+        font-size: 14px;
+        line-height: 14px;
+        color: $grey-1;
+        @media (max-width: 499px) {
+          bottom: 0;
+        }
+      }
+      &::before {
+        content: "300";
+        left: 0px;
+      }
+      &::after {
+        content: "900";
+        right: 0px;
       }
     }
-    &::before {
-      content: "300";
-      left: 0px;
-    }
-    &::after {
-      content: "900";
-      right: 0px;
+    .cibil-score {
+      margin-top: -10px;
+      margin-bottom: 21px;
+      font-size: 36px;
+      line-height: 36px;
     }
   }
   @include media-breakpoint-down(md) {
     .cibil-score {
-      display: block;
-      margin-top: -18px !important;
+      margin-top: 21px !important;
+      line-height: 24px;
     }
     .score-text {
       margin-top: 2.49px;
+    }
+    .score-bar{
+      .bar{
+        &::before, &::after{
+          bottom: -20px;
+        }
+      }
     }
   }
 }
@@ -5456,16 +5559,16 @@ input[type="range"]:focus::-ms-fill-upper {
 
 //Account Page subscription tab
 .subscription-details-box {
-  border: 1px solid #DDE0EF;
+  border: 1px solid #dde0ef;
   border-radius: 6px;
   padding: 20px 20px 0;
   display: flex;
   justify-content: space-between;
-  .subscription-details{
+  .subscription-details {
     display: flex;
     flex-direction: column;
     padding-right: 20px;
-    .text-head{
+    .text-head {
       font-weight: $intro-regular;
       font-size: 16px;
       line-height: 24px;
@@ -5474,7 +5577,7 @@ input[type="range"]:focus::-ms-fill-upper {
       margin-bottom: 6px;
       display: block;
     }
-    .text-grey{
+    .text-grey {
       font-weight: $intro-regular;
       font-size: 16px;
       line-height: 24px;
@@ -5483,7 +5586,7 @@ input[type="range"]:focus::-ms-fill-upper {
       display: block;
       margin-bottom: 20px;
     }
-    .subscription-status{
+    .subscription-status {
       padding: 2px 15px 1px;
       font-weight: $intro-regular;
       font-size: 16px;
@@ -5497,17 +5600,17 @@ input[type="range"]:focus::-ms-fill-upper {
       width: -moz-fit-content;
       display: block;
     }
-    .active-status{
-      background: #A9D161;
-      border: 1px solid #A9D161;
+    .active-status {
+      background: #a9d161;
+      border: 1px solid #a9d161;
     }
     .upcoming-status{
       background: $primary-yellow;
       border: 1px solid $primary-yellow;
     }
   }
-  .subscription-renew-box{
-    background: #F9F9F9;
+  .subscription-renew-box {
+    background: #f9f9f9;
     border-radius: 6px;
     padding: 40px 44px;
     display: grid;
@@ -5516,7 +5619,7 @@ input[type="range"]:focus::-ms-fill-upper {
     width: 100%;
     max-width: 374px;
 
-    .head{
+    .head {
       font-weight: $intro-regular;
       font-size: 24px;
       line-height: 30px;
@@ -5525,7 +5628,7 @@ input[type="range"]:focus::-ms-fill-upper {
       display: block;
       margin-bottom: 10px;
     }
-    .subtext{
+    .subtext {
       font-weight: $intro-book;
       font-size: 16px;
       line-height: 24px;
@@ -5534,22 +5637,22 @@ input[type="range"]:focus::-ms-fill-upper {
       color: $black;
       margin-bottom: 20px;
     }
-    .cibil-button{
+    .cibil-button {
       font-weight: $intro-regular;
     }
   }
-  @include media-breakpoint-down(sm){
+  @include media-breakpoint-down(sm) {
     flex-direction: column;
     align-items: center;
     padding-top: 30px;
     .subscription-details{
       padding-right: 0;
       width: 100%;
-      .text-grey{
+      .text-grey {
         margin-bottom: 30px;
       }
     }
-    .subscription-renew-box{
+    .subscription-renew-box {
       padding: 31px 25px;
     }
   }
