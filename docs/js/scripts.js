@@ -146,7 +146,7 @@ $(".partners").slick({
 //account summary slider
 function enableAccountSlider(){
   let targetSlide = 1;
-  if(location.hash){
+  if(location.hash && location.hash.includes('account')){
     targetSlide = location.hash.split("_")[1];
   }
   $(".account-summary-slider").slick({
@@ -183,7 +183,8 @@ $(".account-collapse").on("hide.bs.collapse", function () {
 
 // tabs redirect
 var hash = location.hash.replace(/^#/, '').split('_')[0];
-$tabsParent =  $(".nav-tabs");
+// $tabsParent =  $(".nav-tabs");
+$tabsParent =  $(".report-tabs, .nav-tabs");
 $panelParent = $(".tab-content");
 $optionsParent = $(".custom-select-options");
 if (hash) {
@@ -198,7 +199,9 @@ if (hash) {
 
     $panelParent.find(".tab-panel").removeClass("active");
     $('.tab-panel[id="' + hash + '"]').addClass("active");
-    //checkAccountVisibility();
+    if(hash.includes('account')){
+      checkAccountVisibility();
+    }
 
     targetOption("#"+hash, $optionsParent);
 }

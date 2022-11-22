@@ -5450,3 +5450,98 @@ input[type="range"]:focus::-ms-fill-upper {
     }
   }
 }
+
+//Account Page subscription tab
+.subscription-details-box {
+  border: 1px solid #DDE0EF;
+  border-radius: 6px;
+  padding: 20px 20px 0;
+  display: flex;
+  justify-content: space-between;
+  .subscription-details{
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    .text-head{
+      font-weight: $intro-regular;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.02em;
+      color: $black;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .text-grey{
+      font-weight: $intro-regular;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.02em;
+      color: #707070;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .subscription-status{
+      padding: 2px 15px 1px;
+      font-weight: $intro-regular;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.02em;
+      border-radius: 4px;
+      color: $black;
+      margin-bottom: 30px;
+      width: fit-content;
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+    }
+    .active-status{
+      background: #A9D161;
+      border: 1px solid #A9D161;
+    }
+  }
+  .subscription-renew-box{
+    background: #F9F9F9;
+    border-radius: 6px;
+    padding: 40px 44px;
+    display: grid;
+    place-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 374px;
+
+    .head{
+      font-weight: $intro-regular;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+      color: $black;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .subtext{
+      font-weight: $intro-book;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      letter-spacing: 0.02em;
+      color: $black;
+      margin-bottom: 20px;
+    }
+    .cibil-button{
+      font-weight: $intro-regular;
+    }
+  }
+  @include media-breakpoint-down(sm){
+    flex-direction: column;
+    align-items: center;
+    .subscription-details{
+      padding-right: 0;
+      width: 100%;
+      .text-grey{
+        margin-bottom: 30px;
+      }
+    }
+    .subscription-renew-box{
+      padding: 31px 25px;
+    }
+  }
+}
