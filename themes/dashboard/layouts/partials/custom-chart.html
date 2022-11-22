@@ -1,0 +1,242 @@
+<div class="page-width">
+    <div class="custom-graph">
+        <p class="subtext">Trended view of the changes in your CIBIL Score with every refresh.</p>
+        <div class="wrapper-container">
+            <div class="score-graph">
+                <div class="table-wrap" id="chart">
+                    <table>
+                        {{ range $num := (seq 6) }}
+                        <tr>
+                            {{ range $num2 := (seq 12) }}
+                            <td>1</td>
+                            {{ end }}
+                        </tr>
+                        {{ end }}
+                    </table>
+
+                    <div class="y-axis-table">
+                        {{ range $num := (seq 7) }}
+                        <span>{{ mul (add . 2) 100 }}</span>
+                        {{ end}}
+                    </div>
+                </div>
+                <div class="table-wrap">
+                    <div class="x-axis-table">
+                        <span>JAN</span>
+                        <span>FEB</span>
+                        <span>MAR</span>
+                        <span>APR</span>
+                        <span>MAY</span>
+                        <span>JUN</span>
+                        <span>JUL</span>
+                        <span>AUG</span>
+                        <span>SEP</span>
+                        <span>OCT</span>
+                        <span>NOV</span>
+                        <span>DEC</span>
+                    </div>
+                </div>
+            </div>
+            <div class="score-table">
+                <ul id="scoreData"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const max = 900
+    const min = 300
+    const diff = max - min
+    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', "JUL", 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+    // const data = [
+    //     {
+    //         month: 'JAN',
+    //         scores: [400, 500, 800, 430, 200]
+    //     },
+    //     {
+    //         month: 'FEB',
+    //         scores: [400, 500, 600, 768, 200]
+    //     },
+    //     {
+    //         month: 'MAR',
+    //         scores: [400, 708, 600, 430, 200]
+    //     },
+    //     {
+    //         month: 'MAY',
+    //         scores: [400, 500, 600, 430, 733]
+    //     },
+    //     {
+    //         month: 'JUL',
+    //         scores: [708, 500, 600, 430, 200]
+    //     },
+    //     {
+    //         month: 'SEP',
+    //         scores: [400, 500, 600, 430, 689, 200]
+    //     },
+    //     {
+    //         month: 'DEC',
+    //         scores: [400, 500, 600, 430, 200, 700]
+    //     }
+    // ]
+
+    const raw_data = [
+        {
+            date: '2022/01/02',
+            score: 444
+        },
+        {
+            date: '2022/01/06',
+            score: 554
+        },
+        {
+            date: '2022/01/07',
+            score: 544
+        },
+        {
+            date: '2022/01/20',
+            score: 608
+        },
+        {
+            date: '2022/01/26',
+            score: 600
+        },
+        {
+            date: '2022/02/01',
+            score: 700
+        },
+        {
+            date: '2022/02/12',
+            score: 608
+        },
+        {
+            date: '2022/02/26',
+            score: 600
+        },
+        {
+            date: '2022/04/20',
+            score: 599
+        },
+        {
+            date: '2022/04/26',
+            score: 690
+        },
+        {
+            date: '2022/04/01',
+            score: 700
+        },
+        {
+            date: '2022/04/12',
+            score: 688
+        },
+        {
+            date: '2022/04/26',
+            score: 699
+        },
+        {
+            date: '2022/07/26',
+            score: 722
+        },
+        {
+            date: '2022/07/01',
+            score: 700
+        },
+        {
+            date: '2022/07/12',
+            score: 678
+        },
+        {
+            date: '2022/09/16',
+            score: 700
+        },
+        {
+            date: '2022/09/26',
+            score: 708
+        },
+        {
+            date: '2022/12/03',
+            score: 708
+        },
+        {
+            date: '2022/12/13',
+            score: 788
+        },
+        {
+            date: '2022/12/14',
+            score: 788
+        }
+    ]
+
+    // derive formated data from raw data
+    const data = [];
+    function upsert(value) {
+        let monthName = months[new Date(value.date).getMonth()]
+        let index = data.findIndex(item => item.month == monthName)
+        index > -1 ? (data[index].scores.push(value.score), data[index].dates.push(value.date)) : data.push({ month: monthName, scores: [value.score], dates: [value.date] })
+    }
+    raw_data.forEach((item) => {
+        upsert(item)
+    })
+    console.log(data)
+
+    //append graph dots
+    const values = data.map(ele => { return { x: months.indexOf(ele.month), y: Math.max(...ele.scores) } })
+    const chart = document.getElementById('chart')
+    values.forEach(value => {
+        //calc
+        let yPercentage = ((value.y - min) / diff) * 100
+        let xPercentage = value.x / 12 * 100
+        let innerhtml = `
+        <span class="dot" style="left: ${xPercentage}%; bottom:0%" data-bottom="${yPercentage}" data-index="${value.x}" onclick="showdata(this)">
+            <span class="mark">
+                ${value.y}
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                        <path d="M4 0V8" stroke="white" stroke-width="2"/>
+                        <path d="M8 4L-2.98023e-08 4" stroke="white" stroke-width="2"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
+                        <path d="M1 1L5 5L1 9" stroke="white" stroke-width="2"/>
+                    </svg>
+                </span>
+            </span>
+        </span>
+        `;
+        chart.innerHTML = chart.innerHTML + innerhtml
+    })
+
+    //display data table
+    function showdata(element) {
+        [...document.querySelectorAll('.dot')].forEach(elem => { elem.classList.remove('active') })
+        element.classList.add('active')
+        let lists = data.filter(val => { return val.month == months[element.dataset.index] }).map(val => { return { scores: val.scores, dates: val.dates } })
+        // console.log(lists)
+
+        //last elemet data
+        let prevList = data.filter(val => { return val.month == months[element.previousElementSibling.dataset.index] })
+        console.log(prevList)
+        let prevListData = prevList.length > 0 ? prevList[0].scores[prevList[0].scores.length - 1] : null;
+
+        document.getElementById('scoreData').innerHTML = '';
+        for (i = 0; i < lists[0].scores.length; i++) {
+            let listElemt = document.createElement('li');
+            let listElemtDate = new Date(lists[0].dates[i])
+            listElemt.innerHTML = `
+                <b>${lists[0].scores[i]}</b>
+                <span>${listElemtDate.getDate() + "/" + (listElemtDate.getMonth() + 1) + "/" + listElemtDate.getFullYear()}</span>
+            `
+            i == 0 ? !prevListData ? listElemt.classList.add('hide') : lists[0].scores[i] > prevListData ? listElemt.classList.add('high') : lists[0].scores[i] == prevListData ? listElemt.classList.add('same') : listElemt.classList.add('low') : lists[0].scores[i] > lists[0].scores[i - 1] ? listElemt.classList.add('high') : lists[0].scores[i] == lists[0].scores[i - 1] ? listElemt.classList.add('same') : listElemt.classList.add('low')
+            document.getElementById('scoreData').append(listElemt)
+        }
+    }
+
+    //animation
+    document.addEventListener('DOMContentLoaded', (event) => {
+        setTimeout(() => {
+            [...document.querySelectorAll('.dot')].forEach(dot => {
+                dot.style.bottom = dot.dataset.bottom + '%'
+                dot.classList.add('visible')
+            })
+        }, 100)
+    })
+</script>

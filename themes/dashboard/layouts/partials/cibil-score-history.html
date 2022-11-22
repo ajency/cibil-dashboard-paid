@@ -3,9 +3,12 @@
         <p class="section-heading section-heading-small">{{.section_heading}}</p>
         {{ partial "tooltip" . }}
     </div>
-    <div class="page-width">
+
+    <!-- <div class="page-width">
         <div class="cibil-score-history__wraper">
             {{ partial "score-history" . }}
         </div>
-    </div>
+    </div> -->
+
+    {{ partial "custom-chart" }}
 </div>
