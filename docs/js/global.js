@@ -290,6 +290,17 @@ function upgradePlan(element){
   $('.scenario-cta .reset-scenario, .scenario-cta .add-scenario').show()
 }
 
+function showSimulatedScore(){
+  $('.empty-simulator').slideUp(300);
+  $('.simulated-score').fadeIn(300);
+  refreshScore(780, '.simulated-score');
+  $('.scenario-cta .smiluate-now-cta').addClass('disabled');
+  $('.scenario-cta .add-scenario').text('Reset Simulation');
+  $('.scenario-cta .add-scenario').addClass('reset-scenario').removeClass('add-scenario');
+  $('.scenario-cta .reset-scenario').attr("onclick", "resetScenario()");
+  $('.scenario-cta .reset-scenario, .scenario-cta .add-scenario').show()
+}
+
 function toggleShrink(){
   $('.concent-text').toggleClass('shrink')
 }
@@ -351,7 +362,6 @@ function updateScore(score, parentContainer) {
 if($('.simulator:not(.no-score-simulator)').is(':visible')){
   $('.simulator:not(.no-score-simulator)').each(function(){
     let oldScore = parseInt($(this).find(".cibil-score").text());
-    console.log(oldScore);
     updateScore(oldScore, '.simulator:not(.no-score-simulator)');
   });
 }
