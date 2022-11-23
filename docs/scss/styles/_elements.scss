@@ -453,6 +453,14 @@
         transform: translateY(-50%);
         border-radius: 50%;
       }
+      @include media-breakpoint-down(sm){
+        padding-left: 46px;
+        &:after{
+          width: 20px;
+          height: 20px;
+          left: 10px;
+        }
+      }
     }
     input {
       display: none;
@@ -468,6 +476,13 @@
         left: 19px;
         transform: translateY(-50%);
         border-radius: 50%;
+      }
+      @include media-breakpoint-down(sm){
+        &:before{
+          width: 10px;
+          height: 10px;
+          left: 15px;
+        }
       }
     }
   }

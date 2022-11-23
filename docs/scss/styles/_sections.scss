@@ -610,6 +610,10 @@
     border-radius: 10px 10px 0 0;
     overflow: hidden;
     position: relative;
+    transition: border 0.3s ease;
+    &.closed{
+      border-radius: 10px;
+    }
     @include media-breakpoint-down(sm) {
       border-radius: 8px 8px 0 0;
       &.closed {
@@ -710,7 +714,7 @@
     background: #f9f9f9;
     border: 1px solid #ededed;
     border-radius: 0 0 10px 10px;
-    padding: 20px 16px 10px;
+    padding: 20px 16px;
 
     max-height: 2000px;
     //transition: max-height 0.5s, padding 1s, visibility 0.5s;
@@ -733,6 +737,9 @@
     margin-bottom: 10px;
     cursor: pointer;
     min-height: 70px;
+    &:last-child{
+      margin-bottom: 0px;
+    }
     &:hover {
       border-color: $primary-blue;
     }
@@ -748,7 +755,7 @@
     // display: none;
     .option-card-title {
       letter-spacing: 0.02em;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       font-size: 0;
       & > * {
         font-size: initial;
@@ -814,7 +821,7 @@
   .scenario {
     &.closed {
       .scenario-header {
-        border-radius: 10px 10px 0 10px;
+        border-radius: 10px;
         .minimize {
           svg {
             display: none;
@@ -961,6 +968,9 @@
                     &:after,
                     &:before {
                       bottom: -37px;
+                    }
+                    .pointer-image-wrap {
+                      transform: scale(0.8) translateY(3px);
                     }
                     .pointer-image {
                       bottom: -15px;

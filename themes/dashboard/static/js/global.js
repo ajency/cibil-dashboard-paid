@@ -179,7 +179,7 @@ function customSelectOptionSearch(element){
   $(element).siblings().removeClass("selected")
   $(element).addClass('selected')
   $(element).parents('.custom-select-input').find('.custom-select-value').text($(element).text())
-  $(element).parents('.custom-select-input').find('.custom-select-value').addClass('value-selected')
+  //$(element).parents('.custom-select-input').find('.custom-select-value').addClass('value-selected')
   $(element).parents('.custom-select-options').toggle('fast')
   $(element).parents('.custom-select-input').removeClass('opened')
   checkSearchbox(element)
@@ -187,7 +187,7 @@ function customSelectOptionSearch(element){
 }
 function resetSearch(element){
   $(element).fadeOut('fast');
-  $(element).parents('.form-group').find('.custom-select-value').removeClass('value-selected')
+  //$(element).parents('.form-group').find('.custom-select-value').removeClass('value-selected')
   $(element).parents('.form-group').find('.custom-select-value').text('All of India');
   $(element).parents('.form-group').find('.selected').removeClass('selected');
 }
@@ -210,7 +210,7 @@ function customSelectOption(element){
   $(element).addClass('selected')
   $(element).parents('.custom-select-input').find('.custom-select-value').text($(element).text())
   $(element).parents('.custom-select-input').find('.custom-select-value').removeClass('placeholder')
-  $(element).parents('.custom-select-input').find('.custom-select-value').addClass('value-selected')
+  //$(element).parents('.custom-select-input').find('.custom-select-value').addClass('value-selected')
   $('#loantype').val($(element).text())
 }
 function customSelectTab(element){
@@ -299,6 +299,7 @@ function showSimulatedScore(){
   $('.scenario-cta .add-scenario').addClass('reset-scenario').removeClass('add-scenario');
   $('.scenario-cta .reset-scenario').attr("onclick", "resetScenario()");
   $('.scenario-cta .reset-scenario, .scenario-cta .add-scenario').show()
+  $('html, body').animate({scrollTop:0}, '300');
 }
 
 function toggleShrink(){
