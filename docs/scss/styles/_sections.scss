@@ -780,6 +780,9 @@
       & .options-container {
         max-width: 580px;
       }
+      @include media-breakpoint-down(sm){
+        padding-right: 0px;
+      }
     }
     .group-wrap {
       position: relative;
