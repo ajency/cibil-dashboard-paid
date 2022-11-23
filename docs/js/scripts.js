@@ -683,12 +683,13 @@ $(document).ready(function () {
           desktopChart(chartLabel);
         }
       }
-      /* if (newWindowWidth < 991.98){
+      if (newWindowWidth < 991.98){
         // upgrade plan
         if ($('.upgrade-plans .plan-tabs').is(":visible")){
           let parent = $('.upgrade-plans .plan-tabs');
           $(parent).find('.nav-item:not(.shown)').hide();
-          $('.upgrade-plans').append('<a class="cibil-link underlined showAllPlans" onclick="showAllPlansMob(this)">SHOW ALL PLANS</a>');
+          $(parent).find('.nav-item.shown').addClass('firstView');
+          $('.upgrade-plans__wraper').append('<div class="showAllPlans-wrap"><a class="cibil-link underlined showAllPlans" onclick="showAllPlansMob(this)">SHOW ALL PLANS</a></div>');
         }
       }else{
         // upgrade plan
@@ -696,9 +697,9 @@ $(document).ready(function () {
           let parent = $('.upgrade-plans__wraper');
           $(parent).find('.plan:not(.shown)').hide();
           $(parent).find('.plan.shown').addClass('firstView');
-          $('.upgrade-plans').append('<a class="cibil-link underlined showAllPlans" onclick="showAllPlans(this)">SHOW ALL PLANS</a>');
+          $('.upgrade-plans__wraper').append('<div class="showAllPlans-wrap"><a class="cibil-link underlined showAllPlans" onclick="showAllPlans(this)">SHOW ALL PLANS</a></div>');
         }
-      } */
+      }
   }
 });
 
@@ -882,3 +883,24 @@ function desktopChart(chartLabel){
     $(this).prev().removeClass("show");
     $(this).parents('.report-table').removeClass('shown');
   });
+
+  // upgrade plan
+function showAllPlans(element){
+  let parent = $(element).parents('.upgrade-plans').find('.upgrade-plans__wraper');
+  $(parent).find('.plan:not(.shown)').fadeIn(300);
+  $(element).parent().fadeOut(300);
+  $(parent).find('.upgrade-tag').fadeOut(200);
+  $(parent).find('.plan.shown').removeClass('firstView');
+}
+function showAllPlansMob(element){
+  let parent = $(element).parents('.upgrade-plans').find('.plan-tabs');
+  $(parent).find('.nav-item:not(.shown)').fadeIn(300);
+  $(element).parent().fadeOut(300);
+  $(parent).find('.upgrade-tag').fadeOut(200);
+  $(parent).find('.nav-item.shown').removeClass('firstView');
+  if ($('.nav-item.current .current-plan').text() == "Your current plan"){
+    $('.nav-item.current .current-plan').text("current plan");
+  }else{
+    $('.nav-item.current .current-plan').text("Your current plan");
+  }
+}

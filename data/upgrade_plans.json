@@ -6,7 +6,9 @@
         "upgrade_button_text":"UPGRADE",
         "recommended": false,
         "most_popular": false,
+        "current_plan": true,
         "active_tab":  true,
+        "show": true,
         "features":[
             {
                 "icon":"images/static-images/dashboard-icon.svg",
@@ -50,6 +52,7 @@
         "recommended": false,
         "most_popular": false,
         "active_tab":  false,
+        "show": true,
         "features":[
             {
                 "icon":"images/static-images/dashboard-icon.svg",

@@ -230,7 +230,6 @@
     border-width: 2px;
   }
   @include media-breakpoint-up(lg) {
-    width: calc(100% / 4);
     margin-top: -56px;
     &__wraper {
       padding-bottom: 0px;
@@ -261,7 +260,7 @@
 .plan-tabs {
   .popular-tag {
     background-color: $primary-blue;
-    height: 30px;
+    height: 34px;
     margin-bottom: 0px;
     color: $light;
     display: flex;
@@ -276,6 +275,34 @@
     .icon {
       margin-right: 8px;
     }
+  }
+  .current-plan {
+    background: $grey;
+  }
+  .upgrade-tag {
+    background-color: $primary-blue;
+    color: $light;
+  }
+  .current-plan,
+  .upgrade-tag {
+    margin-bottom: 0px;
+    height: 34px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 0.02em;
+    border-radius: 7px 7px 0px 0px;
+    position: absolute;
+    width: calc(100% + 2px);
+    top: -1px;
+    z-index: 1;
+    left: -1px;
+    justify-content: center;
+    color: $light;
   }
   .plan-name {
     font-weight: $intro-bold;
@@ -383,14 +410,13 @@
     background: #f5f9ff;
   }
   .upgrade-plans {
-    margin-top: -154px;
+    margin-top: -167px;
     background: transparent !important;
     &__wraper {
       .plan {
-        max-width: 152px;
+        width: 100%;
         margin-top: 0px !important;
         &__wraper {
-          padding-top: 45px;
           .plan-features {
             .feature {
               height: 89px;
@@ -417,13 +443,16 @@
           line-height: 22px;
           margin-bottom: 11px;
         }
+        .current-plan {
+          top: 0px;
+        }
         .discount-price {
           @include body-medium;
         }
         .discount-tag {
           @include hairline;
           background: #fcd800;
-          height: 28px;
+          height: 34px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -437,26 +466,61 @@
         .plan-inner-wraper {
           padding-left: 13px;
           padding-right: 13px;
+          max-width: calc(196px + 26px);
+          margin-left: auto;
+          margin-right: auto;
         }
         .popular-tag {
           padding: 0 13px;
+          font-size: 14px;
+          line-height: 24px;
+          font-weight: 600;
         }
         &.recommended {
           margin-top: -30px !important;
           .plan__wraper {
-            padding-top: 75px;
+            padding-top: 79px;
           }
           .discount-tag {
-            top: 29px;
+            top: 33px;
             border-radius: 0px;
             border-left: 1px solid #00a6ca;
             border-right: 1px solid #00a6ca;
           }
         }
-      }
-      .plan,
-      .plan-features-list {
-        width: 100% !important;
+        &.current {
+          .popular-tag {
+            top: -34px;
+          }
+        }
+        &.firstView {
+          .plan__wraper {
+            padding-top: 79px;
+          }
+          &:not(.current) {
+            .discount-tag {
+              border-radius: 0px;
+              top: 33px;
+            }
+          }
+        }
+        &:not(.shown) {
+          display: none;
+        }
+        &:not(.firstView) {
+          &:not(.current),
+          &:not(.recommended) {
+            .cibil-button {
+              background: #ffffff;
+              border: 1px solid #f16e00;
+            }
+          }
+          &.recommended {
+            .cibil-button {
+              background: $secondary-orange;
+            }
+          }
+        }
       }
       .plan-features-list {
         ul {
@@ -525,7 +589,6 @@
       }
       &:first-child {
         .nav-link {
-          border-top-left-radius: 4px;
           &.active {
             border-right-color: $light;
           }
@@ -548,7 +611,6 @@
           }
         }
       }
-
       .plan-name {
         font-size: 14px;
         line-height: 24px;
@@ -607,6 +669,24 @@
           }
         }
       }
+      .upgrade-tag,
+      .current-plan,
+      .popular-tag {
+        top: -30px;
+        height: 30px;
+        border-radius: 7px 7px 0px 0px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 24px;
+      }
+      &.firstView{
+        .current-plan{
+          border-radius: 7px 0px 0px 0px;
+        }
+        .upgrade-tag{
+          border-radius: 0px 7px 0px 0px;
+        }
+      }
     }
   }
   .plan-tab-content {
@@ -616,10 +696,9 @@
     border-color: $border-color-4;
     border-radius: 0px 0px 6px 6px;
     .tab-pane {
-      padding: 20px 10px;
+      padding: 20px;
       .cibil-button {
         width: 100%;
-        color: $dark !important;
         font-weight: $intro-regular;
       }
       .plan-features {
@@ -634,7 +713,7 @@
             margin-top: 3px;
           }
           &:not(:last-child) {
-            margin-bottom: 18px;
+            margin-bottom: 16px;
           }
         }
       }
@@ -3389,16 +3468,16 @@
   letter-spacing: 0.02em;
 }
 
-#edit-info{
+#edit-info {
   text-decoration: none !important;
   user-select: none;
-  svg{
+  svg {
     position: relative;
     //top: -2px;
   }
 }
 
-.report-bar-item-print{
+.report-bar-item-print {
   .cibil-link-dark {
     justify-content: center;
     gap: 9px;

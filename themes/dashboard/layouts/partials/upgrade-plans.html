@@ -15,35 +15,44 @@
                 <li class="feature body"><img src="{{ "images/static-images/where-you-stand-icon.svg" | relURL }}" alt="" class="icon"><span><b>Where you stand</b> with the rest of self-monitoring consumers</span></li>
             </ul>
         </div>
-        {{ range .upgradePlans }}
-        <div class="hide-md-down plan {{ if eq .recommended true }}recommended{{ end }}">
-            <div class="plan__wraper">
-                {{ if eq .most_popular true }}
-                <p class="popular-tag"><img src="{{ "images/static-images/star-icon.svg" | relURL }}" alt="" class="icon"> Most Popular</p>
-                {{ end }}
-                {{ if .discount }}<p class="discount-tag">Save {{ .discount }}</p>{{ end }}
-                <div class="plan-inner-wraper">
-                    <div class="plan-header">
-                        <p class="plan-name">{{ .plan_name }}</p>
-                        <p class="plan-duration">{{ .plan_duration }}</p>
-                        <div class="inline-wraper"><p class="discount-price">₹<span class="ammount">{{ .discount_price }}</span></p></div>
+        <div class="hide-md-down plans-list">
+            <div class="plans-list__wraper">
+                {{ range .upgradePlans }}
+                    <div class="plan {{ if eq .recommended true }}recommended{{ end }} {{ if eq .current_plan true }}current{{ end }} {{ if eq .show true }}shown{{ end }}">
+                        <div class="plan__wraper">
+                            {{ if eq .current_plan true }}
+                                <p class="h4-bold current-plan">Your current plan</p>
+                            {{else}}
+                                <p class="h4-bold upgrade-tag">upgrade to {{ .plan_name }}</p>
+                            {{ end }}
+                            {{ if eq .most_popular true }}
+                            <p class="popular-tag"><img src="{{ "images/static-images/star-icon.svg" | relURL }}" alt="" class="icon"> Most Popular</p>
+                            {{ end }}
+                            {{ if .discount }}<p class="discount-tag">Save {{ .discount }}</p>{{ end }}
+                            <div class="plan-inner-wraper">
+                                <div class="plan-header">
+                                    <p class="plan-name">{{ .plan_name }}</p>
+                                    <p class="plan-duration">{{ .plan_duration }}</p>
+                                    <div class="inline-wraper"><p class="discount-price">₹<span class="ammount">{{ .discount_price }}</span></p></div>
+                                </div>
+                                <a data-toggle="modal" class="CouponFormToggle cibil-button {{ if eq .current_plan true }}disabled{{ end }}" {{ if ne .current_plan true }}data-target="#{{ anchorize .plan_name }}-popup" popup-link ="{{ anchorize .plan_name }}-popup"{{ end }}>{{ .upgrade_button_text }}</a>
+                                {{ if .features }}
+                                <ul class="plan-features">
+                                    {{ range .features }}
+                                    <li class="feature">{{if eq .feature_available true}}<img src="{{ "images/static-images/checkmark-green1.svg" | relURL }}" alt="" class="icon">{{else}}<img src="{{ "images/static-images/cross-icon.svg" | relURL }}" alt="" class="icon">{{end}}</li>
+                                    {{ end }}
+                                </ul>
+                                {{ end }}
+                            </div>
+                        </div>
                     </div>
-                    <a data-toggle="modal" data-target="#{{ anchorize .plan_name }}-popup" class="CouponFormToggle cibil-button {{ if eq .recommended false }}cibil-button-border{{ end }}" popup-link ="{{ anchorize .plan_name }}-popup">{{ .upgrade_button_text }}</a>
-                    {{ if .features }}
-                    <ul class="plan-features">
-                        {{ range .features }}
-                        <li class="feature">{{if eq .feature_available true}}<img src="{{ "images/static-images/checkmark-green1.svg" | relURL }}" alt="" class="icon">{{else}}<img src="{{ "images/static-images/cross-icon.svg" | relURL }}" alt="" class="icon">{{end}}</li>
-                        {{ end }}
-                    </ul>
-                    {{ end }}
-                </div>
+                {{ end }}
             </div>
         </div>
-        {{ end }}
         <div class="plan-tabs-container hide-lg-up">
             <ul class="nav nav-tabs plan-tabs" id="plansTab" role="tablist">
                 {{ range .upgradePlans }}
-                <li class="nav-item" role="presentation">
+                <li class="nav-item {{ if eq .recommended true }}recommended{{ end }} {{ if eq .current_plan true }}current{{ end }} {{ if eq .show true }}shown{{ end }}" role="presentation">
                   <button class="nav-link {{ if eq .active_tab true }}active{{ end }}" id="{{ anchorize .plan_name }}-tab" data-toggle="tab" data-target="#{{anchorize .plan_name}}" type="button" role="tab" aria-controls="{{ anchorize .plan_name }}" aria-selected="true">
                     <p class="plan-name">{{ .plan_name }}</p>
                     <p class="plan-duration">{{ .plan_duration }}</p>
@@ -51,6 +60,11 @@
                         <span class="discount-price">₹<span class="ammountMob">{{ .discount_price }}</span></span>
                         <span class="plan-price {{ if not .price }}empty-height{{ end }}">{{if .price }}₹{{ .price }}{{end}}</span>
                     </div>
+                    {{ if eq .current_plan true }}
+                        <p class="text-capitalize h4-bold current-plan">Your current plan</p>
+                    {{else}}
+                        <p class="text-capitalize h4-bold upgrade-tag">upgrade to {{ .plan_name }}</p>
+                    {{ end }}
                     {{ if eq .most_popular true }}
                     <p class="popular-tag">Most Popular</p>
                     {{ end }}
@@ -62,7 +76,7 @@
               <div class="tab-content plan-tab-content" id="myTabContent">
                 {{ range .upgradePlans }}
                 <div class="tab-pane fade {{ if eq .active_tab true }}show active{{ end }}" id="{{ anchorize .plan_name }}" role="tabpanel" aria-labelledby="{{anchorize .plan_name}}-tab">
-                    <a data-toggle="modal" data-target="#{{ anchorize .plan_name }}-popup" class="CouponFormToggle cibil-button">{{ .upgrade_button_text }}</a>
+                    <a {{ if ne .current_plan true }}data-toggle="modal" data-target="#{{ anchorize .plan_name }}-popup"{{end}} class="CouponFormToggle cibil-button {{ if eq .current_plan true }}disabled{{ end }}">{{ .upgrade_button_text }}</a>
                     <hr class="horizontal-seperator">
                     {{ if .features }}
                     <ul class="plan-features">
