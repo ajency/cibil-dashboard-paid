@@ -437,6 +437,9 @@
     background: $light;
     border-radius: 6px;
     margin-bottom: 22px;
+    @include media-breakpoint-up(md){
+      margin-bottom: 0px;
+    }
     label {
       padding: 16px 10px 14px 40px;
       position: relative;
@@ -530,6 +533,9 @@ input[type="number"] {
     color: $grey;
     margin-bottom: 25px;
     cursor: pointer;
+    @include media-breakpoint-up(md){
+      margin-bottom: 0px;
+    }
   }
 }
 @include media-breakpoint-down(sm) {

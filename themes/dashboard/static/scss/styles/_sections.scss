@@ -188,7 +188,7 @@
         }
       }
     }
-    .showAllPlans-wrap{
+    .showAllPlans-wrap {
       width: 100%;
       padding-top: 30px;
       text-align: center;
@@ -204,7 +204,7 @@
   @include media-breakpoint-up(lg) {
     background: #f5f9ff;
     padding-bottom: 40px;
-    &__wraper{
+    &__wraper {
       display: grid;
       justify-content: space-between;
       column-gap: 22px;
@@ -611,7 +611,7 @@
     overflow: hidden;
     position: relative;
     transition: border 0.3s ease;
-    &.closed{
+    &.closed {
       border-radius: 10px;
     }
     @include media-breakpoint-down(sm) {
@@ -723,6 +723,9 @@
     display: flex;
     justify-content: space-between;
     flex-flow: wrap;
+    @include media-breakpoint-up(md){
+      row-gap: 10px;
+    }
   }
   .scenario-option {
     background: $light;
@@ -737,8 +740,8 @@
     margin-bottom: 10px;
     cursor: pointer;
     min-height: 70px;
-    &:last-child{
-      margin-bottom: 0px;
+    @include media-breakpoint-up(md){
+      margin-bottom:0px;
     }
     &:hover {
       border-color: $primary-blue;
@@ -816,6 +819,11 @@
     width: 100%;
     &.active {
       display: flex;
+      .group {
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
     }
   }
   .scenario {
@@ -4098,13 +4106,13 @@ b.plus-icon {
       padding-top: 30px;
     }
   }
-  @media (max-width: 450px){
-    .tabs-vertical-icons__wraper nav .nav-tabs .nav-link .tab-title{
+  @media (max-width: 450px) {
+    .tabs-vertical-icons__wraper nav .nav-tabs .nav-link .tab-title {
       font-size: 13px;
     }
   }
-  @media (max-width: 359px){
-    .tabs-vertical-icons__wraper nav .nav-tabs .nav-link .tab-title{
+  @media (max-width: 359px) {
+    .tabs-vertical-icons__wraper nav .nav-tabs .nav-link .tab-title {
       font-size: 12px;
     }
   }
@@ -5688,7 +5696,7 @@ input[type="range"]:focus::-ms-fill-upper {
     flex-direction: column;
     align-items: center;
     // padding-top: 30px;
-    .subscription-details{
+    .subscription-details {
       padding-right: 0;
       width: 100%;
       .text-grey {
@@ -5703,26 +5711,26 @@ input[type="range"]:focus::-ms-fill-upper {
 
 .desktop-table {
   margin-top: 30px;
-  .subscription-details{
-    .text-head{
+  .subscription-details {
+    .text-head {
       text-transform: capitalize;
     }
   }
-  @include media-breakpoint-down(sm){
-    .subscription-details{
-      & > div{
-        &:last-child{
-          .text-head{
+  @include media-breakpoint-down(sm) {
+    .subscription-details {
+      & > div {
+        &:last-child {
+          .text-head {
             border-right: 0;
           }
-          .text-grey{
+          .text-grey {
             margin-bottom: 20px;
           }
         }
       }
     }
   }
-  @include media-breakpoint-up(md){
+  @include media-breakpoint-up(md) {
     border: 0;
     padding: 0;
     .subscription-details {
@@ -5767,14 +5775,22 @@ input[type="range"]:focus::-ms-fill-upper {
 
 @include media-breakpoint-down(sm) {
   .tab-content #subscription {
-      padding: 0;
-      background: #fff;
-      margin: 0 -1px -1px;
+    padding: 0;
+    background: #fff;
+    margin: 0 -1px -1px;
 
     .subscription-details-box:first-of-type {
       border-top-left-radius: 0;
       border-top-right-radius: 0;
       border-top: 0;
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .score-simulator-section
+    .chooseAccount-wrapper.active
+    ~ .message-group:empty {
+    display: none;
   }
 }
