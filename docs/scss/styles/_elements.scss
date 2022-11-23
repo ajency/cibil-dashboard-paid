@@ -1585,6 +1585,7 @@ input[type="number"] {
 
   table tbody>tr>td:last-child {
       visibility: hidden;
+      border: 0;
   }
 
   .dot {
@@ -1749,13 +1750,28 @@ input[type="number"] {
       background: #fff;
       border-radius: 4px;
       list-style: none;
-      padding: 0 15px 0 5px;
+      padding: 0 15px;
       max-height: 150px;
       overflow-y: scroll;
       display: flex;
       flex-direction: column-reverse;
       max-width: 250px;
-      margin: 0 auto;
+      margin: 0;
+  }
+  #monthData {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #2C2C2C;
+    margin: 0;
+    padding: 16px 0 10px;
+    margin: 0 15px;
+    border-bottom: 1px solid #2c2c2c;
+    background: #fff;
+    &:empty{
+      display: none;
+    }
   }
 
   #scoreData::-webkit-scrollbar{
@@ -1766,12 +1782,12 @@ input[type="number"] {
   #scoreData::-webkit-scrollbar-thumb {
       border-radius: 36px;
       width: 35px;
-      background-color: #acacac;
+      background-color: #DDDDDD;
       border: 5px solid #fff;
   }
 
   #scoreData li{
-      padding: 10px 0 10px 33px;
+      padding: 9px 0 6px 33px;
       position: relative;
       font-weight: 600;
       display: flex;
@@ -1813,7 +1829,7 @@ input[type="number"] {
 
   .wrapper-container {
     display: flex;
-    width: 100%;
+    width: calc(100% - 34px);
     margin-left: 34px;
   }
   .score-graph{
@@ -1823,7 +1839,14 @@ input[type="number"] {
   }
   .score-table{
       width: 40%;
-      margin-left: 20px;
+      margin-left: 10px;
+      max-width: 225px;
+      height: fit-content;
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      background-color: $light;
+      border-radius: 8px;
+      overflow: hidden;
   }
   #scoreData li span {
       font-family: 'Intro Book', sans-serif;

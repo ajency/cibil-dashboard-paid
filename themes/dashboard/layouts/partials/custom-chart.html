@@ -38,6 +38,7 @@
                 </div>
             </div>
             <div class="score-table">
+                <p id="monthData"></p>
                 <ul id="scoreData"></ul>
             </div>
         </div>
@@ -177,7 +178,7 @@
     raw_data.forEach((item) => {
         upsert(item)
     })
-    console.log(data)
+    // console.log(data)
 
     //append graph dots
     const values = data.map(ele => { return { x: months.indexOf(ele.month), y: Math.max(...ele.scores) } })
@@ -207,27 +208,33 @@
 
     //display data table
     function showdata(element) {
-        [...document.querySelectorAll('.dot')].forEach(elem => { elem.classList.remove('active') })
-        element.classList.add('active')
-        let lists = data.filter(val => { return val.month == months[element.dataset.index] }).map(val => { return { scores: val.scores, dates: val.dates } })
-        // console.log(lists)
-
-        //last elemet data
-        let prevList = data.filter(val => { return val.month == months[element.previousElementSibling.dataset.index] })
-        console.log(prevList)
-        let prevListData = prevList.length > 0 ? prevList[0].scores[prevList[0].scores.length - 1] : null;
-
-        document.getElementById('scoreData').innerHTML = '';
-        for (i = 0; i < lists[0].scores.length; i++) {
-            let listElemt = document.createElement('li');
-            let listElemtDate = new Date(lists[0].dates[i])
-            listElemt.innerHTML = `
-                <b>${lists[0].scores[i]}</b>
-                <span>${listElemtDate.getDate() + "/" + (listElemtDate.getMonth() + 1) + "/" + listElemtDate.getFullYear()}</span>
-            `
-            i == 0 ? !prevListData ? listElemt.classList.add('hide') : lists[0].scores[i] > prevListData ? listElemt.classList.add('high') : lists[0].scores[i] == prevListData ? listElemt.classList.add('same') : listElemt.classList.add('low') : lists[0].scores[i] > lists[0].scores[i - 1] ? listElemt.classList.add('high') : lists[0].scores[i] == lists[0].scores[i - 1] ? listElemt.classList.add('same') : listElemt.classList.add('low')
-            document.getElementById('scoreData').append(listElemt)
-        }
+        $('.score-table').fadeOut(function(){
+            [...document.querySelectorAll('.dot')].forEach(elem => { elem.classList.remove('active') })
+            element.classList.add('active')
+            let lists = data.filter(val => { return val.month == months[element.dataset.index] }).map(val => { return { scores: val.scores, dates: val.dates } })
+            // console.log(lists)
+    
+            //last elemet data
+            let prevList = data.filter(val => { return val.month == months[element.previousElementSibling.dataset.index] })
+            // console.log(prevList)
+            let prevListData = prevList.length > 0 ? prevList[0].scores[prevList[0].scores.length - 1] : null;
+    
+            document.getElementById('scoreData').innerHTML = '';
+            document.getElementById('monthData').innerHTML = new Date(lists[0].dates[1]).toLocaleString('default', { month: 'long', year: 'numeric' });;
+            for (i = 0; i < lists[0].scores.length; i++) {
+                let listElemt = document.createElement('li');
+                let listElemtDate = new Date(lists[0].dates[i])
+                listElemt.innerHTML = `
+                    <b>${lists[0].scores[i]}</b>
+                    <span>${listElemtDate.getDate() + "/" + (listElemtDate.getMonth() + 1) + "/" + listElemtDate.getFullYear()}</span>
+                `
+                i == 0 ? !prevListData ? listElemt.classList.add('hide') : lists[0].scores[i] > prevListData ? listElemt.classList.add('high') : lists[0].scores[i] == prevListData ? listElemt.classList.add('same') : listElemt.classList.add('low') : lists[0].scores[i] > lists[0].scores[i - 1] ? listElemt.classList.add('high') : lists[0].scores[i] == lists[0].scores[i - 1] ? listElemt.classList.add('same') : listElemt.classList.add('low')
+                document.getElementById('scoreData').append(listElemt)
+            }
+            $('.score-table').fadeIn(function(){
+                document.getElementById('scoreData').scrollTo(0, 0)
+            });
+        });
     }
 
     //animation
@@ -237,6 +244,7 @@
                 dot.style.bottom = dot.dataset.bottom + '%'
                 dot.classList.add('visible')
             })
+            document.querySelector('.custom-graph .table-wrap > .dot:last-of-type').click()
         }, 100)
     })
 </script>
