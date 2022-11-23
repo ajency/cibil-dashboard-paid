@@ -981,7 +981,7 @@
 
         let scenarioCount = $(element).parents('.scenario').find('.scenario-name').text().replace(/\D/g,'');
         let text = $(element).text()
-        $(element).parents('.scenario').find('.scenario-name').html("Scenario "+scenarioCount+"<span class='scenario-heading'> : "+text+"</span>")
+        $(element).parents('.scenario').find('.scenario-name').html("Scenario <b>"+scenarioCount+"</b><span class='scenario-heading'> : "+text+"</span>")
     }
 
     function deleteScenario(element){
@@ -989,11 +989,11 @@
         counter <= 4 ? $('.add-scenario, .reset-scenario').show(): '';
         $('#counter').val(counter)
         let parentElement = $(element).parents('.scenario')
-        let optionValue = parentElement.find('.option-card:visible').attr('type')
+        let optionValue = parentElement.find('.option-card').attr('type')
         let value = $('#optionsAdded').val();
         $('#optionsAdded').val(value.replace(optionValue+",","")).trigger('change');;
         parentElement.remove();
-        $('.scenario-name').each(function(i){
+        $('.scenario-name b').each(function(i){
             // $(this).text('Add Scenario '+(i+1))
             $(this).text($(this).text().replace(/[0-9]/g,i+1))
         })
@@ -1008,7 +1008,7 @@
     function showConfirmation(element){
         $(element).parents('.scenario-header').addClass('confirmationOn');
         $(element).parents('.scenario-header').find('.confirmation').fadeIn( "fast").addClass('show');
-        
+        //console.log($(element).parents('.scenario-header'))
     }
     function deleteGroup(element){
         $(element).parents('.group-wrap').remove();

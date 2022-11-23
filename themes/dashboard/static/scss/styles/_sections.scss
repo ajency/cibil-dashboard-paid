@@ -688,6 +688,9 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    b{
+      font-weight: $intro-book;
+    }
   }
   .scenatio-cta {
     margin: 0;

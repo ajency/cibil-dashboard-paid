@@ -196,7 +196,8 @@ function searchQuery(element){
 }
 function customSelectOption(element){
   if(!$(element).hasClass('selected') && $(element).hasClass('valueTarget')){
-    $(element).parents('.options-container').find('.input-currency').val('')
+    // $(element).parents('.options-container').find('.input-currency').val('')
+    $(element).parents('.group').next().find('.input-currency').val('')
     $(element).parents('.options-container').find('.loanLimitMessage').show('fast')
     $('.scenario-cta .smiluate-now-cta').addClass('disabled');
   }
