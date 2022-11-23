@@ -40,6 +40,7 @@
             <div class="score-table">
                 <p id="monthData"></p>
                 <ul id="scoreData"></ul>
+                <a class="showAllData" onclick="toggleGraphData()"><span>Show All</span><span>Show Less</span>{{ partial "svg-arrow"}}</a>
             </div>
         </div>
     </div>
@@ -156,15 +157,35 @@
         },
         {
             date: '2022/12/03',
-            score: 708
+            score: 709
         },
         {
             date: '2022/12/13',
-            score: 788
+            score: 708
         },
         {
             date: '2022/12/14',
             score: 788
+        },
+        {
+            date: '2022/12/14',
+            score: 748
+        },
+        {
+            date: '2022/12/14',
+            score: 738
+        },
+        {
+            date: '2022/12/14',
+            score: 788
+        },
+        {
+            date: '2022/12/14',
+            score: 758
+        },
+        {
+            date: '2022/12/14',
+            score: 768
         }
     ]
 
@@ -234,8 +255,19 @@
                 document.getElementById('scoreData').append(listElemt)
             }
             $('.score-table').fadeIn(function(){
-                document.getElementById('scoreData').scrollTo(0, 0)
+                if(window.innerWidth > 767){
+                    document.getElementById('scoreData').scrollTo(0, 0)
+                }
             });
+            if(window.innerWidth <= 767 && lists[0].scores.length > 6){
+                $('.score-table .showAllData').css('display','block')
+                $('#scoreData').addClass('expand')
+            }
+            else{
+                $('.score-table .showAllData').hide()
+                $('#scoreData').removeClass('expand')
+            }
+            $('.score-table .showAllData').removeClass('expanded')
         });
     }
 
@@ -249,4 +281,9 @@
             document.querySelector('.custom-graph .table-wrap > .dot:last-of-type').click()
         }, 100)
     })
+
+    function toggleGraphData(){
+        $('.score-table .showAllData').toggleClass('expanded')
+        $('.custom-graph #scoreData.expand li:nth-child(-n+3)').is(":visible") ? $('.custom-graph #scoreData.expand li:nth-child(-n+3)').css('display', 'none') : $('.custom-graph #scoreData.expand li:nth-child(-n+3)').css('display', 'flex')
+    }
 </script>

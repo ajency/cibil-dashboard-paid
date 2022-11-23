@@ -1778,7 +1778,7 @@ input[type="number"] {
       border-radius: 4px;
       list-style: none;
       padding: 0 15px;
-      max-height: 150px;
+      max-height: 230px;
       overflow-y: scroll;
       display: flex;
       flex-direction: column-reverse;
@@ -1884,7 +1884,48 @@ input[type="number"] {
       letter-spacing: 0.02em;
       color: #2C2C2C;
   }
+  #scoreData.expand {
+    @include media-breakpoint-down(sm){
+      li{
+        &:first-child{
+            border-bottom: 1px solid #EDEDED;
+        }
+        &:nth-child(-n+3){
+          display: none;
+        }
+      }
+    }
+  }
+  .showAllData{
+    font-weight: $intro-bold;
+    font-size: 14px;
+    line-height: 14px;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+    color: $black;
+    display: none;
+    margin: 14px 0 0;
+    text-align: center;
+    cursor: pointer;
 
+    span{
+      margin-right: 10px;
+      &:nth-of-type(2){
+        display: none;
+      }
+    }
+    &.expanded{
+      span{
+        display: none;
+        &:nth-of-type(2){
+          display: inline-block;
+        }
+      }
+      svg{
+        transform: rotate(180deg);
+      }
+    }
+  }
   @include media-breakpoint-down(sm){
       .wrapper-container {
           flex-flow: wrap;
@@ -1897,9 +1938,14 @@ input[type="number"] {
         margin-left: -34px;
         margin-top: 20px;
         max-width: unset;
+        padding: 4px 0 14px;
         #scoreData{
           max-width: unset;
+          max-height: unset;
           li{
+            &:first-child{
+              margin-bottom: 0;
+            }
             span{
               text-align: right;
             }
