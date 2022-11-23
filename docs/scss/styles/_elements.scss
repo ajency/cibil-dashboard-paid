@@ -1672,6 +1672,9 @@ input[type="number"] {
     display: none;
     &:last-of-type{
       display: block;
+      @include media-breakpoint-down(sm){
+        transform: rotate(90deg);
+      }
     }
   }
 
@@ -1707,7 +1710,7 @@ input[type="number"] {
       transform: translateX(-50%);
       text-align: center;
       /* font-size: 1.2vw; */
-      font-size: clamp(9px, 1.2vw, 12px);
+      font-size: clamp(10px, 1.2vw, 12px);
       font-weight: 400;
       color: #a7a7a7;
       &:first-of-type, &:last-of-type{
@@ -1733,6 +1736,9 @@ input[type="number"] {
     color: #ACACAC;
     &:first-child,&:last-child{
       color: #707070;
+    }
+    @include media-breakpoint-down(sm){
+      font-size: 10px;
     }
   }
 
@@ -1858,7 +1864,7 @@ input[type="number"] {
       color: #2C2C2C;
   }
 
-  @media (max-width:768px){
+  @include media-breakpoint-down(sm){
       .wrapper-container {
           flex-flow: wrap;
       }
@@ -1866,9 +1872,27 @@ input[type="number"] {
           width: 100%;
       }
       .score-table{
-          width: 100%;
-          margin-left: 0;
-          max-width: 200px;
+        width: calc(100% + 34px);
+        margin-left: -34px;
+        margin-top: 20px;
+        max-width: unset;
+        #scoreData{
+          max-width: unset;
+          li{
+            span{
+              text-align: right;
+            }
+          }
+        }
+        #scoreData li, #monthData{
+          border-color: #F6F7FC;
+        }
+        #monthData{
+          text-align: center;
+        }
+      }
+      table tbody > tr > td:nth-child(-n+5), .x-axis-table span:nth-of-type(-n+5) {
+        display: none;
       }
   }
 }
