@@ -562,7 +562,7 @@ function refreshComparison(){
   //assign values
   $(percentBox).each(function(){
     let scoreWidth = $(this).data('width');
-    let scorePercent = $(this).data('percent');
+    let scorePercent = $(this).data('high');
 
     $(this).css({'width':scoreWidth});
     $(this).html('<span>'+scorePercent+'%</span>');
@@ -578,8 +578,6 @@ function refreshComparison(){
       let high = $(this).data("high");
 
       if (percentage > low && percentage < high) {
-        $(this).find('span').text('?');
-        $(this).addClass('text-center');
 
         let boxCenter = ((low + high)/2) - 0.25;
         $(section).animate(
@@ -627,7 +625,7 @@ function refreshComparison(){
     findRange(pointerBoxPosition, this);
 
     //Display percent score
-    /* $({ perc : 0 }).animate(
+    $({ perc : 0 }).animate(
       { perc : pointerBoxPosition },
       {
         duration: 2000,
@@ -636,7 +634,7 @@ function refreshComparison(){
           $(percentText).text((now) | 0);
         },
       }
-    ); */
+    );
 
   });
 }

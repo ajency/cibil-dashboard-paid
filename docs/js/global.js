@@ -184,15 +184,17 @@ function customSelectOptionSearch(element){
   $(element).parents('.custom-select-input').removeClass('opened')
   checkSearchbox(element)
   $(element).parents('.custom-select-input').parents('.form-group').find('.resetSearch').fadeIn('fast');
+  $(element).parents('.score-comparison').find('.location').text($(element).text());
 }
 function resetSearch(element){
   $(element).fadeOut('fast');
   //$(element).parents('.form-group').find('.custom-select-value').removeClass('value-selected')
   $(element).parents('.form-group').find('.custom-select-value').text('All of India');
+  $(element).parents('.score-comparison').find('.location').text('All of India');
   $(element).parents('.form-group').find('.selected').removeClass('selected');
 }
 function searchQuery(element){
-  
+
 }
 function customSelectOption(element){
   if(!$(element).hasClass('selected') && $(element).hasClass('valueTarget')){

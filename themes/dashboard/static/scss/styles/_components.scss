@@ -3319,7 +3319,7 @@
       .graph-content {
         background: $light;
         border-radius: 8px;
-        padding: 6px 7px 16px;
+        padding: 34px 7px 16px;
       }
       .comparison-data {
         margin-bottom: 20px;
@@ -3349,8 +3349,8 @@
       }
       .graph-legend {
         flex-wrap: wrap;
-        gap: 8px 14px;
-        grid-gap: 8px 14px;
+        row-gap: 8px;
+        grid-row-gap: 8px;
         justify-content: flex-start;
         .legend {
           color: #707070;
@@ -3374,6 +3374,15 @@
           font-weight: $intro-regular;
           font-size: 16px;
           line-height: 16px;
+          @include hairline;
+          position: relative;
+          justify-content: center;
+          text-align: center;
+          span{
+            color: $black;
+            position: absolute;
+            top: -24px;
+          }
         }
       }
     }
