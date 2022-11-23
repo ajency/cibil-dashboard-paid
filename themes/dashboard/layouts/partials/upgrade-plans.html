@@ -76,7 +76,7 @@
               <div class="tab-content plan-tab-content" id="myTabContent">
                 {{ range .upgradePlans }}
                 <div class="tab-pane fade {{ if eq .active_tab true }}show active{{ end }}" id="{{ anchorize .plan_name }}" role="tabpanel" aria-labelledby="{{anchorize .plan_name}}-tab">
-                    <a {{ if ne .current_plan true }}data-toggle="modal" data-target="#{{ anchorize .plan_name }}-popup"{{end}} class="CouponFormToggle cibil-button {{ if eq .current_plan true }}disabled{{ end }}">{{ .upgrade_button_text }}</a>
+                    <a {{ if ne .current_plan true }}data-toggle="modal" data-target="#{{ anchorize .plan_name }}-popup"{{end}} class="CouponFormToggle cibil-button {{ if eq .current_plan true }}disabled{{ end }}">Upgrade Now</a>
                     <hr class="horizontal-seperator">
                     {{ if .features }}
                     <ul class="plan-features">
