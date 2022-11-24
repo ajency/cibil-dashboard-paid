@@ -603,9 +603,10 @@ if($('.comparison-graph')){
 
 //screen size
 $(document).ready(function () {
-  $(window).on("resize", function (e) {
+  
+/*   $(window).on("resize", function (e) {
       checkScreenSize();
-  });
+  }); */
 
   checkScreenSize();
   
