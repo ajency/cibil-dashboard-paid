@@ -1052,6 +1052,11 @@ input[type="number"] {
         color: rgb(112, 112, 112);
       }
     }
+    &:not(.opened){
+      .searchbox{
+        display: none !important;
+      }
+    }
     &.opened:not(.search-dropdown) {
       .custom-select-value {
         &:before {
