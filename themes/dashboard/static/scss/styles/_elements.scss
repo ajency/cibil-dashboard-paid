@@ -1563,6 +1563,7 @@ input[type="number"] {
       border-collapse: collapse;
       table-layout: fixed;
       width: 100%;
+      background: #E7EFFC;
   }
 
   .table-wrap {
@@ -1578,7 +1579,7 @@ input[type="number"] {
       border: 1px dashed rgba(0, 102, 133, 0.2);
       /*rgba(128, 128, 128, 0.356);*/
       position: relative;
-      background: #E7EFFC;
+      // background: #E7EFFC;
   }
 
   // table tbody>tr:last-child>td::before {
@@ -1610,10 +1611,10 @@ input[type="number"] {
     border-bottom: 1.6px solid #9EBFD2;
   }
 
-  table tbody>tr>td:last-child {
-      visibility: hidden;
-      border: 0;
-  }
+  // table tbody>tr>td:last-child {
+      // visibility: hidden;
+      // border: 0;
+  // }
 
   .dot {
       width: 10px;
@@ -1751,8 +1752,13 @@ input[type="number"] {
       font-size: clamp(10px, 1.2vw, 12px);
       font-weight: 400;
       color: #a7a7a7;
-      &:first-of-type, &:last-of-type{
+      &:nth-of-type(2), &:last-of-type{
         color: #707070;
+      }
+      @include media-breakpoint-down(sm){
+        &:nth-of-type(7){
+          color: #707070;
+        }
       }
   }
 
@@ -1886,7 +1892,7 @@ input[type="number"] {
   }
   .score-table{
       width: 40%;
-      margin-left: 10px;
+      margin-left: 20px;
       max-width: 225px;
       height: fit-content;
       height: -webkit-fit-content;
@@ -1982,6 +1988,9 @@ input[type="number"] {
       }
       table tbody > tr > td:nth-child(-n+5), .x-axis-table span:nth-of-type(-n+5) {
         display: none;
+      }
+      .x-axis-table span:nth-of-type(6){
+        visibility: hidden;
       }
   }
 }

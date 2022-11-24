@@ -9,7 +9,7 @@
                     <table>
                         {{ range $num := (seq 6) }}
                         <tr>
-                            {{ range $num2 := (seq 12) }}
+                            {{ range $num2 := (seq 13) }}
                             <td>1</td>
                             {{ end }}
                         </tr>
@@ -24,6 +24,7 @@
                 </div>
                 <div class="table-wrap">
                     <div class="x-axis-table">
+                        <span style="visibility: hidden;">sss</span>
                         <span>JAN</span>
                         <span>FEB</span>
                         <span>MAR</span>
@@ -209,7 +210,7 @@
     values.forEach(value => {
         //calc
         let yPercentage = ((value.y - min) / diff) * 100
-        let xPercentage = window.innerWidth > 767 ? value.x / 12 * 100 : ((value.x - 5) / 7) * 100;
+        let xPercentage = window.innerWidth > 767 ? (value.x+1) / 13 * 100 : (((value.x+1) - 5) / 8) * 100;
         if(window.innerWidth > 767 || value.x > 4){
             let innerhtml = `
             <span class="dot" style="left: ${xPercentage}%; bottom:0%" data-bottom="${yPercentage}" data-index="${value.x}" onclick="showdata(this)">
