@@ -1237,6 +1237,12 @@ input[type="number"] {
       margin-top: 10px;
       margin-bottom: 0px;
     }
+    .custom-select-input{
+      .custom-select-value{
+        display: flex;
+        align-items: center;
+      }
+    }
   }
 }
 

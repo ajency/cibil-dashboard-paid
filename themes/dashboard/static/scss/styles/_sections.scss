@@ -825,6 +825,9 @@
     width: 100%;
     &.active {
       display: flex;
+      @include media-breakpoint-up(md){
+        margin-top: 20px;
+      }
       .group {
         &:last-child {
           margin-bottom: 0px;

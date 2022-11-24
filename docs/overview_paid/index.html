@@ -1277,7 +1277,7 @@
         <div class="form-group">
             <label for="monthly_income">Monthly Income</label>
             <span class="currency-prefix">₹</span>
-            <input class="currency-field" type="number" name="monthly_income" id="monthly_income" placeholder="Enter Amount" required>
+            <input class="currency-field" type="text" name="monthly_income" id="monthly_income" placeholder="Enter Amount" required onkeyup="formatCurrency1(this)">
             <p class="message"></p>
         </div>
     </div>

@@ -399,3 +399,14 @@ function sortData(element, target, reverse){
   })
 
 }
+
+function formatCurrency(input){
+  let value = parseInt($(input).val().replace(/[^\d]/g, ''))
+  isNaN(value) ? $(input).val('') : $(input).val(value.toLocaleString('en-IN'))
+  checkFilled()
+}
+
+function formatCurrency1(input){
+  let value = parseInt($(input).val().replace(/[^\d]/g, ''))
+  isNaN(value) ? $(input).val('') : $(input).val(value.toLocaleString('en-IN'))
+}

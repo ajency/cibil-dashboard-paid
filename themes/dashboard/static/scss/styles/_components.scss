@@ -727,6 +727,20 @@
     }
   }
 }
+@media (max-width:400px){
+  .plan-tabs{
+    .nav-item{
+      .nav-link{
+        .prices{
+          flex-direction: column;
+          .discount-price{
+            margin-right: 0px;
+          }
+        }
+      }
+    }
+  }
+}
 
 //scubscription feature
 .subs-feature {
