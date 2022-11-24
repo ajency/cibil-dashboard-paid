@@ -2308,6 +2308,10 @@
         }
         .coupon-discount {
           display: none;
+          td{
+            padding-top: 3px;
+            padding-bottom: 10px;
+          }
         }
         .subtotal {
           border-top: 1px solid #dddddd;
