@@ -613,7 +613,7 @@ function refreshComparison(){
     $({ score : lowestScore }).animate(
       { score : comparedScore },
       {
-        duration: 2000,
+        duration: 1000,
         easing: "swing",
         step: function (now) {
           $(scoreElement).text((now) | 0);
