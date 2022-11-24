@@ -573,7 +573,7 @@ input[type="number"] {
 
 /* tooltip box */
 .tooltip-box {
-  max-width: 266px;
+  //width: 100%;
   position: absolute;
   top: 0;
   visibility: hidden;
@@ -636,6 +636,9 @@ input[type="number"] {
     p {
       margin-bottom: 0px;
     }
+  }
+  @include media-breakpoint-up(md){
+    max-width: 266px;
   }
   @include media-breakpoint-down(sm) {
     &__wraper {

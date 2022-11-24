@@ -79,7 +79,7 @@ $(function() {
       } else{
         let finalLeft = leftPosition - elWidth;
         if(finalLeft > 160 ){
-          tooltip_box.css({"top":topPosition+elHeight, "left": 160 });
+          tooltip_box.css({"top":topPosition+elHeight, "left": 20 });
           $('head').append('<style>.tooltip-box .tooltip-box__wraper:before{right:'+ arrowPosition +'px !important;left: auto;}</style>');
         }else{
           tooltip_box.css({"top":topPosition+elHeight, "left": finalLeft});

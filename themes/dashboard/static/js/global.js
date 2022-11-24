@@ -160,6 +160,13 @@ $(function () {
 
 })
 function customSelectInput(element){
+  $('.custom-select-input').not($(element)).removeClass('opened');
+  $('.custom-select-input').not($(element)).find('.custom-select-options').hide('fast');
+
+  $('.custom-select-input').find('.searchbox').slideUp('fast');
+
+  /* $('.custom-select-input.opened').find('.custom-select-value').not($(element)).click(); */
+  
   $(element).toggleClass('opened')
   $(element).find('.custom-select-options').toggle('fast');
 }
@@ -171,6 +178,13 @@ function checkSearchbox(element){
   }
 }
 function customSelectInputSearch(element){
+  $('.custom-select-input').not($(element).parents('.custom-select-input')).removeClass('opened');
+  $('.custom-select-input').not($(element).parents('.custom-select-input')).find('.custom-select-options').hide('fast');
+
+  $('.custom-select-input').find('.searchbox').slideUp('fast');
+
+  /* $('.custom-select-input.opened').find('.custom-select-value').not($(element)).click(); */
+
   $(element).parents('.custom-select-input').toggleClass('opened')
   $(element).parents('.custom-select-input').find('.custom-select-options').toggle('fast');
   checkSearchbox(element);
