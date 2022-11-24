@@ -1658,7 +1658,7 @@ input[type="number"] {
   .mark span {
       background-color: $secondary-denim;
       line-height: 20px;
-      padding: 0 8px 0 5px;
+      padding: 0 4px 0 3px;
       margin-left: 4px;
       border-radius: 0 1000em 1000em 0;
       color: transparent;
@@ -1702,12 +1702,19 @@ input[type="number"] {
   .mark::after {
       content: '';
       position: absolute;
+      // left: 0;
+      // bottom: -3px;
+      // border-left: 3px solid transparent;
+      // border-right: 3px solid transparent;
+      // border-bottom: 6px solid #3ba7ca;
+      // transform: rotate(90deg);
       left: 0;
-      bottom: -3px;
-      border-left: 3px solid transparent;
-      border-right: 3px solid transparent;
-      border-bottom: 6px solid #3ba7ca;
-      transform: rotate(90deg);
+      top: calc(100% - 1px);
+      height: 6px;
+      width: 6px;
+      background-repeat: no-repeat;
+      background-position: left;
+      background-image: url(../images/static-images/tooltip-edge.svg);
   }
 
   .dot.active .mark {
@@ -1716,7 +1723,11 @@ input[type="number"] {
   }
 
   .dot.active .mark::after {
-      border-bottom: 6px solid #fcd92f;
+      // border-bottom: 6px solid #fcd92f;
+      background-image: url(../images/static-images/tooltip-edge-yellow.svg);
+  }
+  .dot.active{
+    background-color: #fcd92f;
   }
 
   .x-axis-table {
@@ -1849,6 +1860,9 @@ input[type="number"] {
   .hide::after{
       display: none;
   }
+  #scoreData li.grey b{
+    color: #ACACAC;
+  }
 
   #scoreData > li:not(:first-child){
       border-bottom: 1px solid #EDEDED;
@@ -1927,6 +1941,8 @@ input[type="number"] {
     }
   }
   @include media-breakpoint-down(sm){
+      padding-top: 25px;
+      
       .wrapper-container {
           flex-flow: wrap;
       }
