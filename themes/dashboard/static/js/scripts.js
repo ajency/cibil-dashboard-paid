@@ -687,7 +687,6 @@ $(document).ready(function () {
           let parent = $('.upgrade-plans .plan-tabs');
           $(parent).find('.nav-item:not(.shown)').hide();
           $(parent).find('.nav-item.shown').addClass('firstView');
-          $('.upgrade-plans__wraper').append('<div class="showAllPlans-wrap"><a class="cibil-link underlined showAllPlans" onclick="showAllPlansMob(this)">SHOW ALL PLANS</a></div>');
         }
       }else{
         // upgrade plan
@@ -695,7 +694,6 @@ $(document).ready(function () {
           let parent = $('.upgrade-plans__wraper');
           $(parent).find('.plan:not(.shown)').hide();
           $(parent).find('.plan.shown').addClass('firstView');
-          $('.upgrade-plans__wraper').append('<div class="showAllPlans-wrap"><a class="cibil-link underlined showAllPlans" onclick="showAllPlans(this)">SHOW ALL PLANS</a></div>');
         }
       }
   }

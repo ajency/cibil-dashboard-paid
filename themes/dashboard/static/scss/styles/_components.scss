@@ -585,6 +585,9 @@
         }
         &:not(.active) {
           border-top-color: $border-color-4;
+          .discount{
+            bottom: 0px;
+          }
         }
       }
       &:first-child {
@@ -629,7 +632,7 @@
       .discount {
         position: absolute;
         bottom: -1px;
-        left: -1px;
+        left: 0px;
         background-color: $primary-yellow;
         font-size: 14px;
         line-height: 24px;
@@ -685,6 +688,11 @@
         }
         .upgrade-tag{
           border-radius: 0px 7px 0px 0px;
+        }
+      }
+      &:nth-child(3){
+        .discount{
+          left: -1px;
         }
       }
     }
@@ -787,6 +795,9 @@
         p {
           margin-bottom: 20px;
         }
+      }
+      .image-container{
+        width: 100%;
       }
     }
     &:not(:last-child) {
