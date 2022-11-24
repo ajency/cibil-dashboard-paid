@@ -524,7 +524,7 @@ function refreshComparison(){
     let scorePercent = $(this).data('high');
 
     $(this).css({'width':scoreWidth});
-    $(this).html('<span>'+scorePercent+'%</span>');
+    $(this).html('<span>'+scoreWidth+'</span>');
   });
 
   //find range
@@ -538,7 +538,7 @@ function refreshComparison(){
 
       if (percentage > low && percentage < high) {
 
-        let boxCenter = ((low + high)/2) - 0.25;
+        let boxCenter = ((low + high)/2);
         $(section).animate(
           {
             left:  boxCenter+'%',
@@ -557,7 +557,8 @@ function refreshComparison(){
   let graphBarPointer = $('.graph-bar-pointer');
   let poniterBoxCenter = $(graphBarPointer).innerWidth()/2;
 
-  $(graphBarPointer).find('.graph-bar-pointer__wraper').css({'left': -(poniterBoxCenter+4)})
+  //$(graphBarPointer).find('.graph-bar-pointer__wraper').css({'left': -(poniterBoxCenter+4)})
+  $(graphBarPointer).find('.graph-bar-pointer__wraper').css({'left': 'calc(-50% - 3px)'})
   
   $(graphBarPointer).css({'left': 0+'%'});
 
