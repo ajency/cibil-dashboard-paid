@@ -13,7 +13,7 @@
         {{if .cibil_score}}
             <div class="score-point-wrap">
                 <p class="cibil-score">{{.cibil_score}}</p>
-                <span class="score-points body"><div class="score-points__wraper"><span class="point">0</span> Pts</div></span>
+                <a class="score-points body" href="#cibil-score-history"><div class="score-points__wraper"><span class="point">0</span> Pts</div></a>
             </div>
             {{if .score_text}}<p class="score-text">{{.score_text | safeHTML }}</p>{{end}}
         {{end}}
