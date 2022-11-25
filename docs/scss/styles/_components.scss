@@ -585,7 +585,7 @@
         }
         &:not(.active) {
           border-top-color: $border-color-4;
-          .discount{
+          .discount {
             bottom: 0px;
           }
         }
@@ -682,16 +682,16 @@
         font-size: 14px;
         line-height: 24px;
       }
-      &.firstView{
-        .current-plan{
+      &.firstView {
+        .current-plan {
           border-radius: 7px 0px 0px 0px;
         }
-        .upgrade-tag{
+        .upgrade-tag {
           border-radius: 0px 7px 0px 0px;
         }
       }
-      &:nth-child(3){
-        .discount{
+      &:nth-child(3) {
+        .discount {
           left: -1px;
         }
       }
@@ -727,13 +727,13 @@
     }
   }
 }
-@media (max-width:400px){
-  .plan-tabs{
-    .nav-item{
-      .nav-link{
-        .prices{
+@media (max-width: 400px) {
+  .plan-tabs {
+    .nav-item {
+      .nav-link {
+        .prices {
           flex-direction: column;
-          .discount-price{
+          .discount-price {
             margin-right: 0px;
           }
         }
@@ -810,7 +810,7 @@
           margin-bottom: 20px;
         }
       }
-      .image-container{
+      .image-container {
         width: 100%;
       }
     }
@@ -933,14 +933,14 @@
       }
     }
   }
-  .score-point-wrap{
+  .score-point-wrap {
     display: inline-grid;
     justify-items: center;
     align-items: center;
     position: relative;
-    .score-points{
+    .score-points {
       display: none;
-      &__wraper{
+      &__wraper {
         color: #707070;
         opacity: 0.7;
         display: flex;
@@ -950,21 +950,24 @@
         bottom: 16px;
         left: calc(100% + 10px);
       }
-      &.increased, &.decreased{
-        .score-points__wraper{
-          &:before{
-            content: '';
+      &.increased,
+      &.decreased {
+        .score-points__wraper {
+          &:before {
+            content: "";
             width: 16px;
             height: 16px;
             background-image: url(../images/static-images/increased-points.svg);
             background-repeat: no-repeat;
             background-size: contain;
+            position: relative;
+            top: -1px;
           }
         }
       }
-      &.decreased{
-        .score-points__wraper{
-          &:before{
+      &.decreased {
+        .score-points__wraper {
+          &:before {
             background-image: url(../images/static-images/decreased-points.svg);
           }
         }
@@ -2360,7 +2363,7 @@
         }
         .coupon-discount {
           display: none;
-          td{
+          td {
             padding-top: 3px;
             padding-bottom: 10px;
           }
@@ -2475,6 +2478,13 @@
     border-top: 1px solid #dddddd;
     color: #707070;
     font-weight: 600;
+  }
+  @include media-breakpoint-down(sm){
+    border-color: #DDE0EF;
+    &__wraper{
+      gap:10px;
+      grid-gap: 10px;
+    }
   }
 }
 
@@ -3445,7 +3455,7 @@
           position: relative;
           justify-content: center;
           text-align: center;
-          span{
+          span {
             color: $black;
             position: absolute;
             top: -24px;

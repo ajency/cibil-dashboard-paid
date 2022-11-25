@@ -415,9 +415,18 @@
       flex-direction: column;
       gap: 22px;
       .report-cta {
+        padding: 25.5px 20px;
         background: $light;
         .section-heading-small {
           margin-bottom: 14px;
+        }
+        .link-container{
+          position: relative;
+          padding-left:38px;
+          .icon{
+            position: absolute;
+            left: 0;
+          }
         }
       }
     }
@@ -434,8 +443,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            row-gap: 21px;
-            grid-row-gap: 21px;
+            row-gap: 24px;
+            grid-row-gap: 24px;
             .score-text {
               margin-bottom: 0px;
             }
@@ -2030,6 +2039,7 @@
         @include intro-regular-16;
         display: block;
         margin-bottom: 10px;
+        text-transform: capitalize;
         @include media-breakpoint-down(sm) {
           margin-bottom: 6px;
         }

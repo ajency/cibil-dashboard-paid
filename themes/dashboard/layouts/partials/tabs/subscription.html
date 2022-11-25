@@ -84,7 +84,18 @@
             </div>
         </div>
     </div>
+
+    <div class="dashboard-note type-icon">
+        <div class="dashboard-note__wraper">
+            <img src="{{ "images/static-images/error-grey-icon.svg" | relURL }}" alt="" class="note-icon">
+                <div class="note-content hide-sm-down">
+                    You do not have an active subscription. Please <a href='/cibil-dashboard/overview_free/upgrade-plan/' class='cibil-link default-case'>upgrade now</a>.
+                </div>
+                <div class="note-content hide-md-up">
+                    You do not have an active subscription.<br>Please <a href='/cibil-dashboard/overview_free/upgrade-plan/' class='cibil-link default-case'>upgrade now</a>.
+                </div>
+        </div>
+    </div>
     
-    {{ partial "note" ( dict "note_type" "icon" "note_content" "You do not have an active subscription. Please <a href='/cibil-dashboard/overview_free/upgrade-plan/' class='cibil-link default-case'>upgrade now</a>." "note_icon" "images/static-images/error-grey-icon.svg") }}
 </div>
 <!-- end -->
