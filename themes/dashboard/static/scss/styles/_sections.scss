@@ -5844,4 +5844,10 @@ input[type="range"]:focus::-ms-fill-upper {
   .body-bold {
     margin-bottom: 10px;
   }
+  @include media-breakpoint-down(sm){
+    margin-bottom: 40px;
+    .body{
+      @include hairline;
+    }
+  }
 }
