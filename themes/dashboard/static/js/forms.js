@@ -223,11 +223,16 @@ function checkConsent(consentBox, formElement){
 function refreshScore(score, parentContainer){
   refreshPopupHide();
   if(parentContainer){
+    let currentScore = $(parentContainer).find('.cibil-score').text();
+
     $(parentContainer).find('.cibil-score').text(score);
+
+    refreshPoints(currentScore, score, parentContainer);
   }else{
     $('.simulator').find('.cibil-score').text(score);
   }
   updateScore(score, parentContainer);
+
 }
 // consent form submit
 $(consent_box).change(function() {
@@ -242,7 +247,7 @@ $(consent_box).change(function() {
 
 $(consentForm).submit(function( nf_event ) {
   nf_event.preventDefault();
-  refreshScore(780, '.simulator'); //you can pass your updated score value here
+  refreshScore(730, '.simulator'); //you can pass your updated score value here
   document.getElementById("consentForm").reset();
   $(this).find('button[type=submit]').addClass('disabled');
   $(this).find('button[type=submit]').prop("disabled", true);

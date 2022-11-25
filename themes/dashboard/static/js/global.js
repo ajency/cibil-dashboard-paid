@@ -310,7 +310,7 @@ function upgradePlan(element){
 function showSimulatedScore(){
   $('.empty-simulator').slideUp(300);
   $('.simulated-score').fadeIn(300);
-  refreshScore(780, '.simulated-score');
+  refreshScore(730, '.simulated-score');
   $('.scenario-cta .smiluate-now-cta').addClass('disabled');
   $('.scenario-cta .add-scenario').text('Reset Simulation');
   $('.scenario-cta .add-scenario').addClass('reset-scenario').removeClass('add-scenario');
@@ -375,6 +375,19 @@ function updateScore(score, parentContainer) {
       }
     );
   });
+}
+
+function refreshPoints(currentScore, refreshedScore, parentContainer){
+  let points = 0;
+  if(currentScore > refreshedScore){
+    points = currentScore - refreshedScore;
+    $(parentContainer).find('.score-points').addClass('decreased').show();
+    $('.decreased').find('.point').text(points);
+  }else if(refreshedScore > currentScore){
+    points = refreshedScore - currentScore;
+    $(parentContainer).find('.score-points').addClass('increased').show();
+    $('.increased').find('.point').text(points);
+  }else{}
 }
 
 if($('.simulator:not(.no-score-simulator)').is(':visible')){

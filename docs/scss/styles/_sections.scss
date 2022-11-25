@@ -1131,6 +1131,18 @@
                 left: calc(50% - 40%);
               }
             }
+            .score-points{
+              &__wraper{
+                bottom: 6px;
+                font-size: 12px;
+                left: calc(100% + 3px);
+                gap: 2px;
+                &:before{
+                  width: 12px;
+                  height: 12px;
+                }
+              }
+            }
           }
         }
       }

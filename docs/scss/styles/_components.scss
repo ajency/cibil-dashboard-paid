@@ -933,6 +933,44 @@
       }
     }
   }
+  .score-point-wrap{
+    display: inline-grid;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+    .score-points{
+      display: none;
+      &__wraper{
+        color: #707070;
+        opacity: 0.7;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        position: absolute;
+        bottom: 16px;
+        left: calc(100% + 10px);
+      }
+      &.increased, &.decreased{
+        .score-points__wraper{
+          &:before{
+            content: '';
+            width: 16px;
+            height: 16px;
+            background-image: url(../images/static-images/increased-points.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+        }
+      }
+      &.decreased{
+        .score-points__wraper{
+          &:before{
+            background-image: url(../images/static-images/decreased-points.svg);
+          }
+        }
+      }
+    }
+  }
   @include media-breakpoint-down(sm) {
     .score-bar {
       .cibil-score,
