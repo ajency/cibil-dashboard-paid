@@ -43,11 +43,11 @@
                                 {{if .tabs}}
                                     <ul class="nav nav-pills" id="pills-tab" role="tablist">
                                         {{range .tabs}}
-                                            {{range .account_details}}
+                                            <!-- removed range .account_details -->
                                                 <li class="nav-item" role="presentation">
                                                     <button class="nav-link active" id="acDetails-{{$index}}-tab" data-toggle="pill" data-target="#acDetails-{{$index}}" type="button" role="tab" aria-controls="acDetails-{{$index}}" aria-selected="true">account details</button>
                                                 </li>
-                                            {{end}}
+                                            <!-- end -->
                                             {{range .payment_status}}
                                                 <li class="nav-item" role="presentation">
                                                     <button class="nav-link" id="paymentStatus-{{$index}}-tab" data-toggle="pill" data-target="#paymentStatus-{{$index}}" type="button" role="tab" aria-controls="paymentStatus-{{$index}}" aria-selected="false">payment status</button>
@@ -57,15 +57,17 @@
                                     </ul>
                                     <div class="tab-content" id="pills-tabContent">
                                         {{range .tabs}}
-                                            {{range .account_details}}
+                                            <!-- range .account_details -->
                                                 <div class="tab-pane fade show active" id="acDetails-{{$index}}" role="tabpanel" aria-labelledby="acDetails-{{$index}}-tab">
-                                                    {{range $rowTitle, $rowValue:= .}}
+                                                    {{range .account_details}}
+                                                        {{ range $rowTitle , $rowValue := . }}
                                                         <div class="detail-row">
                                                             <span>{{$rowTitle}}</span><span>{{$rowValue}}</span>
                                                         </div>
+                                                        {{ end}}
                                                     {{end}}
                                                 </div>
-                                            {{end}}
+                                            <!-- end -->
                                             {{range .payment_status}}
                                                 <div class="tab-pane fade" id="paymentStatus-{{$index}}" role="tabpanel" aria-labelledby="paymentStatus-{{$index}}-tab">
                                                     <div class="dates">
@@ -145,11 +147,11 @@
                             {{if .tabs}}
                             <ul class="nav nav-pills" id="pills-tab" role="tablist">
                                 {{range .tabs}}
-                                    {{range .account_details}}
+                                    <!-- range .account_details -->
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="acDetails--{{$closedIndex}}-tab" data-toggle="pill" data-target="#acDetails--{{$closedIndex}}" type="button" role="tab" aria-controls="acDetails--{{$closedIndex}}" aria-selected="true">account details</button>
                                         </li>
-                                    {{end}}
+                                    <!-- end -->
                                     {{range .payment_status}}
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="paymentStatus--{{$closedIndex}}-tab" data-toggle="pill" data-target="#paymentStatus--{{$closedIndex}}" type="button" role="tab" aria-controls="paymentStatus--{{$closedIndex}}" aria-selected="false">payment status</button>
@@ -159,15 +161,17 @@
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
                                 {{range .tabs}}
-                                    {{range .account_details}}
+                                    <!-- range .account_details -->
                                         <div class="tab-pane fade show active" id="acDetails--{{$closedIndex}}" role="tabpanel" aria-labelledby="acDetails--{{$closedIndex}}-tab">
-                                            {{range $rowTitle, $rowValue:= .}}
+                                            {{range .account_details}}
+                                                {{ range $rowTitle , $rowValue := . }}
                                                 <div class="detail-row">
                                                     <span>{{$rowTitle}}</span><span>{{$rowValue}}</span>
                                                 </div>
+                                                {{ end}}
                                             {{end}}
                                         </div>
-                                    {{end}}
+                                    <!-- end -->
                                     {{range .payment_status}}
                                         <div class="tab-pane fade" id="paymentStatus--{{$closedIndex}}" role="tabpanel" aria-labelledby="paymentStatus--{{$closedIndex}}-tab">
                                             <div class="dates">

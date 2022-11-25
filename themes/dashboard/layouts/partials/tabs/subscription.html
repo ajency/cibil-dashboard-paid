@@ -1,52 +1,90 @@
-
-<div class="subscription-details-box">
-    <div class="subscription-details">
-        <span class="text-head">Your Subscription</span>
-        <span class="text-grey">1 Year Unlimited CIBIL Report, Score & Monitoring</span>
-        <span class="text-head">Subscription status</span>
-        <span class="subscription-status active-status">Active</span>
-        <div class="row">
-            <div class="col-6">
+<!-- Only if subscription is active show -->
+<div class="subscription-active">
+    <div class="subscription-details-box">
+        <div class="subscription-details">
+            <span class="text-head">Your Subscription</span>
+            <span class="text-grey">1 Year Unlimited CIBIL Report, Score & Monitoring</span>
+            <span class="text-head">Subscription status</span>
+            <span class="subscription-status active-status">Active</span>
+            <div class="row">
+                <div class="col-6">
+                    <span class="text-head">Start Date</span>
+                    <span class="text-grey">09/04/2021</span></div>
+                <div class="col-6">
+                    <span class="text-head">End Date</span>
+                    <span class="text-grey">10/04/2022</span>
+                </div>
+            </div>
+        </div>
+        <div class="subscription-renew-box">
+            <span class="head">3 Days Left</span>
+            <span class="subtext">before your subscription ends.</span>
+            <a href="/cibil-dashboard-paid/overview_paid/upgrade-plan/" class="cibil-button">RENEW NOW</a>
+        </div>
+    </div>
+    
+    <div class="subscription-details-box desktop-table">
+        <div class="subscription-details">
+            <div>
                 <span class="text-head">Start Date</span>
-                <span class="text-grey">09/04/2021</span></div>
-            <div class="col-6">
-                <span class="text-head">End Date</span>
-                <span class="text-grey">10/04/2022</span>
+                <span>
+                    <span class="text-grey">12/08/2020</span>
+                </span>
+            </div>
+            <div>
+                <span class="text-head">Subscription</span>
+                <span>
+                    <span class="text-grey">6 Months Unlimited CIBIL Report, Score & Monitoring</span>
+                </span>
+            </div>
+            <div>
+                <span class="text-head">Offer status</span>
+                <span>
+                    <span class="subscription-status upcoming-status">Upcoming</span>
+                </span>
+            </div>
+            <div>
+                <span class="text-head">Service Period </span>
+                <span>
+                    <span class="text-grey">12/08/2020 - 12/09/2020</span>
+                </span>
             </div>
         </div>
     </div>
-    <div class="subscription-renew-box">
-        <span class="head">3 Days Left</span>
-        <span class="subtext">before your subscription ends.</span>
-        <a href="/cibil-dashboard-paid/overview_paid/upgrade-plan/" class="cibil-button">RENEW NOW</a>
-    </div>
 </div>
+<!-- end -->
 
-<div class="subscription-details-box desktop-table">
-    <div class="subscription-details">
-        <div>
-            <span class="text-head">Start Date</span>
-            <span>
-                <span class="text-grey">12/08/2020</span>
-            </span>
-        </div>
-        <div>
-            <span class="text-head">Subscription</span>
-            <span>
-                <span class="text-grey">6 Months Unlimited CIBIL Report, Score & Monitoring</span>
-            </span>
-        </div>
-        <div>
-            <span class="text-head">Offer status</span>
-            <span>
-                <span class="subscription-status upcoming-status">Upcoming</span>
-            </span>
-        </div>
-        <div>
-            <span class="text-head">Service Period </span>
-            <span>
-                <span class="text-grey">12/08/2020 - 12/09/2020</span>
-            </span>
+<!--Only if subscription expired show -->
+<div class="subscription-expired">
+    <div class="subscription-details-box desktop-table">
+        <div class="subscription-details">
+            <div>
+                <span class="text-head">Start Date</span>
+                <span>
+                    <span class="text-grey">12/08/2020</span>
+                </span>
+            </div>
+            <div>
+                <span class="text-head">Subscription</span>
+                <span>
+                    <span class="text-grey">1 Month Unlimited CIBIL Report, Score & Monitoring</span>
+                </span>
+            </div>
+            <div>
+                <span class="text-head">Offer status</span>
+                <span>
+                    <span class="subscription-status expired-status">Expired</span>
+                </span>
+            </div>
+            <div>
+                <span class="text-head">Service Period </span>
+                <span>
+                    <span class="text-grey">12/08/2020 - 12/09/2020</span>
+                </span>
+            </div>
         </div>
     </div>
+    
+    {{ partial "note" ( dict "note_type" "icon" "note_content" "You do not have an active subscription. Please <a href='/cibil-dashboard/overview_free/upgrade-plan/' class='cibil-link default-case'>upgrade now</a>." "note_icon" "images/static-images/error-grey-icon.svg") }}
 </div>
+<!-- end -->

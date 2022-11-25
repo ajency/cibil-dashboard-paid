@@ -4145,6 +4145,16 @@ b.plus-icon {
       font-size: 12px;
     }
   }
+  .tab-content #subscription {
+    .dashboard-note{
+      margin-top: 30px;
+    }
+    & > .subscription-expired:first-child{
+      .desktop-table{
+        margin-top: 0;
+      }
+    }
+  }
 }
 
 // timer banner
@@ -5700,6 +5710,10 @@ input[type="range"]:focus::-ms-fill-upper {
       background: $primary-yellow;
       border: 1px solid $primary-yellow;
     }
+    .expired-status{
+      background: $primary-orange;
+      border: 1px solid $primary-orange;
+    }
   }
   .subscription-renew-box {
     background: #f9f9f9;
@@ -5820,7 +5834,7 @@ input[type="range"]:focus::-ms-fill-upper {
     background: #fff;
     margin: 0 -1px -1px;
 
-    .subscription-details-box:first-of-type {
+    & > div:first-of-type .subscription-details-box:first-of-type {
       border-top-left-radius: 0;
       border-top-right-radius: 0;
       border-top: 0;
