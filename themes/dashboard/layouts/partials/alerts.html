@@ -7,7 +7,7 @@
         <p class="alert-timestamp">{{.timestamp}}</p>
       </div>
       <div class="report-content-container collapse" id="collapse-{{anchorize .alert_title}}{{$index}}" aria-labelledby="{{anchorize .alert_title}}{{$index}}" data-parent="#alertsAccordion">
-        <div class="table-content">
+        <div class="table-content {{.columns}}-column-layout">
             {{range .alert_data}} {{range $index, $alert:= .}}
             <p class="table-item">
             <span class="item-head">{{$index}}</span>

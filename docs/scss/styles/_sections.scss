@@ -26,7 +26,7 @@
 //faq section
 .faq-section {
   margin-top: 60px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   &__wraper {
     .section-heading-1 {
       margin-bottom: 10px;
@@ -36,7 +36,7 @@
     background-color: $light-blue-2;
     padding-top: 30px;
     padding-bottom: 14px;
-    margin-bottom: 0px;
+    margin-bottom: 40px;
     margin-top: 10px;
     .section-heading-1 {
       text-transform: uppercase;
@@ -688,7 +688,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    b{
+    b {
       font-weight: $intro-book;
     }
   }
@@ -726,7 +726,7 @@
     display: flex;
     justify-content: space-between;
     flex-flow: wrap;
-    @include media-breakpoint-up(md){
+    @include media-breakpoint-up(md) {
       row-gap: 10px;
     }
   }
@@ -743,8 +743,8 @@
     margin-bottom: 10px;
     cursor: pointer;
     min-height: 70px;
-    @include media-breakpoint-up(md){
-      margin-bottom:0px;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 0px;
     }
     &:hover {
       border-color: $primary-blue;
@@ -780,7 +780,7 @@
       & .options-container {
         max-width: 580px;
       }
-      @include media-breakpoint-down(sm){
+      @include media-breakpoint-down(sm) {
         padding-right: 0px;
       }
     }
@@ -825,7 +825,7 @@
     width: 100%;
     &.active {
       display: flex;
-      @include media-breakpoint-up(md){
+      @include media-breakpoint-up(md) {
         margin-top: 20px;
       }
       .group {
@@ -1131,13 +1131,13 @@
                 left: calc(50% - 40%);
               }
             }
-            .score-points{
-              &__wraper{
+            .score-points {
+              &__wraper {
                 bottom: 6px;
                 font-size: 12px;
                 left: calc(100% + 3px);
                 gap: 2px;
-                &:before{
+                &:before {
                   width: 12px;
                   height: 12px;
                 }
@@ -1287,7 +1287,7 @@
     .section-heading {
       margin-bottom: 10px;
     }
-    .subtext{
+    .subtext {
       margin-bottom: 10px;
     }
   }
@@ -2001,10 +2001,10 @@
     }
   }
   .table-title {
-    @include intro-regular-16;
-    font-weight: $intro-bold;
+    @include h4-bold;
     color: $primary-blue;
     margin-bottom: 20px;
+    @include letter-spacing;
     text-transform: uppercase;
   }
   .table-content {
@@ -2106,6 +2106,7 @@
       align-items: flex-start;
       gap: 10px;
       grid-gap: 10px;
+      padding-right: 30px;
     }
     .table-content {
       grid-template-columns: auto auto;
@@ -5505,6 +5506,15 @@ input[type="range"]:focus::-ms-fill-upper {
       margin-bottom: 0px;
     }
   }
+  @include media-breakpoint-up(md) {
+    .report-table {
+      .table-content {
+        &.two-column-layout {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    }
+  }
   @include media-breakpoint-down(sm) {
     margin: 30px 0px 40px;
     .report-table {
@@ -5517,6 +5527,9 @@ input[type="range"]:focus::-ms-fill-upper {
       }
       .table-content {
         grid-template-columns: 1fr;
+        background: transparent;
+        border-top: 1px solid #ededed;
+        padding: 20px 0px 0px;
       }
     }
   }
@@ -5820,5 +5833,15 @@ input[type="range"]:focus::-ms-fill-upper {
     .chooseAccount-wrapper.active
     ~ .message-group:empty {
     display: none;
+  }
+}
+
+.disclaimer {
+  margin-bottom: 60px;
+  p {
+    margin-bottom: 0px;
+  }
+  .body-bold {
+    margin-bottom: 10px;
   }
 }
