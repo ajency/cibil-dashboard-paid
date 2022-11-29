@@ -6,9 +6,9 @@
         "upgrade_button_text":"UPGRADE",
         "recommended": false,
         "most_popular": false,
-        "current_plan": true,
-        "active_tab":  true,
-        "show": true,
+        "current_plan": false,
+        "active_tab":  false,
+        "show": false,
         "features":[
             {
                 "icon":"images/static-images/dashboard-icon.svg",
@@ -46,12 +46,12 @@
         "plan_name":"Standard",
         "plan_duration":"6 Months",
         "discount_price":"800",
-        "discount": "75%",
         "price":"3300",
         "upgrade_button_text":"UPGRADE",
         "recommended": false,
         "most_popular": false,
-        "active_tab":  false,
+        "current_plan": true,
+        "active_tab":  true,
         "show": true,
         "features":[
             {
@@ -98,6 +98,7 @@
         "recommended": true,
         "most_popular": true,
         "active_tab":  false,
+        "show": true,
         "features":[
             {
                 "icon":"images/static-images/dashboard-icon.svg",

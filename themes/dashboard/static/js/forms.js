@@ -251,4 +251,16 @@ $(consentForm).submit(function( nf_event ) {
   document.getElementById("consentForm").reset();
   $(this).find('button[type=submit]').addClass('disabled');
   $(this).find('button[type=submit]').prop("disabled", true);
+  let today = new Date()
+  let month = today.toLocaleString('default', { month: 'short' });
+  let year = today.toLocaleString('default', { year: '2-digit' });
+  let day = today.toLocaleString('default', { day: 'numeric' });
+  switch (day % 10) {
+    case 1:  day += "st";
+    case 2:  day += "nd";
+    case 3:  day += "rd";
+    default: day += "th";
+  }
+
+  $('.simulator .score-bar .score-text > strong:last-child').text(day+" "+month+" '"+year)
 });

@@ -40,7 +40,7 @@
                     },
                     {
                         "title": "Score",
-                        "desc": "720"
+                        "desc": "730"
                     },
                     {
                         "title": "Current Balance",
@@ -102,15 +102,15 @@
                     {
                         "cellInfo": [
                             {
-                                "count": 99,
+                                "count": 2,
                                 "label": "1-30 Days Late"
                             },
                             {
-                                "count": 0,
+                                "count": 1,
                                 "label": "31-60 Days Late"
                             },
                             {
-                                "count": 0,
+                                "count": 2,
                                 "label": "61-90 Days Late"
                             },
                             {
@@ -122,15 +122,15 @@
                     {
                         "cellInfo": [
                             {
-                                "count": 99,
+                                "count": 1,
                                 "label": "SMA (Special Mention Accounts)"
                             },
                             {
-                                "count": 0,
+                                "count": 1,
                                 "label": "DBT (Doubtful)"
                             },
                             {
-                                "count": 0,
+                                "count": 2,
                                 "label": "Loss"
                             },
                             {
@@ -147,19 +147,19 @@
                     {
                         "cellInfo": [
                             {
-                                "count": 120,
+                                "count": 3,
                                 "label": "1-30 Days Late"
                             },
                             {
-                                "count": 0,
+                                "count": 1,
                                 "label": "31-60 Days Late"
                             },
                             {
-                                "count": 0,
+                                "count": 1,
                                 "label": "61-90 Days Late"
                             },
                             {
-                                "count": 0,
+                                "count": 1,
                                 "label": "More Than 90 Days Late"
                             }
                         ]
@@ -167,7 +167,7 @@
                     {
                         "cellInfo": [
                             {
-                                "count": 120,
+                                "count": 1,
                                 "label": "SMA (Special Mention Accounts)"
                             },
                             {
@@ -175,11 +175,11 @@
                                 "label": "DBT (Doubtful)"
                             },
                             {
-                                "count": 0,
+                                "count": 2,
                                 "label": "Loss"
                             },
                             {
-                                "count": 0,
+                                "count": 1,
                                 "label": "SUB"
                             }
                         ]

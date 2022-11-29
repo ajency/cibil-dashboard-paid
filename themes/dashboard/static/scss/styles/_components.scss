@@ -478,6 +478,13 @@
         }
         &.recommended {
           margin-top: -30px !important;
+          &.firstView {
+            margin-top: 0 !important;
+            border: 1px solid #dcdcdc;
+            .discount-tag{
+              border: 0;
+            }
+          }
           .plan__wraper {
             padding-top: 79px;
           }
