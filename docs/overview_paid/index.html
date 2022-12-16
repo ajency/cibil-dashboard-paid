@@ -759,6 +759,7 @@
         <div class="wrapper-container">
             <div class="score-graph">
                 <div class="table-wrap" id="chart">
+                    <canvas id="canvas" width="100%" height="100%" style="position: absolute;"></canvas>
                     <table>
                         
                         <tr>
@@ -1224,12 +1225,43 @@
                 dot.classList.add('visible')
             })
             document.querySelector('.custom-graph .table-wrap > .dot:last-of-type').click()
+            initializeCanvas()
         }, 100)
     })
 
     function toggleGraphData(){
         $('.score-table .showAllData').toggleClass('expanded')
         $('.custom-graph #scoreData.expand li:nth-child(-n+3)').is(":visible") ? $('.custom-graph #scoreData.expand li:nth-child(-n+3)').css('display', 'none') : $('.custom-graph #scoreData.expand li:nth-child(-n+3)').css('display', 'flex')
+    }
+
+    function initializeCanvas(){
+        const canvas = document.querySelector('#canvas');
+        let totalHeight = $('#canvas').parent('.table-wrap').height()
+        let totalWidth = $('#canvas').parent('.table-wrap').width()
+        $(canvas).attr('height',totalHeight)
+        $(canvas).attr('width',totalWidth)
+    
+        if (!canvas.getContext) {
+            return;
+        }
+        const ctx = canvas.getContext('2d');
+
+        ctx.strokeStyle = '#006685';
+        ctx.lineWidth = 2;
+
+        ctx.beginPath();
+        $('.custom-graph .dot').each(function(index, item){
+            let x = (totalWidth * parseFloat(item.style.left) / 100)
+            let y = ((100 - parseFloat(item.style.bottom)) * totalHeight / 100)
+            if(index == 0){
+                ctx.moveTo(x, y);
+            }
+            else{
+                ctx.lineTo(x, y);
+            }
+        })
+
+        ctx.stroke();
     }
 </script>
 </div>
