@@ -10,6 +10,11 @@
             <img src="{{"images/static-images/checkmark-green-filled.svg" | relURL }}" alt="" class="icon">
             <p class="h2">{{.heading}}</p>
             <p class="body-medium">{{.message}}</p>
+            {{ if .ctaText }}
+              <a class="cibil-button" data-dismiss="modal" aria-label="Close">
+                {{.ctaText}}
+              </a>
+            {{ end }}
         </div>
       </div>
     </div>

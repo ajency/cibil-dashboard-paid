@@ -2151,6 +2151,7 @@
 
 // account summary slider
 .account-summary-slider {
+  margin-top: 40px;
   margin-bottom: 60px;
   .slick-track {
     display: flex !important;
@@ -3746,6 +3747,12 @@
     }
   }
 
+  .success-body{
+    .cibil-button{
+      margin-top: 20px;
+    }
+  }
+
   .offer-benefits {
     display: flex;
     margin: 20px 0;
@@ -4548,6 +4555,25 @@ b.plus-icon {
           border: none;
           .tab-pane {
             padding: 0px;
+          }
+        }
+        .custom-select-group{
+          margin-left: -20px;
+          margin-right: -20px;
+          position: sticky;
+          top: 60px;
+          z-index: 2;
+
+          .custom-select-input {
+            border-radius: 0;
+            .custom-select-value, .custom-select-options .select-option{
+              background: $primary-yellow;
+            }
+            .custom-select-options .select-option{
+              &:hover{
+                background-color: $light;
+              }
+            }
           }
         }
       }

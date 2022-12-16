@@ -888,3 +888,12 @@ function showAllPlansMob(element){
     $('.nav-item.current .current-plan').text("Your current plan");
   }
 }
+
+//animate score
+$('.score-comparison .custom-select-options > span').click(function(){
+  refreshComparison()
+})
+
+$('.score-comparison input[type=text]').change(function(){
+  refreshComparison()
+})
