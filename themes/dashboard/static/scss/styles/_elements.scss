@@ -1741,6 +1741,25 @@ input[type="number"] {
       // border-bottom: 6px solid #fcd92f;
       background-image: url(../images/static-images/tooltip-edge-yellow.svg);
   }
+
+  .table-wrap .dot{
+    &:nth-of-type(even){
+      @media (max-width:525px){
+        .mark{
+          top: calc(100% + 6px);
+          border-radius: 0 1000em 1000em 600em;
+    
+          &::after {
+              top: unset;
+              bottom: calc(100% - 1px);
+              transform: rotateX(180deg);
+          }
+        }
+      }
+    }
+  }
+
+
   .dot.active{
     background-color: #fcd92f;
   }
