@@ -225,7 +225,7 @@
     position: relative;
     padding-top: 51px;
   }
-  &.recommended {
+  &.recommended:not(.firstView) {
     border-color: $primary-blue;
     border-width: 2px;
   }
@@ -274,6 +274,8 @@
     border-radius: 7px 7px 0px 0px;
     .icon {
       margin-right: 8px;
+      position: relative;
+      top: -3px;
     }
   }
   .current-plan {
@@ -416,6 +418,8 @@
       .plan {
         width: 100%;
         margin-top: 0px !important;
+        max-width: 322px;
+        margin: auto;
         &__wraper {
           .plan-features {
             .feature {
@@ -430,6 +434,16 @@
             margin-bottom: 9px !important;
             padding-left: 22px !important;
             padding-right: 22px !important;
+          }
+        }
+        &.current.Premium{
+          &:not(.firstView){
+            .current-plan{
+              top: -34px;
+            }
+            .discount-tag{
+              border-radius: 0;
+            }
           }
         }
         .plan-name {
@@ -477,15 +491,24 @@
           font-weight: 600;
         }
         &.recommended {
-          margin-top: -30px !important;
+          &:not(.firstView){
+            margin-top: -30px !important;
+          }
           .plan__wraper {
             padding-top: 79px;
           }
           .discount-tag {
-            top: 33px;
+            // top: 33px;
+            top: 29px;
             border-radius: 0px;
             border-left: 1px solid #00a6ca;
             border-right: 1px solid #00a6ca;
+          }
+          &.firstView {
+            .discount-tag {
+              border-left: 0;
+              border-right: 0;
+            }
           }
         }
         &.current {
@@ -497,12 +520,12 @@
           .plan__wraper {
             padding-top: 79px;
           }
-          &:not(.current) {
+          // &:not(.current) {
             .discount-tag {
               border-radius: 0px;
               top: 33px;
             }
-          }
+          // }
         }
         &:not(.shown) {
           display: none;
@@ -511,7 +534,7 @@
           &:not(.current),
           &:not(.recommended) {
             .cibil-button {
-              background: #ffffff;
+              // background: #ffffff;
               border: 1px solid #f16e00;
             }
           }

@@ -1,0 +1,137 @@
+[
+    {
+        "plan_name":"Basic",
+        "plan_duration":"1 Month",
+        "discount_price":"550",
+        "upgrade_button_text":"UPGRADE",
+        "recommended": false,
+        "most_popular": false,
+        "current_plan": false,
+        "active_tab":  false,
+        "show": false,
+        "features":[
+            {
+                "icon":"images/static-images/dashboard-icon.svg",
+                "content":"<b>Unlimited Access</b> to the most recent updates in your CIBIL Score & Report",
+                "feature_available": true
+            },
+            {
+                "feature_available": false
+            },
+            {
+                "icon":"images/static-images/simulator-icon.svg",
+                "content":"<b>Score Simulator</b> to check the impact of your credit actions on your CIBIL Score",
+                "feature_available": true
+            },
+            {
+                "icon":"images/static-images/offers-icon.svg",
+                "content":"<b>Personalized Loan</b> Offers from leading lenders based on your CIBIL Score",
+                "feature_available": true
+            }
+            ,
+            {
+                "icon":"images/static-images/trended-view-icon.svg",
+                "content":"<b>Trended View</b> of the changes in your CIBIL Score with every refresh",
+                "feature_available": true
+            }
+            ,
+            {
+                "icon":"images/static-images/where-you-stand-icon.svg",
+                "content":"<b>Where you stand</b> with the rest of self-monitoring consumers",
+                "feature_available": true
+            }
+        ]
+    },
+    {
+        "plan_name":"Standard",
+        "plan_duration":"6 Months",
+        "discount_price":"800",
+        "price":"3300",
+        "upgrade_button_text":"UPGRADE",
+        "recommended": false,
+        "most_popular": false,
+        "current_plan": true,
+        "active_tab":  true,
+        "show": true,
+        "features":[
+            {
+                "icon":"images/static-images/dashboard-icon.svg",
+                "content":"<b>Unlimited Access</b> to the most recent updates in your CIBIL Score & Report",
+                "feature_available": true
+            },
+            {
+                "icon":"images/static-images/alerts-icon-blue.svg",
+                "content":"<b>CIBIL Alerts</b> to stay updated and aware of key changes in your credit profile",
+                "feature_available": true
+            },
+            {
+                "icon":"images/static-images/simulator-icon.svg",
+                "content":"<b>Score Simulator</b> to check the impact of your credit actions on your CIBIL Score",
+                "feature_available": true
+            },
+            {
+                "icon":"images/static-images/offers-icon.svg",
+                "content":"<b>Personalized Loan</b> Offers from leading lenders based on your CIBIL Score",
+                "feature_available": true
+            }
+            ,
+            {
+                "icon":"images/static-images/trended-view-icon.svg",
+                "content":"<b>Trended View</b> of the changes in your CIBIL Score with every refresh",
+                "feature_available": true
+            }
+            ,
+            {
+                "icon":"images/static-images/where-you-stand-icon.svg",
+                "content":"<b>Where you stand</b> with the rest of self-monitoring consumers",
+                "feature_available": true
+            }
+        ]
+    },
+    {
+        "plan_name":"Premium",
+        "plan_duration":"12 Months",
+        "discount_price":"1200",
+        "discount": "81%",
+        "price":"6600",
+        "upgrade_button_text":"UPGRADE",
+        "recommended": true,
+        "most_popular": true,
+        "active_tab":  false,
+        "show": true,
+        "features":[
+            {
+                "icon":"images/static-images/dashboard-icon.svg",
+                "content":"<b>Unlimited Access</b> to the most recent updates in your CIBIL Score & Report",
+                "feature_available": true
+            },
+            {
+                "icon":"images/static-images/alerts-icon-blue.svg",
+                "content":"<b>CIBIL Alerts</b> to stay updated and aware of key changes in your credit profile",
+                "feature_available": true
+            },
+            {
+                "icon":"images/static-images/simulator-icon.svg",
+                "content":"<b>Score Simulator</b> to check the impact of your credit actions on your CIBIL Score",
+                "feature_available": true
+            },
+            {
+                "icon":"images/static-images/offers-icon.svg",
+                "content":"<b>Personalized Loan</b> Offers from leading lenders based on your CIBIL Score",
+                "feature_available": true
+            }
+            ,
+            {
+                "icon":"images/static-images/trended-view-icon.svg",
+                "content":"<b>Trended View</b> of the changes in your CIBIL Score with every refresh",
+                "feature_available": true
+            }
+            ,
+            {
+                "icon":"images/static-images/where-you-stand-icon.svg",
+                "content":"<b>Where you stand</b> with the rest of self-monitoring consumers",
+                "feature_available": true
+            }
+        ]
+    }
+]

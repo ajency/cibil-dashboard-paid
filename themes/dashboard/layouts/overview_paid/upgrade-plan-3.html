@@ -1,0 +1,15 @@
+{{ define "main" }}
+
+    <div class="bg-wrap">
+        {{ partial "main-banner.html" (dict "banner" .Site.Data.banner ) }}
+
+        {{partial "upgrade-plans" (dict "upgradePlans" .Site.Data.upgrade_plans_3 )}}
+    </div>
+
+    {{ partial "subscription-features" (dict "section_heading" "CIBIL subscription features" "description" "Everything you need to be credit-ready. Learn. Plan. Protect. All in one place." "features" .Site.Data.features ) }}
+
+    {{partial "get-more-features" (dict "section_heading" "GET MORE WITH YOUR CIBIL SUBSCRIPTION" "more_features" .Site.Data.more_features)}}
+
+    {{ partial "faq.html" (dict "section_heading" "Frequently Asked Questions" "faq" .Site.Data.upgrade_plan_faq )}}
+
+{{end}}

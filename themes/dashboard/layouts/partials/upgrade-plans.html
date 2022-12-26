@@ -18,7 +18,7 @@
         <div class="hide-md-down plans-list">
             <div class="plans-list__wraper">
                 {{ range .upgradePlans }}
-                    <div class="plan {{ if eq .recommended true }}recommended{{ end }} {{ if eq .current_plan true }}current{{ end }} {{ if eq .show true }}shown{{ end }}">
+                    <div class="plan {{.plan_name}} {{ if eq .recommended true }}recommended{{ end }} {{ if eq .current_plan true }}current{{ end }} {{ if eq .show true }}shown{{ end }}">
                         <div class="plan__wraper">
                             {{ if eq .current_plan true }}
                                 <p class="h4-bold current-plan">Your current plan</p>
@@ -91,8 +91,8 @@
                 {{ end }}
               </div>
         </div>
-        <div class="showAllPlans-wrap hide-md-down"><a class="cibil-link underlined showAllPlans" onclick="showAllPlans(this)">SHOW ALL PLANS</a></div>
-        <div class="showAllPlans-wrap hide-lg-up"><a class="cibil-link underlined showAllPlans" onclick="showAllPlansMob(this)">SHOW ALL PLANS</a></div>
+        <div class="showAllPlans-wrap hide-md-down"><a class="cibil-button cibil-button-border underlined showAllPlans" onclick="showAllPlans(this)">SHOW ALL PLANS</a></div>
+        <div class="showAllPlans-wrap hide-lg-up"><a class="cibil-button cibil-button-border underlined showAllPlans" onclick="showAllPlansMob(this)">SHOW ALL PLANS</a></div>
     </div>
 </div>
 
