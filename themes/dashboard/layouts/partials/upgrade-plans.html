@@ -33,7 +33,10 @@
                                 <div class="plan-header">
                                     <p class="plan-name">{{ .plan_name }}</p>
                                     <p class="plan-duration">{{ .plan_duration }}</p>
-                                    <div class="inline-wraper"><p class="discount-price">₹<span class="ammount">{{ .discount_price }}</span></p></div>
+                                    <div class="inline-wraper">
+                                        <p class="discount-price desktop">₹<span class="ammount">{{ .discount_price }}</span></p>
+                                        <p class="desktop plan-price {{ if not .price }}empty-height{{ end }}">{{if .price }}₹{{ .price }}{{end}}</p>
+                                    </div>
                                 </div>
                                 <a data-toggle="modal" class="CouponFormToggle cibil-button {{ if eq .current_plan true }}disabled{{ end }}" {{ if ne .current_plan true }}data-target="#{{ anchorize .plan_name }}-popup" popup-link ="{{ anchorize .plan_name }}-popup"{{ end }}>{{ .upgrade_button_text }}</a>
                                 {{ if .features }}

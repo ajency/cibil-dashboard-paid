@@ -355,6 +355,9 @@
     position: relative;
     display: inline-flex;
     align-items: center;
+    &.desktop{
+      margin-bottom: 2px !important;
+    }
   }
   .plan-price {
     font-weight: $intro-regular;
@@ -379,6 +382,14 @@
       &::before {
         display: none;
       }
+    }
+    &.desktop{
+      display: flex;
+      width: fit-content;
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      margin: 0 auto 10px;
+      font-weight: 400;
     }
   }
   .cibil-button {
@@ -709,6 +720,19 @@
         .current-plan {
           border-radius: 7px 0px 0px 0px;
         }
+        &:last-of-type{
+          .current-plan {
+            border-radius: 7px 7px 0px 0px;
+          }
+          .nav-link.active{
+            border-left-color: #ddd;
+            align-items: center;
+          }
+          .discount{
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
         .upgrade-tag {
           border-radius: 0px 7px 0px 0px;
         }
@@ -755,10 +779,11 @@
     .nav-item {
       .nav-link {
         .prices {
-          flex-direction: column;
-          .discount-price {
-            margin-right: 0px;
-          }
+          flex-wrap: wrap;
+          // flex-direction: column;
+          // .discount-price {
+          //   margin-right: 0px;
+          // }
         }
       }
     }
