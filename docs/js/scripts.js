@@ -513,19 +513,24 @@ $('html, body').animate({scrollTop:0}, '300');
 });
 
 //score comparison
-function refreshComparison(){
+function refreshComparison(percent1, percent2, percent3, percent4, percent5){
   let percentBox = $('.comparison-graph .graph-bar').find('.percent');
   let scoreBox = $('.graph-bar-pointer');
   let percentText = $('.score-percent-text .percent');
 
-  //assign values
-  $(percentBox).each(function(){
-    let scoreWidth = $(this).data('width');
-    let scorePercent = $(this).data('high');
+  if(percent1 || percent2 || percent3 || percent4 || percent5){
+    updatePercentRange(percent1, percent2, percent3, percent4, percent5);
+  }else{
+    //assign values
+    $(percentBox).each(function(){
+      let scoreWidth = $(this).data('width');
+      let scorePercent = $(this).data('high');
 
-    $(this).css({'width':scoreWidth});
-    $(this).html('<span>'+scoreWidth+'</span>');
-  });
+      $(this).css({'width':scoreWidth});
+
+      $(this).find('span').text(scoreWidth);
+    });
+  }
 
   //find range
   function findRange(percentage, section){
@@ -570,7 +575,8 @@ function refreshComparison(){
     let pointerBoxPosition = Math.ceil((comparedScore - lowestScore)/(highestScore - lowestScore)*100);
     $(this).find(scoreElement).text(comparedScore);
 
-    $({ score : lowestScore }).animate(
+    //score increase animation
+    /* $({ score : lowestScore }).animate(
       { score : comparedScore },
       {
         duration: 1000,
@@ -579,7 +585,7 @@ function refreshComparison(){
           $(scoreElement).text((now) | 0);
         },
       }
-    );
+    ); */
 
     //find range
     findRange(pointerBoxPosition, this);
@@ -598,6 +604,67 @@ function refreshComparison(){
 
   });
 }
+function animatedThisNumber(animatedElement, fromValue, toValue, appendText){
+  $({ score : fromValue }).animate(
+    { score : toValue },
+    {
+      duration: 1000,
+      easing: "swing",
+      step: function (now) {
+        $(animatedElement).find('span').text((now) | 0).append(appendText);
+      },
+    }
+  );
+}
+function animatedThisWidth(animatedElement, fromValue, toValue, cssUnit){
+  $({ score : fromValue }).animate(
+    { score : toValue },
+    {
+      duration: 1000,
+      easing: "swing",
+      step: function (now) {
+        $(animatedElement).css({'width':now + cssUnit});
+      },
+    }
+  );
+}
+function updatePercentRange(percent1, percent2, percent3, percent4, percent5){
+  let exhistingPercentage = $('.comparison-graph .graph-bar').find('.percent');
+  let updatedPercentages = [percent1, percent2, percent3, percent4, percent5];
+  let oldPercentages = [];
+
+  //get old values
+  $(exhistingPercentage).each(function(){
+    let scoreWidth = $(this).data('width');
+    oldPercentages.push(scoreWidth);
+  });
+
+  updatedPercentages.forEach(function(percent, index){
+
+      $(exhistingPercentage).eq(index).data('width', percent);
+  });
+
+  //assign new values
+  $(exhistingPercentage).each(function(){
+    let scoreWidth = $(this).data('width');
+    let scorePercent = $(this).data('high');
+
+    //$(this).css({'width':scoreWidth});
+
+  });
+
+  oldPercentages.forEach(function(percent, index){
+      let currentElement = $(exhistingPercentage).eq(index);
+      let updatedPercent = parseInt(currentElement.data('width'));
+
+      oldPercent = parseInt(percent);
+
+     animatedThisNumber(currentElement, oldPercent, updatedPercent, '%');
+     animatedThisWidth(currentElement, oldPercent, updatedPercent, '%');
+  });
+
+}
+
 if($('.comparison-graph')){
   refreshComparison();
 }
@@ -891,9 +958,31 @@ function showAllPlansMob(element){
 
 //animate score
 $('.score-comparison .custom-select-options > span').click(function(){
-  refreshComparison()
-})
+  let inputValue = $(this).text();
+  console.log(inputValue);
+
+  switch(inputValue) {
+    case "Ambarnath":
+      refreshComparison('18%', '26%', '15%', '36%', '25%');
+    break;
+    case "Ambattur":
+      refreshComparison('36%', '26%', '15%', '18%', '25%');
+    break;
+    case "Self-Employed":
+      refreshComparison('26%', '36%', '25%', '15%', '18%');
+    break;
+    case "Salaried":
+      refreshComparison('15%', '36%', '25%', '26%', '18%');
+    break;
+    }
+  })
 
 $('.score-comparison input[type=text]').change(function(){
-  refreshComparison()
+  let inputValue = $(this).val();
+
+  if(inputValue != ''){
+    refreshComparison('25%', '26%', '15%', '36%', '18%');
+  }else{
+    refreshComparison('22%', '18%', '24%', '26%', '10%'); //default
+  }
 })

@@ -206,6 +206,7 @@ function resetSearch(element){
   $(element).parents('.form-group').find('.custom-select-value').text('All of India');
   $(element).parents('.score-comparison').find('.location').text('All of India');
   $(element).parents('.form-group').find('.selected').removeClass('selected');
+  refreshComparison('22%', '18%', '24%', '26%', '10%'); //default
 }
 function searchQuery(element){
 
