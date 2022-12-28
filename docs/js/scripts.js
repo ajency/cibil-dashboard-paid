@@ -536,24 +536,35 @@ function refreshComparison(percent1, percent2, percent3, percent4, percent5){
   function findRange(percentage, section){
     let graphBar = $(section).parent().find(".graph-bar");
     let percentBoxes = $(graphBar).find('.percent');
-    
-    $(percentBoxes).each(function(){
-      let low = $(this).data("low");
-      let high = $(this).data("high");
 
-      if (percentage > low && percentage < high) {
+    $(percentBoxes).each(function(index){
 
+      let thisElement = $(this);
+      let rangeWidth = parseInt(thisElement.data("width"));
+
+      if(index == 0){
+
+        thisElement.data('low', '0');
+        thisElement.data('high', rangeWidth);
+
+      }else{
+
+        let prevHigh = parseInt(thisElement.prev().data('high'));
+
+        UpdatedLow = prevHigh + 1;
+        updatedHigh = prevHigh + rangeWidth;
+
+        thisElement.data('low', UpdatedLow);
+        thisElement.data('high', updatedHigh);
+
+      }
+
+      let low = thisElement.data("low");
+      let high = thisElement.data("high");
+
+      if (percentage >= low && percentage <= high) {
         let boxCenter = ((low + high)/2);
-        $(section).animate(
-          {
-            left:  boxCenter+'%',
-          },
-          {
-            duration: 2000,
-            easing: "swing",
-          }
-        );
-
+        animateScoreCard(section, boxCenter, percentage, low, high);
       }
     });
   }
@@ -603,6 +614,17 @@ function refreshComparison(percent1, percent2, percent3, percent4, percent5){
     );
 
   });
+}
+function animateScoreCard(section, boxCenter){
+  $(section).animate(
+    {
+      left:  boxCenter+'%',
+    },
+    {
+      duration: 2000,
+      easing: "swing",
+    }
+  );
 }
 function animatedThisNumber(animatedElement, fromValue, toValue, appendText){
   $({ score : fromValue }).animate(
@@ -959,20 +981,19 @@ function showAllPlansMob(element){
 //animate score
 $('.score-comparison .custom-select-options > span').click(function(){
   let inputValue = $(this).text();
-  console.log(inputValue);
 
   switch(inputValue) {
     case "Ambarnath":
-      refreshComparison('18%', '26%', '15%', '36%', '25%');
+      refreshComparison('18%', '26%', '15%', '19%', '22%');
     break;
     case "Ambattur":
-      refreshComparison('36%', '26%', '15%', '18%', '25%');
+      refreshComparison('32%', '20%', '15%', '18%', '15%');
     break;
     case "Self-Employed":
-      refreshComparison('26%', '36%', '25%', '15%', '18%');
+      refreshComparison('26%', '14%', '25%', '15%', '20%');
     break;
     case "Salaried":
-      refreshComparison('15%', '36%', '25%', '26%', '18%');
+      refreshComparison('15%', '30%', '22%', '21%', '12%');
     break;
     }
   })
@@ -981,7 +1002,7 @@ $('.score-comparison input[type=text]').change(function(){
   let inputValue = $(this).val();
 
   if(inputValue != ''){
-    refreshComparison('25%', '26%', '15%', '36%', '18%');
+    refreshComparison('25%', '16%', '15%', '26%', '18%');
   }else{
     refreshComparison('22%', '18%', '24%', '26%', '10%'); //default
   }
