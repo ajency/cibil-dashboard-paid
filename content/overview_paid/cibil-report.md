@@ -6,5 +6,8 @@ layout: report
 
 icon_url: "images/static-images/report-icon.svg"
 description: An overview of your credit profile.
+rightColumn: true
+rightColumnMob: false
+rightColumnPartial: "cibil-report-header"
 ---
 

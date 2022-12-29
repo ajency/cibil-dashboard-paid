@@ -1,4 +1,4 @@
-<div class="page-header-section {{if .Layout}}{{if eq .Layout "article"}} article-page-header{{end}}{{end}}">
+<div class="page-header-section {{if .Layout}}{{if eq .Layout "article"}} article-page-header{{end}}{{end}} {{if eq .Params.rightColumn true}}twoColumn{{end}}">
   <div class="page-width page-header-section__wraper">
     <div class="left-panel">
       {{ partial "breadcrumbs" . }}
@@ -15,6 +15,11 @@
           <a class="cibil-link cibil-link-left-icon goback-icon underlined default-case" onclick="history.back()">Go Back</a>
         </div>
       {{end}}
+    {{end}}
+    {{if eq .Params.rightColumn true}}
+      <div class="right-panel {{if eq .Params.rightColumnMob false}}hide-sm-down{{end}}">
+        {{if .Params.rightColumn}}{{partial .Params.rightColumnPartial}}{{end}}
+      </div>
     {{end}}
   </div>
 </div>
