@@ -99,6 +99,14 @@
         &:not(:last-child) {
           margin-bottom: 3px;
         }
+        &:last-child{
+          margin-top: 16px;
+        }
+        .cibil-link-dark {
+          display: inline-grid;
+          grid-gap: 9px;
+          grid-template-columns: 18px 1fr;
+        }
       }
     }
   }
@@ -175,6 +183,10 @@
     &.twoColumn {
       .page-header-section__wraper {
         padding-bottom: 0px;
+      }
+      .right-panel{
+        background-color: transparent;
+        padding-top: 10px;
       }
     }
   }

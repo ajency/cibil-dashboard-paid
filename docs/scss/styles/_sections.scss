@@ -1575,12 +1575,12 @@
   padding-bottom: 16px;
   .report-bar-wrap {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 0.5fr 1fr 0.7fr;
     align-items: center;
     .report-bar-item {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: flex-start;
       height: 100%;
       &:not(:first-child) {
         border-left: 1px solid #d1c99c;
@@ -1588,11 +1588,6 @@
       }
       &:nth-child(2) {
         padding-right: 20px;
-      }
-      .cibil-link-dark {
-        display: grid;
-        grid-gap: 9px;
-        grid-template-columns: 18px 1fr;
       }
     }
   }
