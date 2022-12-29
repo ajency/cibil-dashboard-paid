@@ -4,6 +4,7 @@
         "plan_duration":"1 Month",
         "discount_price":"550",
         "upgrade_button_text":"UPGRADE",
+        "upgrade": false,
         "recommended": false,
         "most_popular": false,
         "current_plan": true,
