@@ -306,7 +306,7 @@
                     <div class="plan Basic   ">
                         <div class="plan__wraper">
                             
-                                <p class="h4-bold upgrade-tag">upgrade to Basic</p>
+                                
                             
                             
                             
@@ -382,7 +382,7 @@
                     <div class="plan Premium recommended  shown">
                         <div class="plan__wraper">
                             
-                                <p class="h4-bold upgrade-tag">upgrade to Premium</p>
+                                
                             
                             
                             <p class="popular-tag"><img src="/cibil-dashboard-paid/images/static-images/star-icon.svg" alt="" class="icon"> Most Popular</p>
@@ -424,7 +424,7 @@
         <div class="plan-tabs-container hide-lg-up">
             <ul class="nav nav-tabs plan-tabs" id="plansTab" role="tablist">
                 
-                <li class="nav-item   " role="presentation">
+                <li class="nav-item   shown" role="presentation">
                   <button class="nav-link " id="basic-tab" data-toggle="tab" data-target="#basic" type="button" role="tab" aria-controls="basic" aria-selected="true">
                     <p class="plan-name">Basic</p>
                     <p class="plan-duration">1 Month</p>
@@ -433,7 +433,7 @@
                         <span class="plan-price empty-height"></span>
                     </div>
                     
-                        <p class="text-capitalize h4-bold upgrade-tag">upgrade to Basic</p>
+                        
                     
                     
                     
@@ -449,7 +449,7 @@
                         <span class="plan-price ">₹3,300</span>
                     </div>
                     
-                        <p class="text-capitalize h4-bold current-plan">Your current plan</p>
+                        <p class="text-capitalize h4-bold current-plan">Current plan</p>
                     
                     
                     
@@ -465,7 +465,7 @@
                         <span class="plan-price ">₹6,600</span>
                     </div>
                     
-                        <p class="text-capitalize h4-bold upgrade-tag">upgrade to Premium</p>
+                        
                     
                     
                     <p class="popular-tag">Most Popular</p>
@@ -478,8 +478,7 @@
               <div class="tab-content plan-tab-content" id="myTabContent">
                 
                 <div class="tab-pane fade " id="basic" role="tabpanel" aria-labelledby="basic-tab">
-                    <a data-toggle="modal" data-target="#basic-popup" class="CouponFormToggle cibil-button ">Upgrade Now</a>
-                    <hr class="horizontal-seperator">
+
                     
                     <ul class="plan-features">
                         
@@ -507,11 +506,12 @@
                         
                     </ul>
                     
+                    <hr class="horizontal-seperator">
+                    <a data-toggle="modal" data-target="#basic-popup" class="CouponFormToggle cibil-button ">Upgrade Now</a>
                 </div>
                 
                 <div class="tab-pane fade show active" id="standard" role="tabpanel" aria-labelledby="standard-tab">
-                    <a  class="CouponFormToggle cibil-button disabled">Upgrade Now</a>
-                    <hr class="horizontal-seperator">
+
                     
                     <ul class="plan-features">
                         
@@ -541,11 +541,12 @@
                         
                     </ul>
                     
+                    <hr class="horizontal-seperator">
+                    <a  class="CouponFormToggle cibil-button disabled">Upgrade Now</a>
                 </div>
                 
                 <div class="tab-pane fade " id="premium" role="tabpanel" aria-labelledby="premium-tab">
-                    <a data-toggle="modal" data-target="#premium-popup" class="CouponFormToggle cibil-button ">Upgrade Now</a>
-                    <hr class="horizontal-seperator">
+
                     
                     <ul class="plan-features">
                         
@@ -575,12 +576,14 @@
                         
                     </ul>
                     
+                    <hr class="horizontal-seperator">
+                    <a data-toggle="modal" data-target="#premium-popup" class="CouponFormToggle cibil-button ">Upgrade Now</a>
                 </div>
                 
               </div>
         </div>
-        <div class="showAllPlans-wrap hide-md-down"><a class="cibil-button cibil-button-border underlined showAllPlans" onclick="showAllPlans(this)">SHOW ALL PLANS</a></div>
-        <div class="showAllPlans-wrap hide-lg-up"><a class="cibil-button cibil-button-border underlined showAllPlans" onclick="showAllPlansMob(this)">SHOW ALL PLANS</a></div>
+        <div class="showAllPlans-wrap hide-md-down"><a class="cibil-button showAllPlans" onclick="showAllPlans(this)">SHOW ALL PLANS</a></div>
+        
     </div>
 </div>
 

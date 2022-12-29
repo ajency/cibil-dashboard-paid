@@ -522,6 +522,14 @@
             }
           }
         }
+        &.firstView{
+          &:not(.recommended){
+            .discount-tag{
+              top: 0px;
+              border-radius: 7px 7px 0px 0px;
+            }
+          }
+        }
         &.current {
           .popular-tag {
             top: -34px;
@@ -718,7 +726,7 @@
       }
       &.firstView {
         .current-plan {
-          border-radius: 7px 0px 0px 0px;
+         /*  border-radius: 7px 0px 0px 0px; */
         }
         &:last-of-type{
           .current-plan {
@@ -726,12 +734,12 @@
           }
           .nav-link.active{
             border-left-color: #ddd;
-            align-items: center;
+            /* align-items: center; */
           }
-          .discount{
+          /* .discount{
             left: 50%;
             transform: translateX(-50%);
-          }
+          } */
         }
         .upgrade-tag {
           border-radius: 0px 7px 0px 0px;
