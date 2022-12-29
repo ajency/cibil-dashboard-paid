@@ -18,7 +18,7 @@
         <div class="hide-md-down plans-list">
             <div class="plans-list__wraper">
                 {{ range .upgradePlans }}
-                    <div class="plan {{.plan_name}} {{ if eq .recommended true }}recommended{{ end }} {{ if eq .current_plan true }}current{{ end }} {{ if eq .show true }}shown{{ end }}">
+                    <div class="plan {{.plan_name}} {{ if eq .recommended true }}recommended{{ end }} {{ if eq .current_plan true }}current{{ end }} {{ if eq .show true }}shown{{ end }} {{if eq .comparison false}}no-comparison{{end}} {{if and (eq .last_plan true) (eq .current_plan true)}}renewPlan{{end}}">
                         <div class="plan__wraper">
                             {{ if eq .current_plan true }}
                                 <p class="h4-bold current-plan">Your current plan</p>
@@ -28,7 +28,9 @@
                             {{ if eq .most_popular true }}
                             <p class="popular-tag"><img src="{{ "images/static-images/star-icon.svg" | relURL }}" alt="" class="icon"> Most Popular</p>
                             {{ end }}
-                            {{ if .discount }}<p class="discount-tag">Save {{ .discount }}</p>{{ end }}
+                            {{if .discount}}
+                                {{ if or (ne .current_plan true) (eq .last_plan true) }}<p class="discount-tag">Save {{ .discount }}</p>{{ end }}
+                            {{end}}
                             <div class="plan-inner-wraper">
                                 <div class="plan-header">
                                     <p class="plan-name">{{ .plan_name }}</p>
@@ -38,7 +40,7 @@
                                         <p class="desktop plan-price {{ if not .price }}empty-height{{ end }}">{{if .price }}₹{{ .price }}{{end}}</p>
                                     </div>
                                 </div>
-                                <a data-toggle="modal" class="CouponFormToggle cibil-button {{ if eq .current_plan true }}disabled{{ end }}" {{ if ne .current_plan true }}data-target="#{{ anchorize .plan_name }}-popup" popup-link ="{{ anchorize .plan_name }}-popup"{{ end }}>{{ .upgrade_button_text }}</a>
+                                <a data-toggle="modal" class="CouponFormToggle cibil-button {{ if and (eq .current_plan true) (ne .last_plan true) }}disabled{{ end }}" {{ if ne .current_plan true }}data-target="#{{ anchorize .plan_name }}-popup" popup-link ="{{ anchorize .plan_name }}-popup"{{ end }}>{{ .upgrade_button_text }}</a>
                                 {{ if .features }}
                                 <ul class="plan-features">
                                     {{ range .features }}
@@ -55,7 +57,7 @@
         <div class="plan-tabs-container hide-lg-up">
             <ul class="nav nav-tabs plan-tabs" id="plansTab" role="tablist">
                 {{ range .upgradePlans }}
-                <li class="nav-item {{ if eq .recommended true }}recommended{{ end }} {{ if eq .current_plan true }}current{{ end }} shown" role="presentation">
+                <li class="nav-item {{ if eq .recommended true }}recommended{{ end }} {{ if eq .current_plan true }}current{{ end }} shown {{if and (eq .last_plan true) (eq .current_plan true)}}renewPlan{{end}}" role="presentation">
                   <button class="nav-link {{ if eq .active_tab true }}active{{ end }}" id="{{ anchorize .plan_name }}-tab" data-toggle="tab" data-target="#{{anchorize .plan_name}}" type="button" role="tab" aria-controls="{{ anchorize .plan_name }}" aria-selected="true">
                     <p class="plan-name">{{ .plan_name }}</p>
                     <p class="plan-duration">{{ .plan_duration }}</p>
@@ -71,7 +73,9 @@
                     {{ if eq .most_popular true }}
                     <p class="popular-tag">Most Popular</p>
                     {{ end }}
-                    {{ if .discount }}<span class="discount">Save {{ .discount }}</span>{{ end }}
+                    {{if .discount}}
+                        {{ if or (ne .current_plan true) (eq .last_plan true) }}<span class="discount">Save {{ .discount }}</span>{{ end }}
+                    {{end}}
                   </button>
                 </li>
                 {{ end }}
@@ -83,14 +87,21 @@
                     {{ if .features }}
                     <ul class="plan-features">
                         {{ range .features }}
-                            {{if .content}}
+                            {{if eq .feature_available true}}
                                 <li class="feature"><img src="{{ .icon | relURL }}" alt="" class="icon"><span>{{ .content | safeHTML }}</span></li>
                             {{end}}
                         {{ end }}
                     </ul>
+                    <ul class="not-available-features">
+                        {{range .features}}
+                            {{if eq .feature_available false}}
+                                <li class="feature">{{ .content | safeHTML }}</li>
+                            {{end}}
+                        {{end}}
+                    </ul>
                     {{ end }}
                     <hr class="horizontal-seperator">
-                    <a {{ if ne .current_plan true }}data-toggle="modal" data-target="#{{ anchorize .plan_name }}-popup"{{end}} class="CouponFormToggle cibil-button {{ if eq .current_plan true }}disabled{{ end }}">Upgrade Now</a>
+                    <a {{ if ne .current_plan true }}data-toggle="modal" data-target="#{{ anchorize .plan_name }}-popup"{{end}} class="CouponFormToggle cibil-button {{ if and (eq .current_plan true) (ne .last_plan true) }}disabled{{ end }}">Upgrade Now</a>
                 </div>
                 {{ end }}
               </div>

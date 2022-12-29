@@ -52,7 +52,7 @@
         "most_popular": false,
         "current_plan": true,
         "active_tab":  true,
-        "show": true,
+        "show": false,
         "features":[
             {
                 "icon":"images/static-images/dashboard-icon.svg",
@@ -99,6 +99,7 @@
         "most_popular": true,
         "active_tab":  false,
         "show": true,
+        "comparison": false,
         "features":[
             {
                 "icon":"images/static-images/dashboard-icon.svg",

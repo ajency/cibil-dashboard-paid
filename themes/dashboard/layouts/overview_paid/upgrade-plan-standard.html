@@ -3,7 +3,7 @@
     <div class="bg-wrap">
         {{ partial "main-banner.html" (dict "banner" .Site.Data.banner ) }}
 
-        {{partial "upgrade-plans" (dict "upgradePlans" .Site.Data.upgrade_plans_3 )}}
+        {{partial "upgrade-plans" (dict "upgradePlans" .Site.Data.upgrade_plans_standard )}}
     </div>
 
     {{ partial "subscription-features" (dict "section_heading" "CIBIL subscription features" "description" "Everything you need to be credit-ready. Learn. Plan. Protect. All in one place." "features" .Site.Data.features ) }}

@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="https://ajency.github.io/cibil-dashboard-paid//favicons/favicon-16x16.png">
 <link rel="manifest" href="https://ajency.github.io/cibil-dashboard-paid//favicons/site.webmanifest">
 
-<title itemprop="name">Upgrade Plan 3 | Cibil Dashboard</title>
+<title itemprop="name">Upgrade Plan 2 | Cibil Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/cibil-dashboard-paid/css/tu-main.css">
@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/cibil-dashboard-paid/css/video-js.css">
 <link rel="stylesheet" href="/cibil-dashboard-paid/css/style.css">
 </head>
-    <body class="upgrade-plan-3">
+    <body class="upgrade-plan-2">
         <div class="main-container">
             <div class="nav-container">
                 <div class="">
@@ -303,7 +303,7 @@
         <div class="hide-md-down plans-list">
             <div class="plans-list__wraper">
                 
-                    <div class="plan Basic   ">
+                    <div class="plan Basic     ">
                         <div class="plan__wraper">
                             
                                 
@@ -341,13 +341,13 @@
                         </div>
                     </div>
                 
-                    <div class="plan Standard   ">
+                    <div class="plan Standard  current   ">
                         <div class="plan__wraper">
                             
-                                
+                                <p class="h4-bold current-plan">Your current plan</p>
                             
                             
-                            <p class="discount-tag">Save 75%</p>
+                            
                             <div class="plan-inner-wraper">
                                 <div class="plan-header">
                                     <p class="plan-name">Standard</p>
@@ -357,7 +357,7 @@
                                         <p class="desktop plan-price ">₹3,300</p>
                                     </div>
                                 </div>
-                                <a data-toggle="modal" class="CouponFormToggle cibil-button " data-target="#standard-popup" popup-link ="standard-popup">UPGRADE</a>
+                                <a data-toggle="modal" class="CouponFormToggle cibil-button disabled" >UPGRADE</a>
                                 
                                 <ul class="plan-features">
                                     
@@ -379,13 +379,17 @@
                         </div>
                     </div>
                 
-                    <div class="plan Premium  current shown">
+                    <div class="plan Premium recommended  shown no-comparison ">
                         <div class="plan__wraper">
                             
-                                <p class="h4-bold current-plan">Your current plan</p>
+                                
                             
                             
-                            <p class="discount-tag">Save 81%</p>
+                            <p class="popular-tag"><img src="/cibil-dashboard-paid/images/static-images/star-icon.svg" alt="" class="icon"> Most Popular</p>
+                            
+                            
+                                <p class="discount-tag">Save 81%</p>
+                            
                             <div class="plan-inner-wraper">
                                 <div class="plan-header">
                                     <p class="plan-name">Premium</p>
@@ -395,7 +399,7 @@
                                         <p class="desktop plan-price ">₹6,600</p>
                                     </div>
                                 </div>
-                                <a data-toggle="modal" class="CouponFormToggle cibil-button disabled" >UPGRADE</a>
+                                <a data-toggle="modal" class="CouponFormToggle cibil-button " data-target="#premium-popup" popup-link ="premium-popup">UPGRADE</a>
                                 
                                 <ul class="plan-features">
                                     
@@ -422,7 +426,7 @@
         <div class="plan-tabs-container hide-lg-up">
             <ul class="nav nav-tabs plan-tabs" id="plansTab" role="tablist">
                 
-                <li class="nav-item   shown" role="presentation">
+                <li class="nav-item   shown " role="presentation">
                   <button class="nav-link " id="basic-tab" data-toggle="tab" data-target="#basic" type="button" role="tab" aria-controls="basic" aria-selected="true">
                     <p class="plan-name">Basic</p>
                     <p class="plan-duration">1 Month</p>
@@ -438,8 +442,8 @@
                   </button>
                 </li>
                 
-                <li class="nav-item   shown" role="presentation">
-                  <button class="nav-link " id="standard-tab" data-toggle="tab" data-target="#standard" type="button" role="tab" aria-controls="standard" aria-selected="true">
+                <li class="nav-item  current shown " role="presentation">
+                  <button class="nav-link active" id="standard-tab" data-toggle="tab" data-target="#standard" type="button" role="tab" aria-controls="standard" aria-selected="true">
                     <p class="plan-name">Standard</p>
                     <p class="plan-duration">6 Months</p>
                     <div class="prices">
@@ -447,15 +451,15 @@
                         <span class="plan-price ">₹3,300</span>
                     </div>
                     
-                        
+                        <p class="text-capitalize h4-bold current-plan">Current plan</p>
                     
                     
-                    <span class="discount">Save 75%</span>
+                    
                   </button>
                 </li>
                 
-                <li class="nav-item  current shown" role="presentation">
-                  <button class="nav-link active" id="premium-tab" data-toggle="tab" data-target="#premium" type="button" role="tab" aria-controls="premium" aria-selected="true">
+                <li class="nav-item recommended  shown " role="presentation">
+                  <button class="nav-link " id="premium-tab" data-toggle="tab" data-target="#premium" type="button" role="tab" aria-controls="premium" aria-selected="true">
                     <p class="plan-name">Premium</p>
                     <p class="plan-duration">12 Months</p>
                     <div class="prices">
@@ -463,10 +467,14 @@
                         <span class="plan-price ">₹6,600</span>
                     </div>
                     
-                        <p class="text-capitalize h4-bold current-plan">Current plan</p>
+                        
                     
                     
-                    <span class="discount">Save 81%</span>
+                    <p class="popular-tag">Most Popular</p>
+                    
+                    
+                        <span class="discount">Save 81%</span>
+                    
                   </button>
                 </li>
                 
@@ -501,12 +509,29 @@
                             
                         
                     </ul>
+                    <ul class="not-available-features">
+                        
+                            
+                        
+                            
+                                <li class="feature"></li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                    </ul>
                     
                     <hr class="horizontal-seperator">
                     <a data-toggle="modal" data-target="#basic-popup" class="CouponFormToggle cibil-button ">Upgrade Now</a>
                 </div>
                 
-                <div class="tab-pane fade " id="standard" role="tabpanel" aria-labelledby="standard-tab">
+                <div class="tab-pane fade show active" id="standard" role="tabpanel" aria-labelledby="standard-tab">
 
                     
                     <ul class="plan-features">
@@ -536,44 +561,74 @@
                             
                         
                     </ul>
-                    
-                    <hr class="horizontal-seperator">
-                    <a data-toggle="modal" data-target="#standard-popup" class="CouponFormToggle cibil-button ">Upgrade Now</a>
-                </div>
-                
-                <div class="tab-pane fade show active" id="premium" role="tabpanel" aria-labelledby="premium-tab">
-
-                    
-                    <ul class="plan-features">
+                    <ul class="not-available-features">
                         
-                            
-                                <li class="feature"><img src="/cibil-dashboard-paid/images/static-images/dashboard-icon.svg" alt="" class="icon"><span><b>Unlimited Access</b> to the most recent updates in your CIBIL Score & Report</span></li>
                             
                         
                             
-                                <li class="feature"><img src="/cibil-dashboard-paid/images/static-images/alerts-icon-blue.svg" alt="" class="icon"><span><b>CIBIL Alerts</b> to stay updated and aware of key changes in your credit profile</span></li>
+                        
                             
                         
                             
-                                <li class="feature"><img src="/cibil-dashboard-paid/images/static-images/simulator-icon.svg" alt="" class="icon"><span><b>Score Simulator</b> to check the impact of your credit actions on your CIBIL Score</span></li>
-                            
                         
                             
-                                <li class="feature"><img src="/cibil-dashboard-paid/images/static-images/offers-icon.svg" alt="" class="icon"><span><b>Personalized Loan</b> Offers from leading lenders based on your CIBIL Score</span></li>
-                            
                         
-                            
-                                <li class="feature"><img src="/cibil-dashboard-paid/images/static-images/trended-view-icon.svg" alt="" class="icon"><span><b>Trended View</b> of the changes in your CIBIL Score with every refresh</span></li>
-                            
-                        
-                            
-                                <li class="feature"><img src="/cibil-dashboard-paid/images/static-images/where-you-stand-icon.svg" alt="" class="icon"><span><b>Where you stand</b> with the rest of self-monitoring consumers</span></li>
                             
                         
                     </ul>
                     
                     <hr class="horizontal-seperator">
                     <a  class="CouponFormToggle cibil-button disabled">Upgrade Now</a>
+                </div>
+                
+                <div class="tab-pane fade " id="premium" role="tabpanel" aria-labelledby="premium-tab">
+
+                    
+                    <ul class="plan-features">
+                        
+                            
+                                <li class="feature"><img src="/cibil-dashboard-paid/images/static-images/dashboard-icon.svg" alt="" class="icon"><span><b>Unlimited Access</b> to the most recent updates in your CIBIL Score & Report</span></li>
+                            
+                        
+                            
+                                <li class="feature"><img src="/cibil-dashboard-paid/images/static-images/alerts-icon-blue.svg" alt="" class="icon"><span><b>CIBIL Alerts</b> to stay updated and aware of key changes in your credit profile</span></li>
+                            
+                        
+                            
+                                <li class="feature"><img src="/cibil-dashboard-paid/images/static-images/simulator-icon.svg" alt="" class="icon"><span><b>Score Simulator</b> to check the impact of your credit actions on your CIBIL Score</span></li>
+                            
+                        
+                            
+                                <li class="feature"><img src="/cibil-dashboard-paid/images/static-images/offers-icon.svg" alt="" class="icon"><span><b>Personalized Loan</b> Offers from leading lenders based on your CIBIL Score</span></li>
+                            
+                        
+                            
+                                <li class="feature"><img src="/cibil-dashboard-paid/images/static-images/trended-view-icon.svg" alt="" class="icon"><span><b>Trended View</b> of the changes in your CIBIL Score with every refresh</span></li>
+                            
+                        
+                            
+                                <li class="feature"><img src="/cibil-dashboard-paid/images/static-images/where-you-stand-icon.svg" alt="" class="icon"><span><b>Where you stand</b> with the rest of self-monitoring consumers</span></li>
+                            
+                        
+                    </ul>
+                    <ul class="not-available-features">
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+                    
+                    <hr class="horizontal-seperator">
+                    <a data-toggle="modal" data-target="#premium-popup" class="CouponFormToggle cibil-button ">Upgrade Now</a>
                 </div>
                 
               </div>

@@ -97,10 +97,12 @@
         "price":"6,600",
         "upgrade_button_text":"UPGRADE",
         "recommended": false,
-        "most_popular": false,
+        "most_popular": true,
         "current_plan": true,
+        "last_plan": true,
         "active_tab":  true,
         "show": true,
+        "comparison": false,
         "features":[
             {
                 "icon":"images/static-images/dashboard-icon.svg",

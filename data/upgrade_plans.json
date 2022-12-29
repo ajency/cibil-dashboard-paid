@@ -16,7 +16,8 @@
                 "feature_available": true
             },
             {
-                "feature_available": false
+                "feature_available": false,
+                "content": "*<b>CIBIL Alerts</b> is available only with CIBIL standard and premium subscription plan"
             },
             {
                 "icon":"images/static-images/simulator-icon.svg",
