@@ -752,7 +752,7 @@ $(document).ready(function () {
         
           let planPrice = $('button[data-target="'+ tabId +'"]').find(".discount-price .ammountMob").text();
         
-          let subtotalVal = parseInt(planPrice) ;
+          let subtotalVal = parseInt(planPrice.split(',').join('')) ;
 
           $(couponPopup).find(".subtotal .subtotal-ammount").text(subtotalVal);
         });
@@ -765,11 +765,8 @@ $(document).ready(function () {
           let planPrice = couponPopup.find(".plan-price-ammount .ammount").text();
           let disountedPrice = couponPopup.find(".coupon-discount .discount-ammount").text();
         
-          let subtotalVal = parseInt(planPrice) ;
-        
-          if(disountedPrice){
-            subtotalVal = parseInt(planPrice)-parseInt(disountedPrice) ;
-          }
+          let subtotalVal = parseInt(planPrice.split(',').join('')) ;
+      
           couponPopup.find(".subtotal .subtotal-ammount").text(subtotalVal);
         });
       }

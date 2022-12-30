@@ -40,7 +40,7 @@
                                         <p class="desktop plan-price {{ if not .price }}empty-height{{ end }}">{{if .price }}₹{{ .price }}{{end}}</p>
                                     </div>
                                 </div>
-                                <a data-toggle="modal" class="CouponFormToggle cibil-button {{ if eq .upgrade false }}disabled{{ end }}" {{ if ne .current_plan true }}data-target="#{{ anchorize .plan_name }}-popup" popup-link ="{{ anchorize .plan_name }}-popup"{{ end }}>{{ .upgrade_button_text }}</a>
+                                <a data-toggle="modal" class="CouponFormToggle cibil-button {{ if eq .upgrade false }}disabled{{ end }}" {{ if or (ne .current_plan true) (eq .last_plan true) }}data-target="#{{ anchorize .plan_name }}-popup" popup-link ="{{ anchorize .plan_name }}-popup"{{ end }}>{{ .upgrade_button_text }}</a>
                                 {{ if .features }}
                                 <ul class="plan-features">
                                     {{ range .features }}
@@ -101,7 +101,7 @@
                     </ul>
                     {{ end }}
                     <hr class="horizontal-seperator">
-                    <a {{ if ne .current_plan true }}data-toggle="modal" data-target="#{{ anchorize .plan_name }}-popup"{{end}} class="CouponFormToggle cibil-button {{ if eq .upgrade false }}disabled{{ end }}">Upgrade Now</a>
+                    <a {{ if or (ne .current_plan true) (eq .last_plan true) }}data-toggle="modal" data-target="#{{ anchorize .plan_name }}-popup"{{end}} class="CouponFormToggle cibil-button {{ if eq .upgrade false }}disabled{{ end }}">Upgrade Now</a>
                 </div>
                 {{ end }}
               </div>
