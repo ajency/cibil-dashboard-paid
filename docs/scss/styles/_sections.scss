@@ -5893,3 +5893,176 @@ input[type="range"]:focus::-ms-fill-upper {
     }
   }
 }
+
+// loan offer changes
+.loan-offers-strip {
+  width: calc(80vw - 12px);
+  margin-left: -60px;
+  background-color: #FFF7C9;
+  padding: 11px 60px 12px;
+  margin-bottom: 30px;
+  .loan-offers-settings{
+    max-width: 1010px;
+    margin: 0;
+    align-items: center;
+    .underline{
+      position: relative;
+      display: inline-block;
+      &::after{
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: $primary-blue;
+        display: block;
+        z-index: 1;
+      }
+    }
+    span{
+      line-height: 24px;
+    }
+    #edit-info{
+      white-space: nowrap;
+      @include media-breakpoint-up(md){
+        margin-left: 80px;
+        position: relative;
+        &::after{
+          content: '';
+          position: absolute;
+          width: 1px;
+          height: 100%;
+          display: block;
+          background-color: #ddd;
+          left: -40px;
+          top: 0;
+        }
+      }
+    }
+  }
+  @media (max-width:1199px) {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 30px;
+    box-shadow: 0 0 0 100vmax #FFF7C9;
+    clip-path: inset(0 -100vmax);
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @include media-breakpoint-down(sm) {
+    padding: 20px 0;
+    margin-bottom: 0;
+    .loan-offers-settings{
+      flex-direction: column;
+      align-items: flex-start;
+      span{
+        margin: 0 0 16px;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
+        b{
+          &:not(.underline){
+            &::after{
+              display: none;
+            }
+          }
+        }
+        br{
+          display: block !important;
+        }
+      }
+    }
+  }
+}
+
+.offer-card-list{
+  .offers-card {
+    border: 1px solid #ddd !important;
+    padding: 14px 10px;
+    border-radius: 6px;
+    margin-top: 54px;
+    background-color: $light;
+    position: relative;
+  }
+  @include media-breakpoint-down(sm){
+    .offers-card {
+      padding: 10px 0 0;
+
+      .offer-info-wrap{
+        .company-container{
+          margin-bottom: 20px;
+          flex-direction: column;
+          align-items: baseline;
+          span{
+            width: 100px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+      .offer-info{
+        li{
+          padding: 0;
+        }
+      }
+    }
+  }
+  &::after{
+    display: none;
+  }
+}
+
+.offer-card-list .offers-card.premium-partner .company-container span::after,
+.offer-card-list .offers-card.premium-partner:before{ display: none;}
+
+.tag{
+  display: flex;
+  position: absolute;
+  bottom: 100%;
+  left: -1px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 12px;
+  color: $light;
+  padding: 6px;
+  padding-bottom: 14px;
+  margin-bottom: -8px;
+  border-radius: 6px;
+  z-index: -1;
+
+  svg{
+    margin-right: 6px;
+  }
+
+  &.premium-partner{
+    background-color: $primary-yellow;
+    color: $dark;
+    font-weight: 600;
+    border-radius: 4px 0 0 4px;
+  }
+  &.in-principle, &.pre-qualified{
+    background: linear-gradient(180deg, #4EA039 0%, #2F7E4B 100%);
+  }
+  &.pre-qualified{
+    background: linear-gradient(180deg, #015E88 0%, #085768 100%);
+  }
+  @include media-breakpoint-down(sm){
+    &.in-principle, &.pre-qualified{
+      left: unset !important;
+      right: 10px;
+      bottom: unset;
+      top: 10px;
+      z-index: 1;
+      padding-bottom: 6px;
+      border-radius: 4px !important;
+    }
+  }
+}
+.offers-card.premium-partner {
+  .tag{
+    &.in-principle, &.pre-qualified{
+      left: 109px;
+      border-radius: 0 4px 4px 0;
+    }
+  }
+}
