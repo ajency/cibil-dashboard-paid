@@ -3646,7 +3646,7 @@
     .company-container {
       margin-right: 40px;
       text-align: center;
-      span {
+      & > span {
         display: flex;
         border: 1px solid $border-color-4;
         border-radius: 6px;
@@ -3876,7 +3876,7 @@
             margin-bottom: 0px;
           }
           .company-container {
-            span {
+            & > span {
               border: 0;
               justify-content: flex-start;
               width: 120px;
@@ -6052,7 +6052,8 @@ input[type="range"]:focus::-ms-fill-upper {
       right: 10px;
       bottom: unset;
       top: 10px;
-      z-index: 1;
+      // z-index: 1;
+      z-index: 0;
       padding-bottom: 6px;
       border-radius: 4px !important;
     }
@@ -6064,5 +6065,102 @@ input[type="range"]:focus::-ms-fill-upper {
       left: 109px;
       border-radius: 0 4px 4px 0;
     }
+  }
+}
+
+.offersPopup .offer-info-wrap .company-container>span{
+  position: relative;
+  background-color: #fff;
+  width:150px;
+  margin-top: 24px;
+  .tag{
+    width: calc(100% + 2px);
+  }
+  @include media-breakpoint-down(sm){
+    border: 1px solid #ddd !important;
+    width: 150px !important;
+    height: 50px;
+    padding: 10px;
+    justify-content: center !important;
+    align-items: center;
+    .tag{
+      width: calc(100% + 1px);
+      left: 0 !important;
+      z-index: -1;
+      bottom: 100%;
+      top: unset;
+      padding-bottom: 15px;
+      right: unset;
+      margin-bottom: -10px;
+    }
+    img {
+      height: auto !important;
+      width: auto !important;
+    }
+  }
+}
+
+.loan-offers-comparison__wraper table .offers-head td {
+  padding-top: 53px;
+  position: relative;
+  .tag{
+    z-index: 0;
+    width: calc(100% - 40px);
+    justify-content: center;
+    top: 30px;
+    left: 20px;
+    right: unset;
+    bottom: unset;
+  }
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border: 1px solid #EDEDED;
+    border-radius: 4px;
+    padding: 16px 10px 10px;
+    position: relative;
+    max-width: 500px;
+    .company-logo{
+      height: 35px;
+      border: 0;
+    }
+    .company-title{
+      margin-bottom: 15px;
+    }
+    .cibil-button{
+      font-size: 14px;
+    }
+  }
+  @include media-breakpoint-down(sm){
+    padding: 0px 10px !important;
+    border: 0 !important;
+    padding-top: 16px !important;
+    .tag{
+      z-index: 0;
+      width: calc(100% - 20px);
+      justify-content: center;
+      top: -6px;
+      left: 10px !important;
+      right: unset;
+      bottom: unset;
+      padding-bottom: 8px;
+    }
+    .wrap {
+      .company-title{
+        min-height: 28px;
+      }
+      .cibil-button{
+        padding: 16px;
+      }
+    }
+  }
+}
+
+.compare-offer-header .compare-header-wrap .resetOffers{
+  @include media-breakpoint-up(md){
+    position: absolute !important;
   }
 }

@@ -6,6 +6,7 @@
     "limit_offered": "₹8,00,000",
     "monthly_interest_rate": "3.35%",
     "annual_fees": "₹9,000",
+    "loan_type": "in-principle",
     "required_documents": [
       "KYC documents, Photograph",
       "Previous 3 months salary slips"
@@ -24,6 +25,7 @@
     "limit_offered": "₹7,30,000",
     "monthly_interest_rate": "4.35%",
     "annual_fees": "₹12,000",
+    "loan_type": "pre-qualified",
     "required_documents": [
       "KYC documents, Photograph",
       "ITR Returns of past 2 years"
@@ -42,6 +44,7 @@
     "limit_offered": "₹9,00,000",
     "monthly_interest_rate": "3.35%",
     "annual_fees": "₹14,000",
+    "loan_type": "pre-qualified",
     "required_documents": [
       "KYC documents, Photograph",
       "ITR Returns of past 2 years"
@@ -60,6 +63,7 @@
     "limit_offered": "₹7,00,000",
     "monthly_interest_rate": "3.35%",
     "annual_fees": "₹12,000",
+    "loan_type": "in-principle",
     "required_documents": [
       "KYC documents, Photograph",
       "ITR Returns of past 2 years"
@@ -78,6 +82,7 @@
     "limit_offered": "₹8,00,000",
     "monthly_interest_rate": "3.35%",
     "annual_fees": "₹12,000",
+    "loan_type": "in-principle",
     "required_documents": [
       "KYC documents, Photograph",
       "Previous 3 months salary slips"

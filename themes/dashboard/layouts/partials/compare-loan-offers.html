@@ -17,6 +17,7 @@
                         <td></td>
                         {{range $index, $offersData := .offersData}}
                             <td data-id="{{.id}}">
+                                {{ if eq .loan_type "in-principle"}}{{ partial "inprinciple-tag"}}{{ else}}{{ partial "prequalified-tag"}}{{ end }}
                                 <div class="wrap">
                                     <span class="company-logo">
                                         <img src="{{ .logo | relURL }}" alt="">

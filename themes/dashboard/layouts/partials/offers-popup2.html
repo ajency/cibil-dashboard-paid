@@ -5,7 +5,7 @@
             <div class="popup-body">
                 <div class="offer-info-wrap">
                     <div class="company-container">
-                        <span><img src="{{ .logo | relURL }}" class="company-logo"></span>
+                        <span> {{ if eq .loan_type "in-principle"}}{{ partial "inprinciple-tag"}}{{ else}}{{ partial "prequalified-tag"}}{{ end }} <img src="{{ .logo | relURL }}" class="company-logo"></span>
                         <label class="company-name">{{.name}}</label>
                     </div>
                     <div class="offer-info">
