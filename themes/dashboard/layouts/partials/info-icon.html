@@ -1,0 +1,6 @@
+{{ if .message }}
+<span class="info-icon {{ if .className }}{{.className}}{{ end }}">
+    {{partial "icons/tooltipIcon"}}
+    <span class="info-tooltip">{{ .message | safeHTML }}</span>
+</span>
+{{ end }}
