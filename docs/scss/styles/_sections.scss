@@ -5988,6 +5988,7 @@ input[type="range"]:focus::-ms-fill-upper {
   @include media-breakpoint-down(sm){
     .offers-card {
       padding: 10px 0 0;
+      margin-top: 16px;
 
       .offer-info-wrap{
         .company-container{
@@ -6065,6 +6066,9 @@ input[type="range"]:focus::-ms-fill-upper {
       left: 109px;
       border-radius: 0 4px 4px 0;
     }
+  }
+  @include media-breakpoint-down(sm){
+    margin-top: 39px !important;
   }
 }
 
@@ -6332,5 +6336,14 @@ input[type="range"]:focus::-ms-fill-upper {
       overflow-y: scroll;
     }
 
+  }
+}
+
+@media (max-width: 1300px) and (min-width: 1200px){
+  .loan-offer-js .tab-content .tab-panel:not(#card) .offers-content-container {
+    transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
   }
 }
