@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head.html" . }}
+    <body class="{{if .Layout}}{{if eq .Layout "article"}}article-page{{else}}{{anchorize .Title}}{{end}}{{end}}">
+        <div class="main-container score-report" style="justify-content: center;">
+            <div class="page-container">
+                {{ partial "simulator" (dict "cibil_score" "736")}}
+                {{partial "report-summary-paid" (dict "reportData" .Site.Data.profile_details "accountData" .Site.Data.report_account "enquiryDetails" .Site.Data.enquiry_details "cibilSummary" .Site.Data.report_cibil_summary) }}
+            </div>
+        </div>
+        <script src="{{"js/jquery.min.js" | relURL}}"></script>
+        <script src="{{"js/global.js" | relURL}}"></script>
+    </body>
+</html>
