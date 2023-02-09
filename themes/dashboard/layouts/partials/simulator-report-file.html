@@ -1,0 +1,64 @@
+<div class="simulator_sec">
+  <div class="smilator_wraper row pb-2">
+    <div class="simulator col-3">
+      <div class="score-bar">
+        <div class="bar">
+          <img class="bar-image" src="{{ "/images/static-images/simulator.svg" |
+          relURL }}" width="164" height="82px">
+          <div class="score-pointer">
+            <div class="score-pointer__wraper">
+              <div class="pointer-image-wrap">
+                <img class="pointer-image" src="{{
+                "/images/static-images/simulator-pointer.svg" | relURL }}">
+              </div>
+            </div>
+          </div>
+        </div>
+        {{if .cibil_score}}
+        <div class="score-point-wrap">
+          <p class="cibil-score">{{.cibil_score}}</p>
+          <a class="score-points body" href="#cibil-score-history"
+            ><div class="score-points__wraper">
+              <span class="point">0</span> Pts
+            </div></a
+          >
+        </div>
+        {{if .score_text}}
+        <p class="score-text">{{.score_text | safeHTML }}</p>
+        {{end}} {{end}}
+      </div>
+    </div>
+    <div class="col-9 simulator_info d-flex flex-column pl-4 py-2">
+      <h3>Hello, Rahul L.</h3>
+      <div class="simulator_info_details">
+        <p>Your CIBIL Score is <b>736</b> as of 02/02/2023</p>
+        <p class="pdesktop">
+          CIBIL Score is a 3 digit numeric summary of your credit history &
+          ranges from 300 to 900.
+        </p>
+        
+      </div>
+      
+    </div>
+  </div>
+  <p class="pmobile">
+    CIBIL Score is a 3 digit numeric summary of your credit history &
+    ranges from 300 to 900.
+  </p>
+  <div class="simulator_content">
+    <p>
+      This section reflects your CIBIL Score, which is widely used by loan
+      providers to evaluate loan applications. Your score ranges between 300 and
+      900, and is calculated based on the information available in the
+      "Accounts" and "Enquiry"section of your CIBIL Report. The closer your
+      score is to 900, the more confidence the lender will have in your ability
+      to repay the loan. Higher your score, the better chances of your
+      application getting approved.<br />
+      Please note in some cases you might be displayed a CIBIL Score of "NH*
+      which indicates one of the following 3 things:<br>
+      1. You have a credit card or loan account, but no credit activity in the last three years.<br>
+      2. Lenders may have made enquiries, but you do not have any credit activity.<br>
+      3. You only have add-on credit cards, and no credit exposure.
+    </p>
+  </div>
+</div>

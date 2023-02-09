@@ -1,0 +1,132 @@
+.simulator_info p {
+    margin: 0;
+}
+.simulator_sec {
+    background: #f9f9f9;
+    padding: 20px 30px;
+    margin-bottom: 30px
+}
+.report-table {
+   padding: 20px 30px
+}
+.header-info h3 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #2c2c2c;
+}
+.simulator_info h3 {
+    font-family: Intro;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: #000;
+}
+.simulator_content p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: #707070;
+}
+.simulator_info p:nth-child(1) {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+.simulator_info p:nth-child(2) {
+    font-family: Intro;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: #707070;
+}
+.report-table .table-content {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+/* =============== */
+.pmobile{
+    display: none;
+}
+@media (max-width:768px){
+    .pagewidth .bar img {
+        width: 100px;
+    }
+    .page-container {
+        padding: 20px;
+    }
+    .header-info.d-flex.justify-content-between {
+        flex-direction: column;
+    }
+    .num\&date.d-flex.flex-column.align-items-end {
+        align-items: flex-start !important;
+    }
+    .header-info h3 {
+        font-size: 16px;
+    }
+    .pagewidth.mt-5.my-4 {
+        margin-top: 0 !important;
+    }
+    
+    .simulator .score-bar .score-pointer__wraper .pointer-image {
+        position: absolute;
+        left: calc(50% - 35px);
+        transform-origin: right center;
+        width: 33px;
+        top: -9px;
+    }
+    .simulator .score-bar .score-pointer__wraper:before, .simulator .score-bar .score-pointer__wraper:after {
+        position: absolute;
+        bottom: -18px;
+        font-weight: 600;
+        font-size: 8px;
+        line-height: 14px;
+        color: #acacac;
+    }
+    
+    .simulator .score-bar .cibil-score, .simulator .score-bar .cibil-score-na {
+        font-size: 20px;
+        margin-top: 18px;
+    }
+    .simulator_info h3{
+    font-size: 16px;
+    }
+    .simulator.col-3 {
+        padding: 0;
+    }
+    .col-9.simulator_info.d-flex.flex-column.pl-4.py-2 {
+        padding-right: 0;
+    }
+    .pdesktop{
+        display: none;
+    }
+    .pmobile{
+        display: block;
+        font-family: 'Intro';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.02em;
+    }
+    .simulator_sec {
+       padding: 15px;
+    }
+    .smilator_wraper.row.pb-2 {
+        margin: 0;
+    }
+    .report-table .table-content {
+        grid-template-columns: auto auto;
+        column-gap: 10px;
+        row-gap: 0;
+    }
+}
