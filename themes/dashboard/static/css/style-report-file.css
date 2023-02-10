@@ -127,10 +127,17 @@ li.nav-item.next-nav {
 .accounts-container .card .card-header .card-header-link:before {
     content: none;
 }
-
-
-
-
+p.table-item.hide-sm-down {
+    border-left: none !important;
+}
+.simulator .score-bar .cibil-score, .simulator .score-bar .cibil-score-na {
+    font-size: 32px;
+}
+.simulator .score-bar .score-pointer__wraper .pointer-image {
+    left: calc(50% - 46px);
+    height: 6px;
+    top: 5px;
+}
 
 
 
@@ -218,4 +225,27 @@ li.nav-item.next-nav {
     li.nav-item.next-nav {
         margin-top: 20px;
     }
+}
+@media (min-width:480px) and (max-width:600px){
+    .simulator .score-bar .score-pointer__wraper .pointer-image {
+        position: absolute;
+        left: calc(50% - 32px);
+        transform-origin: right center;
+        width: 33px;
+        top: -4px;
+    }
+}
+@media (min-width:601px) and (max-width:768px){
+.simulator .score-bar .score-pointer__wraper .pointer-image {
+    position: absolute;
+    left: calc(50% - 47px);
+    transform-origin: right center;
+    width: 46px;
+    top: 3px;
+}
+}
+@media (max-width:1060px){
+.page-container {
+    padding: 20px;
+}
 }
