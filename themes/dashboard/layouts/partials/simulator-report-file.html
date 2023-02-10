@@ -1,9 +1,9 @@
 <div class="simulator_sec">
-  <div class="smilator_wraper row pb-2">
+  <div class="smilator_wraper row pb-4">
     <div class="simulator col-3">
       <div class="score-bar">
         <div class="bar">
-          <img class="bar-image" src="{{ "/images/static-images/simulator.svg" |
+          <!-- <img class="bar-image" src="{{ "/images/static-images/simulator.svg" |
           relURL }}" width="164" height="82px">
           <div class="score-pointer">
             <div class="score-pointer__wraper">
@@ -12,9 +12,14 @@
                 "/images/static-images/simulator-pointer.svg" | relURL }}">
               </div>
             </div>
-          </div>
+          </div> -->
+
+          <img class="bar-image score_bar_img pdesktop" src="{{ "/images/static-images/score-svg.svg" | relURL }}">
+          
+          <img class="bar-image pmobile" src="{{ "/images/static-images/score_mobile.svg" | relURL }}">
+          
         </div>
-        {{if .cibil_score}}
+        <!-- {{if .cibil_score}}
         <div class="score-point-wrap">
           <p class="cibil-score">{{.cibil_score}}</p>
           <a class="score-points body" href="#cibil-score-history"
@@ -25,7 +30,7 @@
         </div>
         {{if .score_text}}
         <p class="score-text">{{.score_text | safeHTML }}</p>
-        {{end}} {{end}}
+        {{end}} {{end}} -->
       </div>
     </div>
     <div class="col-9 simulator_info d-flex flex-column pl-4 py-2">
