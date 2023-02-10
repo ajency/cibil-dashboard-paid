@@ -4,119 +4,116 @@
     {{if .open_accounts}}
         <div class="accounts-container open_accounts">
             <p class="account_status">OPEN ACCOUNTS</p>
-            <div class="account-head columnStyle">
-                <p class="head-col">Member Name</p>
-                <p class="head-col">Account Type</p>
-                <p class="head-col">Account Number</p>
-                <p class="head-col">Ownership</p>
-            </div>
+           
             <div class="account-body">
                 <div class="accordion accountsAccordion" id="accountsAccordion1">
                     {{range $index, $accountsElement := .open_accounts}}
                     <div class="card">
-                    <div class="card-header {{if eq .collapsed true }}show{{end}}" id="heading{{$index}}">
-                        <div class="card-header-link columnStyle" data-toggle="collapse" data-target="#collapse{{$index}}" aria-expanded="{{if eq .collapsed true }}true{{else}}false{{end}}" aria-controls="collapse{{$index}}">
-                            <p class="head-col"><b>{{.member_name}}</b></p>
-                            <p class="head-col">{{.account_type}}</p>
-                            <p class="head-col">{{.account_number}}</p>
-                            <p class="head-col">{{.ownership}}</p>
+                        <div class="account-head columnStyle">
+                            <p class="head-col">Member Name</p>
+                            <p class="head-col">Account Type</p>
+                            <p class="head-col">Account Number</p>
+                            <p class="head-col">Ownership</p>
                         </div>
-                        
-                    </div>
-                
-                    <div id="collapse{{$index}}" class="collapse account-collapse show" aria-labelledby="heading{{$index}}" data-parent="#accountsAccordion1">
-                        <div class="card-body">
-
-                        {{ if or .dues .under_dispute }} 
-                            {{ $dues := .dues }}
-                            {{ $underDispute := .under_dispute }}
-                            {{ $targetPopup := print "clearDuesPopup-open-" $index }}
-                            {{ partial "clear-dues-bar-report-file" (dict "under_dispute" $underDispute "clear_dues" $dues "targetPopup" $targetPopup ) }}
-                        {{ end }}
-
-                        {{ if eq .dues true}}
-                            {{ $targetPopupSuffix := print "open-" $index }}
-                            {{ partial "clear-dues-popup" (dict "indexNo" $targetPopupSuffix "dataMap" $accountsElement "pageRef" "allAccount" "bankName" .member_name "logo" .logo ) }}
-                        {{end}}
-                        
-                            <div class="card-body__wraper">
-                                {{if .tabs}}
-                                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                                        {{range .tabs}}
-                                            <!-- removed range .account_details -->
-                                                <li class="nav-item" role="presentation">
-                                                    <button class="nav-link active" id="acDetails-{{$index}}-tab" data-toggle="pill" data-target="#acDetails-{{$index}}" type="button" role="tab" aria-controls="acDetails-{{$index}}" aria-selected="true">account details</button>
-                                                </li>
-                                            <!-- end -->
-                                        {{end}}
-                                    </ul>
-                                    <div class="tab-content" id="pills-tabContent">
-                                        {{range .tabs}}
-                                            <!-- range .account_details -->
-                                                <div class="tab-pane fade show active" id="acDetails-{{$index}}" role="tabpanel" aria-labelledby="acDetails-{{$index}}-tab">
-                                                    {{range .account_details}}
-                                                        {{ range $rowTitle , $rowValue := . }}
-                                                        <div class="detail-row">
-                                                            <span>{{$rowTitle}}</span><span>{{$rowValue}}</span>
-                                                        </div>
-                                                        {{ end}}
-                                                    {{end}}
-                                                </div>
-                                            <!-- end -->
-                                            
-                                        {{end}}
-                                    </div>
-                                {{end}}
+                        <div class="card-header {{if eq .collapsed true }}show{{end}}" id="heading{{$index}}">
+                            <div class="card-header-link columnStyle" data-toggle="collapse" data-target="#collapse{{$index}}" aria-expanded="{{if eq .collapsed true }}true{{else}}false{{end}}" aria-controls="collapse{{$index}}">
+                                <p class="head-col"><b>{{.member_name}}</b></p>
+                                <p class="head-col">{{.account_type}}</p>
+                                <p class="head-col">{{.account_number}}</p>
+                                <p class="head-col">{{.ownership}}</p>
                             </div>
+                        </div>
+                    
+                        <div id="collapse{{$index}}" class="collapse account-collapse show" aria-labelledby="heading{{$index}}" data-parent="#accountsAccordion1">
+                            <div class="card-body">
 
+                            {{ if or .dues .under_dispute }} 
+                                {{ $dues := .dues }}
+                                {{ $underDispute := .under_dispute }}
+                                {{ $targetPopup := print "clearDuesPopup-open-" $index }}
+                                {{ partial "clear-dues-bar-report-file" (dict "under_dispute" $underDispute "clear_dues" $dues "targetPopup" $targetPopup ) }}
+                            {{ end }}
 
-
-
-                            <div class="card-body__wraper">
-                                {{if .tabs1}}
-                                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                                        {{range .tabs1}}
-                                            {{range .payment_status}}
-                                                <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="paymentStatus-{{$index}}-tab" data-toggle="pill" data-target="#paymentStatus-{{$index}}" type="button" role="tab" aria-controls="paymentStatus-{{$index}}" aria-selected="false">payment status</button>
-                                                </li>
+                            {{ if eq .dues true}}
+                                {{ $targetPopupSuffix := print "open-" $index }}
+                                {{ partial "clear-dues-popup" (dict "indexNo" $targetPopupSuffix "dataMap" $accountsElement "pageRef" "allAccount" "bankName" .member_name "logo" .logo ) }}
+                            {{end}}
+                            
+                                <div class="card-body__wraper">
+                                    {{if .tabs}}
+                                        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                                            {{range .tabs}}
+                                                <!-- removed range .account_details -->
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link active" id="acDetails-{{$index}}-tab" data-toggle="pill" data-target="#acDetails-{{$index}}" type="button" role="tab" aria-controls="acDetails-{{$index}}" aria-selected="true">account details</button>
+                                                    </li>
+                                                <!-- end -->
                                             {{end}}
-                                        {{end}}
-                                    </ul>
-                                    <div class="tab-content" id="pills-tabContent">
-                                        {{range .tabs1}}
-                                           
-                                            {{range .payment_status}}
-                                                <div class="tab-pane fade active show" id="paymentStatus-{{$index}}" role="tabpanel" aria-labelledby="paymentStatus-{{$index}}-tab">
-                                                    <div class="dates">
-                                                        <div class="date">
-                                                            <p class="bold-title">Payment Start Date</p>
-                                                            {{.payment_start_date}}
-                                                        </div>
-                                                        <div class="date">
-                                                            <p class="bold-title">Payment End Date</p>
-                                                            {{.payment_end_date}}
-                                                        </div>
-                                                    </div>
-                                                    <div class="history">
-                                                        <p class="bold-title">Payment History</p>
-                                                        {{range .payment_history}}
+                                        </ul>
+                                        <div class="tab-content" id="pills-tabContent">
+                                            {{range .tabs}}
+                                                <!-- range .account_details -->
+                                                    <div class="tab-pane fade show active" id="acDetails-{{$index}}" role="tabpanel" aria-labelledby="acDetails-{{$index}}-tab">
+                                                        {{range .account_details}}
+                                                            {{ range $rowTitle , $rowValue := . }}
                                                             <div class="detail-row">
-                                                                <span>{{.month_n_year}}</span><span>{{.ammount}}</span>
+                                                                <span>{{$rowTitle}}</span><span>{{$rowValue}}</span>
                                                             </div>
+                                                            {{ end}}
                                                         {{end}}
                                                     </div>
-                                                    <div class="shortforms">
-                                                        {{range .shortforms}}<span>{{ . | safeHTML }}</span>{{end}}
-                                                    </div>
-                                                </div>
+                                                <!-- end -->
+                                                
                                             {{end}}
-                                        {{end}}
-                                    </div>
-                                {{end}}
+                                        </div>
+                                    {{end}}
+                                </div>
+   
+                                <div class="card-body__wraper">
+                                    {{if .tabs1}}
+                                        <ul class="nav nav-pills withBorder" id="pills-tab" role="tablist">
+                                            {{range .tabs1}}
+                                                {{range .payment_status}}
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link active" id="paymentStatus-{{$index}}-tab" data-toggle="pill" data-target="#paymentStatus-{{$index}}" type="button" role="tab" aria-controls="paymentStatus-{{$index}}" aria-selected="false">payment status</button>
+                                                    </li>
+                                                {{end}}
+                                            {{end}}
+                                        </ul>
+                                        <div class="tab-content" id="pills-tabContent">
+                                            {{range .tabs1}}
+                                            
+                                                {{range .payment_status}}
+                                                    <div class="tab-pane fade active show" id="paymentStatus-{{$index}}" role="tabpanel" aria-labelledby="paymentStatus-{{$index}}-tab">
+                                                        <div class="dates">
+                                                            <div class="date">
+                                                                <p class="bold-title">Payment Start Date</p>
+                                                                {{.payment_start_date}}
+                                                            </div>
+                                                            <div class="date">
+                                                                <p class="bold-title">Payment End Date</p>
+                                                                {{.payment_end_date}}
+                                                            </div>
+                                                        </div>
+                                                        <div class="history">
+                                                            <p class="bold-title">Payment History</p>
+                                                            {{range .payment_history}}
+                                                                <div class="detail-row">
+                                                                    <span>{{.month_n_year}}</span><span>{{.ammount}}</span>
+                                                                </div>
+                                                            {{end}}
+                                                        </div>
+                                                        <div class="shortforms">
+                                                            {{range .shortforms}}<span>{{ . | safeHTML }}</span>{{end}}
+                                                        </div>
+                                                    </div>
+                                                {{end}}
+                                            {{end}}
+                                        </div>
+                                    {{end}}
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                     {{end}}
                 </div>
@@ -194,11 +191,11 @@
                             <div class="card-body__wraper">
 
                             {{if .tabs1}}
-                            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                            <ul class="nav nav-pills withBorder" id="pills-tab" role="tablist">
                                 {{range .tabs1}}
                                     {{range .payment_status}}
                                         <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="paymentStatus--{{$closedIndex}}-tab" data-toggle="pill" data-target="#paymentStatus--{{$closedIndex}}" type="button" role="tab" aria-controls="paymentStatus--{{$closedIndex}}" aria-selected="false">payment status</button>
+                                            <button class="nav-link active" id="paymentStatus--{{$closedIndex}}-tab" data-toggle="pill" data-target="#paymentStatus--{{$closedIndex}}" type="button" role="tab" aria-controls="paymentStatus--{{$closedIndex}}" aria-selected="false">payment status</button>
                                         </li>
                                     {{end}}
                                 {{end}}

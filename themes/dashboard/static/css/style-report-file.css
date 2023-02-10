@@ -73,7 +73,7 @@ li.nav-item.next-nav {
 .accounts-container .card .card-header {
     margin-top: 10px;
 }
-.card-body__wraper .nav.nav-pills {
+.withBorder {
     border-top: 1px solid #c0cee4;
 }
 .end-title{
@@ -114,7 +114,7 @@ li.nav-item.next-nav {
 }
 .copyright {
     text-align: center;
-    margin: 30px auto;
+    margin: 30px;
 }
 .copyright span {
     font-family: Intro;
@@ -138,7 +138,27 @@ p.table-item.hide-sm-down {
     height: 6px;
     top: 5px;
 }
-
+.accounts-container .account-body {
+    border-top: none;
+}
+.accounts-container .card .card-header {
+    padding-top: 0;
+    margin-top: 0;
+}
+.accounts-container .columnStyle .head-col:not(:last-child) {
+    border-right: 1px solid #ddd;
+    height: 24px;
+}
+.accounts-container .account-head {
+    padding-bottom: 0px;
+}
+.accounts-container .card:not(:first-child):before {
+    background-color: #acacac;
+   
+}
+.page-container {
+    border-bottom: 10px solid #00A6CA;
+}
 
 
 /* =============== */
