@@ -7,10 +7,11 @@
                 {{ partial "header-logo-report-file"}}
                 {{ partial "header-report-info-report-file"}}
                 {{ partial "simulator-report-file" (dict "cibil_score" "736")}}
-                {{ partial "report-summary-paid" (dict "reportData" .Site.Data.profile_details "accountData" .Site.Data.report_account "enquiryDetails" .Site.Data.enquiry_details "cibilSummary" .Site.Data.report_cibil_summary) }}
-                {{ partial "report-account" (dict "reportData" .Site.Data.profile_details "accountData" .Site.Data.report_account "enquiryDetails" .Site.Data.enquiry_details "cibilSummary" .Site.Data.report_cibil_summary) }}
-                {{partial "report-profile" (dict "reportData" .Site.Data.profile_details "accountData" .Site.Data.report_account "enquiryDetails" .Site.Data.enquiry_details "cibilSummary" .Site.Data.report_cibil_summary) }}
-                {{partial "report-enquiry" (dict "reportData" .Site.Data.profile_details "accountData" .Site.Data.report_account "enquiryDetails" .Site.Data.enquiry_details "cibilSummary" .Site.Data.report_cibil_summary) }}
+                {{ partial "report-summary-paid-report-file" (dict "reportData" .Site.Data.profile_details "accountData" .Site.Data.report_account "enquiryDetails" .Site.Data.enquiry_details "cibilSummary" .Site.Data.report_cibil_summary_report_file) }}
+                {{ partial "report-account-report-file" (dict "reportData" .Site.Data.profile_details "accountData" .Site.Data.report_account_report_file "enquiryDetails" .Site.Data.enquiry_details "cibilSummary" .Site.Data.report_cibil_summary) }}
+                {{ partial "report-profile" (dict "reportData" .Site.Data.profile_details "accountData" .Site.Data.report_account "enquiryDetails" .Site.Data.enquiry_details "cibilSummary" .Site.Data.report_cibil_summary) }}
+                {{ partial "report-enquiry-report-file" (dict "reportData" .Site.Data.profile_details "accountData" .Site.Data.report_account "enquiryDetails" .Site.Data.enquiry_details "cibilSummary" .Site.Data.report_cibil_summary) }}
+                {{ partial "end-of-report-report-file"}}
             </div>
         </div>
         <script src="{{"js/jquery.min.js" | relURL}}"></script>

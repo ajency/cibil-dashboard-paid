@@ -1,0 +1,45 @@
+<div class="account-summary-slider">
+    {{range .summary_slides}}
+        <div class="account-summary">
+            <div class="account-summary__wraper">
+                <div class="summary">
+                    <div class="wrap">
+                        <div class="summary-count-cta">
+                            {{if .summary_usage}}
+                                {{ partial "summary-usage" .}}
+                            {{end}}
+                            {{if or .summary_number .summary_years .summary_months}}
+                                {{ partial "summary-count" .}}
+                            {{end}}
+                        </div>
+                        <div class="summary-details">
+                            <p class="summary-title">{{.summary_title}}</p>
+                            <div class="wrap">
+                                <p class="summary-date">{{.summary_date}}</p>
+                                {{if .summary_rating}}<p class="summary-rating {{anchorize .summary_rating}}">{{.summary_rating}}</p>{{end}}
+                            </div>
+                        </div>
+                    </div>
+                    {{if .summary_content}}
+                    <div class="summary-content">
+                        {{range .summary_content}}
+                            <p class="title">{{.content_title}}</p>
+                            <p class="desc">{{.content_description}}</p>
+                        {{end}}
+                    </div>
+                    {{end}}
+                </div>
+                {{if .related_article}}
+                    <div class="related-article">
+                        <p class="section-title">Related Article</p>
+                        {{range .related_article}}
+                            <img src="{{ .article_image | relURL }}" alt="" class="article-image">
+                            <p class="article-title">{{.article_title}}</p>
+                            <a href="{{.article_link}}" class="cibil-link cibil-link-right-icon">{{.article_link_text}}</a>
+                        {{end}}
+                    </div>
+                {{end}}
+            </div>
+        </div>
+    {{end}}
+</div>

@@ -1,0 +1,230 @@
+[
+    {
+        "tableName": "SUMMARY REPORT",
+        "tableInfo": [
+            {
+                "rows": [
+                    {
+                        "title": "Name",
+                        "desc": "Rahul Kumar"
+                    },
+                    {
+                        "title": "Address",
+                        "desc": "1st Floor, Panjim Convention Center, Vistar Estates, Mala, Rua de Ourém, Neugi Nagar, Panaji, Goa 403001",
+                        "half": true
+                    },
+                    {
+                        "title": "Date of Birth",
+                        "desc": "14/07/1963"
+                    },
+                    {
+                        "title": "Gender",
+                        "desc": "Male"
+                    },
+                    {
+                        "title": "Tax ID",
+                        "desc": "BIMPB8931P"
+                    },
+                    {
+                        "title": "Email",
+                        "desc": "rahul14@gmail.com"
+                    },
+                    {
+                        "title": "Mobile Number",
+                        "desc": "987654321"
+                    },
+                    {
+                        "title": "",
+                        "desc": "",
+                        "emptyCell": true
+                    },
+                    {
+                        "title": "Score",
+                        "desc": "720"
+                    },
+                    {
+                        "title": "Current Balance",
+                        "desc": "--"
+                    },
+                    {
+                        "title": "Amount Overdue",
+                        "desc": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "dualTable" : true,
+        "tables": [
+            {
+                "tableName": "OPEN ACCOUNTS",
+                "tableInfo": [
+                    {
+                        "rows": [
+                            {
+                                "title": "Credit Cards",
+                                "desc": "1"
+                            },
+                            {
+                                "title": "Loans",
+                                "desc": "2"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "tableName": "CLOSED ACCOUNTS",
+                "tableInfo": [
+                    {
+                        "rows": [
+                            {
+                                "title": "Credit Cards",
+                                "desc": "2"
+                            },
+                            {
+                                "title": "Loans",
+                                "desc": "4"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tableName": "count of late payments",
+        "tabs": [
+            {
+                "name": "last 12 months",
+                "rows": [
+                    {
+                        "cellInfo": [
+                            {
+                                "count": 99,
+                                "label": "1-30 Days Late"
+                            },
+                            {
+                                "count": 0,
+                                "label": "31-60 Days Late"
+                            },
+                            {
+                                "count": 0,
+                                "label": "61-90 Days Late"
+                            },
+                            {
+                                "count": 0,
+                                "label": "More Than 90 Days Late"
+                            }
+                        ]
+                    },
+                    {
+                        "cellInfo": [
+                            {
+                                "count": 99,
+                                "label": "SMA (Special Mention Accounts)"
+                            },
+                            {
+                                "count": 0,
+                                "label": "DBT (Doubtful)"
+                            },
+                            {
+                                "count": 0,
+                                "label": "Loss"
+                            },
+                            {
+                                "count": 0,
+                                "label": "SUB"
+                            }
+                        ]
+                    }
+                ]
+            }
+           
+        ],
+        "tabs1": [
+            {
+                "name": "last 36 months",
+                "rows": [
+                    {
+                        "cellInfo": [
+                            {
+                                "count": 120,
+                                "label": "1-30 Days Late"
+                            },
+                            {
+                                "count": 0,
+                                "label": "31-60 Days Late"
+                            },
+                            {
+                                "count": 0,
+                                "label": "61-90 Days Late"
+                            },
+                            {
+                                "count": 0,
+                                "label": "More Than 90 Days Late"
+                            }
+                        ]
+                    },
+                    {
+                        "cellInfo": [
+                            {
+                                "count": 120,
+                                "label": "SMA (Special Mention Accounts)"
+                            },
+                            {
+                                "count": 0,
+                                "label": "DBT (Doubtful)"
+                            },
+                            {
+                                "count": 0,
+                                "label": "Loss"
+                            },
+                            {
+                                "count": 0,
+                                "label": "SUB"
+                            }
+                        ]
+                    }
+                ]
+            }
+           
+        ]
+    },
+    {
+        "dualTable" : true,
+        "tables": [
+            {
+                "tableName": "accounts under dispute",
+                "tableInfo": [
+                    {
+                        "rows": [
+                            {
+                                "title": "Accounts",
+                                "desc": "2"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "tableName": "Enquiries",
+                "tableInfo": [
+                    {
+                        "rows": [
+                            {
+                                "title": "Last 3 Years",
+                                "desc": "2"
+                            },
+                            {
+                                "title": "Total",
+                                "desc": "6"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

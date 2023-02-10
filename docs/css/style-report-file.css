@@ -52,6 +52,87 @@
 .report-table .table-content {
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+li.nav-item.next-nav {
+    margin-top: 30px;
+}
+.report-summary .nav-pills .nav-item .nav-link.active::before,
+.report-summary .nav-pills .nav-item .nav-link.active::after,
+.accounts-container .nav-pills .nav-item .nav-link.active::after, 
+.report-summary .nav-pills .nav-item .nav-link.active::after,
+.accounts-container .nav-pills .nav-item .nav-link.active::before, 
+.report-summary .nav-pills .nav-item .nav-link.active::before {
+    content: none;
+}
+.accounts-container .card:not(:first-child):before {
+    width: 100%;
+    left: 0px;
+}
+.accounts-container .card {
+   padding-bottom: 20px;
+}
+.accounts-container .card .card-header {
+    margin-top: 10px;
+}
+.card-body__wraper .nav.nav-pills {
+    border-top: 1px solid #c0cee4;
+}
+.end-title{
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+.end-title:after {
+    content: "";
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #2c2c2c;
+    z-index: 0;
+  }
+  .end-title p {
+    background: #fff;
+    z-index: 1;
+    display: inline;
+    padding: 0 15px;
+    position: relative;
+    font-family: Intro;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+.end-content p {
+    font-family: Intro;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #707070;
+}
+.copyright {
+    text-align: center;
+    margin: 30px auto;
+}
+.copyright span {
+    font-family: Intro;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+.accounts-container .card .card-header .card-header-link:before {
+    content: none;
+}
+
+
+
+
+
+
 
 /* =============== */
 .pmobile{
@@ -128,5 +209,13 @@
         grid-template-columns: auto auto;
         column-gap: 10px;
         row-gap: 0;
+    }
+   .report-summary .nav-pills .nav-item .nav-link.active {
+        font-weight: 700;
+        color: #2c2c2c;
+        padding-left: 0;
+    }
+    li.nav-item.next-nav {
+        margin-top: 20px;
     }
 }

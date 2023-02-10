@@ -1,0 +1,29 @@
+<div class="clear-dues-bar">
+    {{if eq .under_dispute true }}
+    <div class="under-dispute">
+        <div class="under-dispute-text hairline">
+            <img src="{{ "images/static-images/under-dispute.svg" | relURL }}" alt="" class="icon">
+            <div class="text-container">
+                <p class="text-row hairline"><b>Account information under dispute</b></p>
+                <p class="text-row hairline"><b>CIBIL Remarks:</b> Multiple Disputes in Account (TL) Segment</p>
+                <p class="text-row hairline"><b>Dispute Date:</b> 17/07/2022</p>
+            </div>
+        </div>
+    </div>
+    {{end}}
+    {{if and (eq .under_dispute true) (eq .clear_dues true) }}
+    <hr class="horizontal-seperator">
+    {{end}}
+    {{if eq .clear_dues true }}
+    <div class="settle-debt bar-content">
+        <p class="clear-dues-text">
+            {{ partial "icons/alert-red"}}
+            <span>
+                <span>The status of this account is <span class="grey"><span class="red">Overdue</span>  / <span class="red">Date Past Due</span> / <span class="red">Settled</span> / <span class="red">Written off</span></span></span>
+                <span class="black">Would you like to settle this debt ?</span>
+            </span>
+        </p>
+        <a class="cibil-button" data-toggle="modal" data-target="{{if .targetPopup}}#{{.targetPopup}}{{end}}">CLEAR YOUR DUES</a>
+    </div>
+    {{end}}
+</div>

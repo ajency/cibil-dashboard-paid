@@ -1,0 +1,84 @@
+{{ if .dualTable}}
+    <div class="dualTable-wrap">
+        {{ range .tables}}
+            <div class="report-table {{ if .white }}table-light{{end}}">
+                <p class="table-title">{{ .tableName }}</p>
+                {{ range .tableInfo }}
+                    <div class="table-content">
+                        {{ range .rows }}
+                            <p class="table-item {{if .half }}half{{ end }} {{ if .emptyCell }}hide-sm-down{{ end }}">
+                                <span class="item-head">{{.title}}</span>
+                                <span class="item-text">{{.desc}}</span>
+                            </p>
+                        {{ end }}
+                    </div>
+                {{ end }}
+                {{ if gt (len .tableInfo) 5 }} <span class="showAllLink" onclick="showAllEnquiries(this)"><span>Show All Enquiries</span><span>Show less Enquires</span>{{ partial "svg-arrow"}}</span> {{ end }}
+            </div>
+        {{ end }}
+    </div>
+{{ else }}
+    <div class="report-table {{ if .white }}table-light{{end}}">
+        <p class="table-title">{{ .tableName }}</p>
+        {{if .tableInfo }}
+            {{ range .tableInfo }}
+                <div class="table-content">
+                    {{ range .rows }}
+                        <p class="table-item {{if .half }}half{{ end }} {{ if .emptyCell }}hide-sm-down{{ end }}">
+                            <span class="item-head">{{.title}}</span>
+                            <span class="item-text">{{.desc}}</span>
+                        </p>
+                    {{ end }}
+                </div>
+            {{ end }}
+        {{ end }}
+        {{ if .tabs}}
+            <ul class="nav nav-pills" id="payment-count-tab" role="tablist">
+                {{range $index, $tabs := .tabs}}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link {{ if eq $index 0 }}active{{ end }}" id="payment-{{$index}}-tab" data-toggle="pill" data-target="#payment-{{$index}}-content" type="button" role="tab" aria-controls="payment-{{$index}}" aria-selected="true">{{.name}}</button>
+                    </li>
+                {{end}}
+            </ul>
+            <div class="tab-content" id="payment-count-tabContent">
+                {{range $index, $tabs := .tabs}}
+                    <div class="tab-pane fade show {{ if eq $index 0 }}active{{ end }}" id="payment-{{$index}}-content" role="tabpanel" aria-labelledby="payment-{{$index}}-tab">
+                        {{ range .rows }}
+                        <div class="detail-row">
+                            {{ range .cellInfo}}
+                            <p>
+                                <span>{{.count}}</span><span>{{.label}}</span>
+                            </p>
+                            {{ end}}
+                        </div>
+                        {{end}}
+                    </div>
+                {{end}}
+            </div>
+        {{ end }}
+        {{ if .tabs1}}
+            <ul class="nav nav-pills" id="payment-count-tab" role="tablist">
+                {{range $index, $tabs := .tabs1}}
+                    <li class="nav-item next-nav" role="presentation">
+                        <button class="nav-link {{ if eq $index 0 }}active{{ end }}" id="payment-{{$index}}-tab" data-toggle="pill" data-target="#payment-{{$index}}-content" type="button" role="tab" aria-controls="payment-{{$index}}" aria-selected="true">{{.name}}</button>
+                    </li>
+                {{end}}
+            </ul>
+            <div class="tab-content" id="payment-count-tabContent">
+                {{range $index, $tabs := .tabs1}}
+                    <div class="tab-pane fade show {{ if eq $index 0 }}active{{ end }}" id="payment-{{$index}}-content" role="tabpanel" aria-labelledby="payment-{{$index}}-tab">
+                        {{ range .rows }}
+                        <div class="detail-row">
+                            {{ range .cellInfo}}
+                            <p>
+                                <span>{{.count}}</span><span>{{.label}}</span>
+                            </p>
+                            {{ end}}
+                        </div>
+                        {{end}}
+                    </div>
+                {{end}}
+            </div>
+        {{ end }}
+    </div>
+{{ end }}
